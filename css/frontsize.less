@@ -11,20 +11,28 @@ Frontsize default values to override, change them in the way you like
 @vertical-padding:1em;
 
 // set the margins
-.enable-steps(); // .steps(200px, 100px, 50px, 0px);
-.enable-steps-padding(@horizontal-padding @horizontal-padding);
+.frontsize-steps(); // .frontsize-steps(200px, 100px, 50px, 0px);
+.frontsize-steps-padding(@horizontal-padding @horizontal-padding);
 
 // set font scaling to change the font size depending by different resolutions
-.enable-font-families();
-.enable-font-scaling(); // .font-scaling (@hd-full, @hd-ready, @tablet-landscape, @tablet-portrait, @smartphone-landscape);
+.frontsize-font-scaling(); // .frontsize-scaling (@hd-full, @hd-ready, @tablet-landscape, @tablet-portrait, @smartphone-landscape);
+.frontsize-h-font-scaling();
+
+// settings h elements sizes
+@h1:   2em;
+@h2: 1.5em;
+@h3:   1em;
+@h4: 0.9em;
+@h5: 0.8em;
+@h6:0.65em;
 
 // set different width for the smartphones, tablets and hd resolutions
-@smartphone-portrait-step:	380px;	// smartphones portrait		420~380
-@smartphone-landscape-step:	685px;	// smartphones landscape	480~568~685
-@tablet-portrait-step:		768px;	// tabled portrait			
-@tablet-landscape-step:		1024px;	// tabled landscape			
-@hd-ready-step:				1280px;	// HD Ready					1280 (720p)
-@hd-full-step:				1800px;	// Full HD					1920 (1080p)
+@smartphone-portrait-step: 380px;	// smartphones portrait		420~380
+@smartphone-landscape-step:685px;	// smartphones landscape	480~568~685
+@tablet-portrait-step:	   768px;	// tabled portrait			768
+@tablet-landscape-step:	  1024px;	// tabled landscape			1024
+@hd-ready-step:			  1280px;	// HD Ready					1280 (720p)
+@hd-full-step:			  1800px;	// Full HD					1920 (1080p)
 
 /**
 HERE ENDS YOUR CONFIGURATION
@@ -32,25 +40,18 @@ HERE ENDS YOUR CONFIGURATION
 
 
 /**
-Frontsize overrides
+Frontsize global setting
 */
 
-.enable-steps (@hd-full:200px, @hd-ready:100px, @tablet-landscape:50px, @tablet-portrait:0px) {
+.frontsize-steps (@hd-full:200px, @hd-ready:100px, @tablet-landscape:50px, @tablet-portrait:0px) {
 	@media only screen and (min-width : @tablet-portrait-step)		{ .with-steps { max-width:(@tablet-portrait-step - @tablet-portrait); }}
 	@media only screen and (min-width : @tablet-landscape-step)		{ .with-steps { max-width:(@tablet-landscape-step - @tablet-landscape); }}
 	@media only screen and (min-width : @hd-ready-step)				{ .with-steps { max-width:(@hd-ready-step - @hd-ready); }}
 	@media only screen and (min-width : @hd-full-step)				{ .with-steps { max-width:(@hd-full-step - @hd-full); }}
 }
-.enable-steps-padding (@padding:1em) { .with-steps { padding:@padding; }}
-.enable-font-families (@body:helvetica, @h:helvetica) {
-	h1, h2, h3, h4, h5, h6 {
-		font-family: @h, arial, sans-serif;
-	}
-	body {
-		font-family: @body, arial, sans-serif;
-	}
-}
-.enable-font-scaling (@hd-full:1.5em, @hd-ready:1.25em, @tablet-landscape:1em, @tablet-portrait:1em, @smartphone-landscape:1em, @smartphone-portrait:1em) {
+.frontsize-steps-padding (@padding:1em) { .with-steps { padding:@padding; }}
+
+.frontsize-font-scaling (@hd-full:1.5em, @hd-ready:1.25em, @tablet-landscape:1em, @tablet-portrait:1em, @smartphone-landscape:1em, @smartphone-portrait:1em) {
 	@media only screen and (min-width : @smartphone-portrait-step)	{ body { font-size:@smartphone-portrait; }}
 	@media only screen and (min-width : @smartphone-landscape-step)	{ body { font-size:@smartphone-landscape; }}
 	@media only screen and (min-width : @tablet-portrait-step)		{ body { font-size:@tablet-portrait; }}
@@ -58,6 +59,63 @@ Frontsize overrides
 	@media only screen and (min-width : @hd-ready-step)				{ body { font-size:@hd-ready; }}
 	@media only screen and (min-width : @hd-full-step)				{ body { font-size:@hd-full; }}
 }
+.frontsize-h-font-scaling (@hd-full:1.5em, @hd-ready:1.25em, @tablet-landscape:1.125em, @tablet-portrait:1.125em, @smartphone-landscape:1em, @smartphone-portrait:1em) {
+	@media only screen and (min-width : @smartphone-portrait-step)	{
+		h1 { font-size: (@h1*@smartphone-portrait); }
+		h2 { font-size: (@h2*@smartphone-portrait); }
+		h3 { font-size: (@h3*@smartphone-portrait); }
+		h4 { font-size: (@h4*@smartphone-portrait); }
+		h5 { font-size: (@h5*@smartphone-portrait); }
+		h6 { font-size: (@h6*@smartphone-portrait); }
+	}
+	@media only screen and (min-width : @smartphone-landscape-step)	{
+		h1 { font-size: (@h1*@smartphone-landscape); }
+		h2 { font-size: (@h2*@smartphone-landscape); }
+		h3 { font-size: (@h3*@smartphone-landscape); }
+		h4 { font-size: (@h4*@smartphone-landscape); }
+		h5 { font-size: (@h5*@smartphone-landscape); }
+		h6 { font-size: (@h6*@smartphone-landscape); }
+	}
+	@media only screen and (min-width : @tablet-portrait-step) {
+		h1 { font-size: (@h1*@tablet-portrait); }
+		h2 { font-size: (@h2*@tablet-portrait); }
+		h3 { font-size: (@h3*@tablet-portrait); }
+		h4 { font-size: (@h4*@tablet-portrait); }
+		h5 { font-size: (@h5*@tablet-portrait); }
+		h6 { font-size: (@h6*@tablet-portrait); }
+	}
+	@media only screen and (min-width : @tablet-landscape-step) {
+		h1 { font-size: (@h1*@tablet-landscape); }
+		h2 { font-size: (@h2*@tablet-landscape); }
+		h3 { font-size: (@h3*@tablet-landscape); }
+		h4 { font-size: (@h4*@tablet-landscape); }
+		h5 { font-size: (@h5*@tablet-landscape); }
+		h6 { font-size: (@h6*@tablet-landscape); }
+	}
+	@media only screen and (min-width : @hd-ready-step) {
+		h1 { font-size: (@h1*@hd-ready); }
+		h2 { font-size: (@h2*@hd-ready); }
+		h3 { font-size: (@h3*@hd-ready); }
+		h4 { font-size: (@h4*@hd-ready); }
+		h5 { font-size: (@h5*@hd-ready); }
+		h6 { font-size: (@h6*@hd-ready); }
+	}
+	@media only screen and (min-width : @hd-full-step) {
+		h1 { font-size: (@h1*@hd-full); }
+		h2 { font-size: (@h2*@hd-full); }
+		h3 { font-size: (@h3*@hd-full); }
+		h4 { font-size: (@h4*@hd-full); }
+		h5 { font-size: (@h5*@hd-full); }
+		h6 { font-size: (@h6*@hd-full); }
+	}
+}
+.frontsize-fit-all-images {
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
 .columns, .columns > * {
 	padding-bottom:@vertical-padding;
 }
@@ -172,28 +230,81 @@ Sizing rules
 .wide-1-on-4, .wide-2-on-4, .wide-3-on-4, .wide-4-on-4, 
 .wide-1-on-3, .wide-2-on-3, .wide-3-on-3,
 .wide-1-on-2, .wide-2-on-2 {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	box-sizing: border-box;
 	float: left;
+	.wrap;
+}
+.columns * {
+	.wrap;
 }
 .with-steps {
+	// center the steps container
 	margin: auto;
+	.wrap;
+}
+.columns {
+	// be sure to contain the floated elements contained with my height
+	width:100%;
+	overflow: auto;
+	.wrap;
+}
+.wrap {
+	// avoid the unwanted width over the 100% of the size of the container
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-o-box-sizing: border-box;
 	box-sizing: border-box;
 }
-.columns {
+.wide-all {
+	// manually occupy all this row
 	width:100%;
-	overflow: auto;
 }
-.wide-all	{ width:100%; }
-.clear		{ clear:both; }
+.centered {
+	// manually center all the contents inside
+	text-align: center;
+}
+.clear {
+	// manually go down to the next row
+	clear:both;
+}
+.no-padding-to-children {
+	// no padding for me and my children only
+	padding:0;
+	.no-padding-children;
+}
+.no-padding-children {
+	// no padding for my children only
+	> * {
+		padding:0;
+	}
+}
+.no-padding-grandchildren {
+	// no padding for my children's children only
+	> * > * {
+		padding:0;
+	}
+}
+.fit {
+	// make an image size responsive
+	width: 100%;
+	height: auto;
+}
 
-.set-columns (@columns) { width:(100%/@columns); }
-.set-column-step (@step, @columns) { width:((100% * @step)/@columns); }
+/**
+CSS normalization and responsive settings for Frontsize
+*/
+* {
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+	-webkit-margin-start: 0;
+	-webkit-margin-end: 0;
+}
+nav {
+	ul {
+		list-style-type: none;
+		-webkit-padding-start:0;
+	}
+}
+
 
 /**
  * Correct `inline-block` display not defined in IE 8/9.
@@ -211,11 +322,23 @@ Sizing rules
 
 /* tablets, landscape */
 @media only screen and (max-width : @tablet-landscape-step) {
-	
+	.not-on-tablet-landscape { display:none; }
+	.wide-on-tablet-landscape > * { width:100% !important; }
+
+	.contain-6 > * { .set-columns(3); }
+	.contain-6 > *:nth-child(3n+1) { clear:both; }
+
+	.contain-8 > * { .set-columns(4); }
+	.contain-8 > *:nth-child(4n+1) { clear:both; }
 }
 
 /* tablets, portrait */
 @media only screen and (max-width : @tablet-portrait-step) {
+	.not-on-tablet-portrait { display:none; }
+	.wide-on-tablet-portrait > * { width:100% !important; }
+	.inline > * {
+		clear:none !important;
+	}
 	.contain-4 > * { .set-columns(3); }
 	.contain-4 > *:nth-child(4n+1) { clear:none; }
 	.contain-4 > *:nth-child(3n+1) { clear:both; }
@@ -223,6 +346,10 @@ Sizing rules
 
 /* smartphones, landscape 480~568~685 */
 @media only screen and (max-width : @smartphone-landscape-step) {
+	img { width: auto; }
+	.not-on-smartphone-landscape { display:none; }
+	.wide-on-smartphone-landscape > * { width:100% !important; }
+
 	.contain-3 > * { .set-columns(2); }
 	.contain-3 > *:nth-child(3n+1) { clear:none; }
 	.contain-3 > *:nth-child(2n+1) { clear:both; }
@@ -235,28 +362,204 @@ Sizing rules
 
 /* smartphones, portrait 320~380 */
 @media only screen and (max-width : @smartphone-portrait-step) {
-	.contain-2  > * { width:100%; clear:both; }
-	.contain-3  > * { width:100%; clear:both; }
-	.contain-4  > * { width:100%; clear:both; }
-	.contain-5  > * { width:100%; clear:both; }
-	.contain-6  > * { width:100%; clear:both; }
-	.contain-8  > * { width:100%; clear:both; }
-	.contain-10 > * { width:100%; clear:both; }
-	.contain-12 > * { width:100%; clear:both; }
-	.contain-16 > * { width:100%; clear:both; }
+	.not-on-smartphone-portrait { display:none; }
+	.wide-on-smartphone-portrait > * { width:100% !important; }
+	nav a { display:block; }
+	nav a,
+	.columns > *,
+	.contain-2  > *,
+	.contain-3  > *,
+	.contain-4  > *,
+	.contain-5  > *,
+	.contain-6  > *,
+	.contain-8  > *,
+	.contain-10 > *,
+	.contain-12 > *,
+	.contain-16 > * { width:100% !important; clear:both !important; }	
 }
 
 /**
-CSS normalization from Frontsize
+Frontsize internal methods to extend with new columns
 */
-* {
-	-webkit-margin-before: 0;
-	-webkit-margin-after: 0;
-	-webkit-margin-start: 0;
-	-webkit-margin-end: 0;
+.set-columns (@columns) {
+	width:(100%/@columns);
 }
-nav {
-	ul {
-		list-style-type: none;
+.set-column-step (@step, @columns) {
+	width:((100% * @step)/@columns);
+}
+
+/**
+Global settings effects
+*/
+.global-input-placeholder (@color:#999999, @focused:#CCCCCC) {
+	// sets the color of the input text placeholder attribute
+	::-webkit-input-placeholder { color:@color; }
+	input:focus::-webkit-input-placeholder { color:@focused; }
+
+	:-moz-placeholder { color:@color; }
+	input:focus:-moz-placeholder { color:@focused; }
+	::-moz-placeholder { color:@color; }
+	input:focus::-moz-placeholder { color:@focused; }
+
+	:-ms-input-placeholder { color:@color; }
+	input:focus:-ms-input-placeholder { color:@focused; }
+}
+
+.global-text-antialias (@antialias:antialiased) {
+	// sets the antialias text for the whole page
+	// @antialias: antialiased | subpixel-antialiased | none
+	body {
+		-webkit-font-smoothing: @antialias;
 	}
+}
+
+/**
+
+*/
+
+.round (@radius: 6px) {
+	// sets a radius to the angles of the element
+	/*
+	Default usage
+	.round(top-left-radius top-right-radius bottom-right-radius bottom-left-radius);
+	.round(4px);
+	.round(4px 6px 8px 10px);
+	*/
+	border-radius: @radius;
+	-o-border-radius: @radius;
+	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+}
+.round-top (@radius: 6px) {
+	// sets the top radius of the element
+	/*
+	Default usage
+	.round-top(top-radius-only);
+	.round-top(4px);
+	*/
+	.round(@radius @radius 0px 0px);
+}
+.round-bottom (@radius: 6px) {
+	// sets the bottom radius of the element
+	/*
+	Default usage
+	.round-bottom(bottom-radius-only);
+	.round-bottom(4px);
+	*/
+	.round(0px 0px @radius @radius);
+}
+.round-left (@radius: 6px) {
+	// sets the left radius of the element
+	/*
+	Default usage
+	.round-left(left-radius-only);
+	.round-left(4px);
+	*/
+	.round(@radius 0px 0px @radius);
+}
+.round-right (@radius: 6px) {
+	// sets the right radius of the element
+	/*
+	Default usage
+	.round-right(right-radius-only);
+	.round-right(4px);
+	*/
+	.round(0px @radius @radius 0px);
+}
+.shadow (@params) {
+	// sets the shadow of the element
+	/*
+	Default usage
+	.shadow(x y blur [expand] color [inset]);
+	.shadow(1px 2px 4px rgba(0,0,0,.3));
+	
+	For complex shadows pass a less @var
+	@var: 0px 2px 4px -1px rgba(0,0,0,.3), inset 0px 1px 4px rgba(255,255,255,.5);
+	.shadow(@var);
+	*/
+	box-shadow:@params;
+	-o-box-shadow:@params;
+	-moz-box-shadow:@params;
+	-webkit-box-shadow:@params;
+}
+
+
+.hide-text-overflow (@overflow:ellipsis) {
+	text-overflow: @overflow;
+	overflow: hidden;
+}
+
+/*
+========================================================================================================================================================================
+========================================================================================================================================================================
+========================================================================================================================================================================
+========================================================================================================================================================================
+========================================================================================================================================================================
+========================================================================================================================================================================
+========================================================================================================================================================================
+========================================================================================================================================================================
+========================================================================================================================================================================
+========================================================================================================================================================================
+*/
+
+@img: "http://localhost/frontsize/img/";
+@blue:#0c94c7;
+@black:#393634;
+
+hr {
+	margin:@vertical-padding 0;
+	@border:2px solid @black;
+	border:none;
+	border-bottom:@border;
+}
+
+body {
+	padding:2em 0;
+	background-image: url("@{img}Melamine-wood-004.png");
+	color:@black;
+}
+.with-steps {
+	header {
+		padding-top:@vertical-padding;
+		strong {
+			color:lighten(@black,20%);
+		}
+		a {
+			text-decoration: none;
+		}
+	}
+}
+
+.nav-buttons {
+	a {
+		padding:.5em .75em;
+		text-decoration: none;
+		display: inline-block;
+		color:white;
+		text-shadow:1px 1px 1px rgba(0,0,0,.2);
+		background-color: @black;
+		border-bottom:4px solid black;
+	}
+}
+
+.logo-bg {
+	.round(10px);
+	height: 80px;
+	background-color: lighten(@black,10%);
+	border-bottom:6px solid @black;
+}
+
+h1 {
+	&.ultra-big {
+		text-decoration: none;
+		color:black;
+		font-family: UnifrakturMaguntia, times, "times new roman", sans-serif;
+		text-shadow:0px 1px 1px rgba(255,255,255,.5);
+		font-size:4em;
+	}
+}
+
+.with-steps {
+	.shadow(0px 1px 10px rgba(0,0,0,.75));
+	background-image: url("@{img}handmadepaper.png");
 }
