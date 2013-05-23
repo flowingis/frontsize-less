@@ -3,6 +3,9 @@
 *.png
 *.psd
 *.html
+*.ai
+index.html
+*.md
 
 
 # Compiled source #
