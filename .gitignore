@@ -1,3 +1,9 @@
+# temp files to be ignored #
+*.css
+*.png
+*.psd
+
+
 # Compiled source #
 ###################
 *.com
