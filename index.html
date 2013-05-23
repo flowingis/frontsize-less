@@ -6,31 +6,58 @@
 	<link type="text/css" rel="stylesheet/less" href="css/frontsize.less" />
 	<script type="text/javascript" charset="utf-8" src="js/less-1.4.0-beta.min.js"></script>
 
+	<link href='http://fonts.googleapis.com/css?family=UnifrakturMaguntia' rel='stylesheet' type='text/css'>
+
 	<style type="text/css">
-		body {
-			background-color: green;
-		}
+
 		.with-steps {
 			background-color: white;
 		}
-		/**/
+		/*/
 		.columns, .columns > * {
 			background-color: rgba(0,0,0,.05);
-			border:1px solid rgba(0,0,0,.1);
-			/*margin: 1px auto;*/
+			border:1px solid rgba(0,0,0,.1);/**/
+		}
+		/**/
+		nav a {
+			background-color: rgba(53,142,77,.05);
+			border:1px solid rgba(53,142,77,.1);
 		}
 		/**/
 	</style>
 </head>
 <body>
 	<div class="with-steps">
+		<div class="contain-8 centered columns not-on-smartphone-landscape">
+			<div>Easy to use</div>
+			<div>Customizable</div>
+
+			<div>Mobile first</div>
+			<div>TV Optimized</div>
+			<div>Expandible</div>
+			
+			<div>Something</div>
+			<div>Something</div>
+			<div>Something</div>
+		</div>
+		<hr>
+		<header class="centered columns wide-on-smartphone-landscape">
+			<div class="wide-1-on-4">
+				<div class="logo-bg" style="background-image:url(img/frontsize-logo-bg.png);"></div>
+			</div>
+			<a   class="wide-2-on-4" href="#">
+				<h1 class="ultra-big">Frontsize</h1>
+				A simple frontend framework
+			</a>
+			<div class="wide-1-on-4">
+				<br><br>
+				Version <strong>1.0</strong><br>
+				<a href="#">Download</a>
+			</div>
+		</header>
+		<hr>
 		<!-- 2 COLUMNS 
-		<div class="contain-2 columns">
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae posuere arcu. Sed ut nibh leo, vitae luctus dui. Quisque varius commodo accumsan. Nam nec molestie enim. In nisi nibh, consectetur a pulvinar eget, suscipit quis odio. Quisque sollicitudin nunc sed erat rutrum ornare. Suspendisse potenti. Vivamus viverra mi pharetra ipsum euismod dictum. In hac habitasse platea dictumst. Sed egestas volutpat sem, euismod eleifend arcu lobortis a. Suspendisse a nunc purus, quis porta nunc.</p>
-			<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec nec metus a erat condimentum vehicula. Morbi pretium dapibus est vel convallis. Pellentesque tristique nisi ac quam varius vitae malesuada nibh hendrerit. Nullam at nisi rutrum neque dictum faucibus a et ante. Curabitur id accumsan velit. Maecenas velit leo, sodales a sollicitudin ut, blandit et nunc.</p>
-			<p>Aliquam felis risus, pretium sit amet tempor interdum, malesuada vel ante. Suspendisse non accumsan purus. Proin sodales fringilla neque vitae venenatis. Quisque egestas, libero vestibulum suscipit vestibulum, erat leo tempor neque, ut tempus velit justo rutrum leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit vestibulum orci eu vestibulum. Curabitur blandit ante quis velit mollis vestibulum tempor tortor malesuada.</p>
-			<p>Aliquam vel est diam, vel fringilla mi. Integer aliquam sodales nulla, vitae tincidunt elit iaculis eget. In eu ligula diam. Praesent et justo diam. Vivamus feugiat urna at massa posuere malesuada.</p>
-		</div>-->
+		-->
 		<!-- 3 COLUMNS 
 		<div class="contain-3 columns">
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae posuere arcu. Sed ut nibh leo, vitae luctus dui. Quisque varius commodo accumsan. Nam nec molestie enim. In nisi nibh, consectetur a pulvinar eget, suscipit quis odio. Quisque sollicitudin nunc sed erat rutrum ornare. Suspendisse potenti. Vivamus viverra mi pharetra ipsum euismod dictum. In hac habitasse platea dictumst. Sed egestas volutpat sem, euismod eleifend arcu lobortis a. Suspendisse a nunc purus, quis porta nunc.</p>
@@ -41,25 +68,80 @@
 			<p>Ut tristique leo luctus dui malesuada a facilisis tellus malesuada. Pellentesque libero quam, porttitor pretium rutrum et, facilisis ut sem.</p>
 		</div>-->
 		<!-- 4 COLUMNS -->
-		<nav class="contain-2 columns">
-			<a class="wide-2-on-6" href="#">LOGO</a>
-			<ul class="wide-4-on-6 contain-4 columns">
-				<li><a href="#">Button</a></li>
-				<li><a href="#">Button</a></li>
-				<li><a href="#">Button</a></li>
-				<li><a href="#">Button</a></li>
+		<nav>
+			<ul class="nav-buttons contain-6 columns no-padding-grandchildren">
+				<li><a href="#">One More Time</a></li>
+				<li><a href="#">Love Me Two Times</a></li>
+				<li><a href="#">Three Little Birds</a></li>
+				<li><a href="#">The Four Horsemen</a></li>
+				<li><a href="#">Take Five</a></li>
+				<li><a href="#">Six Different Ways</a></li>
 			</ul>
 		</nav>
-		<div class="contain-4 columns">
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae posuere arcu. Sed ut nibh leo, vitae luctus dui. Quisque varius commodo accumsan. Nam nec molestie enim. In nisi nibh, consectetur a pulvinar eget, suscipit quis odio. Quisque sollicitudin nunc sed erat rutrum ornare. Suspendisse potenti. Vivamus viverra mi pharetra ipsum euismod dictum. In hac habitasse platea dictumst. Sed egestas volutpat sem, euismod eleifend arcu lobortis a. Suspendisse a nunc purus, quis porta nunc.</p>
-			<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec nec metus a erat condimentum vehicula. Morbi pretium dapibus est vel convallis. Pellentesque tristique nisi ac quam varius vitae malesuada nibh hendrerit. Nullam at nisi rutrum neque dictum faucibus a et ante. Curabitur id accumsan velit. Maecenas velit leo, sodales a sollicitudin ut, blandit et nunc.</p>
-			<p>Aliquam felis risus, pretium sit amet tempor interdum, malesuada vel ante. Suspendisse non accumsan purus. Proin sodales fringilla neque vitae venenatis. Quisque egestas, libero vestibulum suscipit vestibulum, erat leo tempor neque, ut tempus velit justo rutrum leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit vestibulum orci eu vestibulum. Curabitur blandit ante quis velit mollis vestibulum tempor tortor malesuada.</p>
-			<p>Aliquam vel est diam, vel fringilla mi. Integer aliquam sodales nulla, vitae tincidunt elit iaculis eget. In eu ligula diam. Praesent et justo diam. Vivamus feugiat urna at massa posuere malesuada.</p>
-			<p>Sed scelerisque elementum elit, id laoreet felis iaculis sed. Morbi viverra gravida tellus, sed vehicula massa pellentesque non.</p>
-			<p>Ut tristique leo luctus dui malesuada a facilisis tellus malesuada. Pellentesque libero quam, porttitor pretium rutrum et, facilisis ut sem.</p>
-			<p>Aliquam felis risus, pretium sit amet tempor interdum, malesuada vel ante. Suspendisse non accumsan purus. Proin sodales fringilla neque vitae venenatis. Quisque egestas, libero vestibulum suscipit vestibulum, erat leo tempor neque, ut tempus velit justo rutrum leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit vestibulum orci eu vestibulum. Curabitur blandit ante quis velit mollis vestibulum tempor tortor malesuada.</p>
-			<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec nec metus a erat condimentum vehicula. Morbi pretium dapibus est vel convallis. Pellentesque tristique nisi ac quam varius vitae malesuada nibh hendrerit. Nullam at nisi rutrum neque dictum faucibus a et ante. Curabitur id accumsan velit. Maecenas velit leo, sodales a sollicitudin ut, blandit et nunc.</p>
+		<div class="contain-2 columns">
+			<div>
+				<h2>Easy to use</h2>
+				<br>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae posuere arcu. Sed ut nibh leo, vitae luctus dui. Quisque varius commodo accumsan. Nam nec molestie enim. In nisi nibh, consectetur a pulvinar eget, suscipit quis odio. Quisque sollicitudin nunc sed erat rutrum ornare. Suspendisse potenti. Vivamus viverra mi pharetra ipsum euismod dictum. In hac habitasse platea dictumst. Sed egestas volutpat sem, euismod eleifend arcu lobortis a. Suspendisse a nunc purus, quis porta nunc.</p>
+			</div>
+			<div>
+				<h2>Customizable</h2>
+				<br>
+				<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec nec metus a erat condimentum vehicula. Morbi pretium dapibus est vel convallis. Pellentesque tristique nisi ac quam varius vitae malesuada nibh hendrerit. Nullam at nisi rutrum neque dictum faucibus a et ante. Curabitur id accumsan velit. Maecenas velit leo, sodales a sollicitudin ut, blandit et nunc.</p>
+			</div>
 		</div>
+		<div class="contain-3 columns">
+			<div>
+				<h2>Mobile first</h2>
+				<br>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae posuere arcu. Sed ut nibh leo, vitae luctus dui. Quisque varius commodo accumsan. Nam nec molestie enim. In nisi nibh, consectetur a pulvinar eget, suscipit quis odio. Quisque sollicitudin nunc sed erat rutrum ornare. Suspendisse potenti. Vivamus viverra mi pharetra ipsum euismod dictum. In hac habitasse platea dictumst. Sed egestas volutpat sem, euismod eleifend arcu lobortis a. Suspendisse a nunc purus, quis porta nunc.</p>
+			</div>
+			<div>
+				<h2>TV optimized</h2>
+				<br>
+				<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec nec metus a erat condimentum vehicula. Morbi pretium dapibus est vel convallis. Pellentesque tristique nisi ac quam varius vitae malesuada nibh hendrerit. Nullam at nisi rutrum neque dictum faucibus a et ante. Curabitur id accumsan velit. Maecenas velit leo, sodales a sollicitudin ut, blandit et nunc.</p>
+			</div>
+			<div>
+				<h2>Expandible</h2>
+				<br>
+				<p>Aliquam felis risus, pretium sit amet tempor interdum, malesuada vel ante. Suspendisse non accumsan purus. Proin sodales fringilla neque vitae venenatis. Quisque egestas, libero vestibulum suscipit vestibulum, erat leo tempor neque, ut tempus velit justo rutrum leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit vestibulum orci eu vestibulum. Curabitur blandit ante quis velit mollis vestibulum tempor tortor malesuada.</p>
+			</div>
+		</div>
+		<div class="contain-4 columns">
+			<div>
+				<h3>Something</h3>
+				<br>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae posuere arcu. Sed ut nibh leo, vitae luctus dui. Quisque varius commodo accumsan. Nam nec molestie enim. In nisi nibh, consectetur a pulvinar eget, suscipit quis odio. Quisque sollicitudin nunc sed erat rutrum ornare. Suspendisse potenti. Vivamus viverra mi pharetra ipsum euismod dictum. In hac habitasse platea dictumst. Sed egestas volutpat sem, euismod eleifend arcu lobortis a. Suspendisse a nunc purus, quis porta nunc.</p>
+			</div>
+			<div>
+				<h3>Something</h3>
+				<br>
+				<p>Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec nec metus a erat condimentum vehicula. Morbi pretium dapibus est vel convallis. Pellentesque tristique nisi ac quam varius vitae malesuada nibh hendrerit. Nullam at nisi rutrum neque dictum faucibus a et ante. Curabitur id accumsan velit. Maecenas velit leo, sodales a sollicitudin ut, blandit et nunc.</p>
+			</div>
+			<div>
+				<h3>Something</h3>
+				<br>
+				<p>Aliquam felis risus, pretium sit amet tempor interdum, malesuada vel ante. Suspendisse non accumsan purus. Proin sodales fringilla neque vitae venenatis. Quisque egestas, libero vestibulum suscipit vestibulum, erat leo tempor neque, ut tempus velit justo rutrum leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit vestibulum orci eu vestibulum. Curabitur blandit ante quis velit mollis vestibulum tempor tortor malesuada.</p>
+			</div>
+			<div>
+				<h3>Something</h3>
+				<br>
+				<p>Aliquam felis risus, pretium sit amet tempor interdum, malesuada vel ante. Suspendisse non accumsan purus. Proin sodales fringilla neque vitae venenatis. Quisque egestas, libero vestibulum suscipit vestibulum, erat leo tempor neque, ut tempus velit justo rutrum leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec blandit vestibulum orci eu vestibulum. Curabitur blandit ante quis velit mollis vestibulum tempor tortor malesuada.</p>
+			</div>
+		</div>
+		<hr>
+		<footer>
+			<div class="contain-8 centered columns not-on-mobile">
+				<div>Easy to use</div>
+				<div>Customizable</div>
+				<div>Mobile</div>
+				<div>Mobile</div>
+				<div>Mobile</div>
+				<div>Mobile</div>
+				<div>Mobile</div>
+				<div>Mobile</div>
+			</div>
+		</footer>
 	</div>
 </body>
 </html>
