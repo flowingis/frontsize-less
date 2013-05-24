@@ -2,17 +2,16 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Frontsize</title>
 	<link type="text/css" rel="stylesheet/less" href="css/frontsize.less" />
 	<script type="text/javascript" charset="utf-8" src="js/less-1.4.0-beta.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery-1.9.1.min.js"></script>
 
 	<link href='http://fonts.googleapis.com/css?family=UnifrakturMaguntia' rel='stylesheet' type='text/css'>
 
 	<style type="text/css">
 
-		.with-steps {
-			background-color: white;
-		}
 		/*/
 		.columns, .columns > * {
 			background-color: rgba(0,0,0,.05);
@@ -25,10 +24,22 @@
 		}
 		/**/
 	</style>
+	<script type="text/javascript">
+	$(function () {
+		$("input").on("change", function (e) {
+			var $element = $(this).parent().parent().parent().next();
+			if ($element.hasClass("without-structure")) {
+				$element.removeClass("without-structure");
+			} else {
+				$element.addClass("without-structure");
+			}
+		});
+	});
+	</script>
 </head>
 <body>
 	<div class="with-steps">
-		<div class="contain-8 centered columns not-on-smartphone-landscape">
+		<div class="contain-8 centered columns not-on-smartphone-landscape with-small-fonts">
 			<div>Easy to use</div>
 			<div>Customizable</div>
 
@@ -36,23 +47,24 @@
 			<div>TV Optimized</div>
 			<div>Expandible</div>
 			
-			<div>Something</div>
-			<div>Something</div>
-			<div>Something</div>
+			<div>Coding like talking</div>
+			<div>?</div>
+			<div>?</div>
 		</div>
 		<hr>
 		<header class="centered columns wide-on-smartphone-landscape">
-			<div class="wide-1-on-4">
-				<div class="logo-bg" style="background-image:url(img/frontsize-logo-bg.png);"></div>
+			<div class="wide-1-on-4"><br>
+				<img src="img/frontsize-logo.png"/>
 			</div>
 			<a   class="wide-2-on-4" href="#">
-				<h1 class="ultra-big">Frontsize</h1>
-				A simple frontend framework
+				<h1 class="ultra-big">front<span>size</span></h1>
+				Simple like read a newspaper.
 			</a>
 			<div class="wide-1-on-4">
-				<br><br>
-				Version <strong>1.0</strong><br>
-				<a href="#">Download</a>
+				<br>
+				<a class="button" href="#">Download</a><br><br>
+				<strong>Version 1.0</strong><br>
+				<time class="with-small-fonts">16 march 2013</time>
 			</div>
 		</header>
 		<hr>
@@ -69,15 +81,241 @@
 		</div>-->
 		<!-- 4 COLUMNS -->
 		<nav>
-			<ul class="nav-buttons contain-6 columns no-padding-grandchildren">
-				<li><a href="#">One More Time</a></li>
-				<li><a href="#">Love Me Two Times</a></li>
-				<li><a href="#">Three Little Birds</a></li>
-				<li><a href="#">The Four Horsemen</a></li>
-				<li><a href="#">Take Five</a></li>
-				<li><a href="#">Six Different Ways</a></li>
+			<ul class="nav-buttons contain-5 centered columns without-padding-to-grandchildrens">
+				<li><a href="#">Examples</a></li>
+				<li><a href="#">Documentation</a></li>
+				<li><a href="#">GitHub page</a></li>
+				<li><a href="#">Who's doin' it</a></li>
+				<li><a href="#">Download</a></li>
 			</ul>
 		</nav>
+		<nav class="fixed-menu hidden not-on-smartphone-landscape" visible-at="300"> </nav>
+		
+		<div class="with-padding">
+			<h2>Set of 2 columns</h2>
+			<h4>Useful for text paragraphs</h4>
+		</div>
+		<div class="contain-2 columns paginated-away">
+			<div class="wide-2-on-3">
+				<div class="only-on-hd-full"><b>Full HD</b>, no changes</div>
+				<div class="only-on-hd-ready"><b>HD Ready</b>, no changes</div>
+				<div class="only-on-tablet-landscape"><b>Tablet landscape</b>, no changes</div>
+				<div class="only-on-tablet-portrait"><b>Tablet portrait</b>, no changes</div>
+				<div class="only-on-smartphone-landscape"><b>Smartphone landscape</b>, no changes</div>
+				<div class="only-on-smartphone-portrait"><b>Smartphone portrait</b>, turned into 1 column per row</div>
+			</div>
+			<div class="wide-1-on-3">
+				<label><input type="checkbox" checked> hide structure</label>
+			</div>
+		</div>
+		<div class="contain-2 columns example without-structure">
+			<div><div>These columns are useful Useful for blocks of text that are important</div></div>
+			<div><div>This is the second column</div></div>
+		</div>
+
+		<hr>
+		
+		<div class="with-padding">
+			<h2>Set of 3 columns</h2>
+			<h4>Useful for text paragraphs</h4>
+		</div>
+		<div class="contain-2 columns paginated-away">
+			<div class="wide-2-on-3">
+				<div class="only-on-hd-full"><b>Full HD</b>, to be set</div>
+				<div class="only-on-hd-ready"><b>HD Ready</b>, to be set</div>
+				<div class="only-on-tablet-landscape"><b>Tablet landscape</b>, to be set</div>
+				<div class="only-on-tablet-portrait"><b>Tablet portrait</b>, to be set</div>
+				<div class="only-on-smartphone-landscape"><b>Smartphone landscape</b>, to be set</div>
+				<div class="only-on-smartphone-portrait"><b>Smartphone portrait</b>, to be set</div>
+			</div>
+			<div class="wide-1-on-3">
+				<label><input type="checkbox" checked> hide structure</label>
+			</div>
+		</div>
+		<div class="contain-3 columns example without-structure">
+			<div><div>1</div></div>
+			<div><div>2</div></div>
+			<div><div>3</div></div>
+		</div>
+		
+		<hr>
+		
+		<div class="with-padding">
+			<h2>Set of 4 columns</h2>
+			<h4>Useful for text paragraphs</h4>
+		</div>
+		<div class="contain-2 columns paginated-away">
+			<div>
+				<div class="only-on-hd-full"><b>Full HD</b>, to be set</div>
+				<div class="only-on-hd-ready"><b>HD Ready</b>, to be set</div>
+				<div class="only-on-tablet-landscape"><b>Tablet landscape</b>, to be set</div>
+				<div class="only-on-tablet-portrait"><b>Tablet portrait</b>, to be set</div>
+				<div class="only-on-smartphone-landscape"><b>Smartphone landscape</b>, to be set</div>
+				<div class="only-on-smartphone-portrait"><b>Smartphone portrait</b>, to be set</div>
+			</div>
+			<div class="wide-1-on-3">
+				<label><input type="checkbox" checked> hide structure</label>
+			</div>
+		</div>
+		<div class="contain-4 columns with-small-fonts example without-structure">
+			<div><div>Column 1<br>And a very short paragraph</div></div>
+			<div><div>2</div></div>
+			<div><div>3</div></div>
+			<div><div>4</div></div>
+		</div>
+		
+		<hr>
+		
+		<div class="contain-2 columns paginated-away">
+			<div>
+				<h2>Set of 5 columns</h2>
+				<h4>Useful for long tail text menus</h4>
+			</div>
+			<div class="wide-1-on-3">
+				<br><br><br>
+				<label><input type="checkbox" checked> hide structure</label>
+			</div>
+		</div>
+		<div class="contain-5 centered columns example without-structure">
+			<div><div>The column 1</div></div>
+			<div><div>The column 2</div></div>
+			<div><div>The column 3</div></div>
+			<div><div>The column 4</div></div>
+			<div><div>The column 5</div></div>
+		</div>
+		
+		<hr>
+		
+		<div class="contain-2 columns paginated-away">
+			<div>
+				<h2>Set of 6 columns</h2>
+				<h4>Useful for normal text menus</h4>
+			</div>
+			<div class="wide-1-on-3">
+				<br><br><br>
+				<label><input type="checkbox" checked> hide structure</label>
+			</div>
+		</div>
+		<div class="contain-6 centered columns example without-structure">
+			<div><div>Column 1</div></div>
+			<div><div>Column 2</div></div>
+			<div><div>Column 3</div></div>
+			<div><div>Column 4</div></div>
+			<div><div>Column 5</div></div>
+			<div><div>Column 6</div></div>
+		</div>
+		
+		<hr>
+		
+		<div class="contain-2 columns paginated-away">
+			<div>
+				<h2>Set of 8 columns</h2>
+				<h4>Useful for short text menus</h4>
+			</div>
+			<div class="wide-1-on-3">
+				<br><br><br>
+				<label><input type="checkbox" checked> hide structure</label>
+			</div>
+		</div>
+		<div class="contain-8 centered columns with-small-fonts example without-structure">
+			<div><div>1</div></div>
+			<div><div>2</div></div>
+			<div><div>3</div></div>
+			<div><div>4</div></div>
+			<div><div>5</div></div>
+			<div><div>6</div></div>
+			<div><div>7</div></div>
+			<div><div>8</div></div>
+		</div>
+		
+		<hr>
+		
+		<div class="contain-2 columns paginated-away">
+			<div>
+				<h2>Set of 10 columns</h2>
+				<h4>Useful for big icon menus</h4>
+			</div>
+			<div class="wide-1-on-3">
+				<br><br><br>
+				<label><input type="checkbox" checked> hide structure</label>
+			</div>
+		</div>
+		<div class="contain-10 centered columns with-small-fonts example without-structure">
+			<div><div>1</div></div>
+			<div><div>2</div></div>
+			<div><div>3</div></div>
+			<div><div>4</div></div>
+			<div><div>5</div></div>
+			<div><div>6</div></div>
+			<div><div>7</div></div>
+			<div><div>8</div></div>
+			<div><div>9</div></div>
+			<div><div>10</div></div>
+		</div>
+		
+		<hr>
+		
+		<div class="contain-2 columns paginated-away">
+			<div>
+				<h2>Set of 12 columns</h2>
+				<h4>Useful for icon menus</h4>
+			</div>
+			<div class="wide-1-on-3">
+				<br><br><br>
+				<label><input type="checkbox" checked> hide structure</label>
+			</div>
+		</div>
+		<div class="contain-12 centered columns with-small-fonts example without-structure">
+			<div><div>1</div></div>
+			<div><div>2</div></div>
+			<div><div>3</div></div>
+			<div><div>4</div></div>
+			<div><div>5</div></div>
+			<div><div>6</div></div>
+			<div><div>7</div></div>
+			<div><div>8</div></div>
+			<div><div>9</div></div>
+			<div><div>10</div></div>
+			<div><div>11</div></div>
+			<div><div>12</div></div>
+		</div>
+		
+		<hr>
+		
+		<div class="contain-2 columns paginated-away">
+			<div>
+				<h2>Set of 16 columns</h2>
+				<h4>Useful for small icon menus</h4>
+			</div>
+			<div class="wide-1-on-3">
+				<br><br><br>
+				<label><input type="checkbox" checked> hide structure</label>
+			</div>
+		</div>
+		<div class="contain-16 centered columns with-small-fonts example without-structure">
+			<div><div>1</div></div>
+			<div><div>2</div></div>
+			<div><div>3</div></div>
+			<div><div>4</div></div>
+			<div><div>5</div></div>
+			<div><div>6</div></div>
+			<div><div>7</div></div>
+			<div><div>8</div></div>
+			<div><div>9</div></div>
+			<div><div>10</div></div>
+			<div><div>11</div></div>
+			<div><div>12</div></div>
+			<div><div>13</div></div>
+			<div><div>14</div></div>
+			<div><div>15</div></div>
+			<div><div>16</div></div>
+		</div>
+		<hr>
+
+
+
+
+
 		<div class="contain-2 columns">
 			<div>
 				<h2>Easy to use</h2>

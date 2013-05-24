@@ -38,6 +38,68 @@ Frontsize default values to override, change them in the way you like
 @hd-full-step:			  1800px;	// Full HD					1920 (1080p)
 
 /**
+Responsive columns behavior configuration
+change the number a columns per row by setting this
+
+For example, on tablet landscape 5 columns will be turned into 3 columns:
+@media only screen and (max-width : @tablet-landscape-step) {
+	.contain-5  > * { .set-columns(3); }
+}
+*/
+
+/* tablets, landscape */
+@media only screen and (max-width : @tablet-landscape-step) {
+	// .contain-2  > * { .set-columns(2); } // default
+	// .contain-3  > * { .set-columns(3); } // default
+	// .contain-4  > * { .set-columns(4); } // default
+	.contain-5  > * { .set-columns(3); } // normal
+	.contain-6  > * { .set-columns(3); } // normal
+	.contain-8  > * { .set-columns(3); } // normal
+	.contain-10 > * { .set-columns(5); } // narrow
+	.contain-12 > * { .set-columns(6); } // narrow
+	.contain-16 > * { .set-columns(8); } // narrow
+}
+
+/* tablets, portrait */
+@media only screen and (max-width : @tablet-portrait-step) {
+	// .contain-2  > * { .set-columns(2); } // default
+	// .contain-3  > * { .set-columns(3); } // default
+	.contain-4  > * { .set-columns(2); } // wide
+	.contain-5  > * { .set-columns(3); } // normal
+	.contain-6  > * { .set-columns(3); } // normal
+	.contain-8  > * { .set-columns(3); } // normal
+	.contain-10 > * { .set-columns(5); } // narrow
+	.contain-12 > * { .set-columns(6); } // narrow
+	.contain-16 > * { .set-columns(4); } // narrow
+}
+
+/* smartphones, landscape 480~568~685 */
+@media only screen and (max-width : @smartphone-landscape-step) {
+	// .contain-2  > * { .set-columns(2); } // default
+	.contain-3  > * { .set-columns(2); } // wide
+	.contain-4  > * { .set-columns(2); } // wide
+	.contain-5  > * { .set-columns(2); } // normal
+	.contain-6  > * { .set-columns(2); } // normal
+	.contain-8  > * { .set-columns(2); } // normal
+	.contain-10 > * { .set-columns(3); } // narrow
+	.contain-12 > * { .set-columns(3); } // narrow
+	.contain-16 > * { .set-columns(3); } // narrow
+}
+
+/* smartphones, portrait 320~380 */
+@media only screen and (max-width : @smartphone-portrait-step) {
+	.contain-2  > * { .set-columns(1); } // wide
+	.contain-3  > * { .set-columns(1); } // wide
+	.contain-4  > * { .set-columns(1); } // wide
+	.contain-5  > * { .set-columns(1); } // normal
+	.contain-6  > * { .set-columns(1); } // normal
+	.contain-8  > * { .set-columns(1); } // normal
+	.contain-10 > * { .set-columns(2); } // narrow
+	.contain-12 > * { .set-columns(2); } // narrow
+	.contain-16 > * { .set-columns(2); } // narrow
+}
+
+/**
 HERE ENDS YOUR CONFIGURATION
 */
 
@@ -126,7 +188,10 @@ Frontsize global setting
 	}
 }
 
-.columns, .columns > * {
+.columns {
+	padding-top:@vertical-padding;
+}
+.columns > * {
 	padding-bottom:@vertical-padding;
 }
 .columns > *, .wide-all, .wide-1-on-16, .wide-2-on-16, .wide-3-on-16, .wide-4-on-16, .wide-5-on-16, .wide-6-on-16, .wide-7-on-16, .wide-8-on-16, .wide-9-on-16, .wide-10-on-16, .wide-11-on-16, .wide-12-on-16, .wide-13-on-16, .wide-14-on-16, .wide-15-on-16, .wide-16-on-16, .wide-1-on-12, .wide-2-on-12, .wide-3-on-12, .wide-4-on-12, .wide-5-on-12, .wide-6-on-12, .wide-7-on-12, .wide-8-on-12, .wide-9-on-12, .wide-10-on-12, .wide-11-on-12, .wide-12-on-12, .wide-1-on-10, .wide-2-on-10, .wide-3-on-10, .wide-4-on-10, .wide-5-on-10, .wide-6-on-10, .wide-7-on-10, .wide-8-on-10, .wide-9-on-10, .wide-10-on-10, .wide-1-on-8, .wide-2-on-8, .wide-3-on-8, .wide-4-on-8, .wide-5-on-8, .wide-6-on-8, .wide-7-on-8, .wide-8-on-8, .wide-1-on-6, .wide-2-on-6, .wide-3-on-6, .wide-4-on-6, .wide-5-on-6, .wide-6-on-6, .wide-1-on-5, .wide-2-on-5, .wide-3-on-5, .wide-4-on-5, .wide-5-on-5, .wide-1-on-4, .wide-2-on-4, .wide-3-on-4, .wide-4-on-4, .wide-1-on-3, .wide-2-on-3, .wide-3-on-3, .wide-1-on-2, .wide-2-on-2 { padding-left:@horizontal-padding; padding-right:@horizontal-padding; }
@@ -146,6 +211,74 @@ Sizing rules and APIs
 .contain-12 > * { .set-column-step(1,12); }
 .contain-16 > * { .set-column-step(1,16); }
 
+// to move left a column based on container's number of possible positions
+.contain-2 > .skip-1-col  { .set-margin-step(1,2); }
+
+.contain-3 > .skip-1-col  { .set-margin-step(1,3); }
+.contain-3 > .skip-2-cols { .set-margin-step(2,3); }
+
+.contain-4 > .skip-1-col  { .set-margin-step(1,4); }
+.contain-4 > .skip-2-cols { .set-margin-step(2,4); }
+.contain-4 > .skip-3-cols { .set-margin-step(3,4); }
+
+.contain-5 > .skip-1-col  { .set-margin-step(1,5); }
+.contain-5 > .skip-2-cols { .set-margin-step(2,5); }
+.contain-5 > .skip-3-cols { .set-margin-step(3,5); }
+.contain-5 > .skip-4-cols { .set-margin-step(4,5); }
+
+.contain-6 > .skip-1-col  { .set-margin-step(1,6); }
+.contain-6 > .skip-2-cols { .set-margin-step(2,6); }
+.contain-6 > .skip-3-cols { .set-margin-step(3,6); }
+.contain-6 > .skip-4-cols { .set-margin-step(4,6); }
+.contain-6 > .skip-5-cols { .set-margin-step(5,6); }
+
+.contain-8 > .skip-1-col  { .set-margin-step(1,8); }
+.contain-8 > .skip-2-cols { .set-margin-step(2,8); }
+.contain-8 > .skip-3-cols { .set-margin-step(3,8); }
+.contain-8 > .skip-4-cols { .set-margin-step(4,8); }
+.contain-8 > .skip-5-cols { .set-margin-step(5,8); }
+.contain-8 > .skip-6-cols { .set-margin-step(6,8); }
+.contain-8 > .skip-7-cols { .set-margin-step(7,8); }
+
+.contain-10 > .skip-1-col  { .set-margin-step(1,10); }
+.contain-10 > .skip-2-cols { .set-margin-step(2,10); }
+.contain-10 > .skip-3-cols { .set-margin-step(3,10); }
+.contain-10 > .skip-4-cols { .set-margin-step(4,10); }
+.contain-10 > .skip-5-cols { .set-margin-step(5,10); }
+.contain-10 > .skip-6-cols { .set-margin-step(6,10); }
+.contain-10 > .skip-7-cols { .set-margin-step(7,10); }
+.contain-10 > .skip-8-cols { .set-margin-step(8,10); }
+.contain-10 > .skip-9-cols { .set-margin-step(9,10); }
+
+.contain-12 > .skip-1-col   { .set-margin-step(1,12); }
+.contain-12 > .skip-2-cols  { .set-margin-step(2,12); }
+.contain-12 > .skip-3-cols  { .set-margin-step(3,12); }
+.contain-12 > .skip-4-cols  { .set-margin-step(4,12); }
+.contain-12 > .skip-5-cols  { .set-margin-step(5,12); }
+.contain-12 > .skip-6-cols  { .set-margin-step(6,12); }
+.contain-12 > .skip-7-cols  { .set-margin-step(7,12); }
+.contain-12 > .skip-8-cols  { .set-margin-step(8,12); }
+.contain-12 > .skip-9-cols  { .set-margin-step(9,12); }
+.contain-12 > .skip-10-cols { .set-margin-step(10,12);}
+.contain-12 > .skip-11-cols { .set-margin-step(11,12);}
+
+.contain-16 > .skip-1-col   { .set-margin-step(1,16); }
+.contain-16 > .skip-2-cols  { .set-margin-step(2,16); }
+.contain-16 > .skip-3-cols  { .set-margin-step(3,16); }
+.contain-16 > .skip-4-cols  { .set-margin-step(4,16); }
+.contain-16 > .skip-5-cols  { .set-margin-step(5,16); }
+.contain-16 > .skip-6-cols  { .set-margin-step(6,16); }
+.contain-16 > .skip-7-cols  { .set-margin-step(7,16); }
+.contain-16 > .skip-8-cols  { .set-margin-step(8,16); }
+.contain-16 > .skip-9-cols  { .set-margin-step(9,16); }
+.contain-16 > .skip-10-cols { .set-margin-step(10,16);}
+.contain-16 > .skip-11-cols { .set-margin-step(11,16);}
+.contain-16 > .skip-12-cols { .set-margin-step(11,16);}
+.contain-16 > .skip-13-cols { .set-margin-step(11,16);}
+.contain-16 > .skip-14-cols { .set-margin-step(11,16);}
+.contain-16 > .skip-15-cols { .set-margin-step(11,16);}
+
+// to change the default rule of elements width balance to a more specific one
 .columns >  *.wide-1-on-16,  .wide-1-on-16 { .set-column-step(1,16); }
 .columns >  *.wide-2-on-16,  .wide-2-on-16 { .set-column-step(2,16); }
 .columns >  *.wide-3-on-16,  .wide-3-on-16 { .set-column-step(3,16); }
@@ -221,6 +354,7 @@ Sizing rules and APIs
 .columns > *.wide-1-on-2, .wide-1-on-2 { .set-column-step(1,2);}
 .columns > *.wide-2-on-2, .wide-2-on-2 { .set-column-step(2,2);}
 
+// to be sure to go on the next row 
 .contain-2  > *:nth-child(2n+1)  { clear:both; }
 .contain-3  > *:nth-child(3n+1)  { clear:both; }
 .contain-4  > *:nth-child(4n+1)  { clear:both; }
@@ -276,6 +410,29 @@ Sizing rules and APIs
 	// manually go down to the next row
 	clear:both;
 }
+.paginated-away {
+	// the first child will have text-align to left and the last child will have text-align to right
+	> * {
+		&:first-child {
+			text-align: left;
+		}
+		&:last-child {
+			text-align: right;
+		}
+	} 
+}
+
+.with-padding {
+	padding:@vertical-padding @horizontal-padding;
+}
+.with-horizontal-padding {
+	padding-right: @horizontal-padding;
+	padding-left: @horizontal-padding;
+}
+.with-vertical-padding {
+	padding-top: @vertical-padding;
+	padding-bottom: @vertical-padding;
+}
 .without-padding-to-family {
 	// no padding for me and my children only
 	padding:0;
@@ -299,9 +456,13 @@ Sizing rules and APIs
 		padding:0;
 	}
 }
-.fit {
+.fluid {
 	// make an image size responsive
 	width: 100%;
+	height: auto;
+}
+.not-fluid {
+	width: auto;
 	height: auto;
 }
 
@@ -329,87 +490,102 @@ nav {
 	}
 }
 
+label {
+	display: inline-block;
+}
+
 
 /**
- * Correct `inline-block` display not defined in IE 8/9.
- */
+Responsive APIs
+*/
+
+
+/* hd ready */
+
+@media only screen and (min-width : @tablet-landscape-step) { 
+	.only-on-hd-full { background-color: yellow; }
+}
+@media only screen and (min-width : @hd-ready-step) {
+	.only-on-hd-full { display:none; }
+}
+@media only screen and (min-width : @hd-full-step) {
+	.only-on-hd-full { display:none; }
+}
+
 
 /* almost full hd */
-@media only screen and (max-width : @hd-full-step) {
+@media only screen and (min-width : @hd-full-step) and (max-width : @hd-full-step) {
+	//.only-on-hd-full { display:none; }
+	//.only-on-hd-ready { display:none; }
+	//.only-on-tablet-landscape { display:none; }
+	//.only-on-tablet-portrait { display:none; }
+	//.only-on-smartphone-landscape { display:none; }
+	//.only-on-smartphone-portrait { display:none; }
+}
+@media only screen and (min-width : @hd-full-step) and (max-width : @hd-ready-step) {
+	//.only-on-hd-full { display:none; }
+	//.only-on-hd-ready { display:none; }
+	//.only-on-tablet-landscape { display:none; }
+	//.only-on-tablet-portrait { display:none; }
+	//.only-on-smartphone-landscape { display:none; }
+	//.only-on-smartphone-portrait { display:none; }
+
 	
 }
 
 /* hd ready */
 @media only screen and (max-width : @hd-ready-step) {
-	
+	//.only-on-smartphone-landscape { background-color: red; }
 }
 
 /* tablets, landscape */
 @media only screen and (max-width : @tablet-landscape-step) {
+	
 	.not-on-tablet-landscape { display:none; }
 	.wide-on-tablet-landscape > * { width:100% !important; }
-
-	.contain-6 > * { .set-columns(3); }
-	.contain-6 > *:nth-child(3n+1) { clear:both; }
-
-	.contain-8 > * { .set-columns(4); }
-	.contain-8 > *:nth-child(4n+1) { clear:both; }
 }
 
 /* tablets, portrait */
 @media only screen and (max-width : @tablet-portrait-step) {
 	.not-on-tablet-portrait { display:none; }
 	.wide-on-tablet-portrait > * { width:100% !important; }
-	.inline > * {
-		clear:none !important;
-	}
-	.contain-4 > * { .set-columns(3); }
-	.contain-4 > *:nth-child(4n+1) { clear:none; }
-	.contain-4 > *:nth-child(3n+1) { clear:both; }
+	.inline > * { clear:none !important; }
 }
 
 /* smartphones, landscape 480~568~685 */
 @media only screen and (max-width : @smartphone-landscape-step) {
-	img { width: auto; }
 	.not-on-smartphone-landscape { display:none; }
 	.wide-on-smartphone-landscape > * { width:100% !important; }
-
-	.contain-3 > * { .set-columns(2); }
-	.contain-3 > *:nth-child(3n+1) { clear:none; }
-	.contain-3 > *:nth-child(2n+1) { clear:both; }
-
-	.contain-4 > * { .set-columns(2); }
-	.contain-4 > *:nth-child(4n+1) { clear:none; }
-	.contain-4 > *:nth-child(3n+1) { clear:none; }
-	.contain-4 > *:nth-child(2n+1) { clear:both; }
 }
 
 /* smartphones, portrait 320~380 */
 @media only screen and (max-width : @smartphone-portrait-step) {
 	.not-on-smartphone-portrait { display:none; }
 	.wide-on-smartphone-portrait > * { width:100% !important; }
-	nav a { display:block; }
-	nav a,
-	.columns > *,
-	.contain-2  > *,
-	.contain-3  > *,
-	.contain-4  > *,
-	.contain-5  > *,
-	.contain-6  > *,
-	.contain-8  > *,
-	.contain-10 > *,
-	.contain-12 > *,
-	.contain-16 > * { width:100% !important; clear:both !important; }	
+	nav a { display:block; width:100%; clear:both; }
 }
 
 /**
 Frontsize internal methods to extend with new columns
 */
 .set-columns (@columns) {
-	width:(100%/@columns);
+	width:(100%/@columns) !important;
+	&:nth-child(2n+1) {clear:none;} 
+	&:nth-child(3n+1) {clear:none;} 
+	&:nth-child(4n+1) {clear:none;} 
+	&:nth-child(5n+1) {clear:none;} 
+	&:nth-child(6n+1) {clear:none;} 
+	&:nth-child(8n+1) {clear:none;} 
+	&:nth-child(10n+1){clear:none;} 
+	&:nth-child(12n+1){clear:none;} 
+	&:nth-child(16n+1){clear:none;} 
+	&:nth-child(@{columns}n+1) {clear:both;}
 }
 .set-column-step (@step, @columns) {
 	width:((100% * @step)/@columns);
+}
+.set-margin-step (@step, @columns) {
+	margin-left:((100% * @step)/@columns);
 }
 
 /**
@@ -440,6 +616,58 @@ Global settings effects
 /**
 
 */
+
+.animate (@duration: .3s, @property: all, @easing: ease-in-out, @delay: initial) {
+	-moz-transition-delay:@delay;
+	-moz-transition-duration:@duration;
+	-moz-transition-property:@property;
+	
+	-webkit-transition-delay:@delay;
+	-webkit-transition-duration:@duration;
+	-webkit-transition-property:@property;
+	
+	-o-transition-delay:@delay;
+	-o-transition-duration:@duration;
+	-o-transition-property:@property;
+	
+	transition-delay:@delay;
+	transition-duration:@duration;
+	transition-property:@property;
+
+	.ease (@easing);
+}
+
+.ease-in-quad {.ease(cubic-bezier(0.550, 0.085, 0.680, 0.530));}
+.ease-in-cubic {.ease(cubic-bezier(0.550, 0.055, 0.675, 0.190));}
+.ease-in-quart {.ease(cubic-bezier(0.895, 0.030, 0.685, 0.220));}
+.ease-in-quint {.ease(cubic-bezier(0.755, 0.050, 0.855, 0.060));}
+.ease-in-sine {.ease(cubic-bezier(0.470, 0.000, 0.745, 0.715));}
+.ease-in-expo {.ease(cubic-bezier(0.950, 0.050, 0.795, 0.035));}
+.ease-in-circ {.ease(cubic-bezier(0.600, 0.040, 0.980, 0.335));}
+.ease-in-back {.ease(cubic-bezier(0.600, -0.280, 0.735, 0.045));}
+.ease-out-quad {.ease(cubic-bezier(0.250, 0.460, 0.450, 0.940));}
+.ease-out-cubic {.ease(cubic-bezier(0.215, 0.610, 0.355, 1.000));}
+.ease-out-quart {.ease(cubic-bezier(0.165, 0.840, 0.440, 1.000));}
+.ease-out-quint {.ease(cubic-bezier(0.230, 1.000, 0.320, 1.000));}
+.ease-out-sine {.ease(cubic-bezier(0.390, 0.575, 0.565, 1.000));}
+.ease-out-expo {.ease(cubic-bezier(0.190, 1.000, 0.220, 1.000));}
+.ease-out-circ {.ease(cubic-bezier(0.075, 0.820, 0.165, 1.000));}
+.ease-out-back {.ease(cubic-bezier(0.175, 0.885, 0.320, 1.275));}
+.ease-in-out-quad {.ease(cubic-bezier(0.455, 0.030, 0.515, 0.955));}
+.ease-in-out-cubic {.ease(cubic-bezier(0.645, 0.045, 0.355, 1.000));}
+.ease-in-out-quart {.ease(cubic-bezier(0.770, 0.000, 0.175, 1.000));}
+.ease-in-out-quint {.ease(cubic-bezier(0.860, 0.000, 0.070, 1.000));}
+.ease-in-out-sine {.ease(cubic-bezier(0.445, 0.050, 0.550, 0.950));}
+.ease-in-out-expo {.ease(cubic-bezier(1.000, 0.000, 0.000, 1.000));}
+.ease-in-out-circ {.ease(cubic-bezier(0.785, 0.135, 0.150, 0.860));}
+.ease-in-out-back {.ease(cubic-bezier(0.680, -0.550, 0.265, 1.550));}
+
+.ease (@easing:ease-in-out) {
+	-moz-transition-timing-function:@easing;
+	-webkit-transition-timing-function:@easing;
+	-o-transition-timing-function:@easing;
+	transition-timing-function:@easing;
+}
 
 .round (@radius: 6px) {
 	// sets a radius to the angles of the element
@@ -556,6 +784,7 @@ body {
 	}
 }
 
+
 .button {
 	padding:.5em .75em;
 	text-decoration: none;
@@ -593,12 +822,49 @@ h1 {
 		color:@black;
 		text-shadow:0px 1px 1px rgba(255,255,255,.5);
 		font-size:4em;
-		span {
+		
+	}
+	span {
 			color:fade(@black,50%);
 		}
+}
+
+.with-padding {
+	h4 {
+		color:fade(@black,50%);
 	}
 }
 
+.example {
+	.round(0px);
+	background-color: rgba(0,0,0,.5);
+	.shadow(0px 0px 1px rgba(0,0,0,0));
+	border:1px solid rgba(0,0,0,0);
+	.animate;
+	
+
+	&.without-structure {
+		background-color: white;
+		.shadow(0px 0px 1px rgba(0,0,0,.3));
+		.round(.5em);
+
+		.animate;
+		> * { 
+			border:1px solid rgba(0,0,0,0);
+		}
+	}
+	> * {
+		border:1px solid rgba(0,0,0,.25);
+		background-color: rgba(255,255,255,.3);
+		&:first-child {
+			
+		}
+	}
+	> * > * {
+		//.round(.25em);
+		background-color: white;
+	}
+}
 
 /* almost full hd */
 @media only screen and (max-width : @hd-full-step) {
