@@ -19,7 +19,7 @@ Paramter | Tipo | Default | Descrizione
 
 API:
 
-```less
+```css
 .method-name (@color:#999999, @focused:#CCCCCC) {
 	
 }
@@ -28,12 +28,6 @@ API:
 Usage:
 
 ```css
-div {
-	.method-name(#FFCC35);
-}
-```
-
-```lesscss
 div {
 	.method-name(#FFCC35);
 }
@@ -54,8 +48,7 @@ Paramter | Tipo | Default | Descrizione
 
 API:
 
-```
-#!lesscss
+```css
 .method-name (@color:#999999, @focused:#CCCCCC) {
 	
 }
@@ -64,8 +57,7 @@ API:
 
 Usage:
 
-```
-#!lesscss
+```css
 div {
 	.method-name(#FFCC35);
 }
