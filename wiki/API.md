@@ -1,4 +1,3 @@
-
 frontsize
 =========
 
@@ -21,7 +20,7 @@ Paramter | Tipo | Default | Descrizione
 API:
 
 ```
-#!less
+#!css
 .method-name (@color:#999999, @focused:#CCCCCC) {
 	
 }
