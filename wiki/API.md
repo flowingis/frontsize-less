@@ -20,7 +20,7 @@ Paramter | Tipo | Default | Descrizione
 API:
 
 ```
-#!css
+#less
 .method-name (@color:#999999, @focused:#CCCCCC) {
 	
 }
