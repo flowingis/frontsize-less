@@ -15,7 +15,7 @@ Description of the method I've wrote
 
 Paramter | Tipo | Default | Descrizione
 --- | --- | --- | ---
-`@color` | *color* | **obbligatory** | Set a specific thing
+`@color` | *color* | **required** | Set a specific thing
 `@focused` | *color* | `#CCCCCC` | Set a specific stuff
 
 API:
@@ -47,7 +47,7 @@ Description of the method I've wrote
 
 Paramter | Tipo | Default | Descrizione
 --- | --- | --- | ---
-`@color` | *color* | **obbligatory** | Set a specific thing
+`@color` | *color* | **required** | Set a specific thing
 `@focused` | *color* | `#CCCCCC` | Set a specific stuff
 
 API:
