@@ -30,7 +30,7 @@ Frontsize default values to override, change them in the way you like
 @h6:0.65em;
 
 // set different width for the smartphones, tablets and hd resolutions
-@smartphone-portrait-step: 380px;	// smartphones portrait		420~380
+@smartphone-portrait-step: 380px;	// smartphones portrait		320~380
 @smartphone-landscape-step:685px;	// smartphones landscape	480~568~685
 @tablet-portrait-step:	   768px;	// tabled portrait			768
 @tablet-landscape-step:	  1024px;	// tabled landscape			1024
@@ -499,69 +499,61 @@ label {
 Responsive APIs
 */
 
+/*
+.not-on.hd-full
+.not-on.hd-ready
+.not-on.tabled-landscape
+.not-on.tabled-portrait
+.not-on.smartphone-landscape
+.not-on.smartphone-portrait
+*/
 
-/* hd ready */
+/**
+Mobile First APIs
+*/
 
-@media only screen and (min-width : @tablet-landscape-step) { 
-	.only-on-hd-full { background-color: yellow; }
-}
-@media only screen and (min-width : @hd-ready-step) {
-	.only-on-hd-full { display:none; }
-}
+/* Full HD */
 @media only screen and (min-width : @hd-full-step) {
-	.only-on-hd-full { display:none; }
-}
-
-
-/* almost full hd */
-@media only screen and (min-width : @hd-full-step) and (max-width : @hd-full-step) {
-	//.only-on-hd-full { display:none; }
-	//.only-on-hd-ready { display:none; }
-	//.only-on-tablet-landscape { display:none; }
-	//.only-on-tablet-portrait { display:none; }
-	//.only-on-smartphone-landscape { display:none; }
-	//.only-on-smartphone-portrait { display:none; }
-}
-@media only screen and (min-width : @hd-full-step) and (max-width : @hd-ready-step) {
-	//.only-on-hd-full { display:none; }
-	//.only-on-hd-ready { display:none; }
-	//.only-on-tablet-landscape { display:none; }
-	//.only-on-tablet-portrait { display:none; }
-	//.only-on-smartphone-landscape { display:none; }
-	//.only-on-smartphone-portrait { display:none; }
-
 	
 }
 
-/* hd ready */
+/* HD Ready */
 @media only screen and (max-width : @hd-ready-step) {
-	//.only-on-smartphone-landscape { background-color: red; }
+	
 }
 
 /* tablets, landscape */
 @media only screen and (max-width : @tablet-landscape-step) {
-	
 	.not-on-tablet-landscape { display:none; }
 	.wide-on-tablet-landscape > * { width:100% !important; }
 }
 
 /* tablets, portrait */
 @media only screen and (max-width : @tablet-portrait-step) {
-	.not-on-tablet-portrait { display:none; }
+	 .not-on-tablet-portrait { display:none; }
 	.wide-on-tablet-portrait > * { width:100% !important; }
 	.inline > * { clear:none !important; }
 }
 
 /* smartphones, landscape 480~568~685 */
 @media only screen and (max-width : @smartphone-landscape-step) {
-	.not-on-smartphone-landscape { display:none; }
+	.only-on-tablet { display: none; }
 	.wide-on-smartphone-landscape > * { width:100% !important; }
+	 .not-on-smartphone-landscape { display:none; }
 }
 
 /* smartphones, portrait 320~380 */
 @media only screen and (max-width : @smartphone-portrait-step) {
 	.not-on-smartphone-portrait { display:none; }
 	.wide-on-smartphone-portrait > * { width:100% !important; }
+	.paginated-away {
+		// the first child will have text-align to left and the last child will have text-align to right
+		> * {
+			&:last-child {
+				text-align: left;
+			}
+		} 
+	}
 	nav a { display:block; width:100%; clear:both; }
 }
 
@@ -614,10 +606,10 @@ Global settings effects
 }
 
 /**
-
+CSS Effects APIs
 */
 
-.animate (@duration: .3s, @property: all, @easing: ease-in-out, @delay: initial) {
+.animate(@duration: .3s, @property: all, @easing: ease-in-out, @delay: initial) {
 	-moz-transition-delay:@delay;
 	-moz-transition-duration:@duration;
 	-moz-transition-property:@property;
@@ -634,42 +626,74 @@ Global settings effects
 	transition-duration:@duration;
 	transition-property:@property;
 
-	.ease (@easing);
+	.ease(@easing);
 }
 
-.ease-in-quad {.ease(cubic-bezier(0.550, 0.085, 0.680, 0.530));}
-.ease-in-cubic {.ease(cubic-bezier(0.550, 0.055, 0.675, 0.190));}
-.ease-in-quart {.ease(cubic-bezier(0.895, 0.030, 0.685, 0.220));}
-.ease-in-quint {.ease(cubic-bezier(0.755, 0.050, 0.855, 0.060));}
-.ease-in-sine {.ease(cubic-bezier(0.470, 0.000, 0.745, 0.715));}
-.ease-in-expo {.ease(cubic-bezier(0.950, 0.050, 0.795, 0.035));}
-.ease-in-circ {.ease(cubic-bezier(0.600, 0.040, 0.980, 0.335));}
-.ease-in-back {.ease(cubic-bezier(0.600, -0.280, 0.735, 0.045));}
-.ease-out-quad {.ease(cubic-bezier(0.250, 0.460, 0.450, 0.940));}
-.ease-out-cubic {.ease(cubic-bezier(0.215, 0.610, 0.355, 1.000));}
-.ease-out-quart {.ease(cubic-bezier(0.165, 0.840, 0.440, 1.000));}
-.ease-out-quint {.ease(cubic-bezier(0.230, 1.000, 0.320, 1.000));}
-.ease-out-sine {.ease(cubic-bezier(0.390, 0.575, 0.565, 1.000));}
-.ease-out-expo {.ease(cubic-bezier(0.190, 1.000, 0.220, 1.000));}
-.ease-out-circ {.ease(cubic-bezier(0.075, 0.820, 0.165, 1.000));}
-.ease-out-back {.ease(cubic-bezier(0.175, 0.885, 0.320, 1.275));}
-.ease-in-out-quad {.ease(cubic-bezier(0.455, 0.030, 0.515, 0.955));}
-.ease-in-out-cubic {.ease(cubic-bezier(0.645, 0.045, 0.355, 1.000));}
-.ease-in-out-quart {.ease(cubic-bezier(0.770, 0.000, 0.175, 1.000));}
-.ease-in-out-quint {.ease(cubic-bezier(0.860, 0.000, 0.070, 1.000));}
-.ease-in-out-sine {.ease(cubic-bezier(0.445, 0.050, 0.550, 0.950));}
-.ease-in-out-expo {.ease(cubic-bezier(1.000, 0.000, 0.000, 1.000));}
-.ease-in-out-circ {.ease(cubic-bezier(0.785, 0.135, 0.150, 0.860));}
-.ease-in-out-back {.ease(cubic-bezier(0.680, -0.550, 0.265, 1.550));}
+.transition(@transition: .3s ease-in-out initial) {
+	/*
+	classic css transition style
+	.transition(width .4s ease-in-out);
+	.transition(color .4s ease-in-out);
+	.transition(border-color .4s ease-in-out .2s);
+	*/
+	.ease;
+	-webkit-transition:@transition;
+	-moz-transition:@transition;
+	-o-transition:@transition;
+	transition:@transition;
+}
+.transition-delay(@delay:.5s) {
+	-webkit-transition-delay:@delay;
+	-moz-transition-delay:@delay;
+	-o-transition-delay:@delay;
+	transition-delay:@delay;
+}
+.transition-duration(@duration:.5s) {
+	-webkit-transition-duration:@delay;
+	-moz-transition-duration:@delay;
+	-o-transition-duration:@delay;
+	transition-duration:@delay;
+}
+.transition-property(@property:.5s) {
+	-webkit-transition-property:@delay;
+	-moz-transition-property:@delay;
+	-o-transition-property:@delay;
+	transition-property:@delay;
+}
 
-.ease (@easing:ease-in-out) {
+.ease-in-quad		{.ease(cubic-bezier(0.550, 0.085, 0.680, 0.530));}
+.ease-in-cubic		{.ease(cubic-bezier(0.550, 0.055, 0.675, 0.190));}
+.ease-in-quart		{.ease(cubic-bezier(0.895, 0.030, 0.685, 0.220));}
+.ease-in-quint		{.ease(cubic-bezier(0.755, 0.050, 0.855, 0.060));}
+.ease-in-sine		{.ease(cubic-bezier(0.470, 0.000, 0.745, 0.715));}
+.ease-in-expo		{.ease(cubic-bezier(0.950, 0.050, 0.795, 0.035));}
+.ease-in-circ		{.ease(cubic-bezier(0.600, 0.040, 0.980, 0.335));}
+.ease-in-back		{.ease(cubic-bezier(0.600,-0.280, 0.735, 0.045));}
+.ease-out-quad		{.ease(cubic-bezier(0.250, 0.460, 0.450, 0.940));}
+.ease-out-cubic		{.ease(cubic-bezier(0.215, 0.610, 0.355, 1.000));}
+.ease-out-quart		{.ease(cubic-bezier(0.165, 0.840, 0.440, 1.000));}
+.ease-out-quint		{.ease(cubic-bezier(0.230, 1.000, 0.320, 1.000));}
+.ease-out-sine		{.ease(cubic-bezier(0.390, 0.575, 0.565, 1.000));}
+.ease-out-expo		{.ease(cubic-bezier(0.190, 1.000, 0.220, 1.000));}
+.ease-out-circ		{.ease(cubic-bezier(0.075, 0.820, 0.165, 1.000));}
+.ease-out-back		{.ease(cubic-bezier(0.175, 0.885, 0.320, 1.275));}
+.ease-in-out-quad	{.ease(cubic-bezier(0.455, 0.030, 0.515, 0.955));}
+.ease-in-out-cubic	{.ease(cubic-bezier(0.645, 0.045, 0.355, 1.000));}
+.ease-in-out-quart	{.ease(cubic-bezier(0.770, 0.000, 0.175, 1.000));}
+.ease-in-out-quint	{.ease(cubic-bezier(0.860, 0.000, 0.070, 1.000));}
+.ease-in-out-sine	{.ease(cubic-bezier(0.445, 0.050, 0.550, 0.950));}
+.ease-in-out-expo	{.ease(cubic-bezier(1.000, 0.000, 0.000, 1.000));}
+.ease-in-out-circ	{.ease(cubic-bezier(0.785, 0.135, 0.150, 0.860));}
+.ease-in-out-back	{.ease(cubic-bezier(0.680,-0.550, 0.265, 1.550));}
+
+.ease(@easing:ease-in-out) {
 	-moz-transition-timing-function:@easing;
 	-webkit-transition-timing-function:@easing;
 	-o-transition-timing-function:@easing;
 	transition-timing-function:@easing;
 }
 
-.round (@radius: 6px) {
+.round(@radius: 6px) {
 	// sets a radius to the angles of the element
 	/*
 	Default usage
@@ -682,7 +706,7 @@ Global settings effects
 	-moz-border-radius: @radius;
 	-webkit-border-radius: @radius;
 }
-.round-top (@radius: 6px) {
+.round-top(@radius: 6px) {
 	// sets the top radius of the element
 	/*
 	Default usage
@@ -691,7 +715,7 @@ Global settings effects
 	*/
 	.round(@radius @radius 0px 0px);
 }
-.round-bottom (@radius: 6px) {
+.round-bottom(@radius: 6px) {
 	// sets the bottom radius of the element
 	/*
 	Default usage
@@ -700,7 +724,7 @@ Global settings effects
 	*/
 	.round(0px 0px @radius @radius);
 }
-.round-left (@radius: 6px) {
+.round-left(@radius: 6px) {
 	// sets the left radius of the element
 	/*
 	Default usage
@@ -709,7 +733,7 @@ Global settings effects
 	*/
 	.round(@radius 0px 0px @radius);
 }
-.round-right (@radius: 6px) {
+.round-right(@radius: 6px) {
 	// sets the right radius of the element
 	/*
 	Default usage
@@ -718,7 +742,7 @@ Global settings effects
 	*/
 	.round(0px @radius @radius 0px);
 }
-.shadow (@params) {
+.shadow(@params) {
 	// sets the shadow of the element
 	/*
 	Default usage
@@ -735,10 +759,42 @@ Global settings effects
 	-webkit-box-shadow:@params;
 }
 
-
-.hide-text-overflow (@overflow:ellipsis) {
+.hide-text-overflow(@overflow:ellipsis) {
 	text-overflow: @overflow;
 	overflow: hidden;
+}
+
+/**
+
+*/
+
+.background-responsive(@default-image, @retina-image) {
+	/*
+	.background-responsive("path/16/image.png", "path/32/image.png");
+	*/
+	background-image:url('@{default-image}');
+	@media only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio:2),
+	only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (   min--moz-device-pixel-ratio: 2),
+	only screen and (     -o-min-device-pixel-ratio: 2/1),
+	only screen and (        min-device-pixel-ratio: 2) {
+		background-image:url('@{retina-image}');
+	}
+}
+
+.sprite(@image, @coordinates) {
+	background-image:url("@{image}");
+	background-repeat:no-repeat;
+	background-position:@coordinates;
+}
+
+.sprite(@image, @coordinates, @hover-coordinates) {
+	background-image:url("@{image}");
+	background-repeat:no-repeat;
+	background-position:@coordinates;
+	&:hover {
+		background-position:@hover-coordinates;
+	}
 }
 
 /*
@@ -836,11 +892,12 @@ h1 {
 }
 
 .example {
+	@params:border, background, .3s ease-in-out initial;
 	.round(0px);
 	background-color: rgba(0,0,0,.5);
 	.shadow(0px 0px 1px rgba(0,0,0,0));
 	border:1px solid rgba(0,0,0,0);
-	.animate;
+	.animate(@params);
 	
 
 	&.without-structure {
@@ -848,12 +905,14 @@ h1 {
 		.shadow(0px 0px 1px rgba(0,0,0,.3));
 		.round(.5em);
 
-		.animate;
-		> * { 
+		.animate(@params);
+		> * {
+			.animate(@params);
 			border:1px solid rgba(0,0,0,0);
 		}
 	}
 	> * {
+		.animate(@params);
 		border:1px solid rgba(0,0,0,.25);
 		background-color: rgba(255,255,255,.3);
 		&:first-child {
@@ -894,4 +953,7 @@ h1 {
 /* smartphones, portrait 320~380 */
 @media only screen and (max-width : @smartphone-portrait-step) {
 	// your code here
+	* {
+		.shadow(none);
+	}
 }
