@@ -19,18 +19,21 @@ Paramter | Tipo | Default | Descrizione
 
 API:
 
-```
-#less
+```less
 .method-name (@color:#999999, @focused:#CCCCCC) {
 	
 }
-
 ```
 
 Usage:
 
+```css
+div {
+	.method-name(#FFCC35);
+}
 ```
-#!less
+
+```lesscss
 div {
 	.method-name(#FFCC35);
 }
