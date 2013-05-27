@@ -21,7 +21,7 @@ Paramter | Tipo | Default | Descrizione
 API:
 
 ```
-#!lesscss
+#!less
 .method-name (@color:#999999, @focused:#CCCCCC) {
 	
 }
@@ -31,7 +31,7 @@ API:
 Usage:
 
 ```
-#!lesscss
+#!less
 div {
 	.method-name(#FFCC35);
 }
