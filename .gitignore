@@ -1,9 +1,9 @@
 # temp files to be ignored #
-*.css
 *.png
 *.psd
 *.html
 *.ai
+*.bak
 
 
 # Compiled source #

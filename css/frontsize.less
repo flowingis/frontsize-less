@@ -1,9 +1,21 @@
 /**
-/**
+Frontsize - Simple like make conversation.
+Version: 1.0
+Date: 2013-05-28
+Author: Vittorio Vittori
+Website: http://vittoriovittori.com
 */
 
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+==        YOUR CONFIGURATION         ===================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
 /**
-HERE BEGINS YOUR CONFIGURATION
 Frontsize default values to override, change them in the way you like
 */
 
@@ -103,27 +115,36 @@ For example, on tablet landscape 5 columns will be turned into 3 columns:
 HERE ENDS YOUR CONFIGURATION
 */
 
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+==            FRONTSIZE              ===================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
 
 /**
 Frontsize global setting
 */
 
-.frontsize-steps (@hd-full:200px, @hd-ready:100px, @tablet-landscape:50px, @tablet-portrait:0px) {
-	@media only screen and (min-width : @tablet-portrait-step)		{ .with-steps { max-width:(@tablet-portrait-step - @tablet-portrait); }}
-	@media only screen and (min-width : @tablet-landscape-step)		{ .with-steps { max-width:(@tablet-landscape-step - @tablet-landscape); }}
-	@media only screen and (min-width : @hd-ready-step)				{ .with-steps { max-width:(@hd-ready-step - @hd-ready); }}
-	@media only screen and (min-width : @hd-full-step)				{ .with-steps { max-width:(@hd-full-step - @hd-full); }}
+.frontsize-steps(@hd-full-margin:200px, @hd-ready-margin:100px, @tablet-landscape-margin:50px, @tablet-portrait-margin:0px) {
+	@media only screen and (min-width : @tablet-portrait-step)		{ .use-steps { max-width:(@tablet-portrait-step - @tablet-portrait-margin); }}
+	@media only screen and (min-width : @tablet-landscape-step)		{ .use-steps { max-width:(@tablet-landscape-step - @tablet-landscape-margin); }}
+	@media only screen and (min-width : @hd-ready-step)				{ .use-steps { max-width:(@hd-ready-step - @hd-ready-margin); }}
+	@media only screen and (min-width : @hd-full-step)				{ .use-steps { max-width:(@hd-full-step - @hd-full-margin); }}
 }
-.frontsize-steps-padding (@hd-full:3em, @hd-ready:3em, @tablet-landscape:2em, @tablet-portrait:2em, @smartphone-landscape:1em, @smartphone-portrait:1em) {
-	@media only screen and (min-width : @smartphone-portrait-step)	{ .with-steps { padding:@smartphone-portrait; }}
-	@media only screen and (min-width : @smartphone-landscape-step)	{ .with-steps { padding:@smartphone-landscape; }}
-	@media only screen and (min-width : @tablet-portrait-step)		{ .with-steps { padding:@tablet-portrait; }}
-	@media only screen and (min-width : @tablet-landscape-step)		{ .with-steps { padding:@tablet-landscape; }}
-	@media only screen and (min-width : @hd-ready-step)				{ .with-steps { padding:@hd-ready; }}
-	@media only screen and (min-width : @hd-full-step)				{ .with-steps { padding:@hd-full; }}
+.frontsize-steps-padding(@hd-full:3em, @hd-ready:3em, @tablet-landscape:2em, @tablet-portrait:2em, @smartphone-landscape:1em, @smartphone-portrait:1em) {
+	@media only screen and (min-width : @smartphone-portrait-step)	{ .set-step-padding(@smartphone-portrait); }
+	@media only screen and (min-width : @smartphone-landscape-step)	{ .set-step-padding(@smartphone-landscape); }
+	@media only screen and (min-width : @tablet-portrait-step)		{ .set-step-padding(@tablet-portrait); }
+	@media only screen and (min-width : @tablet-landscape-step)		{ .set-step-padding(@tablet-landscape); }
+	@media only screen and (min-width : @hd-ready-step)				{ .set-step-padding(@hd-ready); }
+	@media only screen and (min-width : @hd-full-step)				{ .set-step-padding(@hd-full); }
 }
 
-.frontsize-font-scaling (@hd-full:1.5em, @hd-ready:1.25em, @tablet-landscape:1em, @tablet-portrait:1em, @smartphone-landscape:1em, @smartphone-portrait:1em) {
+.frontsize-font-scaling(@hd-full:1.5em, @hd-ready:1.25em, @tablet-landscape:1em, @tablet-portrait:1em, @smartphone-landscape:1em, @smartphone-portrait:1em) {
 	@media only screen and (min-width : @smartphone-portrait-step)	{ body { font-size:@smartphone-portrait; .with-small-fonts { font-size:.75em; }}}
 	@media only screen and (min-width : @smartphone-landscape-step)	{ body { font-size:@smartphone-landscape; .with-small-fonts { font-size:.75em; }}}
 	@media only screen and (min-width : @tablet-portrait-step)		{ body { font-size:@tablet-portrait; .with-small-fonts { font-size:.75em; }}}
@@ -131,7 +152,7 @@ Frontsize global setting
 	@media only screen and (min-width : @hd-ready-step)				{ body { font-size:@hd-ready; .with-small-fonts { font-size:.75em; }}}
 	@media only screen and (min-width : @hd-full-step)				{ body { font-size:@hd-full; .with-small-fonts { font-size:.75em; }}}
 }
-.frontsize-h-font-scaling (@hd-full:1.5em, @hd-ready:1.25em, @tablet-landscape:1.125em, @tablet-portrait:1.125em, @smartphone-landscape:1em, @smartphone-portrait:1em) {
+.frontsize-h-font-scaling(@hd-full:1.5em, @hd-ready:1.25em, @tablet-landscape:1.125em, @tablet-portrait:1.125em, @smartphone-landscape:1em, @smartphone-portrait:1em) {
 	@media only screen and (min-width : @smartphone-portrait-step)	{
 		h1 { font-size: (@h1*@smartphone-portrait); }
 		h2 { font-size: (@h2*@smartphone-portrait); }
@@ -181,20 +202,28 @@ Frontsize global setting
 		h6 { font-size: (@h6*@hd-full); }
 	}
 }
-.frontsize-fit-all-images {
-	img {
-		width: 100%;
-		height: auto;
-	}
-}
-
 .columns {
 	padding-top:@vertical-padding;
 }
 .columns > * {
 	padding-bottom:@vertical-padding;
 }
-.columns > *, .wide-all, .wide-1-on-16, .wide-2-on-16, .wide-3-on-16, .wide-4-on-16, .wide-5-on-16, .wide-6-on-16, .wide-7-on-16, .wide-8-on-16, .wide-9-on-16, .wide-10-on-16, .wide-11-on-16, .wide-12-on-16, .wide-13-on-16, .wide-14-on-16, .wide-15-on-16, .wide-16-on-16, .wide-1-on-12, .wide-2-on-12, .wide-3-on-12, .wide-4-on-12, .wide-5-on-12, .wide-6-on-12, .wide-7-on-12, .wide-8-on-12, .wide-9-on-12, .wide-10-on-12, .wide-11-on-12, .wide-12-on-12, .wide-1-on-10, .wide-2-on-10, .wide-3-on-10, .wide-4-on-10, .wide-5-on-10, .wide-6-on-10, .wide-7-on-10, .wide-8-on-10, .wide-9-on-10, .wide-10-on-10, .wide-1-on-8, .wide-2-on-8, .wide-3-on-8, .wide-4-on-8, .wide-5-on-8, .wide-6-on-8, .wide-7-on-8, .wide-8-on-8, .wide-1-on-6, .wide-2-on-6, .wide-3-on-6, .wide-4-on-6, .wide-5-on-6, .wide-6-on-6, .wide-1-on-5, .wide-2-on-5, .wide-3-on-5, .wide-4-on-5, .wide-5-on-5, .wide-1-on-4, .wide-2-on-4, .wide-3-on-4, .wide-4-on-4, .wide-1-on-3, .wide-2-on-3, .wide-3-on-3, .wide-1-on-2, .wide-2-on-2 { padding-left:@horizontal-padding; padding-right:@horizontal-padding; }
+.columns > *,.wide-all,
+.wide-1-on-16, .wide-2-on-16, .wide-3-on-16, .wide-4-on-16, .wide-5-on-16, .wide-6-on-16, .wide-7-on-16, .wide-8-on-16, .wide-9-on-16, .wide-10-on-16, .wide-11-on-16, .wide-12-on-16, .wide-13-on-16, .wide-14-on-16, .wide-15-on-16, .wide-16-on-16,
+.wide-1-on-12, .wide-2-on-12, .wide-3-on-12, .wide-4-on-12, .wide-5-on-12, .wide-6-on-12, .wide-7-on-12, .wide-8-on-12, .wide-9-on-12, .wide-10-on-12, .wide-11-on-12, .wide-12-on-12,
+.wide-1-on-10, .wide-2-on-10, .wide-3-on-10, .wide-4-on-10, .wide-5-on-10, .wide-6-on-10, .wide-7-on-10, .wide-8-on-10, .wide-9-on-10, .wide-10-on-10,
+.wide-1-on-8, .wide-2-on-8, .wide-3-on-8, .wide-4-on-8, .wide-5-on-8, .wide-6-on-8, .wide-7-on-8, .wide-8-on-8,
+.wide-1-on-6, .wide-2-on-6, .wide-3-on-6, .wide-4-on-6, .wide-5-on-6, .wide-6-on-6,
+.wide-1-on-5, .wide-2-on-5, .wide-3-on-5, .wide-4-on-5, .wide-5-on-5,
+.wide-1-on-4, .wide-2-on-4, .wide-3-on-4, .wide-4-on-4,
+.wide-1-on-3, .wide-2-on-3, .wide-3-on-3,
+.wide-1-on-2, .wide-2-on-2 {
+	padding-left:@horizontal-padding;
+	padding-right:@horizontal-padding;
+	float: left;
+	position: relative;
+	.wrap;
+}
 
 /*
 Frontsize frontend framework
@@ -365,22 +394,10 @@ Sizing rules and APIs
 .contain-12 > *:nth-child(12n+1) { clear:both; }
 .contain-16 > *:nth-child(16n+1) { clear:both; }
 
-.columns > *, .wide-all,
-.wide-1-on-16, .wide-2-on-16, .wide-3-on-16, .wide-4-on-16, .wide-5-on-16, .wide-6-on-16, .wide-7-on-16, .wide-8-on-16, .wide-9-on-16, .wide-10-on-16, .wide-11-on-16, .wide-12-on-16, .wide-13-on-16, .wide-14-on-16, .wide-15-on-16, .wide-16-on-16,
-.wide-1-on-12, .wide-2-on-12, .wide-3-on-12, .wide-4-on-12, .wide-5-on-12, .wide-6-on-12, .wide-7-on-12, .wide-8-on-12, .wide-9-on-12, .wide-10-on-12, .wide-11-on-12, .wide-12-on-12,
-.wide-1-on-10, .wide-2-on-10, .wide-3-on-10, .wide-4-on-10, .wide-5-on-10, .wide-6-on-10, .wide-7-on-10, .wide-8-on-10, .wide-9-on-10, .wide-10-on-10,
-.wide-1-on-8, .wide-2-on-8, .wide-3-on-8, .wide-4-on-8, .wide-5-on-8, .wide-6-on-8, .wide-7-on-8, .wide-8-on-8,
-.wide-1-on-5, .wide-2-on-5, .wide-3-on-5, .wide-4-on-5, .wide-5-on-5,
-.wide-1-on-4, .wide-2-on-4, .wide-3-on-4, .wide-4-on-4, 
-.wide-1-on-3, .wide-2-on-3, .wide-3-on-3,
-.wide-1-on-2, .wide-2-on-2 {
-	float: left;
-	.wrap;
-}
 .columns * {
 	.wrap;
 }
-.with-steps {
+.use-steps {
 	// center the steps container
 	margin: auto;
 	.wrap;
@@ -457,13 +474,39 @@ Sizing rules and APIs
 	}
 }
 .fluid {
-	// make an image size responsive
+	// make an image responsive
 	width: 100%;
 	height: auto;
 }
 .not-fluid {
+	// set an image with it's default behavior
 	width: auto;
 	height: auto;
+}
+.fluid-all {
+	// make all images responsive
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+.fixed {
+	position:fixed;
+	width:100%;
+	top:0px;
+	left:0px;
+}
+
+.hooked {
+	position:fixed;
+	width:100%;
+	left:0px;
+	&.to-top {
+		top:0px;
+	}
+	&.to-bottom {
+		bottom:0px;
+	}
 }
 
 /**
@@ -486,13 +529,21 @@ h1, h2, h3, h4, h5, h6 {
 nav {
 	ul {
 		list-style-type: none;
-		-webkit-padding-start:0;
 	}
 }
 
-label {
-	display: inline-block;
+label { display: inline-block; .wrap; }
+textarea,
+button,
+input[type="text"],
+input[type="reset"],
+input[type="button"],
+input[type="submit"],
+input[type="password"] {
+	.wrap;
 }
+img { -ms-interpolation-mode: bicubic; }
+a img { border:none; }
 
 
 /**
@@ -500,13 +551,75 @@ Responsive APIs
 */
 
 /*
-.not-on.hd-full
-.not-on.hd-ready
-.not-on.tabled-landscape
-.not-on.tabled-portrait
-.not-on.smartphone-landscape
-.not-on.smartphone-portrait
+NON Mobile First APIs
+hese media queries conditions are NOT RECOMMENDED if you want to start a layout from mobile
 */
+@padding:;
+@media only screen and (min-width : @hd-full-step) {
+	// Full HD						1920 (1080p)
+	//.only-on-hd-full				{background-color:pink; padding:.25em;}
+	.only-on-hd-ready				{display:none;}
+	.only-on-tablet-landscape		{display:none;}
+	.only-on-tablet-portrait		{display:none;}
+	.only-on-smartphone-landscape	{display:none;}
+	.only-on-smartphone-portrait	{display:none;}
+}
+
+
+@media only screen and (min-width : @hd-ready-step) and (max-width : (@hd-full-step - 1px)) {
+	// HD Ready						1280 (720p)
+	.only-on-hd-full				{display:none;}
+	//.only-on-hd-ready				{background-color:aqua; padding:.25em;}
+	.only-on-tablet-landscape		{display:none;}
+	.only-on-tablet-portrait		{display:none;}
+	.only-on-smartphone-landscape	{display:none;}
+	.only-on-smartphone-portrait	{display:none;}
+}
+
+@media only screen and (min-width : @tablet-landscape-step) and (max-width : (@hd-ready-step - 1px)) {
+	// tabled landscape				1024
+	// (orientation:landscape)
+	.only-on-hd-full				{display:none;}
+	.only-on-hd-ready				{display:none;}
+	//.only-on-tablet-landscape		{background-color:yellow; padding:.25em;}
+	.only-on-tablet-portrait		{display:none;}
+	.only-on-smartphone-landscape	{display:none;}
+	.only-on-smartphone-portrait	{display:none;}
+}
+
+@media only screen and (min-width : @tablet-portrait-step) and (max-width : (@tablet-landscape-step - 1px)) {
+	// tabled portrait				768
+	// (orientation:landscape)
+	.only-on-hd-full				{display:none;}
+	.only-on-hd-ready				{display:none;}
+	.only-on-tablet-landscape		{display:none;}
+	//.only-on-tablet-portrait		{background-color:orange; padding:.25em;}
+	.only-on-smartphone-landscape	{display:none;}
+	.only-on-smartphone-portrait	{display:none;}
+}
+
+@media only screen and (min-width : (@smartphone-portrait-step + 1px)) and (max-width : (@tablet-portrait-step - 1px)) {
+	// smartphones landscape		480~568~685
+	// (orientation:landscape)
+	.only-on-hd-full				{display:none;}
+	.only-on-hd-ready				{display:none;}
+	.only-on-tablet-landscape		{display:none;}
+	.only-on-tablet-portrait		{display:none;}
+	//.only-on-smartphone-landscape	{background-color:lightgrey; padding:.25em;}
+	.only-on-smartphone-portrait	{display:none;}
+}
+
+@media only screen and (max-width : @smartphone-portrait-step) {
+	// smartphones portrait			320~380
+	// (orientation:landscape)
+	.only-on-hd-full				{display:none;}
+	.only-on-hd-ready				{display:none;}
+	.only-on-tablet-landscape		{display:none;}
+	.only-on-tablet-portrait		{display:none;}
+	.only-on-smartphone-landscape	{display:none;}
+	//.only-on-smartphone-portrait	{background-color:lightblue; padding:.25em;}
+}
+
 
 /**
 Mobile First APIs
@@ -525,27 +638,27 @@ Mobile First APIs
 /* tablets, landscape */
 @media only screen and (max-width : @tablet-landscape-step) {
 	.not-on-tablet-landscape { display:none; }
-	.wide-on-tablet-landscape > * { width:100% !important; }
+	.wide-from-tablet-landscape > * { width:100% !important; }
 }
 
 /* tablets, portrait */
 @media only screen and (max-width : @tablet-portrait-step) {
 	 .not-on-tablet-portrait { display:none; }
-	.wide-on-tablet-portrait > * { width:100% !important; }
+	.wide-from-tablet-portrait > * { width:100% !important; }
 	.inline > * { clear:none !important; }
 }
 
 /* smartphones, landscape 480~568~685 */
 @media only screen and (max-width : @smartphone-landscape-step) {
 	.only-on-tablet { display: none; }
-	.wide-on-smartphone-landscape > * { width:100% !important; }
+	.wide-from-smartphone-landscape > * { width:100% !important; }
 	 .not-on-smartphone-landscape { display:none; }
 }
 
 /* smartphones, portrait 320~380 */
 @media only screen and (max-width : @smartphone-portrait-step) {
 	.not-on-smartphone-portrait { display:none; }
-	.wide-on-smartphone-portrait > * { width:100% !important; }
+	.wide-from-smartphone-portrait > * { width:100% !important; }
 	.paginated-away {
 		// the first child will have text-align to left and the last child will have text-align to right
 		> * {
@@ -560,7 +673,7 @@ Mobile First APIs
 /**
 Frontsize internal methods to extend with new columns
 */
-.set-columns (@columns) {
+.set-columns(@columns) {
 	width:(100%/@columns) !important;
 	&:nth-child(2n+1) {clear:none;} 
 	&:nth-child(3n+1) {clear:none;} 
@@ -573,17 +686,22 @@ Frontsize internal methods to extend with new columns
 	&:nth-child(16n+1){clear:none;} 
 	&:nth-child(@{columns}n+1) {clear:both;}
 }
-.set-column-step (@step, @columns) {
+.set-column-step(@step, @columns) {
 	width:((100% * @step)/@columns);
 }
-.set-margin-step (@step, @columns) {
+.set-margin-step(@step, @columns) {
 	margin-left:((100% * @step)/@columns);
+}
+.set-step-padding(@step) {
+	.with-steps-padding { padding:@step !important; }
+	.with-horizontal-steps-padding { padding-left:@step !important; padding-right:@step !important; }
+	.with-vertical-steps-padding { padding-top:@step !important; padding-bottom:@step !important; }
 }
 
 /**
 Global settings effects
 */
-.global-input-placeholder (@color:#999999, @focused:#CCCCCC) {
+.global-input-placeholder(@color:#999999, @focused:#CCCCCC) {
 	// sets the color of the input text placeholder attribute
 	::-webkit-input-placeholder { color:@color; }
 	input:focus::-webkit-input-placeholder { color:@focused; }
@@ -597,7 +715,7 @@ Global settings effects
 	input:focus:-ms-input-placeholder { color:@focused; }
 }
 
-.global-text-antialias (@antialias:antialiased) {
+.global-text-antialias(@antialias:antialiased) {
 	// sets the antialias text for the whole page
 	// @antialias: antialiased | subpixel-antialiased | none
 	body {
@@ -606,30 +724,10 @@ Global settings effects
 }
 
 /**
-CSS Effects APIs
+Frontsize CSS compatibility APIs
 */
 
-.animate(@duration: .3s, @property: all, @easing: ease-in-out, @delay: initial) {
-	-moz-transition-delay:@delay;
-	-moz-transition-duration:@duration;
-	-moz-transition-property:@property;
-	
-	-webkit-transition-delay:@delay;
-	-webkit-transition-duration:@duration;
-	-webkit-transition-property:@property;
-	
-	-o-transition-delay:@delay;
-	-o-transition-duration:@duration;
-	-o-transition-property:@property;
-	
-	transition-delay:@delay;
-	transition-duration:@duration;
-	transition-property:@property;
-
-	.ease(@easing);
-}
-
-.transition(@transition: .3s ease-in-out initial) {
+.transition(@transition:.3s ease-in-out initial) {
 	/*
 	classic css transition style
 	.transition(width .4s ease-in-out);
@@ -649,16 +747,16 @@ CSS Effects APIs
 	transition-delay:@delay;
 }
 .transition-duration(@duration:.5s) {
-	-webkit-transition-duration:@delay;
-	-moz-transition-duration:@delay;
-	-o-transition-duration:@delay;
-	transition-duration:@delay;
+	-webkit-transition-duration:@duration;
+	-moz-transition-duration:@duration;
+	-o-transition-duration:@duration;
+	transition-duration:@duration;
 }
-.transition-property(@property:.5s) {
-	-webkit-transition-property:@delay;
-	-moz-transition-property:@delay;
-	-o-transition-property:@delay;
-	transition-property:@delay;
+.transition-property(@property:all) {
+	-webkit-transition-property:@property;
+	-moz-transition-property:@property;
+	-o-transition-property:@property;
+	transition-property:@property;
 }
 
 .ease-in-quad		{.ease(cubic-bezier(0.550, 0.085, 0.680, 0.530));}
@@ -693,7 +791,7 @@ CSS Effects APIs
 	transition-timing-function:@easing;
 }
 
-.round(@radius: 6px) {
+.round(@radius:6px) {
 	// sets a radius to the angles of the element
 	/*
 	Default usage
@@ -706,7 +804,7 @@ CSS Effects APIs
 	-moz-border-radius: @radius;
 	-webkit-border-radius: @radius;
 }
-.round-top(@radius: 6px) {
+.round-top(@radius:6px) {
 	// sets the top radius of the element
 	/*
 	Default usage
@@ -715,7 +813,7 @@ CSS Effects APIs
 	*/
 	.round(@radius @radius 0px 0px);
 }
-.round-bottom(@radius: 6px) {
+.round-bottom(@radius:6px) {
 	// sets the bottom radius of the element
 	/*
 	Default usage
@@ -724,7 +822,7 @@ CSS Effects APIs
 	*/
 	.round(0px 0px @radius @radius);
 }
-.round-left(@radius: 6px) {
+.round-left(@radius:6px) {
 	// sets the left radius of the element
 	/*
 	Default usage
@@ -733,7 +831,7 @@ CSS Effects APIs
 	*/
 	.round(@radius 0px 0px @radius);
 }
-.round-right(@radius: 6px) {
+.round-right(@radius:6px) {
 	// sets the right radius of the element
 	/*
 	Default usage
@@ -742,7 +840,7 @@ CSS Effects APIs
 	*/
 	.round(0px @radius @radius 0px);
 }
-.shadow(@params) {
+.box-shadow(@params:0px 0px 1px rgba(0,0,0,.3)) {
 	// sets the shadow of the element
 	/*
 	Default usage
@@ -758,19 +856,158 @@ CSS Effects APIs
 	-moz-box-shadow:@params;
 	-webkit-box-shadow:@params;
 }
-
-.hide-text-overflow(@overflow:ellipsis) {
-	text-overflow: @overflow;
-	overflow: hidden;
+.transform(@transform:none) {
+	/*
+	The transform property applies a 2D or 3D transformation to an element. This property allows you to rotate, scale, move, skew, etc., elements.
+	Possible values: none|transform-functions
+	http://www.w3schools.com/cssref/css3_pr_transform.asp
+	*/
+	transform:@transform;
+	-o-transform:@transform;
+	-ms-transform:@transform;
+	-moz-transform:@transform;
+	-webkit-transform:@transform;
+}
+// http://www.w3schools.com/cssref/css3_pr_transform.asp
+.skew(@degrees:0deg) {
+	.transform(skew(@degrees));
+}
+.matrix(@matrix6:0,0,0,0,0,0;) {
+	.transform(matrix(@matrix6));
+}
+.matrix3d(@matrix16:0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;) {
+	.transform(matrix3d(@matrix16));
+}
+.translate(@coordinatesXY:0,0;) {
+	.transform(translate(@coordinatesXY));
+}
+.translate3d(@coordinatesXYZ:0,0,0;) {
+	.transform(translate3d(@coordinatesXYZ));
+}
+.translateX(@x:0) {
+	.transform(translateX(@x));
+}
+.translateY(@x:0) {
+	.transform(translateY(@y));
+}
+.translateZ(@x:0) {
+	.transform(translateZ(@z));
+}
+.scale(@scale:0) {
+	.transform(scale(@scale));
+}
+.scaleX(@scale:0) {
+	.transform(scaleX(@scale));
+}
+.scaleY(@scale:0) {
+	.transform(scaleY(@scale));
+}
+.scaleZ(@scale:0) {
+	.transform(scaleZ(@scale));
+}
+.rotate(@angle:0) {
+	.transform(rotate(@angle));
+}
+.rotateX(@angle:0) {
+	.transform(rotateX(@angle));
+}
+.rotateY(@angle:0) {
+	.transform(rotateY(@angle));
+}
+.rotateZ(@angle:0) {
+	.transform(rotateZ(@angle));
+}
+.rotate3d(@rotation:0,0,0,0deg;) {
+	// x, y, z, angle
+	.transform(rotate3d(@rotation));
+}
+.skew(@angles:0,0) {
+	.transform(skew(@angles));
+}
+.skewX(@angle:0) {
+	.transform(skewX(@angle));
+}
+.skewY(@angle:0) {
+	.transform(skewY(@angle));
+}
+.perspective(@perspective:0) {
+	.transform(perspective(@perspective));
+}
+.appearance(@appearence:normal) {
+	/*
+	The appearance property allows you to make an element look like a standard user interface element.
+	Possible values: normal|icon|window|button|menu|field
+	http://www.w3schools.com/cssref/css3_pr_appearance.asp
+	
+	Default usage:
+	.appearance(button);
+	*/
+	appearance:@appearence;
+	-moz-appearance:@appearence;
+	-webkit-appearance:@appearence;
 }
 
-/**
 
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+==            EXTENSIONS             ===================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
 */
 
+
+/**
+Frontsize extended methods
+*/
+
+.animate(@duration: .3s, @property: all, @easing: ease-in-out, @delay: initial) {
+	-moz-transition-delay:@delay;
+	-moz-transition-duration:@duration;
+	-moz-transition-property:@property;
+	
+	-webkit-transition-delay:@delay;
+	-webkit-transition-duration:@duration;
+	-webkit-transition-property:@property;
+	
+	-o-transition-delay:@delay;
+	-o-transition-duration:@duration;
+	-o-transition-property:@property;
+	
+	transition-delay:@delay;
+	transition-duration:@duration;
+	transition-property:@property;
+
+	.ease(@easing);
+}
+.shadow(@shadow:0px 0px 1px rgba(0,0,0,.3)) {
+	.box-shadow(@shadow);
+}
+.linear-gradient(@gradient:top, #FFFFFF, #000000;) {
+	background: linear-gradient(@gradient);
+	background: -o-linear-gradient(@gradient);
+	background: -ms-linear-gradient(@gradient);
+	background: -moz-linear-gradient(@gradient);
+	background: -webkit-linear-gradient(@gradient);
+}
+.vertical-gradient(@color:#cbcbcb, @strenght:5%) {
+	/*
+	Remember to put the ; after a list of comma separated params to group them:
+	.method(1,2,3;); => .method(@params) {...}
+
+	If the method expect a list of params you don't need it:
+	.method(1,2,3); => .method(@param-1, @param-2, @param-3) {...}
+	*/
+	.linear-gradient(top, saturate(lighten(@color,@strenght),(-@strenght/2)) 0%, saturate(darken(@color,@strenght),(@strenght/2))100%;);
+}
+.gloss-gradient(@top: rgb(200,200,200), @middle: rgb(100,100,100), @bottom: rgb(150,150,150)) {
+	.linear-gradient(bottom, @top 0%, @middle 50%, @bottom 100%;);
+}
 .background-responsive(@default-image, @retina-image) {
 	/*
-	.background-responsive("path/16/image.png", "path/32/image.png");
+	.background-responsive("path/image-low-res.png", "path/image-high-res.png");
 	*/
 	background-image:url('@{default-image}');
 	@media only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio:2),
@@ -787,7 +1024,6 @@ CSS Effects APIs
 	background-repeat:no-repeat;
 	background-position:@coordinates;
 }
-
 .sprite(@image, @coordinates, @hover-coordinates) {
 	background-image:url("@{image}");
 	background-repeat:no-repeat;
@@ -796,26 +1032,199 @@ CSS Effects APIs
 		background-position:@hover-coordinates;
 	}
 }
+.hide-text-overflow(@overflow:ellipsis) {
+	text-overflow: @overflow;
+	overflow: hidden;
+}
 
 /*
 ========================================================================================================================================================================
-========================================================================================================================================================================
-========================================================================================================================================================================
-========================================================================================================================================================================
-========================================================================================================================================================================
-========================================================================================================================================================================
-========================================================================================================================================================================
-========================================================================================================================================================================
-========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+==             WIDGETS               ===================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
 ========================================================================================================================================================================
 */
 
-@img: "http://localhost/frontsize/img/";
-@blue:#0c94c7;
+/**
+Frontsize style widgets, thanks to LESS
+For more information on how to write one, go to http://lesscss.org
+*/
+
+.keyboard(@color:#393634, @text:white) {
+	/*
+	<div class="keyboard">cmd</div>
+	*/
+	padding:.5em .75em;
+	display: inline-block;
+	position: relative;
+	cursor:default;
+
+	color:@text;
+	text-align: center;
+	text-decoration: none;
+	text-shadow:1px 1px 1px rgba(0,0,0,.2);
+	
+	border:1px solid @color;
+	border-top:1px solid lighten(@color,10%);
+	border-bottom:4px solid darken(@color,20%);
+	
+	.round(6px);
+	.vertical-gradient(@color,-5%);
+	.box-shadow(0px 3px 4px -2px rgba(0,0,0,.3));
+
+	&:active {
+		top:2px;
+		margin-bottom:2px;
+		border-bottom-width:2px;
+	}
+}
+.keyboard { .keyboard; }
+a.keyboard {cursor: pointer;}
+
+.vintage-keyboard(@color:#423f38, @text:white) {
+	/*
+	<div class="vintage-keyboard">cmd</div>
+	*/
+	padding:.5em .75em;
+	display: inline-block;
+	position: relative;
+	cursor:default;
+
+	color:@text;
+	text-align: center;
+	text-decoration: none;
+	text-shadow:1px 1px 1px rgba(0,0,0,.2);
+	
+	border:8px solid @color;
+	border-top:4px solid lighten(@color,10%);
+	border-bottom:14px solid darken(@color,20%);
+	
+	.round(12px);
+	.vertical-gradient(@color,-5%);
+	.box-shadow(0px 3px 4px -2px rgba(0,0,0,.3));
+
+	&:active {
+		top:6px;
+		margin-bottom:6px;
+		border-bottom-width:8px;
+	}
+}
+.vintage-keyboard {.vintage-keyboard;}
+a.vintage-keyboard {cursor: pointer;}
+
+.commodore-keyboard(@color:#cecbba, @text:#423f38) {
+	/*
+	<div class="commodore-keyboard">cmd</div>
+	*/
+	padding:.5em .75em;
+	display: inline-block;
+	position: relative;
+	cursor:default;
+	
+	color:@text;
+	text-align: center;
+	text-decoration: none;
+	text-shadow:1px 1px 0px rgba(255,255,255,.75);
+	
+	border:8px solid @color;
+	border-top:4px solid lighten(@color,10%);
+	border-bottom:14px solid darken(@color,20%);
+	
+	.round(12px);
+	.vertical-gradient(@color, -8%);
+	.box-shadow(0px 3px 4px -2px rgba(0,0,0,.3));
+
+	&:active {
+		top:6px;
+		margin-bottom:6px;
+		border-bottom-width:8px;
+	}
+}
+.commodore-keyboard {.commodore-keyboard;}
+a.commodore-keyboard {cursor: pointer;}
+
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+==            YOUR THEME             ===================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+/*
+POSSIBLE TROUBLESHOOTINGS
+
+= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+
+For background images PATH you have two main choices
+
+Easiest, but static, it requires to change the path if you move the site path:
+@img: "http://site.com/img/";
+body {
+	background-image: url("@{img}melamine-wood-004.png");
+}
+
+Hardesst, but dynamic, you set the img path from the javascript configuration in the html page file:
+HTML page
+<script type="text/javascript">
+	// put this code before loading less JavaScript
+	less = {
+		rootpath: "<?php echo $webroot; ?>img/" // a path to add on to the start of every url resource
+	}
+</script>
+<script type="text/javascript" src="js/less-1.4.0-beta.min.js"></script>
+
+Frontsize LESS file
+body {
+	background-image: url("melamine-wood-004.png");
+}
+
+= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+
+Remember to put the ; after a list of comma separated params to group them:
+.method(1,2,3;); => .method(@params) {...}
+
+If the method expect a list of params you don't need it:
+.method(1,2,3); => .method(@param-1, @param-2, @param-3) {...}
+*/
+
+// Style your media query's theme here, this is the recommended type
+
+@media only screen and (min-width : @smartphone-portrait-step) {
+	// 
+}
+@media only screen and (min-width : @smartphone-landscape-step) {
+	// 
+}
+@media only screen and (min-width : @tablet-portrait-step) {
+	// 
+}
+@media only screen and (min-width : @tablet-landscape-step) {
+	// 
+}
+@media only screen and (min-width : @hd-ready-step) {
+	// 
+}
+@media only screen and (min-width : @hd-full-step) {
+	// 
+}
+
+// Style your theme here
 @black:#393634;
+@blue:#0c94c7;
+
+a {
+	color:@blue;
+}
+
+
+
 
 hr {
-	margin:@vertical-padding 0;
 	@border:2px solid @black;
 	border:none;
 	border-bottom:@border;
@@ -823,14 +1232,15 @@ hr {
 
 body {
 	padding:2em 0;
-	background-image: url("@{img}Melamine-wood-004.png");
+	background-image: url("melamine-wood-004.png");
 	color:@black;
 }
-.with-steps {
+.use-steps {
 	.shadow(0px 1px 10px rgba(0,0,0,.75));
-	background-image: url("@{img}handmadepaper.png");
+	background-image: url("handmade-paper.png");
+	background-color: rgb(242,245,245);
 	header {
-		padding-top:@vertical-padding;
+		background-position: center center;
 		strong {
 			color:lighten(@black,20%);
 		}
@@ -840,18 +1250,6 @@ body {
 	}
 }
 
-
-.button {
-	padding:.5em .75em;
-	text-decoration: none;
-	display: inline-block;
-	color:white;
-	text-shadow:1px 1px 1px rgba(0,0,0,.2);
-	background-color: @black;
-	border-bottom:4px solid black;
-	.round(6px);
-	.shadow(0px 3px 4px -2px rgba(0,0,0,.3));
-}
 
 .nav-buttons {
 	a {
@@ -878,11 +1276,16 @@ h1 {
 		color:@black;
 		text-shadow:0px 1px 1px rgba(255,255,255,.5);
 		font-size:4em;
-		
+		line-height: 0;
 	}
 	span {
 			color:fade(@black,50%);
 		}
+}
+
+.fix-position {
+	background-color: @black;
+	color:white;
 }
 
 .with-padding {
@@ -925,35 +1328,4 @@ h1 {
 	}
 }
 
-/* almost full hd */
-@media only screen and (max-width : @hd-full-step) {
-	// your code here
-}
 
-/* hd ready */
-@media only screen and (max-width : @hd-ready-step) {
-	// your code here
-}
-
-/* tablets, landscape */
-@media only screen and (max-width : @tablet-landscape-step) {
-	// your code here
-}
-
-/* tablets, portrait */
-@media only screen and (max-width : @tablet-portrait-step) {
-	// your code here
-}
-
-/* smartphones, landscape 480~568~685 */
-@media only screen and (max-width : @smartphone-landscape-step) {
-	// your code here
-}
-
-/* smartphones, portrait 320~380 */
-@media only screen and (max-width : @smartphone-portrait-step) {
-	// your code here
-	* {
-		.shadow(none);
-	}
-}
