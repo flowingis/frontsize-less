@@ -154,52 +154,52 @@ Frontsize global setting
 }
 .frontsize-h-font-scaling(@hd-full:1.5em, @hd-ready:1.25em, @tablet-landscape:1.125em, @tablet-portrait:1.125em, @smartphone-landscape:1em, @smartphone-portrait:1em) {
 	@media only screen and (min-width : @smartphone-portrait-step)	{
-		h1 { font-size: (@h1*@smartphone-portrait); }
-		h2 { font-size: (@h2*@smartphone-portrait); }
-		h3 { font-size: (@h3*@smartphone-portrait); }
-		h4 { font-size: (@h4*@smartphone-portrait); }
-		h5 { font-size: (@h5*@smartphone-portrait); }
-		h6 { font-size: (@h6*@smartphone-portrait); }
+		h1 { font-size: unit(@h1*@smartphone-portrait,em); }
+		h2 { font-size: unit(@h2*@smartphone-portrait,em); }
+		h3 { font-size: unit(@h3*@smartphone-portrait,em); }
+		h4 { font-size: unit(@h4*@smartphone-portrait,em); }
+		h5 { font-size: unit(@h5*@smartphone-portrait,em); }
+		h6 { font-size: unit(@h6*@smartphone-portrait,em); }
 	}
 	@media only screen and (min-width : @smartphone-landscape-step)	{
-		h1 { font-size: (@h1*@smartphone-landscape); }
-		h2 { font-size: (@h2*@smartphone-landscape); }
-		h3 { font-size: (@h3*@smartphone-landscape); }
-		h4 { font-size: (@h4*@smartphone-landscape); }
-		h5 { font-size: (@h5*@smartphone-landscape); }
-		h6 { font-size: (@h6*@smartphone-landscape); }
+		h1 { font-size: unit(@h1*@smartphone-landscape,em); }
+		h2 { font-size: unit(@h2*@smartphone-landscape,em); }
+		h3 { font-size: unit(@h3*@smartphone-landscape,em); }
+		h4 { font-size: unit(@h4*@smartphone-landscape,em); }
+		h5 { font-size: unit(@h5*@smartphone-landscape,em); }
+		h6 { font-size: unit(@h6*@smartphone-landscape,em); }
 	}
 	@media only screen and (min-width : @tablet-portrait-step) {
-		h1 { font-size: (@h1*@tablet-portrait); }
-		h2 { font-size: (@h2*@tablet-portrait); }
-		h3 { font-size: (@h3*@tablet-portrait); }
-		h4 { font-size: (@h4*@tablet-portrait); }
-		h5 { font-size: (@h5*@tablet-portrait); }
-		h6 { font-size: (@h6*@tablet-portrait); }
+		h1 { font-size: unit(@h1*@tablet-portrait,em); }
+		h2 { font-size: unit(@h2*@tablet-portrait,em); }
+		h3 { font-size: unit(@h3*@tablet-portrait,em); }
+		h4 { font-size: unit(@h4*@tablet-portrait,em); }
+		h5 { font-size: unit(@h5*@tablet-portrait,em); }
+		h6 { font-size: unit(@h6*@tablet-portrait,em); }
 	}
 	@media only screen and (min-width : @tablet-landscape-step) {
-		h1 { font-size: (@h1*@tablet-landscape); }
-		h2 { font-size: (@h2*@tablet-landscape); }
-		h3 { font-size: (@h3*@tablet-landscape); }
-		h4 { font-size: (@h4*@tablet-landscape); }
-		h5 { font-size: (@h5*@tablet-landscape); }
-		h6 { font-size: (@h6*@tablet-landscape); }
+		h1 { font-size: unit(@h1*@tablet-landscape,em); }
+		h2 { font-size: unit(@h2*@tablet-landscape,em); }
+		h3 { font-size: unit(@h3*@tablet-landscape,em); }
+		h4 { font-size: unit(@h4*@tablet-landscape,em); }
+		h5 { font-size: unit(@h5*@tablet-landscape,em); }
+		h6 { font-size: unit(@h6*@tablet-landscape,em); }
 	}
 	@media only screen and (min-width : @hd-ready-step) {
-		h1 { font-size: (@h1*@hd-ready); }
-		h2 { font-size: (@h2*@hd-ready); }
-		h3 { font-size: (@h3*@hd-ready); }
-		h4 { font-size: (@h4*@hd-ready); }
-		h5 { font-size: (@h5*@hd-ready); }
-		h6 { font-size: (@h6*@hd-ready); }
+		h1 { font-size: unit(@h1*@hd-ready,em); }
+		h2 { font-size: unit(@h2*@hd-ready,em); }
+		h3 { font-size: unit(@h3*@hd-ready,em); }
+		h4 { font-size: unit(@h4*@hd-ready,em); }
+		h5 { font-size: unit(@h5*@hd-ready,em); }
+		h6 { font-size: unit(@h6*@hd-ready,em); }
 	}
 	@media only screen and (min-width : @hd-full-step) {
-		h1 { font-size: (@h1*@hd-full); }
-		h2 { font-size: (@h2*@hd-full); }
-		h3 { font-size: (@h3*@hd-full); }
-		h4 { font-size: (@h4*@hd-full); }
-		h5 { font-size: (@h5*@hd-full); }
-		h6 { font-size: (@h6*@hd-full); }
+		h1 { font-size: unit(@h1*@hd-full,em); }
+		h2 { font-size: unit(@h2*@hd-full,em); }
+		h3 { font-size: unit(@h3*@hd-full,em); }
+		h4 { font-size: unit(@h4*@hd-full,em); }
+		h5 { font-size: unit(@h5*@hd-full,em); }
+		h6 { font-size: unit(@h6*@hd-full,em); }
 	}
 }
 .columns {
@@ -698,30 +698,15 @@ Frontsize internal methods to extend with new columns
 	.with-vertical-steps-padding { padding-top:@step !important; padding-bottom:@step !important; }
 }
 
-/**
-Global settings effects
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==               CSS 3               ===================================================================================================================================
+==           CROSS BROWSER           ===================================================================================================================================
+==           COMAPTIBILITY           ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
 */
-.global-input-placeholder(@color:#999999, @focused:#CCCCCC) {
-	// sets the color of the input text placeholder attribute
-	::-webkit-input-placeholder { color:@color; }
-	input:focus::-webkit-input-placeholder { color:@focused; }
-
-	:-moz-placeholder { color:@color; }
-	input:focus:-moz-placeholder { color:@focused; }
-	::-moz-placeholder { color:@color; }
-	input:focus::-moz-placeholder { color:@focused; }
-
-	:-ms-input-placeholder { color:@color; }
-	input:focus:-ms-input-placeholder { color:@focused; }
-}
-
-.global-text-antialias(@antialias:antialiased) {
-	// sets the antialias text for the whole page
-	// @antialias: antialiased | subpixel-antialiased | none
-	body {
-		-webkit-font-smoothing: @antialias;
-	}
-}
 
 /**
 Frontsize CSS compatibility APIs
@@ -758,39 +743,32 @@ Frontsize CSS compatibility APIs
 	-o-transition-property:@property;
 	transition-property:@property;
 }
-
-.ease-in-quad		{.ease(cubic-bezier(0.550, 0.085, 0.680, 0.530));}
-.ease-in-cubic		{.ease(cubic-bezier(0.550, 0.055, 0.675, 0.190));}
-.ease-in-quart		{.ease(cubic-bezier(0.895, 0.030, 0.685, 0.220));}
-.ease-in-quint		{.ease(cubic-bezier(0.755, 0.050, 0.855, 0.060));}
-.ease-in-sine		{.ease(cubic-bezier(0.470, 0.000, 0.745, 0.715));}
-.ease-in-expo		{.ease(cubic-bezier(0.950, 0.050, 0.795, 0.035));}
-.ease-in-circ		{.ease(cubic-bezier(0.600, 0.040, 0.980, 0.335));}
-.ease-in-back		{.ease(cubic-bezier(0.600,-0.280, 0.735, 0.045));}
-.ease-out-quad		{.ease(cubic-bezier(0.250, 0.460, 0.450, 0.940));}
-.ease-out-cubic		{.ease(cubic-bezier(0.215, 0.610, 0.355, 1.000));}
-.ease-out-quart		{.ease(cubic-bezier(0.165, 0.840, 0.440, 1.000));}
-.ease-out-quint		{.ease(cubic-bezier(0.230, 1.000, 0.320, 1.000));}
-.ease-out-sine		{.ease(cubic-bezier(0.390, 0.575, 0.565, 1.000));}
-.ease-out-expo		{.ease(cubic-bezier(0.190, 1.000, 0.220, 1.000));}
-.ease-out-circ		{.ease(cubic-bezier(0.075, 0.820, 0.165, 1.000));}
-.ease-out-back		{.ease(cubic-bezier(0.175, 0.885, 0.320, 1.275));}
-.ease-in-out-quad	{.ease(cubic-bezier(0.455, 0.030, 0.515, 0.955));}
-.ease-in-out-cubic	{.ease(cubic-bezier(0.645, 0.045, 0.355, 1.000));}
-.ease-in-out-quart	{.ease(cubic-bezier(0.770, 0.000, 0.175, 1.000));}
-.ease-in-out-quint	{.ease(cubic-bezier(0.860, 0.000, 0.070, 1.000));}
-.ease-in-out-sine	{.ease(cubic-bezier(0.445, 0.050, 0.550, 0.950));}
-.ease-in-out-expo	{.ease(cubic-bezier(1.000, 0.000, 0.000, 1.000));}
-.ease-in-out-circ	{.ease(cubic-bezier(0.785, 0.135, 0.150, 0.860));}
-.ease-in-out-back	{.ease(cubic-bezier(0.680,-0.550, 0.265, 1.550));}
-
 .ease(@easing:ease-in-out) {
 	-moz-transition-timing-function:@easing;
 	-webkit-transition-timing-function:@easing;
 	-o-transition-timing-function:@easing;
 	transition-timing-function:@easing;
 }
+.input-placeholder(@color:#999999, @focused:#CCCCCC) {
+	// sets the color of the input text placeholder attribute
+	::-webkit-input-placeholder { color:@color; }
+	input:focus::-webkit-input-placeholder { color:@focused; }
 
+	:-moz-placeholder { color:@color; }
+	input:focus:-moz-placeholder { color:@focused; }
+	::-moz-placeholder { color:@color; }
+	input:focus::-moz-placeholder { color:@focused; }
+
+	:-ms-input-placeholder { color:@color; }
+	input:focus:-ms-input-placeholder { color:@focused; }
+}
+.font-smoothing(@antialias:antialiased) {
+	// sets the antialias text for the whole page
+	// @antialias: antialiased | subpixel-antialiased | none
+	body {
+		-webkit-font-smoothing: @antialias;
+	}
+}
 .round(@radius:6px) {
 	// sets a radius to the angles of the element
 	/*
@@ -946,7 +924,13 @@ Frontsize CSS compatibility APIs
 	-moz-appearance:@appearence;
 	-webkit-appearance:@appearence;
 }
-
+.linear-gradient(@gradient:top, #FFFFFF, #000000;) {
+	background: linear-gradient(@gradient);
+	background: -o-linear-gradient(@gradient);
+	background: -ms-linear-gradient(@gradient);
+	background: -moz-linear-gradient(@gradient);
+	background: -webkit-linear-gradient(@gradient);
+}
 
 /*
 ========================================================================================================================================================================
@@ -982,15 +966,34 @@ Frontsize extended methods
 
 	.ease(@easing);
 }
+// Easing effects
+.ease-in-quad		{.ease(cubic-bezier(0.550, 0.085, 0.680, 0.530));}
+.ease-in-cubic		{.ease(cubic-bezier(0.550, 0.055, 0.675, 0.190));}
+.ease-in-quart		{.ease(cubic-bezier(0.895, 0.030, 0.685, 0.220));}
+.ease-in-quint		{.ease(cubic-bezier(0.755, 0.050, 0.855, 0.060));}
+.ease-in-sine		{.ease(cubic-bezier(0.470, 0.000, 0.745, 0.715));}
+.ease-in-expo		{.ease(cubic-bezier(0.950, 0.050, 0.795, 0.035));}
+.ease-in-circ		{.ease(cubic-bezier(0.600, 0.040, 0.980, 0.335));}
+.ease-in-back		{.ease(cubic-bezier(0.600,-0.280, 0.735, 0.045));}
+.ease-out-quad		{.ease(cubic-bezier(0.250, 0.460, 0.450, 0.940));}
+.ease-out-cubic		{.ease(cubic-bezier(0.215, 0.610, 0.355, 1.000));}
+.ease-out-quart		{.ease(cubic-bezier(0.165, 0.840, 0.440, 1.000));}
+.ease-out-quint		{.ease(cubic-bezier(0.230, 1.000, 0.320, 1.000));}
+.ease-out-sine		{.ease(cubic-bezier(0.390, 0.575, 0.565, 1.000));}
+.ease-out-expo		{.ease(cubic-bezier(0.190, 1.000, 0.220, 1.000));}
+.ease-out-circ		{.ease(cubic-bezier(0.075, 0.820, 0.165, 1.000));}
+.ease-out-back		{.ease(cubic-bezier(0.175, 0.885, 0.320, 1.275));}
+.ease-in-out-quad	{.ease(cubic-bezier(0.455, 0.030, 0.515, 0.955));}
+.ease-in-out-cubic	{.ease(cubic-bezier(0.645, 0.045, 0.355, 1.000));}
+.ease-in-out-quart	{.ease(cubic-bezier(0.770, 0.000, 0.175, 1.000));}
+.ease-in-out-quint	{.ease(cubic-bezier(0.860, 0.000, 0.070, 1.000));}
+.ease-in-out-sine	{.ease(cubic-bezier(0.445, 0.050, 0.550, 0.950));}
+.ease-in-out-expo	{.ease(cubic-bezier(1.000, 0.000, 0.000, 1.000));}
+.ease-in-out-circ	{.ease(cubic-bezier(0.785, 0.135, 0.150, 0.860));}
+.ease-in-out-back	{.ease(cubic-bezier(0.680,-0.550, 0.265, 1.550));}
+
 .shadow(@shadow:0px 0px 1px rgba(0,0,0,.3)) {
 	.box-shadow(@shadow);
-}
-.linear-gradient(@gradient:top, #FFFFFF, #000000;) {
-	background: linear-gradient(@gradient);
-	background: -o-linear-gradient(@gradient);
-	background: -ms-linear-gradient(@gradient);
-	background: -moz-linear-gradient(@gradient);
-	background: -webkit-linear-gradient(@gradient);
 }
 .vertical-gradient(@color:#cbcbcb, @strenght:5%) {
 	/*
