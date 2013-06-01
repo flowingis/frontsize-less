@@ -19,21 +19,22 @@ Website: http://vittoriovittori.com
 Frontsize default values to override, change them in the way you like
 */
 
+@font-default:'helvetica neue', helvetica, arial, sans-serif;
+@font-h:'helvetica neue', helvetica, arial, sans-serif;
+
 @horizontal-padding:1em;
 @vertical-padding:1em;
 
 // set the margins
-.frontsize-steps(); // .frontsize-steps(200px, 100px, 50px, 0px);
+.frontsize-steps();				// .frontsize-steps(200px, 100px, 50px, 0px);
 .frontsize-steps-padding();
 
 // set font scaling to change the font size depending by different resolutions
-.frontsize-font-scaling(); // .frontsize-scaling (@hd-full, @hd-ready, @tablet-landscape, @tablet-portrait, @smartphone-landscape);
-.frontsize-h-font-scaling();
+.frontsize-font-scaling();		// .frontsize-font-scaling (@hd-full, @hd-ready, @tablet-landscape, @tablet-portrait, @smartphone-landscape);
+.frontsize-h-font-scaling();	// same config of .frontsize-font-scaling
+// .font-smoothing();			// if you want to enable font smoothing (will be applied to webkit only)
 
-@font-default:'helvetica neue', helvetica, arial, sans-serif;
-@font-h:'helvetica neue', helvetica, arial, sans-serif;
-
-// settings h elements sizes
+// font sizes for h# elements 
 @h1:   2em;
 @h2: 1.5em;
 @h3:   1em;
@@ -42,12 +43,23 @@ Frontsize default values to override, change them in the way you like
 @h6:0.65em;
 
 // set different width for the smartphones, tablets and hd resolutions
-@smartphone-portrait-step: 380px;	// smartphones portrait		320~380
-@smartphone-landscape-step:685px;	// smartphones landscape	480~568~685
-@tablet-portrait-step:	   768px;	// tabled portrait			768
-@tablet-landscape-step:	  1024px;	// tabled landscape			1024
-@hd-ready-step:			  1280px;	// HD Ready					1280 (720p)
-@hd-full-step:			  1800px;	// Full HD					1920 (1080p)
+@smartphone-portrait-step:	380px;	// smartphones portrait		320~380
+@smartphone-landscape-step:	685px;	// smartphones landscape	480~568~685
+@tablet-portrait-step:	   	768px;	// tabled portrait			768
+@tablet-landscape-step:	  	1024px;	// tabled landscape			1024
+@hd-ready-step:			  	1280px;	// HD Ready					1280 (720p)
+@hd-full-step:			  	1800px;	// Full HD					1920 (1080p)
+
+
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+==      ADVANCED CONFIGURATION       ===================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
 
 /**
 Responsive columns behavior configuration
@@ -119,7 +131,7 @@ HERE ENDS YOUR CONFIGURATION
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
 ==                                   ===================================================================================================================================
-==            FRONTSIZE              ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
 ==                                   ===================================================================================================================================
 ==                                   ===================================================================================================================================
 ========================================================================================================================================================================
@@ -202,26 +214,29 @@ Frontsize global setting
 		h6 { font-size: unit(@h6*@hd-full,em); }
 	}
 }
+.columns * {
+	.wrap;
+}
 .columns {
 	padding-top:@vertical-padding;
 }
 .columns > * {
 	padding-bottom:@vertical-padding;
 }
-.columns > *,.wide-all,
-.wide-1-on-16, .wide-2-on-16, .wide-3-on-16, .wide-4-on-16, .wide-5-on-16, .wide-6-on-16, .wide-7-on-16, .wide-8-on-16, .wide-9-on-16, .wide-10-on-16, .wide-11-on-16, .wide-12-on-16, .wide-13-on-16, .wide-14-on-16, .wide-15-on-16, .wide-16-on-16,
-.wide-1-on-12, .wide-2-on-12, .wide-3-on-12, .wide-4-on-12, .wide-5-on-12, .wide-6-on-12, .wide-7-on-12, .wide-8-on-12, .wide-9-on-12, .wide-10-on-12, .wide-11-on-12, .wide-12-on-12,
-.wide-1-on-10, .wide-2-on-10, .wide-3-on-10, .wide-4-on-10, .wide-5-on-10, .wide-6-on-10, .wide-7-on-10, .wide-8-on-10, .wide-9-on-10, .wide-10-on-10,
-.wide-1-on-8, .wide-2-on-8, .wide-3-on-8, .wide-4-on-8, .wide-5-on-8, .wide-6-on-8, .wide-7-on-8, .wide-8-on-8,
-.wide-1-on-6, .wide-2-on-6, .wide-3-on-6, .wide-4-on-6, .wide-5-on-6, .wide-6-on-6,
-.wide-1-on-5, .wide-2-on-5, .wide-3-on-5, .wide-4-on-5, .wide-5-on-5,
-.wide-1-on-4, .wide-2-on-4, .wide-3-on-4, .wide-4-on-4,
-.wide-1-on-3, .wide-2-on-3, .wide-3-on-3,
-.wide-1-on-2, .wide-2-on-2 {
+.columns > *, .full,
+.wide-1-of-16, .wide-2-of-16, .wide-3-of-16, .wide-4-of-16, .wide-5-of-16, .wide-6-of-16, .wide-7-of-16, .wide-8-of-16, .wide-9-of-16, .wide-10-of-16, .wide-11-of-16, .wide-12-of-16, .wide-13-of-16, .wide-14-of-16, .wide-15-of-16, .wide-16-of-16,
+.wide-1-of-12, .wide-2-of-12, .wide-3-of-12, .wide-4-of-12, .wide-5-of-12, .wide-6-of-12, .wide-7-of-12, .wide-8-of-12, .wide-9-of-12, .wide-10-of-12, .wide-11-of-12, .wide-12-of-12,
+.wide-1-of-10, .wide-2-of-10, .wide-3-of-10, .wide-4-of-10, .wide-5-of-10, .wide-6-of-10, .wide-7-of-10, .wide-8-of-10, .wide-9-of-10, .wide-10-of-10,
+.wide-1-of-8, .wide-2-of-8, .wide-3-of-8, .wide-4-of-8, .wide-5-of-8, .wide-6-of-8, .wide-7-of-8, .wide-8-of-8,
+.wide-1-of-6, .wide-2-of-6, .wide-3-of-6, .wide-4-of-6, .wide-5-of-6, .wide-6-of-6,
+.wide-1-of-5, .wide-2-of-5, .wide-3-of-5, .wide-4-of-5, .wide-5-of-5,
+.wide-1-of-4, .wide-2-of-4, .wide-3-of-4, .wide-4-of-4,
+.wide-1-of-3, .wide-2-of-3, .wide-3-of-3,
+.wide-1-of-2, .wide-2-of-2 {
 	padding-left:@horizontal-padding;
 	padding-right:@horizontal-padding;
 	float: left;
-	position: relative;
+	position: relative; // just to help who like to use some absolute element inside without need to assign position relative to all Frontsize selectors
 	.wrap;
 }
 
@@ -308,80 +323,80 @@ Sizing rules and APIs
 .contain-16 > .skip-15-cols { .set-margin-step(11,16);}
 
 // to change the default rule of elements width balance to a more specific one
-.columns >  *.wide-1-on-16,  .wide-1-on-16 { .set-column-step(1,16); }
-.columns >  *.wide-2-on-16,  .wide-2-on-16 { .set-column-step(2,16); }
-.columns >  *.wide-3-on-16,  .wide-3-on-16 { .set-column-step(3,16); }
-.columns >  *.wide-4-on-16,  .wide-4-on-16 { .set-column-step(4,16); }
-.columns >  *.wide-5-on-16,  .wide-5-on-16 { .set-column-step(5,16); }
-.columns >  *.wide-6-on-16,  .wide-6-on-16 { .set-column-step(6,16); }
-.columns >  *.wide-7-on-16,  .wide-7-on-16 { .set-column-step(7,16); }
-.columns >  *.wide-8-on-16,  .wide-8-on-16 { .set-column-step(8,16); }
-.columns >  *.wide-9-on-16,  .wide-9-on-16 { .set-column-step(9,16); }
-.columns > *.wide-10-on-16, .wide-10-on-16 { .set-column-step(10,16);}
-.columns > *.wide-11-on-16, .wide-11-on-16 { .set-column-step(11,16);}
-.columns > *.wide-12-on-16, .wide-12-on-16 { .set-column-step(12,16);}
-.columns > *.wide-13-on-16, .wide-13-on-16 { .set-column-step(13,16);}
-.columns > *.wide-14-on-16, .wide-14-on-16 { .set-column-step(14,16);}
-.columns > *.wide-15-on-16, .wide-15-on-16 { .set-column-step(15,16);}
-.columns > *.wide-16-on-16, .wide-16-on-16 { .set-column-step(16,16);}
+.columns >  *.wide-1-of-16,  .wide-1-of-16 { .set-column-step(1,16); }
+.columns >  *.wide-2-of-16,  .wide-2-of-16 { .set-column-step(2,16); }
+.columns >  *.wide-3-of-16,  .wide-3-of-16 { .set-column-step(3,16); }
+.columns >  *.wide-4-of-16,  .wide-4-of-16 { .set-column-step(4,16); }
+.columns >  *.wide-5-of-16,  .wide-5-of-16 { .set-column-step(5,16); }
+.columns >  *.wide-6-of-16,  .wide-6-of-16 { .set-column-step(6,16); }
+.columns >  *.wide-7-of-16,  .wide-7-of-16 { .set-column-step(7,16); }
+.columns >  *.wide-8-of-16,  .wide-8-of-16 { .set-column-step(8,16); }
+.columns >  *.wide-9-of-16,  .wide-9-of-16 { .set-column-step(9,16); }
+.columns > *.wide-10-of-16, .wide-10-of-16 { .set-column-step(10,16);}
+.columns > *.wide-11-of-16, .wide-11-of-16 { .set-column-step(11,16);}
+.columns > *.wide-12-of-16, .wide-12-of-16 { .set-column-step(12,16);}
+.columns > *.wide-13-of-16, .wide-13-of-16 { .set-column-step(13,16);}
+.columns > *.wide-14-of-16, .wide-14-of-16 { .set-column-step(14,16);}
+.columns > *.wide-15-of-16, .wide-15-of-16 { .set-column-step(15,16);}
+.columns > *.wide-16-of-16, .wide-16-of-16 { .set-column-step(16,16);}
 
-.columns >  *.wide-1-on-12,  .wide-1-on-12 { .set-column-step(1,12); }
-.columns >  *.wide-2-on-12,  .wide-2-on-12 { .set-column-step(2,12); }
-.columns >  *.wide-3-on-12,  .wide-3-on-12 { .set-column-step(3,12); }
-.columns >  *.wide-4-on-12,  .wide-4-on-12 { .set-column-step(4,12); }
-.columns >  *.wide-5-on-12,  .wide-5-on-12 { .set-column-step(5,12); }
-.columns >  *.wide-6-on-12,  .wide-6-on-12 { .set-column-step(6,12); }
-.columns >  *.wide-7-on-12,  .wide-7-on-12 { .set-column-step(7,12); }
-.columns >  *.wide-8-on-12,  .wide-8-on-12 { .set-column-step(8,12); }
-.columns >  *.wide-9-on-12,  .wide-9-on-12 { .set-column-step(9,12); }
-.columns > *.wide-10-on-12, .wide-10-on-12 { .set-column-step(10,12);}
-.columns > *.wide-11-on-12, .wide-11-on-12 { .set-column-step(11,12);}
-.columns > *.wide-12-on-12, .wide-12-on-12 { .set-column-step(12,12);}
+.columns >  *.wide-1-of-12,  .wide-1-of-12 { .set-column-step(1,12); }
+.columns >  *.wide-2-of-12,  .wide-2-of-12 { .set-column-step(2,12); }
+.columns >  *.wide-3-of-12,  .wide-3-of-12 { .set-column-step(3,12); }
+.columns >  *.wide-4-of-12,  .wide-4-of-12 { .set-column-step(4,12); }
+.columns >  *.wide-5-of-12,  .wide-5-of-12 { .set-column-step(5,12); }
+.columns >  *.wide-6-of-12,  .wide-6-of-12 { .set-column-step(6,12); }
+.columns >  *.wide-7-of-12,  .wide-7-of-12 { .set-column-step(7,12); }
+.columns >  *.wide-8-of-12,  .wide-8-of-12 { .set-column-step(8,12); }
+.columns >  *.wide-9-of-12,  .wide-9-of-12 { .set-column-step(9,12); }
+.columns > *.wide-10-of-12, .wide-10-of-12 { .set-column-step(10,12);}
+.columns > *.wide-11-of-12, .wide-11-of-12 { .set-column-step(11,12);}
+.columns > *.wide-12-of-12, .wide-12-of-12 { .set-column-step(12,12);}
 
-.columns >  *.wide-1-on-10,  .wide-1-on-10 { .set-column-step(1,10); }
-.columns >  *.wide-2-on-10,  .wide-2-on-10 { .set-column-step(2,10); }
-.columns >  *.wide-3-on-10,  .wide-3-on-10 { .set-column-step(3,10); }
-.columns >  *.wide-4-on-10,  .wide-4-on-10 { .set-column-step(4,10); }
-.columns >  *.wide-5-on-10,  .wide-5-on-10 { .set-column-step(5,10); }
-.columns >  *.wide-6-on-10,  .wide-6-on-10 { .set-column-step(6,10); }
-.columns >  *.wide-7-on-10,  .wide-7-on-10 { .set-column-step(7,10); }
-.columns >  *.wide-8-on-10,  .wide-8-on-10 { .set-column-step(8,10); }
-.columns >  *.wide-9-on-10,  .wide-9-on-10 { .set-column-step(9,10); }
-.columns > *.wide-10-on-10, .wide-10-on-10 { .set-column-step(10,10);}
+.columns >  *.wide-1-of-10,  .wide-1-of-10 { .set-column-step(1,10); }
+.columns >  *.wide-2-of-10,  .wide-2-of-10 { .set-column-step(2,10); }
+.columns >  *.wide-3-of-10,  .wide-3-of-10 { .set-column-step(3,10); }
+.columns >  *.wide-4-of-10,  .wide-4-of-10 { .set-column-step(4,10); }
+.columns >  *.wide-5-of-10,  .wide-5-of-10 { .set-column-step(5,10); }
+.columns >  *.wide-6-of-10,  .wide-6-of-10 { .set-column-step(6,10); }
+.columns >  *.wide-7-of-10,  .wide-7-of-10 { .set-column-step(7,10); }
+.columns >  *.wide-8-of-10,  .wide-8-of-10 { .set-column-step(8,10); }
+.columns >  *.wide-9-of-10,  .wide-9-of-10 { .set-column-step(9,10); }
+.columns > *.wide-10-of-10, .wide-10-of-10 { .set-column-step(10,10);}
 
-.columns > *.wide-1-on-8, .wide-1-on-8 { .set-column-step(1,8);}
-.columns > *.wide-2-on-8, .wide-2-on-8 { .set-column-step(2,8);}
-.columns > *.wide-3-on-8, .wide-3-on-8 { .set-column-step(3,8);}
-.columns > *.wide-4-on-8, .wide-4-on-8 { .set-column-step(4,8);}
-.columns > *.wide-5-on-8, .wide-5-on-8 { .set-column-step(5,8);}
-.columns > *.wide-6-on-8, .wide-6-on-8 { .set-column-step(6,8);}
-.columns > *.wide-7-on-8, .wide-7-on-8 { .set-column-step(7,8);}
-.columns > *.wide-8-on-8, .wide-8-on-8 { .set-column-step(8,8);}
+.columns > *.wide-1-of-8, .wide-1-of-8 { .set-column-step(1,8);}
+.columns > *.wide-2-of-8, .wide-2-of-8 { .set-column-step(2,8);}
+.columns > *.wide-3-of-8, .wide-3-of-8 { .set-column-step(3,8);}
+.columns > *.wide-4-of-8, .wide-4-of-8 { .set-column-step(4,8);}
+.columns > *.wide-5-of-8, .wide-5-of-8 { .set-column-step(5,8);}
+.columns > *.wide-6-of-8, .wide-6-of-8 { .set-column-step(6,8);}
+.columns > *.wide-7-of-8, .wide-7-of-8 { .set-column-step(7,8);}
+.columns > *.wide-8-of-8, .wide-8-of-8 { .set-column-step(8,8);}
 
-.columns > *.wide-1-on-6, .wide-1-on-6 { .set-column-step(1,6);}
-.columns > *.wide-2-on-6, .wide-2-on-6 { .set-column-step(2,6);}
-.columns > *.wide-3-on-6, .wide-3-on-6 { .set-column-step(3,6);}
-.columns > *.wide-4-on-6, .wide-4-on-6 { .set-column-step(4,6);}
-.columns > *.wide-5-on-6, .wide-5-on-6 { .set-column-step(5,6);}
-.columns > *.wide-6-on-6, .wide-6-on-6 { .set-column-step(6,6);}
+.columns > *.wide-1-of-6, .wide-1-of-6 { .set-column-step(1,6);}
+.columns > *.wide-2-of-6, .wide-2-of-6 { .set-column-step(2,6);}
+.columns > *.wide-3-of-6, .wide-3-of-6 { .set-column-step(3,6);}
+.columns > *.wide-4-of-6, .wide-4-of-6 { .set-column-step(4,6);}
+.columns > *.wide-5-of-6, .wide-5-of-6 { .set-column-step(5,6);}
+.columns > *.wide-6-of-6, .wide-6-of-6 { .set-column-step(6,6);}
 
-.columns > *.wide-1-on-5, .wide-1-on-5 { .set-column-step(1,5); }
-.columns > *.wide-2-on-5, .wide-2-on-5 { .set-column-step(2,5); }
-.columns > *.wide-3-on-5, .wide-3-on-5 { .set-column-step(3,5); }
-.columns > *.wide-4-on-5, .wide-4-on-5 { .set-column-step(4,5); }
-.columns > *.wide-5-on-5, .wide-5-on-5 { .set-column-step(5,5); }
+.columns > *.wide-1-of-5, .wide-1-of-5 { .set-column-step(1,5); }
+.columns > *.wide-2-of-5, .wide-2-of-5 { .set-column-step(2,5); }
+.columns > *.wide-3-of-5, .wide-3-of-5 { .set-column-step(3,5); }
+.columns > *.wide-4-of-5, .wide-4-of-5 { .set-column-step(4,5); }
+.columns > *.wide-5-of-5, .wide-5-of-5 { .set-column-step(5,5); }
 
-.columns > *.wide-1-on-4, .wide-1-on-4 { .set-column-step(1,4); }
-.columns > *.wide-2-on-4, .wide-2-on-4 { .set-column-step(2,4); }
-.columns > *.wide-3-on-4, .wide-3-on-4 { .set-column-step(3,4); }
-.columns > *.wide-4-on-4, .wide-4-on-4 { .set-column-step(4,4); }
+.columns > *.wide-1-of-4, .wide-1-of-4 { .set-column-step(1,4); }
+.columns > *.wide-2-of-4, .wide-2-of-4 { .set-column-step(2,4); }
+.columns > *.wide-3-of-4, .wide-3-of-4 { .set-column-step(3,4); }
+.columns > *.wide-4-of-4, .wide-4-of-4 { .set-column-step(4,4); }
 
-.columns > *.wide-1-on-3, .wide-1-on-3 { .set-column-step(1,3);}
-.columns > *.wide-2-on-3, .wide-2-on-3 { .set-column-step(2,3);}
-.columns > *.wide-3-on-3, .wide-3-on-3 { .set-column-step(3,3);}
+.columns > *.wide-1-of-3, .wide-1-of-3 { .set-column-step(1,3);}
+.columns > *.wide-2-of-3, .wide-2-of-3 { .set-column-step(2,3);}
+.columns > *.wide-3-of-3, .wide-3-of-3 { .set-column-step(3,3);}
 
-.columns > *.wide-1-on-2, .wide-1-on-2 { .set-column-step(1,2);}
-.columns > *.wide-2-on-2, .wide-2-on-2 { .set-column-step(2,2);}
+.columns > *.wide-1-of-2, .wide-1-of-2 { .set-column-step(1,2);}
+.columns > *.wide-2-of-2, .wide-2-of-2 { .set-column-step(2,2);}
 
 // to be sure to go on the next row 
 .contain-2  > *:nth-child(2n+1)  { clear:both; }
@@ -394,9 +409,19 @@ Sizing rules and APIs
 .contain-12 > *:nth-child(12n+1) { clear:both; }
 .contain-16 > *:nth-child(16n+1) { clear:both; }
 
-.columns * {
-	.wrap;
-}
+
+
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+==        FRONTSIZE SELECTORS        ===================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+
 .use-steps {
 	// center the steps container
 	margin: auto;
@@ -415,7 +440,7 @@ Sizing rules and APIs
 	-o-box-sizing: border-box;
 	box-sizing: border-box;
 }
-.wide-all {
+.full {
 	// manually occupy all this row
 	width:100%;
 }
@@ -509,6 +534,15 @@ Sizing rules and APIs
 	}
 }
 
+
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
+==           NORMALIZATION           ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
 /**
 CSS normalization and responsive settings for Frontsize
 */
@@ -546,15 +580,20 @@ img { -ms-interpolation-mode: bicubic; }
 a img { border:none; }
 
 
-/**
-Responsive APIs
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
+==          VISIBILITY RULES         ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
 */
 
 /*
 NON Mobile First APIs
 hese media queries conditions are NOT RECOMMENDED if you want to start a layout from mobile
 */
-@padding:;
+
 @media only screen and (min-width : @hd-full-step) {
 	// Full HD						1920 (1080p)
 	//.only-on-hd-full				{background-color:pink; padding:.25em;}
@@ -637,28 +676,26 @@ Mobile First APIs
 
 /* tablets, landscape */
 @media only screen and (max-width : @tablet-landscape-step) {
-	.not-on-tablet-landscape { display:none; }
-	.wide-from-tablet-landscape > * { width:100% !important; }
+	.not-to-tablet-landscape { display:none; }
+	.full-from-tablet-landscape > * { width:100% !important; }
 }
 
 /* tablets, portrait */
 @media only screen and (max-width : @tablet-portrait-step) {
-	 .not-on-tablet-portrait { display:none; }
-	.wide-from-tablet-portrait > * { width:100% !important; }
-	.inline > * { clear:none !important; }
+	.not-to-tablet-portrait { display:none; }
+	.full-from-tablet-portrait > * { width:100% !important; }
 }
 
 /* smartphones, landscape 480~568~685 */
 @media only screen and (max-width : @smartphone-landscape-step) {
-	.only-on-tablet { display: none; }
-	.wide-from-smartphone-landscape > * { width:100% !important; }
-	 .not-on-smartphone-landscape { display:none; }
+	.not-to-smartphone-landscape { display:none; }
+	.full-from-smartphone-landscape > * { width:100% !important; }
 }
 
 /* smartphones, portrait 320~380 */
 @media only screen and (max-width : @smartphone-portrait-step) {
-	.not-on-smartphone-portrait { display:none; }
-	.wide-from-smartphone-portrait > * { width:100% !important; }
+	.not-to-smartphone-portrait { display:none; }
+	.full-from-smartphone-portrait > * { width:100% !important; }
 	.paginated-away {
 		// the first child will have text-align to left and the last child will have text-align to right
 		> * {
@@ -670,8 +707,18 @@ Mobile First APIs
 	nav a { display:block; width:100%; clear:both; }
 }
 
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
+==             INTERNAL              ===================================================================================================================================
+==              MIXINS               ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
 /**
-Frontsize internal methods to extend with new columns
+Frontsize internal mixins to extend with new columns
 */
 .set-columns(@columns) {
 	width:(100%/@columns) !important;
@@ -703,7 +750,7 @@ Frontsize internal methods to extend with new columns
 ==                                   ===================================================================================================================================
 ==               CSS 3               ===================================================================================================================================
 ==           CROSS BROWSER           ===================================================================================================================================
-==           COMAPTIBILITY           ===================================================================================================================================
+==        COMAPTIBILITY MIXINS       ===================================================================================================================================
 ==                                   ===================================================================================================================================
 ========================================================================================================================================================================
 */
@@ -935,9 +982,8 @@ Frontsize CSS compatibility APIs
 /*
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
-==                                   ===================================================================================================================================
-==            EXTENSIONS             ===================================================================================================================================
-==                                   ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
+==             MIXINS                ===================================================================================================================================
 ==                                   ===================================================================================================================================
 ========================================================================================================================================================================
 */
