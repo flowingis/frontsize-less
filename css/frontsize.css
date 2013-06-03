@@ -17,6 +17,12 @@ Website: http://vittoriovittori.com
 /**
 Frontsize default values to override, change them in the way you like
 */
+@media only screen and (min-width: 1px) {
+  
+}
+@media only screen and (min-width: 480px) {
+  
+}
 @media only screen and (min-width: 768px) {
   .use-steps {
     max-width: 768px;
@@ -37,7 +43,7 @@ Frontsize default values to override, change them in the way you like
     max-width: 1600px;
   }
 }
-@media only screen and (min-width: 380px) {
+@media only screen and (min-width: 1px) {
   .with-steps-padding {
     padding: 1em !important;
   }
@@ -50,7 +56,7 @@ Frontsize default values to override, change them in the way you like
     padding-bottom: 1em !important;
   }
 }
-@media only screen and (min-width: 685px) {
+@media only screen and (min-width: 480px) {
   .with-steps-padding {
     padding: 1em !important;
   }
@@ -115,7 +121,7 @@ Frontsize default values to override, change them in the way you like
     padding-bottom: 3em !important;
   }
 }
-@media only screen and (min-width: 380px) {
+@media only screen and (min-width: 1px) {
   body {
     font-size: 1em;
   }
@@ -123,7 +129,7 @@ Frontsize default values to override, change them in the way you like
     font-size: .75em;
   }
 }
-@media only screen and (min-width: 685px) {
+@media only screen and (min-width: 480px) {
   body {
     font-size: 1em;
   }
@@ -163,7 +169,7 @@ Frontsize default values to override, change them in the way you like
     font-size: .75em;
   }
 }
-@media only screen and (min-width: 380px) {
+@media only screen and (min-width: 1px) {
   h1 {
     font-size: 2em;
   }
@@ -183,7 +189,7 @@ Frontsize default values to override, change them in the way you like
     font-size: 0.65em;
   }
 }
-@media only screen and (min-width: 685px) {
+@media only screen and (min-width: 480px) {
   h1 {
     font-size: 2em;
   }
@@ -283,17 +289,31 @@ Frontsize default values to override, change them in the way you like
     font-size: 0.9750000000000001em;
   }
 }
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+==      ADVANCED CONFIGURATION       ===================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
 /**
 Responsive columns behavior configuration
 change the number a columns per row by setting this
 
 For example, on tablet landscape 5 columns will be turned into 3 columns:
-@media only screen and (max-width : @tablet-landscape-step) {
+@media only screen and (max-width : (@hd-ready-step - 1px)) {
   .contain-5  > * { .set-columns(3); }
 }
 */
-/* tablets, landscape */
-@media only screen and (max-width: 1024px) {
+@media only screen and (min-width: 1800px) {
+  
+}
+@media only screen and (max-width: 1799px) {
+  
+}
+@media only screen and (max-width: 1279px) {
   .contain-5 > * {
     width: 33.333333333333336% !important;
   }
@@ -361,7 +381,7 @@ For example, on tablet landscape 5 columns will be turned into 3 columns:
     clear: both;
   }
   .contain-8 > * {
-    width: 33.333333333333336% !important;
+    width: 25% !important;
   }
   .contain-8 > *:nth-child(2n+1) {
     clear: none;
@@ -390,7 +410,7 @@ For example, on tablet landscape 5 columns will be turned into 3 columns:
   .contain-8 > *:nth-child(16n+1) {
     clear: none;
   }
-  .contain-8 > *:nth-child(3n + 1) {
+  .contain-8 > *:nth-child(4n + 1) {
     clear: both;
   }
   .contain-10 > * {
@@ -493,8 +513,7 @@ For example, on tablet landscape 5 columns will be turned into 3 columns:
     clear: both;
   }
 }
-/* tablets, portrait */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1023px) {
   .contain-4 > * {
     width: 50% !important;
   }
@@ -595,7 +614,7 @@ For example, on tablet landscape 5 columns will be turned into 3 columns:
     clear: both;
   }
   .contain-8 > * {
-    width: 33.333333333333336% !important;
+    width: 25% !important;
   }
   .contain-8 > *:nth-child(2n+1) {
     clear: none;
@@ -624,7 +643,7 @@ For example, on tablet landscape 5 columns will be turned into 3 columns:
   .contain-8 > *:nth-child(16n+1) {
     clear: none;
   }
-  .contain-8 > *:nth-child(3n + 1) {
+  .contain-8 > *:nth-child(4n + 1) {
     clear: both;
   }
   .contain-10 > * {
@@ -727,8 +746,7 @@ For example, on tablet landscape 5 columns will be turned into 3 columns:
     clear: both;
   }
 }
-/* smartphones, landscape 480~568~685 */
-@media only screen and (max-width: 685px) {
+@media only screen and (max-width: 767px) {
   .contain-3 > * {
     width: 50% !important;
   }
@@ -994,8 +1012,7 @@ For example, on tablet landscape 5 columns will be turned into 3 columns:
     clear: both;
   }
 }
-/* smartphones, portrait 320~380 */
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 479px) {
   .contain-2 > * {
     width: 100% !important;
   }
@@ -1301,14 +1318,20 @@ HERE ENDS YOUR CONFIGURATION
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
 ==                                   ===================================================================================================================================
-==            FRONTSIZE              ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
 ==                                   ===================================================================================================================================
 ==                                   ===================================================================================================================================
 ========================================================================================================================================================================
 */
 /**
-Frontsize global setting
+Frontsize global setting mixins
 */
+.columns * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .columns {
   padding-top: 1em;
 }
@@ -1316,73 +1339,73 @@ Frontsize global setting
   padding-bottom: 1em;
 }
 .columns > *,
-.wide-all,
-.wide-1-on-16,
-.wide-2-on-16,
-.wide-3-on-16,
-.wide-4-on-16,
-.wide-5-on-16,
-.wide-6-on-16,
-.wide-7-on-16,
-.wide-8-on-16,
-.wide-9-on-16,
-.wide-10-on-16,
-.wide-11-on-16,
-.wide-12-on-16,
-.wide-13-on-16,
-.wide-14-on-16,
-.wide-15-on-16,
-.wide-16-on-16,
-.wide-1-on-12,
-.wide-2-on-12,
-.wide-3-on-12,
-.wide-4-on-12,
-.wide-5-on-12,
-.wide-6-on-12,
-.wide-7-on-12,
-.wide-8-on-12,
-.wide-9-on-12,
-.wide-10-on-12,
-.wide-11-on-12,
-.wide-12-on-12,
-.wide-1-on-10,
-.wide-2-on-10,
-.wide-3-on-10,
-.wide-4-on-10,
-.wide-5-on-10,
-.wide-6-on-10,
-.wide-7-on-10,
-.wide-8-on-10,
-.wide-9-on-10,
-.wide-10-on-10,
-.wide-1-on-8,
-.wide-2-on-8,
-.wide-3-on-8,
-.wide-4-on-8,
-.wide-5-on-8,
-.wide-6-on-8,
-.wide-7-on-8,
-.wide-8-on-8,
-.wide-1-on-6,
-.wide-2-on-6,
-.wide-3-on-6,
-.wide-4-on-6,
-.wide-5-on-6,
-.wide-6-on-6,
-.wide-1-on-5,
-.wide-2-on-5,
-.wide-3-on-5,
-.wide-4-on-5,
-.wide-5-on-5,
-.wide-1-on-4,
-.wide-2-on-4,
-.wide-3-on-4,
-.wide-4-on-4,
-.wide-1-on-3,
-.wide-2-on-3,
-.wide-3-on-3,
-.wide-1-on-2,
-.wide-2-on-2 {
+.full,
+.wide-1-of-16,
+.wide-2-of-16,
+.wide-3-of-16,
+.wide-4-of-16,
+.wide-5-of-16,
+.wide-6-of-16,
+.wide-7-of-16,
+.wide-8-of-16,
+.wide-9-of-16,
+.wide-10-of-16,
+.wide-11-of-16,
+.wide-12-of-16,
+.wide-13-of-16,
+.wide-14-of-16,
+.wide-15-of-16,
+.wide-16-of-16,
+.wide-1-of-12,
+.wide-2-of-12,
+.wide-3-of-12,
+.wide-4-of-12,
+.wide-5-of-12,
+.wide-6-of-12,
+.wide-7-of-12,
+.wide-8-of-12,
+.wide-9-of-12,
+.wide-10-of-12,
+.wide-11-of-12,
+.wide-12-of-12,
+.wide-1-of-10,
+.wide-2-of-10,
+.wide-3-of-10,
+.wide-4-of-10,
+.wide-5-of-10,
+.wide-6-of-10,
+.wide-7-of-10,
+.wide-8-of-10,
+.wide-9-of-10,
+.wide-10-of-10,
+.wide-1-of-8,
+.wide-2-of-8,
+.wide-3-of-8,
+.wide-4-of-8,
+.wide-5-of-8,
+.wide-6-of-8,
+.wide-7-of-8,
+.wide-8-of-8,
+.wide-1-of-6,
+.wide-2-of-6,
+.wide-3-of-6,
+.wide-4-of-6,
+.wide-5-of-6,
+.wide-6-of-6,
+.wide-1-of-5,
+.wide-2-of-5,
+.wide-3-of-5,
+.wide-4-of-5,
+.wide-5-of-5,
+.wide-1-of-4,
+.wide-2-of-4,
+.wide-3-of-4,
+.wide-4-of-4,
+.wide-1-of-3,
+.wide-2-of-3,
+.wide-3-of-3,
+.wide-1-of-2,
+.wide-2-of-2 {
   padding-left: 1em;
   padding-right: 1em;
   float: left;
@@ -1594,268 +1617,268 @@ Sizing rules and APIs
 .contain-16 > .skip-15-cols {
   margin-left: 68.75%;
 }
-.columns > *.wide-1-on-16,
-.wide-1-on-16 {
+.columns > *.wide-1-of-16,
+.wide-1-of-16 {
   width: 6.25%;
 }
-.columns > *.wide-2-on-16,
-.wide-2-on-16 {
+.columns > *.wide-2-of-16,
+.wide-2-of-16 {
   width: 12.5%;
 }
-.columns > *.wide-3-on-16,
-.wide-3-on-16 {
+.columns > *.wide-3-of-16,
+.wide-3-of-16 {
   width: 18.75%;
 }
-.columns > *.wide-4-on-16,
-.wide-4-on-16 {
+.columns > *.wide-4-of-16,
+.wide-4-of-16 {
   width: 25%;
 }
-.columns > *.wide-5-on-16,
-.wide-5-on-16 {
+.columns > *.wide-5-of-16,
+.wide-5-of-16 {
   width: 31.25%;
 }
-.columns > *.wide-6-on-16,
-.wide-6-on-16 {
+.columns > *.wide-6-of-16,
+.wide-6-of-16 {
   width: 37.5%;
 }
-.columns > *.wide-7-on-16,
-.wide-7-on-16 {
+.columns > *.wide-7-of-16,
+.wide-7-of-16 {
   width: 43.75%;
 }
-.columns > *.wide-8-on-16,
-.wide-8-on-16 {
+.columns > *.wide-8-of-16,
+.wide-8-of-16 {
   width: 50%;
 }
-.columns > *.wide-9-on-16,
-.wide-9-on-16 {
+.columns > *.wide-9-of-16,
+.wide-9-of-16 {
   width: 56.25%;
 }
-.columns > *.wide-10-on-16,
-.wide-10-on-16 {
+.columns > *.wide-10-of-16,
+.wide-10-of-16 {
   width: 62.5%;
 }
-.columns > *.wide-11-on-16,
-.wide-11-on-16 {
+.columns > *.wide-11-of-16,
+.wide-11-of-16 {
   width: 68.75%;
 }
-.columns > *.wide-12-on-16,
-.wide-12-on-16 {
+.columns > *.wide-12-of-16,
+.wide-12-of-16 {
   width: 75%;
 }
-.columns > *.wide-13-on-16,
-.wide-13-on-16 {
+.columns > *.wide-13-of-16,
+.wide-13-of-16 {
   width: 81.25%;
 }
-.columns > *.wide-14-on-16,
-.wide-14-on-16 {
+.columns > *.wide-14-of-16,
+.wide-14-of-16 {
   width: 87.5%;
 }
-.columns > *.wide-15-on-16,
-.wide-15-on-16 {
+.columns > *.wide-15-of-16,
+.wide-15-of-16 {
   width: 93.75%;
 }
-.columns > *.wide-16-on-16,
-.wide-16-on-16 {
+.columns > *.wide-16-of-16,
+.wide-16-of-16 {
   width: 100%;
 }
-.columns > *.wide-1-on-12,
-.wide-1-on-12 {
+.columns > *.wide-1-of-12,
+.wide-1-of-12 {
   width: 8.333333333333334%;
 }
-.columns > *.wide-2-on-12,
-.wide-2-on-12 {
+.columns > *.wide-2-of-12,
+.wide-2-of-12 {
   width: 16.666666666666668%;
 }
-.columns > *.wide-3-on-12,
-.wide-3-on-12 {
+.columns > *.wide-3-of-12,
+.wide-3-of-12 {
   width: 25%;
 }
-.columns > *.wide-4-on-12,
-.wide-4-on-12 {
+.columns > *.wide-4-of-12,
+.wide-4-of-12 {
   width: 33.333333333333336%;
 }
-.columns > *.wide-5-on-12,
-.wide-5-on-12 {
+.columns > *.wide-5-of-12,
+.wide-5-of-12 {
   width: 41.666666666666664%;
 }
-.columns > *.wide-6-on-12,
-.wide-6-on-12 {
+.columns > *.wide-6-of-12,
+.wide-6-of-12 {
   width: 50%;
 }
-.columns > *.wide-7-on-12,
-.wide-7-on-12 {
+.columns > *.wide-7-of-12,
+.wide-7-of-12 {
   width: 58.333333333333336%;
 }
-.columns > *.wide-8-on-12,
-.wide-8-on-12 {
+.columns > *.wide-8-of-12,
+.wide-8-of-12 {
   width: 66.66666666666667%;
 }
-.columns > *.wide-9-on-12,
-.wide-9-on-12 {
+.columns > *.wide-9-of-12,
+.wide-9-of-12 {
   width: 75%;
 }
-.columns > *.wide-10-on-12,
-.wide-10-on-12 {
+.columns > *.wide-10-of-12,
+.wide-10-of-12 {
   width: 83.33333333333333%;
 }
-.columns > *.wide-11-on-12,
-.wide-11-on-12 {
+.columns > *.wide-11-of-12,
+.wide-11-of-12 {
   width: 91.66666666666667%;
 }
-.columns > *.wide-12-on-12,
-.wide-12-on-12 {
+.columns > *.wide-12-of-12,
+.wide-12-of-12 {
   width: 100%;
 }
-.columns > *.wide-1-on-10,
-.wide-1-on-10 {
+.columns > *.wide-1-of-10,
+.wide-1-of-10 {
   width: 10%;
 }
-.columns > *.wide-2-on-10,
-.wide-2-on-10 {
+.columns > *.wide-2-of-10,
+.wide-2-of-10 {
   width: 20%;
 }
-.columns > *.wide-3-on-10,
-.wide-3-on-10 {
+.columns > *.wide-3-of-10,
+.wide-3-of-10 {
   width: 30%;
 }
-.columns > *.wide-4-on-10,
-.wide-4-on-10 {
+.columns > *.wide-4-of-10,
+.wide-4-of-10 {
   width: 40%;
 }
-.columns > *.wide-5-on-10,
-.wide-5-on-10 {
+.columns > *.wide-5-of-10,
+.wide-5-of-10 {
   width: 50%;
 }
-.columns > *.wide-6-on-10,
-.wide-6-on-10 {
+.columns > *.wide-6-of-10,
+.wide-6-of-10 {
   width: 60%;
 }
-.columns > *.wide-7-on-10,
-.wide-7-on-10 {
+.columns > *.wide-7-of-10,
+.wide-7-of-10 {
   width: 70%;
 }
-.columns > *.wide-8-on-10,
-.wide-8-on-10 {
+.columns > *.wide-8-of-10,
+.wide-8-of-10 {
   width: 80%;
 }
-.columns > *.wide-9-on-10,
-.wide-9-on-10 {
+.columns > *.wide-9-of-10,
+.wide-9-of-10 {
   width: 90%;
 }
-.columns > *.wide-10-on-10,
-.wide-10-on-10 {
+.columns > *.wide-10-of-10,
+.wide-10-of-10 {
   width: 100%;
 }
-.columns > *.wide-1-on-8,
-.wide-1-on-8 {
+.columns > *.wide-1-of-8,
+.wide-1-of-8 {
   width: 12.5%;
 }
-.columns > *.wide-2-on-8,
-.wide-2-on-8 {
+.columns > *.wide-2-of-8,
+.wide-2-of-8 {
   width: 25%;
 }
-.columns > *.wide-3-on-8,
-.wide-3-on-8 {
+.columns > *.wide-3-of-8,
+.wide-3-of-8 {
   width: 37.5%;
 }
-.columns > *.wide-4-on-8,
-.wide-4-on-8 {
+.columns > *.wide-4-of-8,
+.wide-4-of-8 {
   width: 50%;
 }
-.columns > *.wide-5-on-8,
-.wide-5-on-8 {
+.columns > *.wide-5-of-8,
+.wide-5-of-8 {
   width: 62.5%;
 }
-.columns > *.wide-6-on-8,
-.wide-6-on-8 {
+.columns > *.wide-6-of-8,
+.wide-6-of-8 {
   width: 75%;
 }
-.columns > *.wide-7-on-8,
-.wide-7-on-8 {
+.columns > *.wide-7-of-8,
+.wide-7-of-8 {
   width: 87.5%;
 }
-.columns > *.wide-8-on-8,
-.wide-8-on-8 {
+.columns > *.wide-8-of-8,
+.wide-8-of-8 {
   width: 100%;
 }
-.columns > *.wide-1-on-6,
-.wide-1-on-6 {
+.columns > *.wide-1-of-6,
+.wide-1-of-6 {
   width: 16.666666666666668%;
 }
-.columns > *.wide-2-on-6,
-.wide-2-on-6 {
+.columns > *.wide-2-of-6,
+.wide-2-of-6 {
   width: 33.333333333333336%;
 }
-.columns > *.wide-3-on-6,
-.wide-3-on-6 {
+.columns > *.wide-3-of-6,
+.wide-3-of-6 {
   width: 50%;
 }
-.columns > *.wide-4-on-6,
-.wide-4-on-6 {
+.columns > *.wide-4-of-6,
+.wide-4-of-6 {
   width: 66.66666666666667%;
 }
-.columns > *.wide-5-on-6,
-.wide-5-on-6 {
+.columns > *.wide-5-of-6,
+.wide-5-of-6 {
   width: 83.33333333333333%;
 }
-.columns > *.wide-6-on-6,
-.wide-6-on-6 {
+.columns > *.wide-6-of-6,
+.wide-6-of-6 {
   width: 100%;
 }
-.columns > *.wide-1-on-5,
-.wide-1-on-5 {
+.columns > *.wide-1-of-5,
+.wide-1-of-5 {
   width: 20%;
 }
-.columns > *.wide-2-on-5,
-.wide-2-on-5 {
+.columns > *.wide-2-of-5,
+.wide-2-of-5 {
   width: 40%;
 }
-.columns > *.wide-3-on-5,
-.wide-3-on-5 {
+.columns > *.wide-3-of-5,
+.wide-3-of-5 {
   width: 60%;
 }
-.columns > *.wide-4-on-5,
-.wide-4-on-5 {
+.columns > *.wide-4-of-5,
+.wide-4-of-5 {
   width: 80%;
 }
-.columns > *.wide-5-on-5,
-.wide-5-on-5 {
+.columns > *.wide-5-of-5,
+.wide-5-of-5 {
   width: 100%;
 }
-.columns > *.wide-1-on-4,
-.wide-1-on-4 {
+.columns > *.wide-1-of-4,
+.wide-1-of-4 {
   width: 25%;
 }
-.columns > *.wide-2-on-4,
-.wide-2-on-4 {
+.columns > *.wide-2-of-4,
+.wide-2-of-4 {
   width: 50%;
 }
-.columns > *.wide-3-on-4,
-.wide-3-on-4 {
+.columns > *.wide-3-of-4,
+.wide-3-of-4 {
   width: 75%;
 }
-.columns > *.wide-4-on-4,
-.wide-4-on-4 {
+.columns > *.wide-4-of-4,
+.wide-4-of-4 {
   width: 100%;
 }
-.columns > *.wide-1-on-3,
-.wide-1-on-3 {
+.columns > *.wide-1-of-3,
+.wide-1-of-3 {
   width: 33.333333333333336%;
 }
-.columns > *.wide-2-on-3,
-.wide-2-on-3 {
+.columns > *.wide-2-of-3,
+.wide-2-of-3 {
   width: 66.66666666666667%;
 }
-.columns > *.wide-3-on-3,
-.wide-3-on-3 {
+.columns > *.wide-3-of-3,
+.wide-3-of-3 {
   width: 100%;
 }
-.columns > *.wide-1-on-2,
-.wide-1-on-2 {
+.columns > *.wide-1-of-2,
+.wide-1-of-2 {
   width: 50%;
 }
-.columns > *.wide-2-on-2,
-.wide-2-on-2 {
+.columns > *.wide-2-of-2,
+.wide-2-of-2 {
   width: 100%;
 }
 .contain-2 > *:nth-child(2n+1) {
@@ -1885,12 +1908,15 @@ Sizing rules and APIs
 .contain-16 > *:nth-child(16n+1) {
   clear: both;
 }
-.columns * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-}
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+==        FRONTSIZE SELECTORS        ===================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
 .use-steps {
   margin: auto;
   -webkit-box-sizing: border-box;
@@ -1912,19 +1938,22 @@ Sizing rules and APIs
   -o-box-sizing: border-box;
   box-sizing: border-box;
 }
-.wide-all {
+.full {
   width: 100%;
 }
 .centered {
   text-align: center;
 }
+.to-right {
+  text-align: right;
+}
 .clear {
   clear: both;
 }
-.paginated-away > *:first-child {
+.opposite-paged > *:first-child {
   text-align: left;
 }
-.paginated-away > *:last-child {
+.opposite-paged > *:last-child {
   text-align: right;
 }
 .with-padding {
@@ -1938,6 +1967,9 @@ Sizing rules and APIs
   padding-top: 1em;
   padding-bottom: 1em;
 }
+.without-padding {
+  padding: 0;
+}
 .without-padding-to-family {
   padding: 0;
 }
@@ -1950,6 +1982,7 @@ Sizing rules and APIs
 .without-padding-to-grandchildrens > * > * {
   padding: 0;
 }
+.without-padding-to-all > *,
 .without-padding-to-all > * * {
   padding: 0;
 }
@@ -1965,23 +1998,14 @@ Sizing rules and APIs
   width: 100%;
   height: auto;
 }
-.fixed {
-  position: fixed;
-  width: 100%;
-  top: 0px;
-  left: 0px;
-}
-.hooked {
-  position: fixed;
-  width: 100%;
-  left: 0px;
-}
-.hooked.to-top {
-  top: 0px;
-}
-.hooked.to-bottom {
-  bottom: 0px;
-}
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
+==           NORMALIZATION           ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
 /**
 CSS normalization and responsive settings for Frontsize
 */
@@ -2028,12 +2052,13 @@ img {
 a img {
   border: none;
 }
-/**
-Responsive APIs
-*/
 /*
-NON Mobile First APIs
-hese media queries conditions are NOT RECOMMENDED if you want to start a layout from mobile
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
+==          VISIBILITY RULES         ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
 */
 @media only screen and (min-width: 1800px) {
   .only-on-hd-ready {
@@ -2103,7 +2128,7 @@ hese media queries conditions are NOT RECOMMENDED if you want to start a layout 
     display: none;
   }
 }
-@media only screen and (min-width: 381px) and (max-width: 767px) {
+@media only screen and (min-width: 480px) and (max-width: 767px) {
   .only-on-hd-full {
     display: none;
   }
@@ -2120,7 +2145,7 @@ hese media queries conditions are NOT RECOMMENDED if you want to start a layout 
     display: none;
   }
 }
-@media only screen and (max-width: 380px) {
+@media only screen and (min-width: 1px) and (max-width: 481px) {
   .only-on-hd-full {
     display: none;
   }
@@ -2137,56 +2162,77 @@ hese media queries conditions are NOT RECOMMENDED if you want to start a layout 
     display: none;
   }
 }
-/**
-Mobile First APIs
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
+==        MOBILE FIRST RULES         ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
 */
-/* Full HD */
 @media only screen and (min-width: 1800px) {
-  
-}
-/* HD Ready */
-@media only screen and (max-width: 1280px) {
-  
-}
-/* tablets, landscape */
-@media only screen and (max-width: 1024px) {
-  .not-on-tablet-landscape {
+  .not-from-hd-full {
     display: none;
   }
-  .wide-from-tablet-landscape > * {
+  .full-from-hd-full {
+    width: 100% !important;
+  }
+  .full-from-hd-full > * {
     width: 100% !important;
   }
 }
-/* tablets, portrait */
-@media only screen and (max-width: 768px) {
-  .not-on-tablet-portrait {
+@media only screen and (max-width: 1799px) {
+  .not-from-hd-ready {
     display: none;
   }
-  .wide-from-tablet-portrait > * {
+  .full-from-hd-ready {
     width: 100% !important;
   }
-  .inline > * {
-    clear: none !important;
-  }
-}
-/* smartphones, landscape 480~568~685 */
-@media only screen and (max-width: 685px) {
-  .only-on-tablet {
-    display: none;
-  }
-  .wide-from-smartphone-landscape > * {
+  .full-from-hd-ready > * {
     width: 100% !important;
   }
-  .not-on-smartphone-landscape {
+}
+@media only screen and (max-width: 1279px) {
+  .not-from-tablet-landscape {
     display: none;
+  }
+  .full-from-tablet-landscape {
+    width: 100% !important;
+  }
+  .full-from-tablet-landscape > * {
+    width: 100% !important;
   }
 }
-/* smartphones, portrait 320~380 */
-@media only screen and (max-width: 380px) {
-  .not-on-smartphone-portrait {
+@media only screen and (max-width: 1023px) {
+  .not-from-tablet-portrait {
     display: none;
   }
-  .wide-from-smartphone-portrait > * {
+  .full-from-tablet-portrait {
+    width: 100% !important;
+  }
+  .full-from-tablet-portrait > * {
+    width: 100% !important;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .not-from-smartphone-landscape {
+    display: none;
+  }
+  .full-from-smartphone-landscape {
+    width: 100% !important;
+  }
+  .full-from-smartphone-landscape > * {
+    width: 100% !important;
+  }
+}
+@media only screen and (max-width: 479px) {
+  .not-from-smartphone-portrait {
+    display: none;
+  }
+  .full-from-smartphone-portrait {
+    width: 100% !important;
+  }
+  .full-from-smartphone-portrait > * {
     width: 100% !important;
   }
   .paginated-away > *:last-child {
@@ -2198,14 +2244,40 @@ Mobile First APIs
     clear: both;
   }
 }
-/**
-Frontsize internal methods to extend with new columns
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
+==             INTERNAL              ===================================================================================================================================
+==              MIXINS               ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
 */
 /**
-Global settings effects
+Frontsize internal mixins to extend with new columns
+*/
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==               CSS 3               ===================================================================================================================================
+==           CROSS BROWSER           ===================================================================================================================================
+==        COMAPTIBILITY MIXINS       ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
 */
 /**
-Frontsize CSS compatibility APIs
+Frontsize Mixin Widgets
+*/
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
+==             MIXINS                ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+/**
+Frontsize extended methods
 */
 .ease-in-quad {
   -moz-transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
@@ -2355,18 +2427,6 @@ Frontsize CSS compatibility APIs
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
 ==                                   ===================================================================================================================================
-==            EXTENSIONS             ===================================================================================================================================
-==                                   ===================================================================================================================================
-==                                   ===================================================================================================================================
-========================================================================================================================================================================
-*/
-/**
-Frontsize extended methods
-*/
-/*
-========================================================================================================================================================================
-==                                   ===================================================================================================================================
-==                                   ===================================================================================================================================
 ==             WIDGETS               ===================================================================================================================================
 ==                                   ===================================================================================================================================
 ==                                   ===================================================================================================================================
@@ -2376,6 +2436,18 @@ Frontsize extended methods
 Frontsize style widgets, thanks to LESS
 For more information on how to write one, go to http://lesscss.org
 */
+.hooked {
+  position: fixed;
+  width: 100%;
+  left: 0px;
+  z-index: auto;
+}
+.hooked.to-top {
+  top: 0px;
+}
+.hooked.to-bottom {
+  bottom: 0px;
+}
 .keyboard {
   /*
   <div class="keyboard">cmd</div>
@@ -2610,24 +2682,92 @@ Remember to put the ; after a list of comma separated params to group them:
 If the method expect a list of params you don't need it:
 .method(1,2,3); => .method(@param-1, @param-2, @param-3) {...}
 */
-@media only screen and (min-width: 380px) {
-  
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==       YOUR THEME CUSTOMIZABLE     ===================================================================================================================================
+==            MEDIA QUERIES          ===================================================================================================================================
+==               RULES               ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+/* Add a slash "/" to the beginning of this line if you want to use these media queries rules
+// Media queries for selectors active from the smaller resolution to a specific one
+// RECOMMENDED for Mobile first develop
+@media only screen and (min-width : @hd-full-step) {
+  // Full HD
 }
-@media only screen and (min-width: 685px) {
-  
+@media only screen and (max-width : (@hd-full-step - 1px)) {
+  // HD Ready
 }
-@media only screen and (min-width: 768px) {
-  
+@media only screen and (max-width : (@hd-ready-step - 1px)) {
+  // Tablet landscape
 }
-@media only screen and (min-width: 1024px) {
-  
+@media only screen and (max-width : (@tablet-landscape-step - 1px)) {
+  // Tablet portrait
 }
-@media only screen and (min-width: 1280px) {
-  
+@media only screen and (max-width : (@tablet-portrait-step - 1px)) {
+  // Smartphone landscape
 }
-@media only screen and (min-width: 1800px) {
-  
+@media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
+  // Smartphone portrait
 }
-a {
-  color: #0c94c7;
+
+// Media queries for selectors active from a specific resolution or higher
+// RECOMMENDED for Mobile first develop
+@media only screen and (min-width : 1px) {
+  // Smartphone portrait
 }
+@media only screen and (min-width : @smartphone-landscape-step) {
+  // Smartphone landscape
+}
+@media only screen and (min-width : @tablet-portrait-step) {
+  // Tablet portrait
+}
+@media only screen and (min-width : @tablet-landscape-step) {
+  // Tablet landscape
+}
+@media only screen and (min-width : @hd-ready-step) {
+  // HD Ready
+}
+@media only screen and (min-width : @hd-full-step) {
+  // Full HD
+}
+
+// Media queries for strict resolution range selectors
+// NOT RECOMMENDED for Mobile first develop
+@media  only screen
+    and (min-width : @hd-full-step) {
+  // Full HD
+}
+
+@media  only screen
+    and (min-width : @hd-ready-step)
+    and (max-width : (@hd-full-step - 1px)) {
+  // HD Ready
+}
+
+@media  only screen
+    and (min-width : @tablet-landscape-step)
+    and (max-width : (@hd-ready-step - 1px)) {
+  // Tablet landscape
+}
+
+@media  only screen
+    and (min-width : @tablet-portrait-step)
+    and (max-width : (@tablet-landscape-step - 1px)) {
+  // Tablet portrait
+}
+
+@media  only screen
+    and (min-width : @smartphone-landscape-step)
+    and (max-width : (@tablet-portrait-step - 1px)) {
+  // Smartphone landscape
+}
+
+@media  only screen
+    and (min-width : 1px)
+    and (max-width : (@smartphone-landscape-step + 1px)) {
+  // Smartphone portrait
+}
+//*/
