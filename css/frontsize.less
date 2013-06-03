@@ -43,8 +43,8 @@ Frontsize default values to override, change them in the way you like
 @h6:0.65em;
 
 // set different width for the smartphones, tablets and hd resolutions
-@smartphone-portrait-step:	380px;	// smartphones portrait		320~380
-@smartphone-landscape-step:	685px;	// smartphones landscape	480~568~685
+@smartphone-portrait-step:	320px;	// smartphones portrait		320~380
+@smartphone-landscape-step:	480px;	// smartphones landscape	480~568~685
 @tablet-portrait-step:	   	768px;	// tabled portrait			768
 @tablet-landscape-step:	  	1024px;	// tabled landscape			1024
 @hd-ready-step:			  	1280px;	// HD Ready					1280 (720p)
@@ -66,61 +66,67 @@ Responsive columns behavior configuration
 change the number a columns per row by setting this
 
 For example, on tablet landscape 5 columns will be turned into 3 columns:
-@media only screen and (max-width : @tablet-landscape-step) {
+@media only screen and (max-width : (@hd-ready-step - 1px)) {
 	.contain-5  > * { .set-columns(3); }
 }
 */
 
-/* tablets, landscape */
-@media only screen and (max-width : @tablet-landscape-step) {
+// Media queries for selectors active from smaller resolution device mobile to a specific one
+@media only screen and (min-width : @hd-full-step) {
+	// Full HD
+	// nothing to set here
+}
+@media only screen and (max-width : (@hd-full-step - 1px)) {
+	// HD Ready
+	// nothing to set here
+}
+@media only screen and (max-width : (@hd-ready-step - 1px)) {
+	// Tablet landscape
 	// .contain-2  > * { .set-columns(2); } // default
 	// .contain-3  > * { .set-columns(3); } // default
 	// .contain-4  > * { .set-columns(4); } // default
-	.contain-5  > * { .set-columns(3); } // normal
-	.contain-6  > * { .set-columns(3); } // normal
-	.contain-8  > * { .set-columns(3); } // normal
-	.contain-10 > * { .set-columns(5); } // narrow
-	.contain-12 > * { .set-columns(6); } // narrow
-	.contain-16 > * { .set-columns(8); } // narrow
+	.contain-5  > * { .set-columns(3); } // normal, from 5 columns to 3
+	.contain-6  > * { .set-columns(3); } // normal, from 6 columns to 3
+	.contain-8  > * { .set-columns(4); } // normal, from 8 columns to 4
+	.contain-10 > * { .set-columns(5); } // narrow, from 5 columns to 5
+	.contain-12 > * { .set-columns(6); } // narrow, from 5 columns to 6
+	.contain-16 > * { .set-columns(8); } // narrow, from 5 columns to 8
 }
-
-/* tablets, portrait */
-@media only screen and (max-width : @tablet-portrait-step) {
+@media only screen and (max-width : (@tablet-landscape-step - 1px)) {
+	// Tablet portrait
 	// .contain-2  > * { .set-columns(2); } // default
 	// .contain-3  > * { .set-columns(3); } // default
-	.contain-4  > * { .set-columns(2); } // wide
-	.contain-5  > * { .set-columns(3); } // normal
-	.contain-6  > * { .set-columns(3); } // normal
-	.contain-8  > * { .set-columns(3); } // normal
-	.contain-10 > * { .set-columns(5); } // narrow
-	.contain-12 > * { .set-columns(6); } // narrow
-	.contain-16 > * { .set-columns(4); } // narrow
+	.contain-4  > * { .set-columns(2); } // wide, from 4 columns to 2
+	.contain-5  > * { .set-columns(3); } // normal, from 5 columns to 3
+	.contain-6  > * { .set-columns(3); } // normal, from 6 columns to 3
+	.contain-8  > * { .set-columns(4); } // normal, from 8 columns to 4
+	.contain-10 > * { .set-columns(5); } // narrow, from 10 columns to 5
+	.contain-12 > * { .set-columns(6); } // narrow, from 12 columns to 6
+	.contain-16 > * { .set-columns(4); } // narrow, from 16 columns to 4
 }
-
-/* smartphones, landscape 480~568~685 */
-@media only screen and (max-width : @smartphone-landscape-step) {
+@media only screen and (max-width : (@tablet-portrait-step - 1px)) {
+	// Smartphone landscape
 	// .contain-2  > * { .set-columns(2); } // default
-	.contain-3  > * { .set-columns(2); } // wide
-	.contain-4  > * { .set-columns(2); } // wide
-	.contain-5  > * { .set-columns(2); } // normal
-	.contain-6  > * { .set-columns(2); } // normal
-	.contain-8  > * { .set-columns(2); } // normal
-	.contain-10 > * { .set-columns(3); } // narrow
-	.contain-12 > * { .set-columns(3); } // narrow
-	.contain-16 > * { .set-columns(3); } // narrow
+	.contain-3  > * { .set-columns(2); } // wide, from 3 columns to 2
+	.contain-4  > * { .set-columns(2); } // wide, from 4 columns to 2
+	.contain-5  > * { .set-columns(2); } // normal, from 5 columns to 2
+	.contain-6  > * { .set-columns(2); } // normal, from 6 columns to 2
+	.contain-8  > * { .set-columns(2); } // normal, from 8 columns to 2
+	.contain-10 > * { .set-columns(3); } // narrow, from 10 columns to 3
+	.contain-12 > * { .set-columns(3); } // narrow, from 12 columns to 3
+	.contain-16 > * { .set-columns(3); } // narrow, from 16 columns to 3
 }
-
-/* smartphones, portrait 320~380 */
-@media only screen and (max-width : @smartphone-portrait-step) {
-	.contain-2  > * { .set-columns(1); } // wide
-	.contain-3  > * { .set-columns(1); } // wide
-	.contain-4  > * { .set-columns(1); } // wide
-	.contain-5  > * { .set-columns(1); } // normal
-	.contain-6  > * { .set-columns(1); } // normal
-	.contain-8  > * { .set-columns(1); } // normal
-	.contain-10 > * { .set-columns(2); } // narrow
-	.contain-12 > * { .set-columns(2); } // narrow
-	.contain-16 > * { .set-columns(2); } // narrow
+@media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
+	// Smartphone portrait
+	.contain-2  > * { .set-columns(1); } // wide, from 2 columns to 1
+	.contain-3  > * { .set-columns(1); } // wide, from 3 columns to 1
+	.contain-4  > * { .set-columns(1); } // wide, from 4 columns to 1
+	.contain-5  > * { .set-columns(1); } // normal, from 5 columns to 1
+	.contain-6  > * { .set-columns(1); } // normal, from 6 columns to 1
+	.contain-8  > * { .set-columns(1); } // normal, from 8 columns to 1
+	.contain-10 > * { .set-columns(2); } // narrow, from 10 columns to 2
+	.contain-12 > * { .set-columns(2); } // narrow, from 12 columns to 2
+	.contain-16 > * { .set-columns(2); } // narrow, from 16 columns to 2
 }
 
 /**
@@ -138,34 +144,96 @@ HERE ENDS YOUR CONFIGURATION
 */
 
 /**
-Frontsize global setting
+Frontsize global setting mixins
 */
 
 .frontsize-steps(@hd-full-margin:200px, @hd-ready-margin:100px, @tablet-landscape-margin:50px, @tablet-portrait-margin:0px) {
-	@media only screen and (min-width : @tablet-portrait-step)		{ .use-steps { max-width:(@tablet-portrait-step - @tablet-portrait-margin); }}
-	@media only screen and (min-width : @tablet-landscape-step)		{ .use-steps { max-width:(@tablet-landscape-step - @tablet-landscape-margin); }}
-	@media only screen and (min-width : @hd-ready-step)				{ .use-steps { max-width:(@hd-ready-step - @hd-ready-margin); }}
-	@media only screen and (min-width : @hd-full-step)				{ .use-steps { max-width:(@hd-full-step - @hd-full-margin); }}
+	// Media queries for selectors active from a specific resolution or higher
+	@media only screen and (min-width : 1px) {
+		// Smartphone portrait
+	}
+	@media only screen and (min-width : @smartphone-landscape-step) {
+		// Smartphone landscape
+
+	}
+	@media only screen and (min-width : @tablet-portrait-step) {
+		// Tablet portrait
+		.use-steps { max-width:(@tablet-portrait-step - @tablet-portrait-margin); }
+	}
+	@media only screen and (min-width : @tablet-landscape-step) {
+		// Tablet landscape
+		.use-steps { max-width:(@tablet-landscape-step - @tablet-landscape-margin); }
+	}
+	@media only screen and (min-width : @hd-ready-step) {
+		// HD Ready
+		.use-steps { max-width:(@hd-ready-step - @hd-ready-margin); }
+	}
+	@media only screen and (min-width : @hd-full-step) {
+		// Full HD
+		.use-steps { max-width:(@hd-full-step - @hd-full-margin); }
+	}
 }
+
 .frontsize-steps-padding(@hd-full:3em, @hd-ready:3em, @tablet-landscape:2em, @tablet-portrait:2em, @smartphone-landscape:1em, @smartphone-portrait:1em) {
-	@media only screen and (min-width : @smartphone-portrait-step)	{ .set-step-padding(@smartphone-portrait); }
-	@media only screen and (min-width : @smartphone-landscape-step)	{ .set-step-padding(@smartphone-landscape); }
-	@media only screen and (min-width : @tablet-portrait-step)		{ .set-step-padding(@tablet-portrait); }
-	@media only screen and (min-width : @tablet-landscape-step)		{ .set-step-padding(@tablet-landscape); }
-	@media only screen and (min-width : @hd-ready-step)				{ .set-step-padding(@hd-ready); }
-	@media only screen and (min-width : @hd-full-step)				{ .set-step-padding(@hd-full); }
+	// Media queries for selectors active from a specific resolution or higher
+	@media only screen and (min-width : 1px) {
+		// Smartphone portrait
+		.set-step-padding(@smartphone-portrait);
+	}
+	@media only screen and (min-width : @smartphone-landscape-step) {
+		// Smartphone landscape
+		.set-step-padding(@smartphone-landscape);
+	}
+	@media only screen and (min-width : @tablet-portrait-step) {
+		// Tablet portrait
+		.set-step-padding(@tablet-portrait);
+	}
+	@media only screen and (min-width : @tablet-landscape-step) {
+		// Tablet landscape
+		.set-step-padding(@tablet-landscape);
+	}
+	@media only screen and (min-width : @hd-ready-step) {
+		// HD Ready
+		.set-step-padding(@hd-ready);
+	}
+	@media only screen and (min-width : @hd-full-step) {
+		// Full HD
+		.set-step-padding(@hd-full);
+	}
 }
 
 .frontsize-font-scaling(@hd-full:1.5em, @hd-ready:1.25em, @tablet-landscape:1em, @tablet-portrait:1em, @smartphone-landscape:1em, @smartphone-portrait:1em) {
-	@media only screen and (min-width : @smartphone-portrait-step)	{ body { font-size:@smartphone-portrait; .with-small-fonts { font-size:.75em; }}}
-	@media only screen and (min-width : @smartphone-landscape-step)	{ body { font-size:@smartphone-landscape; .with-small-fonts { font-size:.75em; }}}
-	@media only screen and (min-width : @tablet-portrait-step)		{ body { font-size:@tablet-portrait; .with-small-fonts { font-size:.75em; }}}
-	@media only screen and (min-width : @tablet-landscape-step)		{ body { font-size:@tablet-landscape; .with-small-fonts { font-size:.75em; }}}
-	@media only screen and (min-width : @hd-ready-step)				{ body { font-size:@hd-ready; .with-small-fonts { font-size:.75em; }}}
-	@media only screen and (min-width : @hd-full-step)				{ body { font-size:@hd-full; .with-small-fonts { font-size:.75em; }}}
+	// Media queries for selectors active from a specific resolution or higher
+	@media only screen and (min-width : 1px) {
+		// Smartphone portrait
+		body { font-size:@smartphone-portrait; .with-small-fonts { font-size:.75em; }}
+	}
+	@media only screen and (min-width : @smartphone-landscape-step) {
+		// Smartphone landscape
+		body { font-size:@smartphone-landscape; .with-small-fonts { font-size:.75em; }}
+	}
+	@media only screen and (min-width : @tablet-portrait-step) {
+		// Tablet portrait
+		body { font-size:@tablet-portrait; .with-small-fonts { font-size:.75em; }}
+	}
+	@media only screen and (min-width : @tablet-landscape-step) {
+		// Tablet landscape
+		body { font-size:@tablet-landscape; .with-small-fonts { font-size:.75em; }}
+	}
+	@media only screen and (min-width : @hd-ready-step) {
+		// HD Ready
+		body { font-size:@hd-ready; .with-small-fonts { font-size:.75em; }}
+	}
+	@media only screen and (min-width : @hd-full-step) {
+		// Full HD
+		body { font-size:@hd-full; .with-small-fonts { font-size:.75em; }}
+	}
 }
+
 .frontsize-h-font-scaling(@hd-full:1.5em, @hd-ready:1.25em, @tablet-landscape:1.125em, @tablet-portrait:1.125em, @smartphone-landscape:1em, @smartphone-portrait:1em) {
-	@media only screen and (min-width : @smartphone-portrait-step)	{
+	// Media queries for selectors active from a specific resolution or higher
+	@media only screen and (min-width : 1px) {
+		// Smartphone portrait
 		h1 { font-size: unit(@h1*@smartphone-portrait,em); }
 		h2 { font-size: unit(@h2*@smartphone-portrait,em); }
 		h3 { font-size: unit(@h3*@smartphone-portrait,em); }
@@ -173,7 +241,8 @@ Frontsize global setting
 		h5 { font-size: unit(@h5*@smartphone-portrait,em); }
 		h6 { font-size: unit(@h6*@smartphone-portrait,em); }
 	}
-	@media only screen and (min-width : @smartphone-landscape-step)	{
+	@media only screen and (min-width : @smartphone-landscape-step) {
+		// Smartphone landscape
 		h1 { font-size: unit(@h1*@smartphone-landscape,em); }
 		h2 { font-size: unit(@h2*@smartphone-landscape,em); }
 		h3 { font-size: unit(@h3*@smartphone-landscape,em); }
@@ -182,6 +251,7 @@ Frontsize global setting
 		h6 { font-size: unit(@h6*@smartphone-landscape,em); }
 	}
 	@media only screen and (min-width : @tablet-portrait-step) {
+		// Tablet portrait
 		h1 { font-size: unit(@h1*@tablet-portrait,em); }
 		h2 { font-size: unit(@h2*@tablet-portrait,em); }
 		h3 { font-size: unit(@h3*@tablet-portrait,em); }
@@ -190,6 +260,7 @@ Frontsize global setting
 		h6 { font-size: unit(@h6*@tablet-portrait,em); }
 	}
 	@media only screen and (min-width : @tablet-landscape-step) {
+		// Tablet landscape
 		h1 { font-size: unit(@h1*@tablet-landscape,em); }
 		h2 { font-size: unit(@h2*@tablet-landscape,em); }
 		h3 { font-size: unit(@h3*@tablet-landscape,em); }
@@ -198,6 +269,7 @@ Frontsize global setting
 		h6 { font-size: unit(@h6*@tablet-landscape,em); }
 	}
 	@media only screen and (min-width : @hd-ready-step) {
+		// HD Ready
 		h1 { font-size: unit(@h1*@hd-ready,em); }
 		h2 { font-size: unit(@h2*@hd-ready,em); }
 		h3 { font-size: unit(@h3*@hd-ready,em); }
@@ -206,6 +278,7 @@ Frontsize global setting
 		h6 { font-size: unit(@h6*@hd-ready,em); }
 	}
 	@media only screen and (min-width : @hd-full-step) {
+		// Full HD
 		h1 { font-size: unit(@h1*@hd-full,em); }
 		h2 { font-size: unit(@h2*@hd-full,em); }
 		h3 { font-size: unit(@h3*@hd-full,em); }
@@ -448,11 +521,15 @@ Sizing rules and APIs
 	// manually center all the contents inside
 	text-align: center;
 }
+.to-right {
+	// manually center all the contents inside
+	text-align: right;
+}
 .clear {
 	// manually go down to the next row
 	clear:both;
 }
-.paginated-away {
+.opposite-paged {
 	// the first child will have text-align to left and the last child will have text-align to right
 	> * {
 		&:first-child {
@@ -475,6 +552,9 @@ Sizing rules and APIs
 	padding-top: @vertical-padding;
 	padding-bottom: @vertical-padding;
 }
+.without-padding {
+	padding:0;
+}
 .without-padding-to-family {
 	// no padding for me and my children only
 	padding:0;
@@ -494,7 +574,7 @@ Sizing rules and APIs
 }
 .without-padding-to-all {
 	// no padding for everything inside on every level
-	> * * {
+	> *, > * * {
 		padding:0;
 	}
 }
@@ -515,25 +595,6 @@ Sizing rules and APIs
 		height: auto;
 	}
 }
-.fixed {
-	position:fixed;
-	width:100%;
-	top:0px;
-	left:0px;
-}
-
-.hooked {
-	position:fixed;
-	width:100%;
-	left:0px;
-	&.to-top {
-		top:0px;
-	}
-	&.to-bottom {
-		bottom:0px;
-	}
-}
-
 
 /*
 ========================================================================================================================================================================
@@ -588,14 +649,10 @@ a img { border:none; }
 ==                                   ===================================================================================================================================
 ========================================================================================================================================================================
 */
-
-/*
-NON Mobile First APIs
-hese media queries conditions are NOT RECOMMENDED if you want to start a layout from mobile
-*/
-
-@media only screen and (min-width : @hd-full-step) {
-	// Full HD						1920 (1080p)
+// Media queries for strict resolution selectors
+@media	only screen
+		and (min-width : @hd-full-step) {
+	// Full HD
 	//.only-on-hd-full				{background-color:pink; padding:.25em;}
 	.only-on-hd-ready				{display:none;}
 	.only-on-tablet-landscape		{display:none;}
@@ -604,9 +661,10 @@ hese media queries conditions are NOT RECOMMENDED if you want to start a layout 
 	.only-on-smartphone-portrait	{display:none;}
 }
 
-
-@media only screen and (min-width : @hd-ready-step) and (max-width : (@hd-full-step - 1px)) {
-	// HD Ready						1280 (720p)
+@media	only screen
+		and (min-width : @hd-ready-step)
+		and (max-width : (@hd-full-step - 1px)) {
+	// HD Ready
 	.only-on-hd-full				{display:none;}
 	//.only-on-hd-ready				{background-color:aqua; padding:.25em;}
 	.only-on-tablet-landscape		{display:none;}
@@ -615,9 +673,10 @@ hese media queries conditions are NOT RECOMMENDED if you want to start a layout 
 	.only-on-smartphone-portrait	{display:none;}
 }
 
-@media only screen and (min-width : @tablet-landscape-step) and (max-width : (@hd-ready-step - 1px)) {
-	// tabled landscape				1024
-	// (orientation:landscape)
+@media	only screen
+		and (min-width : @tablet-landscape-step)
+		and (max-width : (@hd-ready-step - 1px)) {
+	// Tablet landscape
 	.only-on-hd-full				{display:none;}
 	.only-on-hd-ready				{display:none;}
 	//.only-on-tablet-landscape		{background-color:yellow; padding:.25em;}
@@ -626,9 +685,10 @@ hese media queries conditions are NOT RECOMMENDED if you want to start a layout 
 	.only-on-smartphone-portrait	{display:none;}
 }
 
-@media only screen and (min-width : @tablet-portrait-step) and (max-width : (@tablet-landscape-step - 1px)) {
-	// tabled portrait				768
-	// (orientation:landscape)
+@media	only screen
+		and (min-width : @tablet-portrait-step)
+		and (max-width : (@tablet-landscape-step - 1px)) {
+	// Tablet portrait
 	.only-on-hd-full				{display:none;}
 	.only-on-hd-ready				{display:none;}
 	.only-on-tablet-landscape		{display:none;}
@@ -637,9 +697,10 @@ hese media queries conditions are NOT RECOMMENDED if you want to start a layout 
 	.only-on-smartphone-portrait	{display:none;}
 }
 
-@media only screen and (min-width : (@smartphone-portrait-step + 1px)) and (max-width : (@tablet-portrait-step - 1px)) {
-	// smartphones landscape		480~568~685
-	// (orientation:landscape)
+@media	only screen
+		and (min-width : @smartphone-landscape-step)
+		and (max-width : (@tablet-portrait-step - 1px)) {
+	// Smartphone landscape
 	.only-on-hd-full				{display:none;}
 	.only-on-hd-ready				{display:none;}
 	.only-on-tablet-landscape		{display:none;}
@@ -648,9 +709,10 @@ hese media queries conditions are NOT RECOMMENDED if you want to start a layout 
 	.only-on-smartphone-portrait	{display:none;}
 }
 
-@media only screen and (max-width : @smartphone-portrait-step) {
-	// smartphones portrait			320~380
-	// (orientation:landscape)
+@media	only screen
+		and (min-width : 1px)
+		and (max-width : (@smartphone-landscape-step + 1px)) {
+	// Smartphone portrait
 	.only-on-hd-full				{display:none;}
 	.only-on-hd-ready				{display:none;}
 	.only-on-tablet-landscape		{display:none;}
@@ -659,42 +721,50 @@ hese media queries conditions are NOT RECOMMENDED if you want to start a layout 
 	//.only-on-smartphone-portrait	{background-color:lightblue; padding:.25em;}
 }
 
-
-/**
-Mobile First APIs
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
+==        MOBILE FIRST RULES         ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
 */
 
-/* Full HD */
+// Media queries for selectors active from smaller resolution device mobile to a specific one
 @media only screen and (min-width : @hd-full-step) {
-	
+	// Full HD
+	.not-from-hd-full { display:none; }
+	.full-from-hd-full { width:100% !important; }
+	.full-from-hd-full > * { width:100% !important; }
 }
-
-/* HD Ready */
-@media only screen and (max-width : @hd-ready-step) {
-	
+@media only screen and (max-width : (@hd-full-step - 1px)) {
+	// HD Ready
+	.not-from-hd-ready { display:none; }
+	.full-from-hd-ready { width:100% !important; }
+	.full-from-hd-ready > * { width:100% !important; }
 }
-
-/* tablets, landscape */
-@media only screen and (max-width : @tablet-landscape-step) {
-	.not-to-tablet-landscape { display:none; }
+@media only screen and (max-width : (@hd-ready-step - 1px)) {
+	// Tablet landscape
+	.not-from-tablet-landscape { display:none; }
+	.full-from-tablet-landscape { width:100% !important; }
 	.full-from-tablet-landscape > * { width:100% !important; }
 }
-
-/* tablets, portrait */
-@media only screen and (max-width : @tablet-portrait-step) {
-	.not-to-tablet-portrait { display:none; }
+@media only screen and (max-width : (@tablet-landscape-step - 1px)) {
+	// Tablet portrait
+	.not-from-tablet-portrait { display:none; }
+	.full-from-tablet-portrait { width:100% !important; }
 	.full-from-tablet-portrait > * { width:100% !important; }
 }
-
-/* smartphones, landscape 480~568~685 */
-@media only screen and (max-width : @smartphone-landscape-step) {
-	.not-to-smartphone-landscape { display:none; }
+@media only screen and (max-width : (@tablet-portrait-step - 1px)) {
+	// Smartphone landscape
+	.not-from-smartphone-landscape { display:none; }
+	.full-from-smartphone-landscape { width:100% !important; }
 	.full-from-smartphone-landscape > * { width:100% !important; }
 }
-
-/* smartphones, portrait 320~380 */
-@media only screen and (max-width : @smartphone-portrait-step) {
-	.not-to-smartphone-portrait { display:none; }
+@media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
+	// Smartphone portrait
+	.not-from-smartphone-portrait { display:none; }
+	.full-from-smartphone-portrait { width:100% !important; }
 	.full-from-smartphone-portrait > * { width:100% !important; }
 	.paginated-away {
 		// the first child will have text-align to left and the last child will have text-align to right
@@ -756,7 +826,7 @@ Frontsize internal mixins to extend with new columns
 */
 
 /**
-Frontsize CSS compatibility APIs
+Frontsize Mixin Widgets
 */
 
 .transition(@transition:.3s ease-in-out initial) {
@@ -815,6 +885,52 @@ Frontsize CSS compatibility APIs
 	body {
 		-webkit-font-smoothing: @antialias;
 	}
+}
+.column-count(@count:auto) {
+	// http://www.w3schools.com/cssref/css3_pr_column-count.asp
+	column-count:@count;
+	-o-column-count:@count;
+	-moz-column-count:@count;
+	-webkit-column-count:@count;
+}
+.column-gap(@gap:normal) {
+	// http://www.w3schools.com/cssref/css3_pr_column-gap.asp
+	column-gap:@gap;
+	-o-column-gap:@gap;
+	-moz-column-gap:@gap;
+	-webkit-column-gap:@gap;
+}
+.column-rule(@rule:medium none black) {
+	// http://www.w3schools.com/cssref/css3_pr_column-rule.asp
+	column-rule:@rule;
+	-o-column-rule:@rule;
+	-moz-column-rule:@rule;
+	-webkit-column-rule:@rule;
+}
+.column-span(@span:1) {
+	// http://www.w3schools.com/cssref/css3_pr_column-span.asp
+	// The column-span property specifies how many columns an element should span across.
+	// 1 | all
+	column-span:@span;
+	-o-column-span:@span;
+	-moz-column-span:@span;
+	-webkit-column-span:@span;
+}
+.column-width(@rule:auto) {
+	// http://www.w3schools.com/cssref/css3_pr_column-width.asp
+	// The column-width property specifies the width of the columns.
+	column-width:@rule;
+	-o-column-width:@rule;
+	-moz-column-width:@rule;
+	-webkit-column-width:@rule;
+}
+.columns(@columns:auto auto) {
+	// http://www.w3schools.com/cssref/css3_pr_columns.asp
+	// The columns property is a shorthand property for setting column-width and column-count.
+	columns:@columns;
+	-o-columns:@columns;
+	-moz-columns:@columns;
+	-webkit-columns:@columns;
 }
 .round(@radius:6px) {
 	// sets a radius to the angles of the element
@@ -1101,6 +1217,20 @@ Frontsize style widgets, thanks to LESS
 For more information on how to write one, go to http://lesscss.org
 */
 
+.hooked(@z-index:auto) {
+	position:fixed;
+	width:100%;
+	left:0px;
+	z-index:auto;
+	&.to-top {
+		top:0px;
+	}
+	&.to-bottom {
+		bottom:0px;
+	}
+}
+.hooked { .hooked; }
+
 .keyboard(@color:#393634, @text:white) {
 	/*
 	<div class="keyboard">cmd</div>
@@ -1243,138 +1373,99 @@ If the method expect a list of params you don't need it:
 
 // Style your media query's theme here, this is the recommended type
 
-@media only screen and (min-width : @smartphone-portrait-step) {
-	// 
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==       YOUR THEME CUSTOMIZABLE     ===================================================================================================================================
+==            MEDIA QUERIES          ===================================================================================================================================
+==               RULES               ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+// For a faster develop you skip these Media queries rules, Frontsize should be enough to do the job.
+
+/* Add a slash "/" to the beginning of this line if you want to use these media queries rules
+// Media queries for selectors active from the smaller resolution to a specific one
+// RECOMMENDED for Mobile first develop
+@media only screen and (min-width : @hd-full-step) {
+	// Full HD
+}
+@media only screen and (max-width : (@hd-full-step - 1px)) {
+	// HD Ready
+}
+@media only screen and (max-width : (@hd-ready-step - 1px)) {
+	// Tablet landscape
+}
+@media only screen and (max-width : (@tablet-landscape-step - 1px)) {
+	// Tablet portrait
+}
+@media only screen and (max-width : (@tablet-portrait-step - 1px)) {
+	// Smartphone landscape
+}
+@media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
+	// Smartphone portrait
+}
+
+// Media queries for selectors active from a specific resolution or higher
+// RECOMMENDED for Mobile first develop
+@media only screen and (min-width : 1px) {
+	// Smartphone portrait
 }
 @media only screen and (min-width : @smartphone-landscape-step) {
-	// 
+	// Smartphone landscape
 }
 @media only screen and (min-width : @tablet-portrait-step) {
-	// 
+	// Tablet portrait
 }
 @media only screen and (min-width : @tablet-landscape-step) {
-	// 
+	// Tablet landscape
 }
 @media only screen and (min-width : @hd-ready-step) {
-	// 
+	// HD Ready
 }
 @media only screen and (min-width : @hd-full-step) {
-	// 
+	// Full HD
 }
 
-// Style your theme here
-@black:#393634;
-@blue:#0c94c7;
-
-a {
-	color:@blue;
+// Media queries for strict resolution range selectors
+// NOT RECOMMENDED for Mobile first develop
+@media	only screen
+		and (min-width : @hd-full-step) {
+	// Full HD
 }
 
-
-
-
-hr {
-	@border:2px solid @black;
-	border:none;
-	border-bottom:@border;
+@media	only screen
+		and (min-width : @hd-ready-step)
+		and (max-width : (@hd-full-step - 1px)) {
+	// HD Ready
 }
 
-body {
-	padding:2em 0;
-	background-image: url("melamine-wood-004.png");
-	color:@black;
-}
-.use-steps {
-	.shadow(0px 1px 10px rgba(0,0,0,.75));
-	background-image: url("handmade-paper.png");
-	background-color: rgb(242,245,245);
-	header {
-		background-position: center center;
-		strong {
-			color:lighten(@black,20%);
-		}
-		a {
-			text-decoration: none;
-		}
-	}
+@media	only screen
+		and (min-width : @tablet-landscape-step)
+		and (max-width : (@hd-ready-step - 1px)) {
+	// Tablet landscape
 }
 
-
-.nav-buttons {
-	a {
-		padding:.5em .75em;
-		text-decoration: none;
-		display: inline-block;
-		color:white;
-		text-shadow:1px 1px 1px rgba(0,0,0,.2);
-		background-color: @black;
-		border-bottom:4px solid black;
-	}
+@media	only screen
+		and (min-width : @tablet-portrait-step)
+		and (max-width : (@tablet-landscape-step - 1px)) {
+	// Tablet portrait
 }
 
-.logo-bg {
-	.round(10px);
-	height: 80px;
-	background-color: lighten(@black,10%);
-	border-bottom:6px solid @black;
+@media	only screen
+		and (min-width : @smartphone-landscape-step)
+		and (max-width : (@tablet-portrait-step - 1px)) {
+	// Smartphone landscape
 }
 
-h1 {
-	&.ultra-big {
-		text-decoration: none;
-		color:@black;
-		text-shadow:0px 1px 1px rgba(255,255,255,.5);
-		font-size:4em;
-		line-height: 0;
-	}
-	span {
-			color:fade(@black,50%);
-		}
+@media	only screen
+		and (min-width : 1px)
+		and (max-width : (@smartphone-landscape-step + 1px)) {
+	// Smartphone portrait
 }
+//*/ // End of media queries rules
 
-.fix-position {
-	background-color: @black;
-	color:white;
-}
 
-.with-padding {
-	h4 {
-		color:fade(@black,50%);
-	}
-}
-
-.example {
-	@params:border, background, .3s ease-in-out initial;
-	.round(0px);
-	background-color: rgba(0,0,0,.5);
-	.shadow(0px 0px 1px rgba(0,0,0,0));
-	border:1px solid rgba(0,0,0,0);
-	.animate(@params);
-	
-
-	&.without-structure {
-		background-color: white;
-		.shadow(0px 0px 1px rgba(0,0,0,.3));
-		.round(.5em);
-
-		.animate(@params);
-		> * {
-			.animate(@params);
-			border:1px solid rgba(0,0,0,0);
-		}
-	}
-	> * {
-		.animate(@params);
-		border:1px solid rgba(0,0,0,.25);
-		background-color: rgba(255,255,255,.3);
-		&:first-child {
-			
-		}
-	}
-	> * > * {
-		//.round(.25em);
-		background-color: white;
-	}
-}
 
 
