@@ -552,11 +552,10 @@ Sizing rules and APIs
 	padding-top: @vertical-padding;
 	padding-bottom: @vertical-padding;
 }
-.without-padding {
+.no-padding {
 	padding:0;
 }
-.without-padding-to-family {
-	// no padding for me and my children only
+.without-padding {
 	padding:0;
 	.without-padding-to-children;
 }
@@ -1170,17 +1169,73 @@ Frontsize extended methods
 .gloss-gradient(@top: rgb(200,200,200), @middle: rgb(100,100,100), @bottom: rgb(150,150,150)) {
 	.linear-gradient(bottom, @top 0%, @middle 50%, @bottom 100%;);
 }
-.background-responsive(@default-image, @retina-image) {
+.background-retina(@default-image, @retina-image) {
 	/*
-	.background-responsive("path/image-low-res.png", "path/image-high-res.png");
+	.background-retina("path/image-low-res.png", "path/image-high-res.png");
 	*/
 	background-image:url('@{default-image}');
-	@media only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio:2),
+	@media
+	only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio:2),
 	only screen and (-webkit-min-device-pixel-ratio: 2),
 	only screen and (   min--moz-device-pixel-ratio: 2),
 	only screen and (     -o-min-device-pixel-ratio: 2/1),
 	only screen and (        min-device-pixel-ratio: 2) {
 		background-image:url('@{retina-image}');
+	}
+}
+
+.background-responsive(@hd-full-bg, @hd-ready-bg, @tablet-landscape-bg, @tablet-portrait-bg, @smartphone-landscape-bg, @smartphone-portrait-bg) {
+	/*
+	.background-responsive(
+		"path/hd-full/background.png",
+		"path/hd-ready/background.png",
+		"path/tablet-landscape/background.png",
+		"path/tablet-portrait/background.png",
+		"path/smartphone-landscape/background.png",
+		"path/smartphone-portrait/background.png"
+	);
+	*/
+	.background-hd-full(@hd-full-bg);
+	.background-hd-ready(@hd-ready-bg);
+	.background-tablet-landscape(@tablet-landscape-bg);
+	.background-tablet-portrait(@tablet-portrait-bg);
+	.background-smartphone-landscape(@smartphone-landscape-bg);
+	.background-smartphone-portrait(@smartphone-portrait-bg);
+}
+.background-hd-full(@hd-full-bg) {
+	@media only screen and (min-width : @hd-full-step) {
+		// Full HD
+		background-image:url('@{hd-full-bg}');
+	}
+}
+.background-hd-ready(@hd-ready-bg) {
+	@media only screen and (min-width : @hd-ready-step) {
+		// HD Ready
+		background-image:url('@{hd-ready-bg}');
+	}
+}
+.background-tablet-landscape(@tablet-landscape-bg) {
+	@media only screen and (min-width : @tablet-landscape-step) {
+		// Tablet landscape
+		background-image:url('@{tablet-landscape-bg}');
+	}
+}
+.background-tablet-portrait(@tablet-portrait-bg) {
+	@media only screen and (min-width : @tablet-portrait-step) {
+		// Tablet portrait
+		background-image:url('@{tablet-portrait-bg}');
+	}
+}
+.background-smartphone-landscape(@smartphone-landscape-bg) {
+	@media only screen and (min-width : @smartphone-landscape-step) {
+		// Smartphone landscape
+		background-image:url('@{smartphone-landscape-bg}');
+	}
+}
+.background-smartphone-portrait(@smartphone-portrait-bg) {
+	@media only screen and (min-width : 1px) {
+		// Smartphone portrait
+		background-image:url('@{smartphone-portrait-bg}');
 	}
 }
 
@@ -1200,6 +1255,20 @@ Frontsize extended methods
 .hide-text-overflow(@overflow:ellipsis) {
 	text-overflow: @overflow;
 	overflow: hidden;
+}
+.text-buried(@color:black, @light:rgba(255,255,255,.75), @offset:1px) {
+	/*
+	<div alt="Text Buried">Text Buried</div>
+	*/
+	color: @color;
+	position: relative;
+	&:before, &:after {
+		content: attr(alt);
+		color: @light;
+		position: absolute;
+		top:@offset;
+		left:@offset;
+	}
 }
 
 /*
