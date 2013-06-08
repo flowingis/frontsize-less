@@ -1,7 +1,7 @@
 /**
 Frontsize - Simple like make conversation.
-Version: 1.0
-Date: 2013-05-28
+Version: 1.1
+Date: 2013-06-08
 Author: Vittorio Vittori
 Website: http://vittoriovittori.com
 */
@@ -147,7 +147,7 @@ HERE ENDS YOUR CONFIGURATION
 Frontsize global setting mixins
 */
 
-.frontsize-steps(@hd-full-margin:200px, @hd-ready-margin:100px, @tablet-landscape-margin:50px, @tablet-portrait-margin:0px) {
+.frontsize-steps(@hd-full-margin:500px, @hd-ready-margin:100px, @tablet-landscape-margin:50px, @tablet-portrait-margin:0px) {
 	// Media queries for selectors active from a specific resolution or higher
 	@media only screen and (min-width : 1px) {
 		// Smartphone portrait
@@ -232,6 +232,7 @@ Frontsize global setting mixins
 
 .frontsize-h-font-scaling(@hd-full:1.5em, @hd-ready:1.25em, @tablet-landscape:1.125em, @tablet-portrait:1.125em, @smartphone-landscape:1em, @smartphone-portrait:1em) {
 	// Media queries for selectors active from a specific resolution or higher
+	
 	@media only screen and (min-width : 1px) {
 		// Smartphone portrait
 		h1 { font-size: unit(@h1*@smartphone-portrait,em); }
@@ -240,6 +241,7 @@ Frontsize global setting mixins
 		h4 { font-size: unit(@h4*@smartphone-portrait,em); }
 		h5 { font-size: unit(@h5*@smartphone-portrait,em); }
 		h6 { font-size: unit(@h6*@smartphone-portrait,em); }
+		h1, h2, h3, h4, h5, h6 { margin-bottom:unit(@smartphone-portrait/4,em); }
 	}
 	@media only screen and (min-width : @smartphone-landscape-step) {
 		// Smartphone landscape
@@ -249,6 +251,7 @@ Frontsize global setting mixins
 		h4 { font-size: unit(@h4*@smartphone-landscape,em); }
 		h5 { font-size: unit(@h5*@smartphone-landscape,em); }
 		h6 { font-size: unit(@h6*@smartphone-landscape,em); }
+		h1, h2, h3, h4, h5, h6 { margin-bottom:unit(@smartphone-landscape/4,em); }
 	}
 	@media only screen and (min-width : @tablet-portrait-step) {
 		// Tablet portrait
@@ -258,6 +261,7 @@ Frontsize global setting mixins
 		h4 { font-size: unit(@h4*@tablet-portrait,em); }
 		h5 { font-size: unit(@h5*@tablet-portrait,em); }
 		h6 { font-size: unit(@h6*@tablet-portrait,em); }
+		h1, h2, h3, h4, h5, h6 { margin-bottom:unit(@tablet-portrait/4,em); }
 	}
 	@media only screen and (min-width : @tablet-landscape-step) {
 		// Tablet landscape
@@ -267,6 +271,7 @@ Frontsize global setting mixins
 		h4 { font-size: unit(@h4*@tablet-landscape,em); }
 		h5 { font-size: unit(@h5*@tablet-landscape,em); }
 		h6 { font-size: unit(@h6*@tablet-landscape,em); }
+		h1, h2, h3, h4, h5, h6 { margin-bottom:unit(@tablet-landscape/4,em); }
 	}
 	@media only screen and (min-width : @hd-ready-step) {
 		// HD Ready
@@ -276,6 +281,7 @@ Frontsize global setting mixins
 		h4 { font-size: unit(@h4*@hd-ready,em); }
 		h5 { font-size: unit(@h5*@hd-ready,em); }
 		h6 { font-size: unit(@h6*@hd-ready,em); }
+		h1, h2, h3, h4, h5, h6 { margin-bottom:unit(@hd-full/4,em); }
 	}
 	@media only screen and (min-width : @hd-full-step) {
 		// Full HD
@@ -285,6 +291,7 @@ Frontsize global setting mixins
 		h4 { font-size: unit(@h4*@hd-full,em); }
 		h5 { font-size: unit(@h5*@hd-full,em); }
 		h6 { font-size: unit(@h6*@hd-full,em); }
+		h1, h2, h3, h4, h5, h6 { margin-bottom:unit(@hd-full/4,em); }
 	}
 }
 .columns * {
@@ -327,73 +334,6 @@ Sizing rules and APIs
 .contain-10 > * { .set-column-step(1,10); }
 .contain-12 > * { .set-column-step(1,12); }
 .contain-16 > * { .set-column-step(1,16); }
-
-// to move left a column based on container's number of possible positions
-.contain-2 > .skip-1-col  { .set-margin-step(1,2); }
-
-.contain-3 > .skip-1-col  { .set-margin-step(1,3); }
-.contain-3 > .skip-2-cols { .set-margin-step(2,3); }
-
-.contain-4 > .skip-1-col  { .set-margin-step(1,4); }
-.contain-4 > .skip-2-cols { .set-margin-step(2,4); }
-.contain-4 > .skip-3-cols { .set-margin-step(3,4); }
-
-.contain-5 > .skip-1-col  { .set-margin-step(1,5); }
-.contain-5 > .skip-2-cols { .set-margin-step(2,5); }
-.contain-5 > .skip-3-cols { .set-margin-step(3,5); }
-.contain-5 > .skip-4-cols { .set-margin-step(4,5); }
-
-.contain-6 > .skip-1-col  { .set-margin-step(1,6); }
-.contain-6 > .skip-2-cols { .set-margin-step(2,6); }
-.contain-6 > .skip-3-cols { .set-margin-step(3,6); }
-.contain-6 > .skip-4-cols { .set-margin-step(4,6); }
-.contain-6 > .skip-5-cols { .set-margin-step(5,6); }
-
-.contain-8 > .skip-1-col  { .set-margin-step(1,8); }
-.contain-8 > .skip-2-cols { .set-margin-step(2,8); }
-.contain-8 > .skip-3-cols { .set-margin-step(3,8); }
-.contain-8 > .skip-4-cols { .set-margin-step(4,8); }
-.contain-8 > .skip-5-cols { .set-margin-step(5,8); }
-.contain-8 > .skip-6-cols { .set-margin-step(6,8); }
-.contain-8 > .skip-7-cols { .set-margin-step(7,8); }
-
-.contain-10 > .skip-1-col  { .set-margin-step(1,10); }
-.contain-10 > .skip-2-cols { .set-margin-step(2,10); }
-.contain-10 > .skip-3-cols { .set-margin-step(3,10); }
-.contain-10 > .skip-4-cols { .set-margin-step(4,10); }
-.contain-10 > .skip-5-cols { .set-margin-step(5,10); }
-.contain-10 > .skip-6-cols { .set-margin-step(6,10); }
-.contain-10 > .skip-7-cols { .set-margin-step(7,10); }
-.contain-10 > .skip-8-cols { .set-margin-step(8,10); }
-.contain-10 > .skip-9-cols { .set-margin-step(9,10); }
-
-.contain-12 > .skip-1-col   { .set-margin-step(1,12); }
-.contain-12 > .skip-2-cols  { .set-margin-step(2,12); }
-.contain-12 > .skip-3-cols  { .set-margin-step(3,12); }
-.contain-12 > .skip-4-cols  { .set-margin-step(4,12); }
-.contain-12 > .skip-5-cols  { .set-margin-step(5,12); }
-.contain-12 > .skip-6-cols  { .set-margin-step(6,12); }
-.contain-12 > .skip-7-cols  { .set-margin-step(7,12); }
-.contain-12 > .skip-8-cols  { .set-margin-step(8,12); }
-.contain-12 > .skip-9-cols  { .set-margin-step(9,12); }
-.contain-12 > .skip-10-cols { .set-margin-step(10,12);}
-.contain-12 > .skip-11-cols { .set-margin-step(11,12);}
-
-.contain-16 > .skip-1-col   { .set-margin-step(1,16); }
-.contain-16 > .skip-2-cols  { .set-margin-step(2,16); }
-.contain-16 > .skip-3-cols  { .set-margin-step(3,16); }
-.contain-16 > .skip-4-cols  { .set-margin-step(4,16); }
-.contain-16 > .skip-5-cols  { .set-margin-step(5,16); }
-.contain-16 > .skip-6-cols  { .set-margin-step(6,16); }
-.contain-16 > .skip-7-cols  { .set-margin-step(7,16); }
-.contain-16 > .skip-8-cols  { .set-margin-step(8,16); }
-.contain-16 > .skip-9-cols  { .set-margin-step(9,16); }
-.contain-16 > .skip-10-cols { .set-margin-step(10,16);}
-.contain-16 > .skip-11-cols { .set-margin-step(11,16);}
-.contain-16 > .skip-12-cols { .set-margin-step(11,16);}
-.contain-16 > .skip-13-cols { .set-margin-step(11,16);}
-.contain-16 > .skip-14-cols { .set-margin-step(11,16);}
-.contain-16 > .skip-15-cols { .set-margin-step(11,16);}
 
 // to change the default rule of elements width balance to a more specific one
 .columns >  *.wide-1-of-16,  .wide-1-of-16 { .set-column-step(1,16); }
@@ -556,6 +496,7 @@ Sizing rules and APIs
 	padding:0;
 }
 .without-padding {
+	// no padding for me and my children only
 	padding:0;
 	.without-padding-to-children;
 }
@@ -710,7 +651,7 @@ a img { border:none; }
 
 @media	only screen
 		and (min-width : 1px)
-		and (max-width : (@smartphone-landscape-step + 1px)) {
+		and (max-width : (@smartphone-landscape-step - 1px)) {
 	// Smartphone portrait
 	.only-on-hd-full				{display:none;}
 	.only-on-hd-ready				{display:none;}
@@ -776,6 +717,32 @@ a img { border:none; }
 	nav a { display:block; width:100%; clear:both; }
 }
 
+// Media queries for selectors active from the smaller resolution to a specific one
+@media only screen and (min-width : @hd-full-step) {
+	// Full HD
+	.not-to-hd-full { display:none; position: fixed; }
+}
+@media only screen and (max-width : (@hd-full-step - 1px)) {
+	// HD Ready
+	.not-to-hd-ready { display:none; position: fixed; }
+}
+@media only screen and (max-width : (@hd-ready-step - 1px)) {
+	// Tablet landscape
+	.not-to-tablet-landscape { display:none; position: fixed; }
+}
+@media only screen and (max-width : (@tablet-landscape-step - 1px)) {
+	// Tablet portrait
+	.not-to-tablet-portrait { display:none; position: fixed; }
+}
+@media only screen and (max-width : (@tablet-portrait-step - 1px)) {
+	// Smartphone landscape
+	.not-to-smartphone-landscape { display:none; position: fixed; }
+}
+@media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
+	// Smartphone portrait
+	.not-to-smartphone-portrait { display:none; position: fixed; }
+}
+
 /*
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
@@ -804,9 +771,6 @@ Frontsize internal mixins to extend with new columns
 }
 .set-column-step(@step, @columns) {
 	width:((100% * @step)/@columns);
-}
-.set-margin-step(@step, @columns) {
-	margin-left:((100% * @step)/@columns);
 }
 .set-step-padding(@step) {
 	.with-steps-padding { padding:@step !important; }
@@ -1238,7 +1202,6 @@ Frontsize extended methods
 		background-image:url('@{smartphone-portrait-bg}');
 	}
 }
-
 .sprite(@image, @coordinates) {
 	background-image:url("@{image}");
 	background-repeat:no-repeat;
@@ -1252,20 +1215,56 @@ Frontsize extended methods
 		background-position:@hover-coordinates;
 	}
 }
+// text effects
+.scale-font-size(@hd-full:1em, @hd-ready:1em, @tablet-landscape:1em, @tablet-portrait:1em, @smartphone-landscape:1em, @smartphone-portrait:1em) {
+	// Media queries for selectors active from the smaller resolution to a specific one
+	@media only screen and (min-width : @hd-full-step) {
+		// Full HD
+		font-size:@hd-full !important;
+	}
+	@media only screen and (max-width : (@hd-full-step - 1px)) {
+		// HD Ready
+		font-size:@hd-ready !important;
+	}
+	@media only screen and (max-width : (@hd-ready-step - 1px)) {
+		// Tablet landscape
+		font-size:@tablet-landscape !important;
+	}
+	@media only screen and (max-width : (@tablet-landscape-step - 1px)) {
+		// Tablet portrait
+		font-size:@tablet-portrait !important;
+	}
+	@media only screen and (max-width : (@tablet-portrait-step - 1px)) {
+		// Smartphone landscape
+		font-size:@smartphone-landscape !important;
+	}
+	@media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
+		// Smartphone portrait
+		font-size:@smartphone-portrait !important;
+	}
+}
 .hide-text-overflow(@overflow:ellipsis) {
 	text-overflow: @overflow;
 	overflow: hidden;
 }
-.text-buried(@color:black, @light:rgba(255,255,255,.75), @offset:1px) {
+.text-buried(@color:black, @light:rgba(255,255,255,.05), @offset:1px) {
 	/*
 	<div alt="Text Buried">Text Buried</div>
 	*/
+	display: inline-block;
 	color: @color;
 	position: relative;
+	text-shadow:none;
 	&:before, &:after {
 		content: attr(alt);
 		color: @light;
 		position: absolute;
+	}
+	&:before {
+		top:@offset;
+		left:@offset;
+	}
+	&:after {
 		top:@offset;
 		left:@offset;
 	}
