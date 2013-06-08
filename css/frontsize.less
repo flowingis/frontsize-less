@@ -1392,6 +1392,56 @@ a.vintage-keyboard {cursor: pointer;}
 .commodore-keyboard {.commodore-keyboard;}
 a.commodore-keyboard {cursor: pointer;}
 
+.switch(@round:6px, @padding:1px, @margin:2.5em, @on-color:#1ba6da, @off-color:#dc3151) {
+	
+	@duration:.2s;
+	@animation:ease-out;
+	padding:@padding;
+	
+	background-color: @beige-light;
+	border:1px solid rgba(0,0,0,.15);
+	.round(@round);
+	.shadow(inset 0px 1px 4px rgba(0,0,0,.2));
+	
+	> * {
+		display: inline-block;
+		padding:.5em;
+		.warp;
+		min-width:@margin;
+
+		color:white;
+		text-shadow:1px 1px 1px rgba(0,0,0,.3);
+		text-align:center;
+		
+		cursor: pointer;
+		background-color: white;
+		.transition(margin-right @duration @animation, margin-left @duration @animation;);
+		.shadow(0px 0px 1px rgba(0,0,0,.3));
+		.round(unit(@round - @padding, px));
+		
+		&.on {
+			margin-right:@margin;
+			margin-left:0;
+			@on-color:#1ba6da;
+			.v-gradient(@on-color);
+			border:1px solid darken(@on-color,5%);
+			border-top-color:lighten(@on-color,10%);
+			border-bottom-color:darken(@on-color,10%);
+		}
+
+		&.off {
+			margin-right:0;
+			margin-left:@margin;
+			@off-color:#dc3151;
+			.v-gradient(@off-color);
+			border:1px solid darken(@off-color,5%);
+			border-top-color:lighten(@off-color,5%);
+			border-bottom-color:darken(@off-color,10%);
+		}
+	}
+}
+.switch { .switch; }
+
 /*
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
