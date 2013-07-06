@@ -1,0 +1,550 @@
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==               CSS 3               ===================================================================================================================================
+==           CROSS BROWSER           ===================================================================================================================================
+==        COMAPTIBILITY MIXINS       ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+
+.transition(@transition:.3s ease-in-out initial) {
+	/*
+	classic css transition style
+	.transition(width .4s ease-in-out);
+	.transition(color .4s ease-in-out);
+	.transition(border-color .4s ease-in-out .2s);
+	*/
+	.ease;
+	-webkit-transition:@transition;
+	-khtml-transition:@transition;
+	-moz-transition:@transition;
+	-ms-transition:@transition;
+	-o-transition:@transition;
+	transition:@transition;
+}
+.transition-delay(@delay:.5s) {
+	-webkit-transition-delay:@delay;
+	-khtml-transition-delay:@delay;
+	-moz-transition-delay:@delay;
+	-ms-transition-delay:@delay;
+	-o-transition-delay:@delay;
+	transition-delay:@delay;
+}
+.transition-duration(@duration:.5s) {
+	-webkit-transition-duration:@duration;
+	-khtml-transition-duration:@duration;
+	-moz-transition-duration:@duration;
+	-ms-transition-duration:@duration;
+	-o-transition-duration:@duration;
+	transition-duration:@duration;
+}
+.transition-property(@property:all) {
+	-webkit-transition-property:@property;
+	-khtml-transition-property:@property;
+	-moz-transition-property:@property;
+	-ms-transition-property:@property;
+	-o-transition-property:@property;
+	transition-property:@property;
+}
+.transition-timing-function(@easing:ease-in-out) {
+	-webkit-transition-timing-function:@easing;
+	-khtml-transition-timing-function:@easing;
+	-moz-transition-timing-function:@easing;
+	-ms-transition-timing-function:@easing;
+	-o-transition-timing-function:@easing;
+	transition-timing-function:@easing;
+}
+.ease(@easing:ease-in-out) {
+	.transition-timing-function(@easing);
+}
+.input-placeholder(@color:#999999, @focused:#CCCCCC) {
+	// sets the color of the input text placeholder attribute
+	::-webkit-input-placeholder { color:@color; }
+	input:focus::-webkit-input-placeholder { color:@focused; }
+
+	:-khtml-input-placeholder { color:@color; }
+	input:focus:-khtml-input-placeholder { color:@focused; }
+
+	:-moz-placeholder { color:@color; }
+	input:focus:-moz-placeholder { color:@focused; }
+	::-moz-placeholder { color:@color; }
+	input:focus::-moz-placeholder { color:@focused; }
+
+	:-ms-input-placeholder { color:@color; }
+	input:focus:-ms-input-placeholder { color:@focused; }
+
+	:-o-input-placeholder { color:@color; }
+	input:focus:-o-input-placeholder { color:@focused; }
+
+	:input-placeholder { color:@color; }
+	input:focus:input-placeholder { color:@focused; }
+
+}
+.font-smoothing(@antialias:antialiased) {
+	// sets the antialias text for the whole page
+	// @antialias: antialiased | subpixel-antialiased | none
+	-webkit-font-smoothing:@antialias;
+	-khtml-font-smoothing:@antialias;
+	-moz-font-smoothing:@antialias;
+	-ms-font-smoothing:@antialias;
+	-o-font-smoothing:@antialias;
+	font-smoothing:@antialias;
+}
+.column-count(@count:auto) {
+	// http://www.w3schools.com/cssref/css3_pr_column-count.asp
+	-webkit-column-count:@count;
+	-khtml-column-count:@count;
+	-moz-column-count:@count;
+	-ms-column-count:@count;
+	-o-column-count:@count;
+	column-count:@count;
+}
+.column-gap(@gap:normal) {
+	// http://www.w3schools.com/cssref/css3_pr_column-gap.asp
+	-webkit-column-gap:@gap;
+	-khtml-column-gap:@gap;
+	-moz-column-gap:@gap;
+	-ms-column-gap:@gap;
+	-o-column-gap:@gap;
+	column-gap:@gap;
+}
+.column-rule(@rule:medium none black) {
+	// http://www.w3schools.com/cssref/css3_pr_column-rule.asp
+	-webkit-column-rule:@rule;
+	-khtml-column-rule:@rule;
+	-moz-column-rule:@rule;
+	-ms-column-rule:@rule;
+	-o-column-rule:@rule;
+	column-rule:@rule;
+}
+.column-span(@span:1) {
+	// http://www.w3schools.com/cssref/css3_pr_column-span.asp
+	// The column-span property specifies how many columns an element should span across.
+	// 1 | all
+	-webkit-column-span:@span;
+	-khtml-column-span:@span;
+	-moz-column-span:@span;
+	-ms-column-span:@span;
+	-o-column-span:@span;
+	column-span:@span;
+}
+.column-width(@rule:auto) {
+	// http://www.w3schools.com/cssref/css3_pr_column-width.asp
+	// The column-width property specifies the width of the columns.
+	-webkit-column-width:@rule;
+	-khtml-column-width:@rule;
+	-moz-column-width:@rule;
+	-ms-column-width:@rule;
+	-o-column-width:@rule;
+	column-width:@rule;
+}
+.columns(@columns:auto auto) {
+	// http://www.w3schools.com/cssref/css3_pr_columns.asp
+	// The columns property is a shorthand property for setting column-width and column-count.
+	-webkit-columns:@columns;
+	-khtml-columns:@columns;
+	-moz-columns:@columns;
+	-ms-columns:@columns;
+	-o-columns:@columns;
+	columns:@columns;
+}
+.border-radius(@radius:6px) {
+	// sets a radius to the angles of the element
+	/*
+	Default usage
+	.border-radius(top-left-radius top-right-radius bottom-right-radius bottom-left-radius);
+	.border-radius(4px);
+	.border-radius(4px 6px 8px 10px);
+	*/
+	-webkit-border-radius:@radius;
+	-khtml-border-radius:@radius;
+	-moz-border-radius:@radius;
+	-ms-border-radius:@radius;
+	-o-border-radius:@radius;
+	border-radius:@radius;
+}
+.round-top(@radius:6px) {
+	// sets the top radius of the element
+	/*
+	Default usage
+	.round-top(top-radius-only);
+	.round-top(4px);
+	*/
+	.border-radius(@radius @radius 0px 0px);
+}
+.round-bottom(@radius:6px) {
+	// sets the bottom radius of the element
+	/*
+	Default usage
+	.round-bottom(bottom-radius-only);
+	.round-bottom(4px);
+	*/
+	.border-radius(0px 0px @radius @radius);
+}
+.round-left(@radius:6px) {
+	// sets the left radius of the element
+	/*
+	Default usage
+	.round-left(left-radius-only);
+	.round-left(4px);
+	*/
+	.border-radius(@radius 0px 0px @radius);
+}
+.round-right(@radius:6px) {
+	// sets the right radius of the element
+	/*
+	Default usage
+	.round-right(right-radius-only);
+	.round-right(4px);
+	*/
+	.border-radius(0px @radius @radius 0px);
+}
+.border-image(@params) {
+	// Specify an image as the border around an element
+	// http://www.w3schools.com/cssref/css3_pr_border-image.asp
+	/*
+	Defaut usage
+	.border-image(url(border.png) 30 30 round);
+	*/
+	-webkit-border-image:@params;
+	-khtml-border-image:@params;
+	-moz-border-image:@params;
+	-ms-border-image:@params;
+	-o-border-image:@params;
+	border-image:@params;
+}
+.display-box() {
+	display:-webkit-box;
+	display:-ms-flexbox;
+	display:-khtml-box;
+	display:-moz-box;
+	display:-o-box;
+	display:box;
+}
+.box-align(@align:stretch) {
+	/*
+	The box-align property specifies how to align the child elements of a box.
+	http://www.w3schools.com/cssref/css3_pr_box-align.asp
+	Values: start | end | center | baseline | stretch
+	*/
+	-webkit-box-align:@align;
+	-khtml-box-align:@align;
+	-moz-box-align:@align;
+	-ms-box-align:@align;
+	-o-box-align:@align;
+	box-align:@align;
+}
+.box-direction(@direction:normal) {
+	/*
+	The box-direction property specifies the direction in which child elements of a box element are laid out.
+	http://www.w3schools.com/cssref/css3_pr_box-direction.asp
+	Values: normal | reverse | inherit
+	*/
+	-webkit-box-direction:@direction;
+	-khtml-box-direction:@direction;
+	-moz-box-direction:@direction;
+	-ms-box-direction:@direction;
+	-o-box-direction:@direction;
+	box-direction:@direction;
+}
+.box-flex(@flexibility:0.0) {
+	/*
+	The box-flex property specifies whether the child elements of a box is flexible or inflexible in size.
+	Tip: Elements that are flexible can shrink or grow as the box shrinks and grows. Whenever there is extra space in a box, flexible elements are expanded to fill that space.
+	Values: 0.0 | 0.5 | 1 | etc.
+	
+	Notice: The container element must have display property set to box as in the example above
+	.container {
+		.display-box();
+		.children {
+			.box-flex();
+		}
+	}
+	*/
+
+	-webkit-box-flex:@flexibility;
+	-khtml-box-flex:@flexibility;
+	-moz-box-flex:@flexibility;
+	-ms-box-flex:@flexibility;
+	-o-box-flex:@flexibility;
+	box-flex:@flexibility;
+}
+.box-ordinal-group(@order:1) {
+	/*
+	http://www.w3schools.com/cssref/css3_pr_box-ordinal-group.asp
+
+	The box-ordinal-group property specifies the display order of the child elements of a box.
+	Elements with a lower value are displayed before those with a higher value.
+	Note: The display order of the elements with the same group value depend on their source order.
+	Values: integers
+	
+	Notice: The container element must have display property set to box as in the example above
+	.container {
+		.display-box();
+		.children-1 {
+			.box-ordinal-group(2);
+		}
+		.children-2 {
+			.box-ordinal-group(1);
+		}
+	}
+	*/
+	-webkit-box-ordinal-group:@order;
+	-khtml-box-ordinal-group:@order;
+	-moz-box-ordinal-group:@order;
+	-ms-box-ordinal-group:@order;
+	-o-box-ordinal-group:@order;
+	-ms-flex-order:@order;
+	box-ordinal-group:@order;
+}
+.box-orient(@orient:inline-axis) {
+	/*
+	http://www.w3schools.com/cssref/css3_pr_box-orient.asp
+
+	The box-orient property specifies whether the children of a box should be laid out horizontally or vertically.
+	Tip: Children within a horizontal box are displayed from left to right, and children within a vertical box are displayed top to bottom. However, the box-direction and box-ordinal-group properties can change this ordering.
+	Values: horizontal | vertical | inline-axis | block-axis | inherit
+	
+	Notice: The container element must have display property set to box as in the example above
+	.container {
+		.display-box();
+		.children-1 {
+			.box-ordinal-group(2);
+		}
+		.children-2 {
+			.box-ordinal-group(1);
+		}
+	}
+	*/
+	-webkit-box-orient:@orient;
+	-khtml-box-orient:@orient;
+	-moz-box-orient:@orient;
+	-ms-flex-orient:@orient;
+	-ms-box-orient:@orient;
+	-o-box-orient:@orient;
+	box-orient:@orient;
+}
+.box-pack(@pack) {
+	/*
+	http://www.w3schools.com/cssref/css3_pr_box-pack.asp
+
+	The box-pack property specifies where child elements of a box are placed when the box is larger than the size of the children.
+	This property specifies the horizontal position in horizontal boxes, and the vertical position in vertical boxes.
+	Values: start | end | center | justify
+	
+	Notice: The container element must have display property set to box as in the example above
+	.container {
+		.display-box();
+		.children-1 {
+			.box-ordinal-group(2);
+		}
+		.children-2 {
+			.box-ordinal-group(1);
+		}
+	}
+	*/
+
+	-webkit-box-pack:@pack;
+	-khtml-box-pack:@pack;
+	-moz-box-pack:@pack;
+	-ms-flex-pack:@pack;
+	-ms-box-pack:@pack;
+	-o-box-pack:@pack;
+	box-pack:@pack;
+}
+
+.box-sizing(@sizing:content-box) {
+	/*
+	http://www.w3schools.com/cssref/css3_pr_box-sizing.asp
+	
+	The box-sizing property allows you to define certain elements to fit an area in a certain way.
+	For example, if you want two bordered boxes side by side, it can be achieved through setting box-sizing to "border-box". This forces the browser to render the box with the specified width and height, and place the border and padding inside the box.
+	Values: content-box | border-box | inherit
+	*/
+
+	-webkit-box-sizing:@sizing;
+	-khtml-box-sizing:@sizing;
+	-moz-box-sizing:@sizing;
+	-ms-box-sizing:@sizing;
+	-o-box-sizing:@sizing;
+	box-sizing:@sizing;
+}
+
+.box-shadow(@params:0px 0px 1px rgba(0,0,0,.3)) {
+	// sets the shadow of the element
+	/*
+	Default usage
+	.shadow(x y blur [expand] color [inset]);
+	.shadow(1px 2px 4px rgba(0,0,0,.3));
+	
+	For complex shadows pass a less @var
+	@var: 0px 2px 4px -1px rgba(0,0,0,.3), inset 0px 1px 4px rgba(255,255,255,.5);
+	.shadow(@var);
+	*/
+	-webkit-box-shadow:@params;
+	-khtml-box-shadow:@params;
+	-moz-box-shadow:@params;
+	-ms-box-shadow:@params;
+	-o-box-shadow:@params;
+	box-shadow:@params;
+}
+.transform(@transform:none) {
+	/*
+	The transform property applies a 2D or 3D transformation to an element. This property allows you to rotate, scale, move, skew, etc., elements.
+	Possible values: none|transform-functions
+	http://www.w3schools.com/cssref/css3_pr_transform.asp
+	*/
+	-webkit-transform:@transform;
+	-khtml-transform:@transform;
+	-moz-transform:@transform;
+	-ms-transform:@transform;
+	-o-transform:@transform;
+	transform:@transform;
+}
+// http://www.w3schools.com/cssref/css3_pr_transform.asp
+.skew(@degrees:0deg) {
+	.transform(skew(@degrees));
+}
+.matrix(@matrix6:0,0,0,0,0,0;) {
+	.transform(matrix(@matrix6));
+}
+.matrix3d(@matrix16:0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;) {
+	.transform(matrix3d(@matrix16));
+}
+.translate(@coordinatesXY:0,0;) {
+	.transform(translate(@coordinatesXY));
+}
+.translate3d(@coordinatesXYZ:0,0,0;) {
+	.transform(translate3d(@coordinatesXYZ));
+}
+.translateX(@x:0) {
+	.transform(translateX(@x));
+}
+.translateY(@x:0) {
+	.transform(translateY(@y));
+}
+.translateZ(@x:0) {
+	.transform(translateZ(@z));
+}
+.scale(@scale:0) {
+	.transform(scale(@scale));
+}
+.scaleX(@scale:0) {
+	.transform(scaleX(@scale));
+}
+.scaleY(@scale:0) {
+	.transform(scaleY(@scale));
+}
+.scaleZ(@scale:0) {
+	.transform(scaleZ(@scale));
+}
+.rotate(@angle:0) {
+	.transform(rotate(@angle));
+}
+.rotateX(@angle:0) {
+	.transform(rotateX(@angle));
+}
+.rotateY(@angle:0) {
+	.transform(rotateY(@angle));
+}
+.rotateZ(@angle:0) {
+	.transform(rotateZ(@angle));
+}
+.rotate3d(@rotation:0,0,0,0deg;) {
+	// x, y, z, angle
+	.transform(rotate3d(@rotation));
+}
+.skew(@angles:0,0) {
+	.transform(skew(@angles));
+}
+.skewX(@angle:0) {
+	.transform(skewX(@angle));
+}
+.skewY(@angle:0) {
+	.transform(skewY(@angle));
+}
+.perspective(@perspective:0) {
+	.transform(perspective(@perspective));
+}
+.backface-visibility(@visibility:visible) {
+	/*
+	The backface-visibility property defines whether or not an element should be visible when not facing the screen.
+	This property is useful when an element is rotated, and you do not want to see its backside.
+	http://www.w3schools.com/cssref/css3_pr_backface-visibility.asp
+	Values: visible | hidden
+	*/
+	-webkit-backface-visibility:@visibility;
+	-khtml-backface-visibility:@visibility;
+	-moz-backface-visibility:@visibility;
+	-ms-backface-visibility:@visibility;
+	-o-backface-visibility:@visibility;
+	backface-visibility:@visibility;
+}
+.resize(@resize:none) {
+	/*
+	The resize property specifies whether or not an element is resizable by the user.
+	http://www.w3schools.com/cssref/css3_pr_resize.asp
+	Values: none | both | horizontal | vertical
+	*/
+	-webkit-resize:@resize;
+	-khtml-resize:@resize;
+	-moz-resize:@resize;
+	-ms-resize:@resize;
+	-o-resize:@resize;
+	resize:@resize;
+}
+.appearance(@appearence:normal) {
+	/*
+	The appearance property allows you to make an element look like a standard user interface element.
+	Possible values: normal|icon|window|button|menu|field
+	http://www.w3schools.com/cssref/css3_pr_appearance.asp
+	
+	Default usage:
+	.appearance(button);
+	*/
+	-webkit-appearance:@appearence;
+	-khtml-appearance:@appearence;
+	-moz-appearance:@appearence;
+	-ms-appearance:@appearence;
+	-o-appearance:@appearence;
+	appearance:@appearence;
+}
+.linear-gradient(@gradient:top, #FFFFFF, #000000;) {
+	
+	background: -webkit-linear-gradient(@gradient);
+	background: -khtml-linear-gradient(@gradient);
+	background: -moz-linear-gradient(@gradient);
+	background: -ms-linear-gradient(@gradient);
+	background: -o-linear-gradient(@gradient);
+	background: linear-gradient(@gradient);
+}
+.background-origin(@origin:padding-box) {
+	/*
+	The background-origin property specifies what the background-position property should be relative to.
+	http://www.w3schools.com/cssref/css3_pr_background-origin.asp
+	Values: padding-box | border-box | content-box;
+	Default usage:
+	.background-origin(border-box);
+	*/
+	-webkit-background-origin:@origin;
+	-khtml-background-origin:@origin;
+	-moz-background-origin:@origin;
+	-ms-background-origin:@origin;
+	-o-background-origin:@origin;
+	background-origin:@origin;
+}
+
+.user-select(@select:auto) {
+	/*
+	it disables text selection
+	Values: auto | none | text;
+	*/
+	-webkit-user-select: @select;
+	-khtml-user-select: @select;
+	-moz-user-select: @select;
+	-ms-user-select: @select;
+	-o-user-select: @select;
+	user-select: @select;	       
+}
