@@ -1,0 +1,207 @@
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+==        YOUR CONFIGURATION         ===================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+// mixins
+// css3
+
+// font sizes for h# elements 
+@h1:   2em;
+@h2: 1.5em;
+@h3:   1em;
+@h4: 0.9em;
+@h5: 0.8em;
+@h6:0.65em;
+
+@font-sans:'Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-serif:Georgia, 'Times New Roman', Times, serif;
+@font-monospace:Menlo, Monaco, 'Courier New', monospace;
+@font-small:'lucida grande', tahoma, verdana, arial, sans-serif;
+
+@font-default:@font-sans;
+@font-heading:@font-sans;
+
+// set font scaling to change the font size depending by different resolutions
+.global-font-scaling();			// .global-font-scaling (@hd-full, @hd-ready, @tablet-landscape, @tablet-portrait, @smartphone-landscape);
+.global-small-font-scaling(@font-default, .75em, antialiased, @font-default, .75em, subpixel-antialiased, @font-small, 11px, subpixel-antialiased);
+.global-h-font-scaling();		// same config of .global-font-scaling
+
+@horizontal-padding:1em;
+@vertical-padding:1em;
+@images-folder:'/img';
+
+// set the margins
+.global-steps();				// .global-steps(200px, 100px, 50px, 0px);
+.global-steps-padding();
+
+// set different width for the smartphones, tablets and hd resolutions
+@smartphone-portrait-step:	320px;	// smartphones portrait		320~380
+@smartphone-landscape-step:	480px;	// smartphones landscape	480~568~685
+@tablet-portrait-step:	   	768px;	// tabled portrait			768
+@tablet-landscape-step:	  	1024px;	// tabled landscape			1024
+@hd-ready-step:			  	1280px;	// HD Ready					1280 (720p)
+@hd-full-step:			  	1800px;	// Full HD					1920 (1080p)
+
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                SUB                ===================================================================================================================================
+==               VIEWS               ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+// example:
+@import "models/house.less";
+@import "views/houses-index.less";
+
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+==            YOUR THEME             ===================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+
+
+
+/*
+POSSIBLE TROUBLESHOOTINGS
+
+= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+
+For background images PATH you have two main choices
+
+Easiest, but static, it requires to change the path if you move the site path:
+@img: "http://site.com/img/";
+body {
+	background-image: url("@{img}melamine-wood-004.png");
+}
+
+Hardesst, but dynamic, you set the img path from the javascript configuration in the html page file:
+HTML page
+<script type="text/javascript">
+	// put this code before loading less JavaScript
+	less = {
+		rootpath: "<?php echo $webroot; ?>img/" // a path to add on to the start of every url resource
+	}
+</script>
+<script type="text/javascript" src="js/less-1.4.0-beta.min.js"></script>
+
+Frontsize LESS file
+body {
+	background-image: url("melamine-wood-004.png");
+}
+
+= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+
+Remember to put the ; after a list of comma separated params to group them:
+.method(1,2,3;); => .method(@params) {...}
+
+If the method expect a list of params you don't need it:
+.method(1,2,3); => .method(@param-1, @param-2, @param-3) {...}
+*/
+
+// Style your media query's theme here, this is the recommended type
+
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==       YOUR THEME CUSTOMIZABLE     ===================================================================================================================================
+==            MEDIA QUERIES          ===================================================================================================================================
+==               RULES               ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+// For a faster develop you skip these Media queries rules, Frontsize should be enough to do the job.
+
+/* Add a slash "/" to the beginning of this line if you want to use these media queries rules
+// Media queries for selectors active from the smaller resolution to a specific one
+// RECOMMENDED for Mobile first develop
+@media only screen and (min-width : @hd-full-step) {
+	// Full HD
+}
+@media only screen and (max-width : (@hd-full-step - 1px)) {
+	// HD Ready
+}
+@media only screen and (max-width : (@hd-ready-step - 1px)) {
+	// Tablet landscape
+}
+@media only screen and (max-width : (@tablet-landscape-step - 1px)) {
+	// Tablet portrait
+}
+@media only screen and (max-width : (@tablet-portrait-step - 1px)) {
+	// Smartphone landscape
+}
+@media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
+	// Smartphone portrait
+}
+
+// Media queries for selectors active from a specific resolution or higher
+// RECOMMENDED for Mobile first develop
+@media only screen and (min-width : 1px) {
+	// Smartphone portrait
+}
+@media only screen and (min-width : @smartphone-landscape-step) {
+	// Smartphone landscape
+}
+@media only screen and (min-width : @tablet-portrait-step) {
+	// Tablet portrait
+}
+@media only screen and (min-width : @tablet-landscape-step) {
+	// Tablet landscape
+}
+@media only screen and (min-width : @hd-ready-step) {
+	// HD Ready
+}
+@media only screen and (min-width : @hd-full-step) {
+	// Full HD
+}
+
+// Media queries for strict resolution range selectors
+// NOT RECOMMENDED for Mobile first develop
+@media	only screen
+		and (min-width : @hd-full-step) {
+	// Full HD
+}
+
+@media	only screen
+		and (min-width : @hd-ready-step)
+		and (max-width : (@hd-full-step - 1px)) {
+	// HD Ready
+}
+
+@media	only screen
+		and (min-width : @tablet-landscape-step)
+		and (max-width : (@hd-ready-step - 1px)) {
+	// Tablet landscape
+}
+
+@media	only screen
+		and (min-width : @tablet-portrait-step)
+		and (max-width : (@tablet-landscape-step - 1px)) {
+	// Tablet portrait
+}
+
+@media	only screen
+		and (min-width : @smartphone-landscape-step)
+		and (max-width : (@tablet-portrait-step - 1px)) {
+	// Smartphone landscape
+}
+
+@media	only screen
+		and (min-width : 1px)
+		and (max-width : (@smartphone-landscape-step - 1px)) {
+	// Smartphone portrait
+}
+//*/ // End of media queries rules
+

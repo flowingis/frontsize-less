@@ -1,0 +1,407 @@
+// enabled widgets as css selectors
+
+.hooked { .hooked(); }
+.area-hifi { .area-hifi(); }
+.button-hifi { .button-hifi(); }
+.button-mini { .button-mini(); }
+.button-metal { .button-metal(); }
+.keyboard { .keyboard(); }
+.vintage-keyboard {.keyboard-vintage();}
+.commodore-keyboard { .keyboard-commodore(); }
+.switch { .switch(); }
+.text-buried { .text-buried(); }
+
+.facebook-account { .button-account(#5670a6); }
+.google-account { .button-account(#d55a4a); }
+.twitter-account { .button-account(#53bbef); }
+
+// tables
+.table { .table(); }
+.table-header { .table-header(); }
+.table-row { .table-row(); }
+.table-cell { .table-cell(); }
+
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==              MIXIN                ===================================================================================================================================
+==             WIDGETS               ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+
+
+.hooked(@z-index:auto) {
+	position:fixed;
+	width:100%;
+	left:0px;
+	z-index:auto;
+	.wrap;
+	&.to-top {
+		top:0px;
+	}
+	&.to-bottom {
+		bottom:0px;
+	}
+}
+
+
+/* TABLES */
+.table(@padding:1em, @vertical-align:middle, @even-bg:transparent, @odd-bg:transparent) {
+	/*
+	<div class="table">
+		<div class="table-row">
+			 <div class="table-cell table-header">
+			 	...
+			</div>
+		</div>
+		<div class="table-row">
+			 <div class="table-cell">
+			 	...
+			</div>
+		</div>
+	</div>
+	*/
+	display: table;
+	width:100%;
+}
+.table-row(@padding:1em, @vertical-align:middle, @even-bg:transparent, @odd-bg:transparent) {
+	// see .table mixin for details on usage
+	display: table-row;
+	&.even-odd {
+		> * {
+			&:nth-child(even) {
+				background-color: @even-bg;
+			}
+			&:nth-child(odd) {
+				background-color: @odd-bg;
+			}
+		}
+	}
+}
+.table-cell(@padding:0.5em, @vertical-align:middle) {
+	// see .table mixin for details on usage
+	display: table-cell;
+	vertical-align: @vertical-align;
+	padding:@padding;
+}
+.table-header(@padding:0.5em, @vertical-align:middle) {
+	// see .table mixin for details on usage
+	font-weight: 700;
+	vertical-align: @vertical-align;
+	padding:@padding;
+}
+.table-footer(@padding:0.5em, @vertical-align:middle) {
+	// see .table mixin for details on usage
+	vertical-align: @vertical-align;
+	padding:@padding;
+}
+
+
+.area-hifi(@hifi-color:#3d4041) {
+	z-index: 1;
+	border-bottom:1px solid lighten(@hifi-color,8%);
+	.vertical-gradient(fade(@hifi-color,95%),-5%);
+	.box-shadow(0px 0px 4px rgba(0,0,0,.5));
+}
+.button-hifi(@hifi-color:#3d4041) {
+	display: inline-block;
+	padding:.25em .75em;
+
+	border-bottom: none;
+	color:@text-grey-light;
+	text-shadow:0px -1px 0px rgba(0,0,0,.5);
+	white-space: nowrap;
+	
+	.border-radius(100px);
+	@p:.3s ease-in-out;
+	.transition(color @p, background-color @p, box-shadow @p;);
+	&:hover,
+	&.active,
+	&.selected {
+		color:white;
+		background-color:@hifi-color;
+		//.vertical-gradient(fade(@hifi-color,95%),-5%);
+		.box-shadow(0px 1px 4px rgba(0,0,0,.45), 0px 1px 2px rgba(255,255,255,.1) inset;);
+	}
+	&.selected {
+		cursor: default;
+	}
+}
+
+
+.keyboard(@color:#393634, @text:white) {
+	/*
+	<div class="keyboard">cmd</div>
+	*/
+	padding:.5em .75em;
+	display: inline-block;
+	position: relative;
+	cursor:pointer;
+
+	color:@text;
+	text-align: center;
+	text-decoration: none;
+	text-shadow:1px 1px 1px rgba(0,0,0,.2);
+	
+	border:1px solid @color;
+	border-top:1px solid lighten(@color,10%);
+	border-bottom:4px solid darken(@color,20%);
+	
+	.border-radius(6px);
+	.vertical-gradient(@color,-5%);
+	.box-shadow(0px 3px 4px -2px rgba(0,0,0,.3));
+
+	&:active {
+		top:2px;
+		margin-bottom:2px;
+		border-bottom-width:2px;
+	}
+}
+
+.keyboard-vintage(@color:#423f38, @text:white) {
+	/*
+	<div class="keyboard-vintage">cmd</div>
+	*/
+	padding:.5em .75em;
+	display: inline-block;
+	position: relative;
+	cursor:pointer;
+
+	color:@text;
+	text-align: center;
+	text-decoration: none;
+	text-shadow:1px 1px 1px rgba(0,0,0,.2);
+	
+	border:8px solid @color;
+	border-top:4px solid lighten(@color,10%);
+	border-bottom:14px solid darken(@color,20%);
+	
+	.border-radius(12px);
+	.vertical-gradient(@color,-5%);
+	.box-shadow(0px 3px 4px -2px rgba(0,0,0,.3));
+
+	&:active {
+		top:6px;
+		margin-bottom:6px;
+		border-bottom-width:8px;
+	}
+}
+
+.keyboard-commodore(@color:#cecbba, @text:#423f38) {
+	/*
+	<div class="keyboard-commodore">cmd</div>
+	*/
+	padding:.5em .75em;
+	display: inline-block;
+	position: relative;
+	cursor:pointer;
+	
+	color:@text;
+	text-align: center;
+	text-decoration: none;
+	text-shadow:1px 1px 0px rgba(255,255,255,.75);
+	
+	border:8px solid @color;
+	border-top:4px solid lighten(@color,10%);
+	border-bottom:14px solid darken(@color,20%);
+	
+	.border-radius(12px);
+	.vertical-gradient(@color, -8%);
+	.box-shadow(0px 3px 4px -2px rgba(0,0,0,.3));
+
+	&:active {
+		top:6px;
+		margin-bottom:6px;
+		border-bottom-width:8px;
+	}
+}
+
+
+.switch(@round:6px, @padding:1px, @margin:2.5em, @on-color:#1ba6da, @off-color:#dc3151) {
+	
+	@duration:.2s;
+	@animation:ease-out;
+	padding:@padding;
+	
+	background-color: rgb(245,245,245);
+	border:1px solid rgba(0,0,0,.15);
+	.border-radius(@round);
+	.box-shadow(inset 0px 1px 4px rgba(0,0,0,.2));
+	
+	> * {
+		display: inline-block;
+		padding:.5em;
+		.wrap;
+		min-width:@margin;
+
+		color:white;
+		text-shadow:1px 1px 1px rgba(0,0,0,.3);
+		text-align:center;
+		
+		cursor: pointer;
+		background-color: white;
+		.transition(margin-right @duration @animation, margin-left @duration @animation;);
+		.box-shadow(0px 0px 1px rgba(0,0,0,.3));
+		.border-radius(unit(@round - @padding, px));
+		
+		&.on {
+			margin-right:@margin;
+			margin-left:0;
+			.vertical-gradient(@on-color);
+			border:1px solid darken(@on-color,5%);
+			border-top-color:lighten(@on-color,10%);
+			border-bottom-color:darken(@on-color,10%);
+		}
+
+		&.off {
+			margin-right:0;
+			margin-left:@margin;
+			.vertical-gradient(@off-color);
+			border:1px solid darken(@off-color,5%);
+			border-top-color:lighten(@off-color,5%);
+			border-bottom-color:darken(@off-color,10%);
+		}
+	}
+}
+
+.text-buried(@color:black, @light:rgba(255,255,255,.05), @offset:1px) {
+	/*
+	<div alt="Text Buried">Text Buried</div>
+	*/
+	display: inline-block;
+	color: @color;
+	position: relative;
+	text-shadow:none;
+	&:before, &:after {
+		content: attr(alt);
+		color: @light;
+		position: absolute;
+	}
+	&:before {
+		top:@offset;
+		left:@offset;
+	}
+	&:after {
+		top:@offset;
+		left:@offset;
+	}
+}
+
+.button-mini(@color:#e9e9e9, @text-color:darken(@color,40%)) {
+	display: inline-block;
+	padding:0.5em 0.75em;
+
+	cursor: pointer;
+	background-color: @color;
+	color:@text-color;
+	text-shadow:1px 1px white;
+	font-family:'Lucida Grande', Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size:11px;
+
+	.transition(background-color .25s ease-out, color .25s ease-out;);
+	.box-shadow(0px 2px 3px -2px rgba(0, 0, 0, 0.7), inset 0px 1px 0px rgba(255, 255, 255, 0.7););
+	.border-radius(4px);
+	.font-smoothing(subpixel-antialiased);
+	
+	border:1px solid rgba(0, 0, 0, 0.075);
+
+	&:hover {
+		color:darken(@text-color,10%);
+		background-color: darken(@color,5%);
+	}
+}
+
+.button-account(@background-color:#C3C3C3, @color:white) {
+	/*
+	Code snippet:
+	<a class="twitter-account with-small-fonts" href="#">Connect to <b>Twitter</b></a>
+	<a class="google-account" href="#">Connect to <span>Google+</span></a>
+	*/
+	display: inline-block;
+	padding:0 0.5em;
+	margin-bottom:0.5em;
+	
+	cursor:pointer;
+	color:desaturate(lighten(@background-color,25%),12%);
+	text-shadow:0px -1px 0px rgba(0, 0, 0, 0.3);
+	border:1px solid saturate(darken(@background-color, 8%),8%);
+	border-bottom-color:saturate(darken(@background-color, 20%),20%);
+
+	.border-radius(4px);
+	.vertical-gradient(@background-color, 10%);
+	.box-shadow(0px 2px 3px -2px rgba(0, 0, 0, 0.7), inset 0px 1px 0px rgba(255, 255, 255, 0.35););
+	.transition(color .25s ease-in-out);
+
+	> * {
+		color:@color;
+	}
+
+	&:hover {
+		color:@color;
+		.vertical-gradient(@background-color, 0%);
+	}
+}
+
+.button-metal(@background-color:#E2E4E3, @color:#535353, @font-size:0.75em) {
+	display: inline-block;
+	padding:0.5em 1em;
+	
+	cursor:pointer;
+	color:@color;
+	text-shadow:0px 1px 0px rgba(255, 255, 255, 0.3);
+	font-size:@font-size;
+	font-weight:bold;
+	border:1px solid saturate(darken(@background-color, 20%),2%);
+	border-bottom-color:saturate(darken(@background-color, 30%),4%);
+
+	.border-radius(100px);
+	.vertical-gradient(@background-color, 10%);
+	.box-shadow(0px 2px 4px -2px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.7););
+	.transition(text-shadow .25s ease-out);
+
+	&:hover {
+		.box-shadow(0px 2px 4px -2px rgba(0, 0, 0, 0.4), inset 0px 2px 8px rgba(255, 255, 255, 0.7););
+	}
+
+	&:active {
+		color:@background-color;
+		text-shadow:0px 1px 2px rgba(0, 0, 0, 0.4);
+		border-color:darken(@color,10%);
+		.vertical-gradient(@color, -10%);
+		.box-shadow(0px 1px 0px rgba(255, 255, 255, 0.4), inset 0px 2px 8px rgba(0, 0, 0, 0.5););
+	}
+}
+
+.button-dark-metal(@background-color:#414548, @color:#c3c3c5, @radius:4px, @font-size:0.75em) {
+	display: inline-block;
+	padding:0.5em 1em;
+	
+	cursor:pointer;
+	color:@color;
+	text-shadow:0px 1px 0px rgba(0, 0, 0, 0.3);
+	font-size:@font-size;
+	font-weight:normal;
+	border:1px solid saturate(darken(@background-color, 20%),2%);
+	border-bottom-color:saturate(darken(@background-color, 30%),4%);
+
+	.border-radius(@radius);
+	.vertical-gradient(@background-color, 5%);
+	.box-shadow(0px 2px 4px -1px rgba(0, 0, 0, 0.6), inset 0px 1px 1px rgba(255, 255, 255, 0.3););
+	.transition(color .25s ease-out, text-shadow .25s ease-out, box-shadow .25s ease-out;);
+
+	&:hover {
+		color:lighten(@color,5%);
+		.vertical-gradient(lighten(@background-color,2%), 5%);
+		.box-shadow(0px 2px 4px -1px rgba(0, 0, 0, 0.6), inset 0px 1px 2px rgba(255, 255, 255, 0.3););
+	}
+
+	&:active {
+		color:lighten(@color,2%);
+		text-shadow:0px 1px 2px rgba(0, 0, 0, 0.4);
+		.vertical-gradient(@background-color, -5%);
+		.box-shadow(0px 1px 0px rgba(255, 255, 255, 0.4), inset 0px 2px 8px rgba(0, 0, 0, 0.5););
+	}
+}
+
