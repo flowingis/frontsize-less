@@ -313,17 +313,28 @@
 	}
 }
 
-.connect-button(@background-color:#C3C3C3, @color:white) {
+.account-button(@background-color:#C3C3C3, @color:white) {
 	color:@color;
-	text-shadow:1px 1px 1px rgba(0,0,0,.3);
+	text-shadow:0px -1px 0px rgba(0, 0, 0, 0.3);
 	border:1px solid saturate(darken(@background-color, 8%),8%);
-	border-bottom-color:saturate(darken(@background-color, 20%),20%);;
+	border-bottom-color:saturate(darken(@background-color, 20%),20%);
 	padding:0 0.5em;
+	margin-bottom:0.5em;
+
 	.border-radius(4px);
 	.vertical-gradient(@background-color, 10%);
 	.box-shadow(0px 2px 3px -2px rgba(0, 0, 0, 0.7), inset 0px 1px 0px rgba(255, 255, 255, 0.35););
+	&:hover {
+		.vertical-gradient(@background-color, 0%);
+	}
 }
 
-.facebook-connect {
-	.connect-button(#5670a6);
+.facebook-account {
+	.account-button(#5670a6);
+}
+.google-account {
+	.account-button(#d55a4a);
+}
+.twitter-account {
+	.account-button(#53bbef);
 }
