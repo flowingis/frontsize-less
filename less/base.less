@@ -8,16 +8,43 @@
 ========================================================================================================================================================================
 */
 
-.base-code() {
+.code-base(@padding:0) {
 	font-family: @font-monospace;
-	.border-radius(4px);
-	border:1px solid rgba(0,0,0,.015);
+	padding:@padding;
+	
+	border:1px solid rgba(0,0,0,.03);
 	background-color: rgba(0,0,0,.075);
+
+	.border-radius(4px);
+	.box-shadow(0px 1px 0px rgba(255,255,255,.6));
 }
-.base-mark(@background-color:rgb(255,255,0)) {
+.mark-base(@background-color:rgb(255,255,0)) {
 	color:inherit;
 	background-color:@background-color;
+
 	.box-shadow(0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75););
+}
+
+.input-text-base() {
+	border:1px solid rgba(0,0,0,.2);
+	background-color: #f8f8f8;
+	
+	.box-shadow(inset 0px 1px 4px rgba(0,0,0,.15), 0px 0px 0px rgba(0,0,0,0););
+	.transition(border .25s ease-in-out, background-color .25s ease-in-out, box-shadow .25s ease-in-out;);
+
+	&:focus {
+		border:1px solid rgba(0,0,0,.3);
+		background-color: white;
+		.box-shadow(inset 0px 0px 0px rgba(0,0,0,0), 0px 1px 4px rgba(0,0,0,0.15););
+	}
+}
+
+.hr-base() {
+	border:none;
+	border-top:1px solid rgba(0,0,0,.075);
+	border-bottom:1px solid rgba(255,255,255,.8);
+	padding:0;
+	margin:@vertical-padding 0;
 }
 
 
@@ -71,9 +98,23 @@ h1, h2, h3, h4, h5, h6 {
 ========================================================================================================================================================================
 */
 
+pre {
+	.code-base(1em);
+	code {
+		border-color:transparent;
+		background-color: transparent;
+		.box-shadow(none);
+	}
+}
+
+hr {
+	.wrap;
+	display: block;
+	width:100%;
+	.hr-base();
+}
+
 p,
-hr,
-pre,
 blockquote,
 ol,
 ul,
@@ -495,13 +536,16 @@ input[type="email"],
 input[type="password"] {
 	.fill;
 	outline-style:none;
+	margin-top:@vertical-padding;
 	padding:(@vertical-padding/2) (@horizontal-padding/2);
 	.input-placeholder(grey, lighten(grey, 20%));
+	.input-text-base();
 }
 
-input[type=reset],
+input[type="reset"],
 input[type="button"],
 input[type="submit"] {
+	margin-top:@vertical-padding;
 	//.button-metal();
 	.button-dark-metal();
 }
@@ -1113,7 +1157,7 @@ code {
 	
 	http://html5doctor.com/element-index/#code
 	*/
-	.base-code();
+	.code-base();
 }
 
 kbd {
@@ -1142,7 +1186,7 @@ var {
 	
 	http://html5doctor.com/element-index/#var
 	*/
-	.base-code();
+	.code-base();
 }
 
 mark {
@@ -1152,7 +1196,7 @@ mark {
 
 	http://html5doctor.com/element-index/#mark
 	*/
-	.base-mark();
+	.mark-base();
 }
 
 bdi {

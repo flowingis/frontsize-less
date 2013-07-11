@@ -12,12 +12,12 @@
 // css3
 
 // font sizes for h# elements 
-@h1:   2em;
-@h2: 1.5em;
-@h3:   1em;
-@h4: 0.9em;
-@h5: 0.8em;
-@h6:0.65em;
+@h1:2em;
+@h2:1.75em;
+@h3:1.5em;
+@h4:1.25em;
+@h5:1.125em;
+@h6:1em;
 
 @font-sans:'Helvetica Neue', Helvetica, Arial, sans-serif;
 @font-serif:Georgia, 'Times New Roman', Times, serif;
@@ -29,7 +29,7 @@
 
 // set font scaling to change the font size depending by different resolutions
 .global-font-scaling();			// .global-font-scaling (@hd-full, @hd-ready, @tablet-landscape, @tablet-portrait, @smartphone-landscape);
-.global-small-font-scaling(@font-default, .75em, antialiased, @font-default, .75em, subpixel-antialiased, @font-small, 11px, subpixel-antialiased);
+.global-small-font-scaling(@font-default, .75em, antialiased, @font-default, 14px, antialiased, @font-default, 14px, antialiased);
 .global-h-font-scaling();		// same config of .global-font-scaling
 
 @horizontal-padding:1em;
@@ -56,9 +56,11 @@
 ==                                   ===================================================================================================================================
 ========================================================================================================================================================================
 */
-// example:
-@import "models/house.less";
-@import "views/houses-index.less";
+
+
+
+@import "views/how-it-works.less";
+//.view("how-it-works");
 
 /*
 ========================================================================================================================================================================
@@ -70,7 +72,194 @@
 ========================================================================================================================================================================
 */
 
+// Text colors
+@text-grey-light:#b1b1b1;
+@text-grey:#7b8284;
+@text-black:#322e20;
 
+// Element colors
+@background-black:#393634;
+@background-grey:#7b8284;
+@background-grey-light:#b1b1b1;
+@background-grey-dark:saturate(darken(@background-grey,10%),10%);
+@background-aqua:#1ba6da;
+@background-azure:#e2e2e2;
+
+// customized mixin for this theme modules
+.button-box(@background-aqua:#1ba6da, @padding:1em, @border-radius:4px) {
+	/*
+	Usage
+	<a class="button" href="#">Download</a>
+	*/
+
+	display: inline-block;
+	padding: @padding;
+
+	text-transform: uppercase;
+	text-shadow: 0px -1px 1px rgba(0,0,0,.3);
+	text-decoration: none;
+	font-weight: bold;
+	
+	color:white;
+	border:none;
+	.vertical-gradient(@background-aqua,-10%);
+	.box-shadow(0px 1px 2px rgba(0,0,0,.4));
+	.border-radius(@border-radius);
+
+	&:hover {
+		color:white;
+		border:none;
+	}
+}
+.button-box { .button-box(); }
+
+
+
+
+/*
+= = = = = = = = = = = = = = = = = = = = =
+OVERRIDE SMACSS BASE RULES HERE IF NEEDED
+= = = = = = = = = = = = = = = = = = = = =
+*/
+body {
+	.font-smoothing(); // if you want to enable font smoothing (will be applied to webkit only)
+	background-color: @background-azure;
+	color:@text-grey;
+	text-shadow:1px 1px 0px rgba(255,255,255,.61);
+}
+
+a {
+	text-decoration: none;
+	color:@text-black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color:@text-black;
+}
+
+hr {
+	@border:2px solid @background-black;
+	border:none;
+	border-bottom:@border;
+}
+
+
+/*
+= = = = = = = = = = = = = = = =
+SMACSS Module Rules
+= = = = = = = = = = = = = = = =
+*/
+.site-logo {
+	
+}
+.site-logo-ultra-big {
+	white-space: nowrap;
+	text-decoration: none;
+	.scale-font-size(6em, 5.5em, 5.5em, 5em, 4.5em, 3.5em, 1);
+	.scale-top-padding(0.5em, 0.5em, 0.5em);
+}
+.site-logo-relief {
+	display: inline-block;
+	color:white;
+	text-shadow:0px 1px 3px rgba(0,0,0,.5);
+}
+.site-logo-buried {
+	display: inline-block;
+	.text-buried(rgba(30,30,30,1));
+}
+.site-logo-headline {
+	color:@text-grey-light;
+	text-shadow:0px 1px 2px rgba(0,0,0,.4);
+	strong {
+		color:white;
+	}
+}
+
+.default-btn {
+	color:@text-black;
+	text-decoration: none;
+	border-bottom:2px solid @text-grey;
+	&:hover {
+		color:@text-grey;
+		border-bottom:2px solid @background-azure;
+	}
+	@animation:0.3s ease-in-out;
+	.transition(border-bottom @animation, color @animation;);
+}
+
+.white-area-button {
+	color:@text-grey;
+	border-bottom:2px solid @background-azure;
+	@animation:0.3s ease-in-out;
+	.transition(border-bottom @animation, color @animation;);
+	&:hover {
+		color:@text-black;
+		border-bottom:2px solid @text-grey;
+	}
+}
+.grey-container {
+	border-top:rgba(255,255,255,.3);
+	border-bottom:1px solid rgba(0,0,0,.05);
+	background-color: lighten(@background-grey-light,20%);
+}
+
+
+/*
+= = = = = = = = = =
+header
+= = = = = = = = = =
+*/
+
+#header {
+	background-image: url("rainbow-devices-bg.png");
+}
+.header-grey-text {
+	color:@text-grey-light;
+	text-shadow:1px 1px 1px rgba(0,0,0,.3);
+}
+.header-white-text {
+	color:white;
+	text-shadow:1px 1px 1px rgba(0,0,0,.3);
+}
+
+.white-container {
+	background-color: white;
+	.box-shadow(0px 0px 10px rgba(0,0,0,.4));
+}
+
+.dark-grey-container {
+	color:lighten(@background-grey-dark,30%);
+	text-shadow: 1px 1px rgba(0,0,0,.2);
+	border-top:4px solid darken(@bg,5%);
+	@bg:desaturate(@background-grey-dark,10%);
+	background-color: @bg;
+}
+
+#footer {
+	
+	
+	//.list-menu;
+
+	li a, p a {
+		color:white;
+		text-shadow:1px 1px 1px rgba(0,0,0,.3);
+		.transition(color .25s ease-out);
+		.border-radius(4px);
+		&:hover {
+			color:lighten(@background-grey-dark,30%);
+		}
+	}
+	.footer-text {
+		color:desaturate(darken(@background-grey-dark,12%),12%);
+		text-shadow:1px 1px 1px rgba(255,255,255,.15);
+		a {
+			color:lighten(@background-grey-dark,30%);
+			&:hover {
+				color:lighten(@background-grey-dark,15%);
+			}
+		}
+	}
+}
 
 
 /*
