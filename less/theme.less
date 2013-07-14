@@ -12,12 +12,12 @@
 // css3
 
 // font sizes for h# elements 
-@h1:   2em;
-@h2: 1.5em;
-@h3:   1em;
-@h4: 0.9em;
-@h5: 0.8em;
-@h6:0.65em;
+@h1:2em;
+@h2:1.75em;
+@h3:1.5em;
+@h4:1.25em;
+@h5:1.125em;
+@h6:1em;
 
 @font-sans:'Helvetica Neue', Helvetica, Arial, sans-serif;
 @font-serif:Georgia, 'Times New Roman', Times, serif;
@@ -26,10 +26,11 @@
 
 @font-default:@font-sans;
 @font-heading:@font-sans;
+@font-default-color:#7b8284;
 
 // set font scaling to change the font size depending by different resolutions
 .global-font-scaling();			// .global-font-scaling (@hd-full, @hd-ready, @tablet-landscape, @tablet-portrait, @smartphone-landscape);
-.global-small-font-scaling(@font-default, .75em, antialiased, @font-default, .75em, subpixel-antialiased, @font-small, 11px, subpixel-antialiased);
+.global-small-font-scaling(@font-default, .75em, antialiased, @font-default, 14px, antialiased, @font-default, 14px, antialiased);
 .global-h-font-scaling();		// same config of .global-font-scaling
 
 @horizontal-padding:1em;

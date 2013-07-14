@@ -7,7 +7,7 @@ Author:		Vittorio Vittori
 Website:	http://vittoriovittori.com
 */
 
-@import "theme.less";
+
 
 /*
 ========================================================================================================================================================================
@@ -482,27 +482,32 @@ Frontsize internal mixins to extend with new columns
 */
 .set-columns(@columns) {
 	width:(100%/@columns) !important;
-	&:nth-child(2n+1) {clear:none;} 
-	&:nth-child(3n+1) {clear:none;} 
-	&:nth-child(4n+1) {clear:none;} 
-	&:nth-child(5n+1) {clear:none;} 
-	&:nth-child(6n+1) {clear:none;} 
-	&:nth-child(8n+1) {clear:none;} 
-	&:nth-child(10n+1){clear:none;} 
-	&:nth-child(12n+1){clear:none;} 
-	&:nth-child(16n+1){clear:none;} 
+	&:nth-child(2n+1) {clear:none;}
+	&:nth-child(3n+1) {clear:none;}
+	&:nth-child(4n+1) {clear:none;}
+	&:nth-child(5n+1) {clear:none;}
+	&:nth-child(6n+1) {clear:none;}
+	&:nth-child(8n+1) {clear:none;}
+	&:nth-child(10n+1){clear:none;}
+	&:nth-child(12n+1){clear:none;}
+	&:nth-child(16n+1){clear:none;}
 	&:nth-child(@{columns}n+1) {clear:both;}
 }
 .set-column-step(@step, @columns) {
 	width:((100% * @step)/@columns);
 }
 .set-step-padding(@step) {
-	.with-steps-padding { padding:@step !important; }
-	.with-horizontal-steps-padding { padding-left:@step !important; padding-right:@step !important; }
-	.with-vertical-steps-padding { padding-top:@step !important; padding-bottom:@step !important; }
-	.with-top-steps-padding { padding-top:@step !important; }
-	.with-bottom-steps-padding { padding-bottom:@step !important; }
+	.with-steps-padding { padding:@step; }
+	.with-horizontal-steps-padding { padding-left:@step; padding-right:@step; }
+	.with-vertical-steps-padding { padding-top:@step; padding-bottom:@step; }
+	.with-top-steps-padding { padding-top:@step; }
+	.with-bottom-steps-padding { padding-bottom:@step; }
 }
+
+// not working yet in LESS 1.4.1
+.simple-view(@filename) { @import "views/@{filename}.less"; }
+.view(@view, @controller:"pages") { @import "views/@{controller}/@{view}.less"; }
+.model(@filename) { @import 'models/@{filename}.less'; }
 
 /*
 ========================================================================================================================================================================
@@ -541,6 +546,9 @@ Frontsize internal mixins to extend with new columns
 	// Remember: .full selector sets lateral padding too
 	// manually occupy all this row
 	width:100%;
+}
+.hidden {
+	display: none;
 }
 .centered {
 	// manually center all the contents inside
@@ -597,6 +605,9 @@ Frontsize internal mixins to extend with new columns
 }
 .no-padding {
 	padding:0;
+}
+.without-bottom-padding {
+	padding-bottom:0 !important;
 }
 .without-padding {
 	// no padding for me and my children only
@@ -656,11 +667,62 @@ Frontsize internal mixins to extend with new columns
 	cursor: default;
 }
 
+.nav {
+	padding:0;
+
+	&.inline {
+		li {
+			display: inline-block;
+			margin-left: (@horizontal-padding / 2);
+			&:first-child {
+				margin-left:0;
+			}
+		}
+	}
+	&.vertical {
+		ul {
+			padding-left:0;
+			padding-right:0;
+		}
+	}
+	
+	li {
+
+		list-style-type: none;
+	}
+}
+.hookable {
+	.transition(top .3s ease-in-out);
+}
+
+.cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.debug {
+	.columns {
+		> * {
+			border:1px solid rgb(200,200,0);
+		}
+	}
+}
+
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
+==            DEPENDANCES            ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
 @import "normalize.less";
 @import "base.less";
 @import "css3.less";
 @import "mixins.less";
 @import "widgets.less";
+@import "theme.less";
 
 
 /*
@@ -755,52 +817,58 @@ Frontsize internal mixins to extend with new columns
 // Media queries for selectors active from smaller resolution device mobile to a specific one
 @media only screen and (min-width : @hd-full-step) {
 	// Full HD
-	.not-from-hd-full { display:none; }
-	.full-from-hd-full { width:100%; }
-	.full-from-hd-full > * { width:100%; }
-	.text-left-from-hd-full { text-align:left; }
-	.text-centered-from-hd-full { text-align:center; }
+	.not-till-hd-full { display:none; position: fixed; }
+	.columns > *.full-till-hd-full { width:100%; }
+	.full-till-hd-full { width:100%; }
+	//.full-till-hd-full > * { width:100%; }
+	.to-left-till-hd-full { text-align:left; }
+	.to-centered-till-hd-full { text-align:center; }
 }
 @media only screen and (max-width : (@hd-full-step - 1px)) {
 	// HD Ready
-	.not-from-hd-ready { display:none; }
-	.full-from-hd-ready { width:100%; }
-	.full-from-hd-ready > * { width:100%; }
-	.text-left-from-hd-ready { text-align:left; }
-	.text-centered-from-hd-ready { text-align:center; }
+	.not-till-hd-ready { display:none; position: fixed; }
+	.columns > *.full-till-hd-ready { width:100%; }
+	.full-till-hd-ready { width:100%; }
+	//.full-till-hd-ready > * { width:100%; }
+	.to-left-till-hd-ready { text-align:left; }
+	.to-centered-till-hd-ready { text-align:center; }
 }
 @media only screen and (max-width : (@hd-ready-step - 1px)) {
 	// Tablet landscape
-	.not-from-tablet-landscape { display:none; }
-	.full-from-tablet-landscape { width:100%; }
-	.full-from-tablet-landscape > * { width:100%; }
-	.text-left-from-tablet-landscape { text-align:left; }
-	.text-centered-from-tablet-landscape { text-align:center; }
+	.not-till-tablet-landscape { display:none; position: fixed; }
+	.columns > *.full-till-tablet-landscape { width:100%; }
+	.full-till-tablet-landscape { width:100%; }
+	//.full-till-tablet-landscape > * { width:100%; }
+	.to-left-till-tablet-landscape { text-align:left; }
+	.to-centered-till-tablet-landscape { text-align:center; }
 }
 @media only screen and (max-width : (@tablet-landscape-step - 1px)) {
 	// Tablet portrait
-	.not-from-tablet-portrait { display:none; }
-	.full-from-tablet-portrait { width:100%; }
-	.full-from-tablet-portrait > * { width:100%; }
-	.text-left-from-tablet-portrait { text-align:left; }
-	.text-centered-from-tablet-portrait { text-align:center; }
-	.not-hooked-from-tablet-landscape { position:static; }
+	.not-till-tablet-portrait { display:none; position: fixed; }
+	.columns > *.full-till-tablet-portrait { width:100%; }
+	.full-till-tablet-portrait { width:100%; }
+	//.full-till-tablet-portrait > * { width:100%; }
+	.to-left-till-tablet-portrait { text-align:left; }
+	.to-centered-till-tablet-portrait { text-align:center; }
+	.not-hooked-till-tablet-landscape { position:static; }
 }
 @media only screen and (max-width : (@tablet-portrait-step - 1px)) {
 	// Smartphone landscape
-	.not-from-smartphone-landscape { display:none; }
-	.full-from-smartphone-landscape { width:100%; }
-	.full-from-smartphone-landscape > * { width:100%; }
-	.text-left-from-smartphone-landscape { text-align:left; }
-	.text-centered-from-smartphone-landscape { text-align:center; }
+	.not-till-smartphone-landscape { display:none; position: fixed; }
+	.columns > *.full-till-smartphone-landscape { width:100%; }
+	.full-till-smartphone-landscape { width:100%; }
+	//.full-till-smartphone-landscape > * { width:100%; }
+	.to-left-till-smartphone-landscape { text-align:left; }
+	.to-centered-till-smartphone-landscape { text-align:center; }
 }
 @media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
 	// Smartphone portrait
-	.not-from-smartphone-portrait { display:none; }
-	.full-from-smartphone-portrait { width:100%; }
-	.full-from-smartphone-portrait > * { width:100%; }
-	.text-left-from-smartphone-portrait { text-align:left; }
-	.text-centered-from-smartphone-portrait { text-align:center; }
+	.not-till-smartphone-portrait { display:none; position: fixed; }
+	.columns > *.full-till-smartphone-portrait { width:100%; }
+	.full-till-smartphone-portrait { width:100%; }
+	//.full-till-smartphone-portrait > * { width:100%; }
+	.to-left-till-smartphone-portrait { text-align:left; }
+	.to-centered-till-smartphone-portrait { text-align:center; }
 	.paginated-away {
 		// the first child will have text-align to left and the last child will have text-align to right
 		> * {
@@ -811,31 +879,3 @@ Frontsize internal mixins to extend with new columns
 	}
 	nav a { display:block; width:100%; clear:both; }
 }
-
-// Media queries for selectors active from the smaller resolution to a specific one
-@media only screen and (min-width : @hd-full-step) {
-	// Full HD
-	.not-to-hd-full { display:none; position: fixed; }
-}
-@media only screen and (max-width : (@hd-full-step - 1px)) {
-	// HD Ready
-	.not-to-hd-ready { display:none; position: fixed; }
-}
-@media only screen and (max-width : (@hd-ready-step - 1px)) {
-	// Tablet landscape
-	.not-to-tablet-landscape { display:none; position: fixed; }
-}
-@media only screen and (max-width : (@tablet-landscape-step - 1px)) {
-	// Tablet portrait
-	.not-to-tablet-portrait { display:none; position: fixed; }
-}
-@media only screen and (max-width : (@tablet-portrait-step - 1px)) {
-	// Smartphone landscape
-	.not-to-smartphone-landscape { display:none; position: fixed; }
-}
-@media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
-	// Smartphone portrait
-	.not-to-smartphone-portrait { display:none; position: fixed; }
-}
-
-

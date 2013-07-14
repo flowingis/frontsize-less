@@ -3,17 +3,21 @@
 .hooked { .hooked(); }
 .area-hifi { .area-hifi(); }
 .button-hifi { .button-hifi(); }
+.button-box { .button-box(); }
 .button-mini { .button-mini(); }
 .button-metal { .button-metal(); }
 .keyboard { .keyboard(); }
-.vintage-keyboard {.keyboard-vintage();}
-.commodore-keyboard { .keyboard-commodore(); }
+.keyboard-vintage {.keyboard-vintage();}
+.keyboard-commodore { .keyboard-commodore(); }
 .switch { .switch(); }
 .text-buried { .text-buried(); }
 
 .facebook-account { .button-account(#5670a6); }
 .google-account { .button-account(#d55a4a); }
 .twitter-account { .button-account(#53bbef); }
+.github-account { .button-account(#cdcdcd, darken(grey,15%), rgba(255,255,255,.3)); }
+
+.pic { .pic(); }
 
 // tables
 .table { .table(); }
@@ -30,14 +34,15 @@
 ========================================================================================================================================================================
 */
 
-
-
 .hooked(@z-index:auto) {
 	position:fixed;
 	width:100%;
 	left:0px;
 	z-index:auto;
 	.wrap;
+	
+	.transition(top .3s ease-in-out);
+
 	&.to-top {
 		top:0px;
 	}
@@ -266,6 +271,12 @@
 	}
 }
 
+.pic(@border-width:3px) {
+	border:@border-width solid white;
+	outline: 1px solid rgba(0,0,0,.05);
+	.box-shadow(0px 2px 3px rgba(0,0,0,.3));
+}
+
 .text-buried(@color:black, @light:rgba(255,255,255,.05), @offset:1px) {
 	/*
 	<div alt="Text Buried">Text Buried</div>
@@ -289,6 +300,32 @@
 	}
 }
 
+.button-box(@background-aqua:#1ba6da, @padding:1em, @border-radius:4px) {
+	/*
+	Usage
+	<a class="button" href="#">Download</a>
+	*/
+
+	display: inline-block;
+	padding: @padding;
+
+	text-transform: uppercase;
+	text-shadow: 0px -1px 1px rgba(0,0,0,.3);
+	text-decoration: none;
+	font-weight: bold;
+	
+	color:white;
+	border:none;
+	.vertical-gradient(@background-aqua,-10%);
+	.box-shadow(0px 1px 2px rgba(0,0,0,.4));
+	.border-radius(@border-radius);
+
+	&:hover {
+		color:white;
+		border:none;
+	}
+}
+
 .button-mini(@color:#e9e9e9, @text-color:darken(@color,40%)) {
 	display: inline-block;
 	padding:0.5em 0.75em;
@@ -300,7 +337,7 @@
 	font-family:'Lucida Grande', Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size:11px;
 
-	.transition(background-color .25s ease-out, color .25s ease-out;);
+	.transition(background-color .25s ease-out, color .25s ease-out, border-color .25s ease-out;);
 	.box-shadow(0px 2px 3px -2px rgba(0, 0, 0, 0.7), inset 0px 1px 0px rgba(255, 255, 255, 0.7););
 	.border-radius(4px);
 	.font-smoothing(subpixel-antialiased);
@@ -308,12 +345,14 @@
 	border:1px solid rgba(0, 0, 0, 0.075);
 
 	&:hover {
+		border-color:rgba(0, 0, 0, 0.15);
+		border-bottom-color:rgba(0, 0, 0, 0.3);
 		color:darken(@text-color,10%);
 		background-color: darken(@color,5%);
 	}
 }
 
-.button-account(@background-color:#C3C3C3, @color:white) {
+.button-account(@background-color:#C3C3C3, @color:white, @text-shadow-color:0px -1px 0px rgba(255, 0, 0, 0.3)) {
 	/*
 	Code snippet:
 	<a class="twitter-account with-small-fonts" href="#">Connect to <b>Twitter</b></a>
@@ -328,30 +367,32 @@
 	text-shadow:0px -1px 0px rgba(0, 0, 0, 0.3);
 	border:1px solid saturate(darken(@background-color, 8%),8%);
 	border-bottom-color:saturate(darken(@background-color, 20%),20%);
+	background-color: @background-color;
 
 	.border-radius(4px);
 	.vertical-gradient(@background-color, 10%);
 	.box-shadow(0px 2px 3px -2px rgba(0, 0, 0, 0.7), inset 0px 1px 0px rgba(255, 255, 255, 0.35););
-	.transition(color .25s ease-in-out);
+	.transition(color .25s ease-out, box-shadow .25s ease-out;);
 
 	> * {
+		text-shadow:0px -1px 0px @text-shadow-color;
 		color:@color;
 	}
 
 	&:hover {
+		text-shadow:0px -1px 0px @text-shadow-color;
 		color:@color;
 		.vertical-gradient(@background-color, 0%);
 	}
 }
 
-.button-metal(@background-color:#E2E4E3, @color:#535353, @font-size:0.75em) {
+.button-metal(@background-color:#E2E4E3, @color:#535353) {
 	display: inline-block;
 	padding:0.5em 1em;
 	
 	cursor:pointer;
 	color:@color;
 	text-shadow:0px 1px 0px rgba(255, 255, 255, 0.3);
-	font-size:@font-size;
 	font-weight:bold;
 	border:1px solid saturate(darken(@background-color, 20%),2%);
 	border-bottom-color:saturate(darken(@background-color, 30%),4%);
@@ -374,16 +415,16 @@
 	}
 }
 
-.button-dark-metal(@background-color:#414548, @color:#c3c3c5, @radius:4px, @font-size:0.75em) {
+.button-dark-metal(@background-color:#414548, @color:#c3c3c5, @radius:4px) {
 	display: inline-block;
 	padding:0.5em 1em;
 	
 	cursor:pointer;
 	color:@color;
-	text-shadow:0px 1px 0px rgba(0, 0, 0, 0.3);
-	font-size:@font-size;
+	text-shadow:0px -1px 1px rgba(0, 0, 0, 0.3);
 	font-weight:normal;
-	border:1px solid saturate(darken(@background-color, 20%),2%);
+	border:1px solid saturate(darken(@background-color, 10%),2%);
+	border-top-color:@background-color;
 	border-bottom-color:saturate(darken(@background-color, 30%),4%);
 
 	.border-radius(@radius);

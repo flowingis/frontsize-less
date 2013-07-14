@@ -51,11 +51,13 @@ Frontsize extended MIXINS
 .gloss-gradient(@top: rgb(200,200,200), @middle: rgb(100,100,100), @bottom: rgb(150,150,150)) {
 	.linear-gradient(bottom, @top 0%, @middle 50%, @bottom 100%;);
 }
-.background-retina(@default-image, @retina-image) {
+.background-retina(@default-image, @retina-image, @background-size: auto) {
 	/*
+	@background-size: auto | px | % |  cover | contain
 	.background-retina("path/image-low-res.png", "path/image-high-res.png");
 	*/
 	background-image:url('@{default-image}');
+	background-size:@background-size;
 	@media
 	only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio:2),
 	only screen and (-webkit-min-device-pixel-ratio: 2),
