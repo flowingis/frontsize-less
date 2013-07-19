@@ -34,11 +34,11 @@
 ========================================================================================================================================================================
 */
 
-.hooked(@z-index:auto) {
+.hooked(@zIndex:auto) {
 	position:fixed;
 	width:100%;
 	left:0px;
-	z-index:auto;
+	z-index:@zIndex;
 	.wrap;
 	
 	.transition(top .3s ease-in-out);
@@ -53,7 +53,7 @@
 
 
 /* TABLES */
-.table(@padding:1em, @vertical-align:middle, @even-bg:transparent, @odd-bg:transparent) {
+.table(@padding:1em, @verticalAlign:middle, @evenBackground:transparent, @oddBackground:transparent) {
 	/*
 	<div class="table">
 		<div class="table-row">
@@ -71,51 +71,51 @@
 	display: table;
 	width:100%;
 }
-.table-row(@padding:1em, @vertical-align:middle, @even-bg:transparent, @odd-bg:transparent) {
+.table-row(@padding:1em, @verticalAlign:middle, @evenBackground:transparent, @oddBackground:transparent) {
 	// see .table mixin for details on usage
 	display: table-row;
 	&.even-odd {
 		> * {
 			&:nth-child(even) {
-				background-color: @even-bg;
+				background-color: @evenBackground;
 			}
 			&:nth-child(odd) {
-				background-color: @odd-bg;
+				background-color: @oddBackground;
 			}
 		}
 	}
 }
-.table-cell(@padding:0.5em, @vertical-align:middle) {
+.table-cell(@padding:0.5em, @verticalAlign:middle) {
 	// see .table mixin for details on usage
 	display: table-cell;
-	vertical-align: @vertical-align;
+	vertical-align: @verticalAlign;
 	padding:@padding;
 }
-.table-header(@padding:0.5em, @vertical-align:middle) {
+.table-header(@padding:0.5em, @verticalAlign:middle) {
 	// see .table mixin for details on usage
 	font-weight: 700;
-	vertical-align: @vertical-align;
+	vertical-align: @verticalAlign;
 	padding:@padding;
 }
-.table-footer(@padding:0.5em, @vertical-align:middle) {
+.table-footer(@padding:0.5em, @verticalAlign:middle) {
 	// see .table mixin for details on usage
-	vertical-align: @vertical-align;
+	vertical-align: @verticalAlign;
 	padding:@padding;
 }
 
 
-.area-hifi(@hifi-color:#3d4041) {
-	z-index: 1;
-	border-bottom:1px solid lighten(@hifi-color,8%);
-	.vertical-gradient(fade(@hifi-color,95%),-5%);
+.area-hifi(@hifiColor:#3d4041) {
+	z-index: 10;
+	border-bottom:1px solid lighten(@hifiColor,8%);
+	.vertical-gradient(fade(@hifiColor,95%),-5%);
 	.box-shadow(0px 0px 4px rgba(0,0,0,.5));
 }
-.button-hifi(@hifi-color:#3d4041) {
+.button-hifi(@hifiColor:#3d4041, @color:#b1b1b1) {
 	display: inline-block;
 	padding:.25em .75em;
 
 	border-bottom: none;
-	color:@text-grey-light;
+	color:@color;
 	text-shadow:0px -1px 0px rgba(0,0,0,.5);
 	white-space: nowrap;
 	
@@ -126,8 +126,7 @@
 	&.active,
 	&.selected {
 		color:white;
-		background-color:@hifi-color;
-		//.vertical-gradient(fade(@hifi-color,95%),-5%);
+		background-color:@hifiColor;
 		.box-shadow(0px 1px 4px rgba(0,0,0,.45), 0px 1px 2px rgba(255,255,255,.1) inset;);
 	}
 	&.selected {
@@ -136,7 +135,7 @@
 }
 
 
-.keyboard(@color:#393634, @text:white) {
+.keyboard(@color:#393634, @textColor:white) {
 	/*
 	<div class="keyboard">cmd</div>
 	*/
@@ -145,7 +144,7 @@
 	position: relative;
 	cursor:pointer;
 
-	color:@text;
+	color:@textColor;
 	text-align: center;
 	text-decoration: none;
 	text-shadow:1px 1px 1px rgba(0,0,0,.2);
@@ -165,7 +164,7 @@
 	}
 }
 
-.keyboard-vintage(@color:#423f38, @text:white) {
+.keyboard-vintage(@color:#423f38, @textColor:white) {
 	/*
 	<div class="keyboard-vintage">cmd</div>
 	*/
@@ -174,7 +173,7 @@
 	position: relative;
 	cursor:pointer;
 
-	color:@text;
+	color:@textColor;
 	text-align: center;
 	text-decoration: none;
 	text-shadow:1px 1px 1px rgba(0,0,0,.2);
@@ -224,7 +223,7 @@
 }
 
 
-.switch(@round:6px, @padding:1px, @margin:2.5em, @on-color:#1ba6da, @off-color:#dc3151) {
+.switch(@round:6px, @padding:1px, @margin:2.5em, @onColor:#1ba6da, @offColor:#dc3151) {
 	
 	@duration:.2s;
 	@animation:ease-out;
@@ -254,25 +253,25 @@
 		&.on {
 			margin-right:@margin;
 			margin-left:0;
-			.vertical-gradient(@on-color);
-			border:1px solid darken(@on-color,5%);
-			border-top-color:lighten(@on-color,10%);
-			border-bottom-color:darken(@on-color,10%);
+			.vertical-gradient(@onColor);
+			border:1px solid darken(@onColor,5%);
+			border-top-color:lighten(@onColor,10%);
+			border-bottom-color:darken(@onColor,10%);
 		}
 
 		&.off {
 			margin-right:0;
 			margin-left:@margin;
-			.vertical-gradient(@off-color);
-			border:1px solid darken(@off-color,5%);
-			border-top-color:lighten(@off-color,5%);
-			border-bottom-color:darken(@off-color,10%);
+			.vertical-gradient(@offColor);
+			border:1px solid darken(@offColor,5%);
+			border-top-color:lighten(@offColor,5%);
+			border-bottom-color:darken(@offColor,10%);
 		}
 	}
 }
 
-.pic(@border-width:3px) {
-	border:@border-width solid white;
+.pic(@borderWidth:3px) {
+	border:@borderWidth solid white;
 	outline: 1px solid rgba(0,0,0,.05);
 	.box-shadow(0px 2px 3px rgba(0,0,0,.3));
 }
@@ -300,7 +299,7 @@
 	}
 }
 
-.button-box(@background-aqua:#1ba6da, @padding:1em, @border-radius:4px) {
+.button-box(@backgroundColor:#1ba6da, @padding:1em, @borderRadius:4px) {
 	/*
 	Usage
 	<a class="button" href="#">Download</a>
@@ -316,9 +315,9 @@
 	
 	color:white;
 	border:none;
-	.vertical-gradient(@background-aqua,-10%);
+	.vertical-gradient(@backgroundColor,-10%);
 	.box-shadow(0px 1px 2px rgba(0,0,0,.4));
-	.border-radius(@border-radius);
+	.border-radius(@borderRadius);
 
 	&:hover {
 		color:white;
@@ -326,13 +325,13 @@
 	}
 }
 
-.button-mini(@color:#e9e9e9, @text-color:darken(@color,40%)) {
+.button-mini(@color:#e9e9e9, @textColor:darken(@color,40%)) {
 	display: inline-block;
 	padding:0.5em 0.75em;
 
 	cursor: pointer;
 	background-color: @color;
-	color:@text-color;
+	color:@textColor;
 	text-shadow:1px 1px white;
 	font-family:'Lucida Grande', Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size:11px;
@@ -347,12 +346,12 @@
 	&:hover {
 		border-color:rgba(0, 0, 0, 0.15);
 		border-bottom-color:rgba(0, 0, 0, 0.3);
-		color:darken(@text-color,10%);
+		color:darken(@textColor,10%);
 		background-color: darken(@color,5%);
 	}
 }
 
-.button-account(@background-color:#C3C3C3, @color:white, @text-shadow-color:0px -1px 0px rgba(255, 0, 0, 0.3)) {
+.button-account(@backgroundColor:#C3C3C3, @color:white, @textShadowColor:0px -1px 0px rgba(255, 0, 0, 0.3)) {
 	/*
 	Code snippet:
 	<a class="twitter-account with-small-fonts" href="#">Connect to <b>Twitter</b></a>
@@ -363,30 +362,30 @@
 	margin-bottom:0.5em;
 	
 	cursor:pointer;
-	color:desaturate(lighten(@background-color,25%),12%);
+	color:desaturate(lighten(@backgroundColor,25%),12%);
 	text-shadow:0px -1px 0px rgba(0, 0, 0, 0.3);
-	border:1px solid saturate(darken(@background-color, 8%),8%);
-	border-bottom-color:saturate(darken(@background-color, 20%),20%);
-	background-color: @background-color;
+	border:1px solid saturate(darken(@backgroundColor, 8%),8%);
+	border-bottom-color:saturate(darken(@backgroundColor, 20%),20%);
+	background-color: @backgroundColor;
 
 	.border-radius(4px);
-	.vertical-gradient(@background-color, 10%);
+	.vertical-gradient(@backgroundColor, 10%);
 	.box-shadow(0px 2px 3px -2px rgba(0, 0, 0, 0.7), inset 0px 1px 0px rgba(255, 255, 255, 0.35););
 	.transition(color .25s ease-out, box-shadow .25s ease-out;);
 
 	> * {
-		text-shadow:0px -1px 0px @text-shadow-color;
+		text-shadow:0px -1px 0px @textShadowColor;
 		color:@color;
 	}
 
 	&:hover {
-		text-shadow:0px -1px 0px @text-shadow-color;
+		text-shadow:0px -1px 0px @textShadowColor;
 		color:@color;
-		.vertical-gradient(@background-color, 0%);
+		.vertical-gradient(@backgroundColor, 0%);
 	}
 }
 
-.button-metal(@background-color:#E2E4E3, @color:#535353) {
+.button-metal(@backgroundColor:#E2E4E3, @color:#535353) {
 	display: inline-block;
 	padding:0.5em 1em;
 	
@@ -394,11 +393,11 @@
 	color:@color;
 	text-shadow:0px 1px 0px rgba(255, 255, 255, 0.3);
 	font-weight:bold;
-	border:1px solid saturate(darken(@background-color, 20%),2%);
-	border-bottom-color:saturate(darken(@background-color, 30%),4%);
+	border:1px solid saturate(darken(@backgroundColor, 20%),2%);
+	border-bottom-color:saturate(darken(@backgroundColor, 30%),4%);
 
 	.border-radius(100px);
-	.vertical-gradient(@background-color, 10%);
+	.vertical-gradient(@backgroundColor, 10%);
 	.box-shadow(0px 2px 4px -2px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.7););
 	.transition(text-shadow .25s ease-out);
 
@@ -407,7 +406,7 @@
 	}
 
 	&:active {
-		color:@background-color;
+		color:@backgroundColor;
 		text-shadow:0px 1px 2px rgba(0, 0, 0, 0.4);
 		border-color:darken(@color,10%);
 		.vertical-gradient(@color, -10%);
@@ -415,7 +414,7 @@
 	}
 }
 
-.button-dark-metal(@background-color:#414548, @color:#c3c3c5, @radius:4px) {
+.button-dark-metal(@backgroundColor:#414548, @color:#c3c3c5, @radius:4px) {
 	display: inline-block;
 	padding:0.5em 1em;
 	
@@ -423,26 +422,69 @@
 	color:@color;
 	text-shadow:0px -1px 1px rgba(0, 0, 0, 0.3);
 	font-weight:normal;
-	border:1px solid saturate(darken(@background-color, 10%),2%);
-	border-top-color:@background-color;
-	border-bottom-color:saturate(darken(@background-color, 30%),4%);
+	border:1px solid saturate(darken(@backgroundColor, 10%),2%);
+	border-top-color:@backgroundColor;
+	border-bottom-color:saturate(darken(@backgroundColor, 30%),4%);
 
 	.border-radius(@radius);
-	.vertical-gradient(@background-color, 5%);
+	.vertical-gradient(@backgroundColor, 5%);
 	.box-shadow(0px 2px 4px -1px rgba(0, 0, 0, 0.6), inset 0px 1px 1px rgba(255, 255, 255, 0.3););
 	.transition(color .25s ease-out, text-shadow .25s ease-out, box-shadow .25s ease-out;);
 
 	&:hover {
 		color:lighten(@color,5%);
-		.vertical-gradient(lighten(@background-color,2%), 5%);
+		.vertical-gradient(lighten(@backgroundColor,2%), 5%);
 		.box-shadow(0px 2px 4px -1px rgba(0, 0, 0, 0.6), inset 0px 1px 2px rgba(255, 255, 255, 0.3););
 	}
 
 	&:active {
 		color:lighten(@color,2%);
 		text-shadow:0px 1px 2px rgba(0, 0, 0, 0.4);
-		.vertical-gradient(@background-color, -5%);
+		.vertical-gradient(@backgroundColor, -5%);
 		.box-shadow(0px 1px 0px rgba(255, 255, 255, 0.4), inset 0px 2px 8px rgba(0, 0, 0, 0.5););
 	}
 }
 
+.tabs(@selectedColor:#7b8284, @selectedBackground:white, @defaultColor:#CCCCCC, @borderColor:#CCCCCC, @borderRadius:0.5em, @borderSize:1px) {
+	
+	overflow:auto;
+	padding:@vertical-padding @horizontal-padding 0 @horizontal-padding;
+
+	.bottom-line {
+		position:relative;
+		z-index:0;
+		top:-@borderSize;
+		width:100%;
+		height:@borderSize;
+
+		border-top:@borderSize solid @borderColor;
+	}
+
+	.tab {
+		display:inline-block;
+		position:relative;
+		
+		padding:(@vertical-padding/2) @horizontal-padding;
+		
+		cursor:pointer;
+		border:@borderSize solid transparent;
+		color:@defaultColor;
+		list-style-type:none;
+
+		.transition(color .25s ease-out, border-color .25s ease-out;);
+		.border-radius(@borderRadius @borderRadius 0 0);
+		
+		&:hover {
+			color:@selectedColor;
+		}
+
+		&.selected {
+			z-index:1;
+			color:@selectedColor;
+			background-color:@selectedBackground;
+			border-color:@borderColor;
+			border-bottom-color:@selectedBackground;
+		}
+	}
+}
+.tabs { .tabs(); }

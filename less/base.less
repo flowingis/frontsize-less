@@ -19,9 +19,9 @@
 	.box-shadow(0px 1px 0px rgba(255,255,255,.6));
 }
 
-.mark-base(@background-color:rgb(255,255,0)) {
+.mark-base(@backgroundColor:rgb(255,255,0)) {
 	color:inherit;
-	background-color:@background-color;
+	background-color:@backgroundColor;
 
 	.box-shadow(0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75););
 }
@@ -29,6 +29,8 @@
 .input-text-base() {
 	border:1px solid rgba(0,0,0,.2);
 	background-color: rgba(0,0,0,.05);
+
+	color:@font-default-color;
 	
 	.box-shadow(inset 0px 1px 4px rgba(0,0,0,.15), 0px 0px 0px rgba(0,0,0,0););
 	.transition(border-color .25s ease-in-out, background-color .25s ease-in-out, box-shadow .25s ease-in-out;);
@@ -57,9 +59,14 @@
 	@animation:0.3s ease-in-out;
 	.transition(border-bottom @animation, color @animation;);
 	
-	&:hover {
+	&:hover,
+	&.selected,
+	&.active {
 		color:saturate(darken(@color, 10%), 7%);
 		border-bottom-color: @color;
+	}
+	&.selected {
+		cursor: default;
 	}
 }
 /*
@@ -540,6 +547,12 @@ label {
 	*/
 	display: inline-block;
 	.wrap;
+	margin-top:@vertical-padding;
+
+	textarea,
+	input {
+		margin-top:0;
+	}
 }
 
 input {
@@ -562,6 +575,7 @@ input[type="password"] {
 	.wrap;
 }
 
+textarea,
 input[type="text"],
 input[type="email"],
 input[type="password"] {
@@ -693,8 +707,12 @@ textarea {
 	
 	http://html5doctor.com/element-index/#textarea
 	*/
-	.full;
+	.fill;
 	.wrap;
+	.resize(vertical);
+	@minHeight:100px;
+	min-height:@minHeight;
+	max-height:(@minHeight*3);
 }
 
 keygen {

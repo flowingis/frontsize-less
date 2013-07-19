@@ -23,9 +23,9 @@
 @font-serif:Georgia, 'Times New Roman', Times, serif;
 @font-monospace:Menlo, Monaco, 'Courier New', monospace;
 @font-small:'lucida grande', tahoma, verdana, arial, sans-serif;
+@font-heading:@font-sans;
 
 @font-default:@font-sans;
-@font-heading:@font-sans;
 @font-default-color:#7b8284;
 
 // set font scaling to change the font size depending by different resolutions
@@ -59,9 +59,9 @@
 */
 
 
-@import "models/house.less";
-@import "views/houses-index.less";
-//.view("how-it-works");
+@import "views/pages/home";		//	.view("home", "pages");
+@import "views/pages/get-started"; //	.view("get-started", "pages");
+@import "views/widgets/view";
 
 /*
 ========================================================================================================================================================================
@@ -73,6 +73,234 @@
 ========================================================================================================================================================================
 */
 
+// Text colors
+@textGrey:#7b8284;
+@textGreyLight:#b1b1b1;
+@textBlack:#322e20;
+
+// Element colors
+@backgroundBlack:#393634;
+@backgroundGrey:#7b8284;
+@backgroundGreyLight:#b1b1b1;
+@backgroundGreyDark:saturate(darken(@backgroundGrey,10%),10%);
+@backgroundAqua:#1ba6da;
+@backgroundAzure:#e2e2e2;
+
+
+
+
+/*
+= = = = = = = = = = = = = = = = = = = = =
+BASE
+= = = = = = = = = = = = = = = = = = = = =
+*/
+body {
+	.font-smoothing(); // if you want to enable font smoothing (will be applied to webkit only)
+	background-color: desaturate(@backgroundGreyDark,10%);
+	text-shadow:1px 1px 0px rgba(255,255,255,.61);
+}
+
+a {
+	text-decoration: none;
+	color:saturate(darken(@textGrey, 10%), 10%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color:@textBlack;
+}
+
+hr {
+	@border:2px solid @backgroundBlack;
+	border:none;
+	border-bottom:@border;
+}
+
+
+/*
+= = = = = = = = = = = = = = = = = = = = =
+TRASH
+= = = = = = = = = = = = = = = = = = = = =
+*/
+body > header + section {
+	padding-top:10em;
+}
+
+
+/*
+= = = = = = = = = = = = = = = =
+MODULES
+= = = = = = = = = = = = = = = =
+*/
+
+.nav.vertical {
+	a {
+		border-bottom-color:transparent;
+	}
+}
+
+.bg-em-grid {
+	.background-retina("responsive/em-grid.png", "responsive/em-grid-high-res.png", 64px);
+	background-position: center;
+}
+
+
+.site-logo-ultra-big {
+	white-space: nowrap;
+	text-decoration: none;
+	.scale-font-size(6em, 5.5em, 5.5em, 5em, 4.5em, 3.5em, 1);
+	.scale-top-padding(0.5em, 0.5em, 0.5em);
+}
+.site-logo-relief {
+	display: inline-block;
+	color:white;
+	text-shadow:0px 1px 3px rgba(0,0,0,.5);
+}
+.site-logo-buried {
+	display: inline-block;
+	.text-buried(rgba(30,30,30,1));
+}
+.site-logo-headline {
+	color:@textGreyLight;
+	text-shadow:0px 1px 2px rgba(0,0,0,.4);
+	strong {
+		color:white;
+	}
+}
+
+.white-area-button {
+	color:@textGrey;
+	border-bottom:2px solid @backgroundAzure;
+	@animation:0.3s ease-in-out;
+	.transition(border-bottom @animation, color @animation;);
+	&:hover {
+		color:@textBlack;
+		border-bottom:2px solid @textGrey;
+	}
+}
+.grey-container {
+	border-top:rgba(255,255,255,.3);
+	border-bottom:1px solid rgba(0,0,0,.05);
+	background-color: lighten(@backgroundGreyLight,20%);
+}
+
+.azure-container {
+	background-color: @backgroundAzure;
+}
+
+.section-header {
+	h6 {
+		color:@textGrey;
+	}
+}
+
+.mini-badge {
+	padding:.25em;
+
+	cursor: default;
+	
+	background-color:transparent;
+	border:1px solid transparent;
+	.border-radius(50px);
+
+	.transition(background-color .25s ease-in-out, border-color .25s ease-in-out;);
+
+	span {
+		color:desaturate(darken(@backgroundAzure, 20%), 10%);
+	}
+
+	&:hover {
+		background-color:@backgroundAzure;
+		border-color:desaturate(darken(@backgroundAzure, 5%), 5%);
+	}
+}
+
+/*
+= = = = = = = = = =
+ELEMEMTS
+= = = = = = = = = =
+*/
+
+.vertical-spacer {
+	padding-top: 2em;
+}
+
+.section-header + .section-header {
+	display: none;
+}
+
+/*
+= = = = = = = = = =
+CodeMirror fixes
+= = = = = = = = = =
+*/
+
+.CodeMirror {
+	position: relative;
+	z-index: 0;
+	text-shadow:none;
+	height: auto !important;
+	pre {
+		.box-shadow(none);
+	}
+}
+
+/*
+= = = = = = = = = =
+header
+= = = = = = = = = =
+*/
+
+#header {
+	
+}
+.header-grey-text {
+	color:@textGreyLight;
+	text-shadow:1px 1px 1px rgba(0,0,0,.3);
+}
+.header-white-text {
+	color:white;
+	text-shadow:1px 1px 1px rgba(0,0,0,.3);
+}
+
+.white-container {
+	position: relative;
+	background-color: white;
+	.box-shadow(0px 0px 10px rgba(0,0,0,.4));
+}
+
+.dark-grey-container {
+	color:lighten(@backgroundGreyDark,30%);
+	text-shadow: 1px 1px rgba(0,0,0,.2);
+	border-top:4px solid darken(@bg,5%);
+	@bg:desaturate(@backgroundGreyDark,10%);
+	background-color: @bg;
+}
+
+#footer {
+	
+	
+	//.list-menu;
+
+	li a, p a {
+		color:white;
+		text-shadow:1px 1px 1px rgba(0,0,0,.3);
+		.transition(color .25s ease-out);
+		border-bottom:none;
+		&:hover {
+			color:lighten(@backgroundGreyDark,30%);
+		}
+	}
+	.footer-text {
+		color:desaturate(darken(@backgroundGreyDark,12%),12%);
+		text-shadow:1px 1px 1px rgba(255,255,255,.15);
+		a {
+			color:lighten(@backgroundGreyDark,30%);
+			&:hover {
+				color:lighten(@backgroundGreyDark,15%);
+			}
+		}
+	}
+}
 
 
 /*

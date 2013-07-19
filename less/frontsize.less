@@ -40,6 +40,9 @@ For example, on tablet landscape 5 columns will be turned into 3 columns:
 	// nothing to set here
 }
 */
+
+//.row-steps(12, 6, 6, 3, 1);
+
 @media only screen and (max-width : (@hd-ready-step - 1px)) {
 	// Tablet landscape
 
@@ -65,7 +68,7 @@ For example, on tablet landscape 5 columns will be turned into 3 columns:
 }
 @media only screen and (max-width : (@tablet-landscape-step - 1px)) {
 	// Tablet portrait
-	
+
 	// Contents rules
 	// .contain-2  > * { .set-columns(2); } // default
 	// .contain-3  > * { .set-columns(3); } // default
@@ -331,6 +334,181 @@ Frontsize global setting mixins
 		h1, h2, h3, h4, h5, h6 { margin-bottom:unit(@hd-full/4,em); }
 	}
 }
+
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                ROW                ===================================================================================================================================
+==               !!!!!               ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+.responsive-rule(@selector:row, @hdFullSteps:12, @hdReadySteps:12, @tabletLandscapeSteps:6, @tabletPortraitSteps:3, @smartphoneLandscapeSteps:1, @smartphonePortraitSteps:1) {
+	
+	.@{selector} {
+		padding-top:@vertical-padding;
+		width:100%;
+		.wrap;
+		overflow:visible;
+		clear:both;
+	}
+	.@{selector} * {
+		.wrap;
+	}
+	.@{selector} > * {
+		padding-bottom:@vertical-padding;
+		.set-column-step(1, @hdFullSteps);
+		.set-column-behavior();
+	}
+	.@{selector} > *:nth-child(@{hdFullSteps}n+1) {
+		clear:both;
+	}
+
+	.@{selector} > *.wide-1-of-16  { .set-column-step(1,16); }
+	.@{selector} > *.wide-2-of-16  { .set-column-step(2,16); }
+	.@{selector} > *.wide-3-of-16  { .set-column-step(3,16); }
+	.@{selector} > *.wide-4-of-16  { .set-column-step(4,16); }
+	.@{selector} > *.wide-5-of-16  { .set-column-step(5,16); }
+	.@{selector} > *.wide-6-of-16  { .set-column-step(6,16); }
+	.@{selector} > *.wide-7-of-16  { .set-column-step(7,16); }
+	.@{selector} > *.wide-8-of-16  { .set-column-step(8,16); }
+	.@{selector} > *.wide-9-of-16  { .set-column-step(9,16); }
+	.@{selector} > *.wide-10-of-16 { .set-column-step(10,16);}
+	.@{selector} > *.wide-11-of-16 { .set-column-step(11,16);}
+	.@{selector} > *.wide-12-of-16 { .set-column-step(12,16);}
+	.@{selector} > *.wide-13-of-16 { .set-column-step(13,16);}
+	.@{selector} > *.wide-14-of-16 { .set-column-step(14,16);}
+	.@{selector} > *.wide-15-of-16 { .set-column-step(15,16);}
+	.@{selector} > *.wide-16-of-16 { .set-column-step(16,16);}
+	
+	.@{selector} > *.wide-1-of-12  { .set-column-step(1,12); }
+	.@{selector} > *.wide-2-of-12  { .set-column-step(2,12); }
+	.@{selector} > *.wide-3-of-12  { .set-column-step(3,12); }
+	.@{selector} > *.wide-4-of-12  { .set-column-step(4,12); }
+	.@{selector} > *.wide-5-of-12  { .set-column-step(5,12); }
+	.@{selector} > *.wide-6-of-12  { .set-column-step(6,12); }
+	.@{selector} > *.wide-7-of-12  { .set-column-step(7,12); }
+	.@{selector} > *.wide-8-of-12  { .set-column-step(8,12); }
+	.@{selector} > *.wide-9-of-12  { .set-column-step(9,12); }
+	.@{selector} > *.wide-10-of-12 { .set-column-step(10,12);}
+	.@{selector} > *.wide-11-of-12 { .set-column-step(11,12);}
+	.@{selector} > *.wide-12-of-12 { .set-column-step(12,12);}
+	
+	.@{selector} > *.wide-1-of-10  { .set-column-step(1,10); }
+	.@{selector} > *.wide-2-of-10  { .set-column-step(2,10); }
+	.@{selector} > *.wide-3-of-10  { .set-column-step(3,10); }
+	.@{selector} > *.wide-4-of-10  { .set-column-step(4,10); }
+	.@{selector} > *.wide-5-of-10  { .set-column-step(5,10); }
+	.@{selector} > *.wide-6-of-10  { .set-column-step(6,10); }
+	.@{selector} > *.wide-7-of-10  { .set-column-step(7,10); }
+	.@{selector} > *.wide-8-of-10  { .set-column-step(8,10); }
+	.@{selector} > *.wide-9-of-10  { .set-column-step(9,10); }
+	.@{selector} > *.wide-10-of-10 { .set-column-step(10,10);}
+	
+	.@{selector} > *.wide-1-of-8 { .set-column-step(1,8);}
+	.@{selector} > *.wide-2-of-8 { .set-column-step(2,8);}
+	.@{selector} > *.wide-3-of-8 { .set-column-step(3,8);}
+	.@{selector} > *.wide-4-of-8 { .set-column-step(4,8);}
+	.@{selector} > *.wide-5-of-8 { .set-column-step(5,8);}
+	.@{selector} > *.wide-6-of-8 { .set-column-step(6,8);}
+	.@{selector} > *.wide-7-of-8 { .set-column-step(7,8);}
+	.@{selector} > *.wide-8-of-8 { .set-column-step(8,8);}
+	
+	.@{selector} > *.wide-1-of-7 { .set-column-step(1,7);}
+	.@{selector} > *.wide-2-of-7 { .set-column-step(2,7);}
+	.@{selector} > *.wide-3-of-7 { .set-column-step(3,7);}
+	.@{selector} > *.wide-4-of-7 { .set-column-step(4,7);}
+	.@{selector} > *.wide-5-of-7 { .set-column-step(5,7);}
+	.@{selector} > *.wide-6-of-7 { .set-column-step(6,7);}
+	.@{selector} > *.wide-7-of-7 { .set-column-step(7,7);}
+
+	.@{selector} > *.wide-1-of-6 { .set-column-step(1,6);}
+	.@{selector} > *.wide-2-of-6 { .set-column-step(2,6);}
+	.@{selector} > *.wide-3-of-6 { .set-column-step(3,6);}
+	.@{selector} > *.wide-4-of-6 { .set-column-step(4,6);}
+	.@{selector} > *.wide-5-of-6 { .set-column-step(5,6);}
+	.@{selector} > *.wide-6-of-6 { .set-column-step(6,6);}
+	
+	.@{selector} > *.wide-1-of-5 { .set-column-step(1,5);}
+	.@{selector} > *.wide-2-of-5 { .set-column-step(2,5);}
+	.@{selector} > *.wide-3-of-5 { .set-column-step(3,5);}
+	.@{selector} > *.wide-4-of-5 { .set-column-step(4,5);}
+	.@{selector} > *.wide-5-of-5 { .set-column-step(5,5);}
+	
+	.@{selector} > *.wide-1-of-4 { .set-column-step(1,4);}
+	.@{selector} > *.wide-2-of-4 { .set-column-step(2,4);}
+	.@{selector} > *.wide-3-of-4 { .set-column-step(3,4);}
+	.@{selector} > *.wide-4-of-4 { .set-column-step(4,4);}
+	
+	.@{selector} > *.wide-1-of-3 { .set-column-step(1,3);}
+	.@{selector} > *.wide-2-of-3 { .set-column-step(2,3);}
+	.@{selector} > *.wide-3-of-3 { .set-column-step(3,3);}
+	
+	.@{selector} > *.wide-1-of-2 { .set-column-step(1,2);}
+	.@{selector} > *.wide-2-of-2 { .set-column-step(2,2);}
+	
+	// Media queries for selectors active from a specific resolution or higher
+	@media only screen and (min-width : 1px) {
+		// Smartphone portrait
+		.@{selector} > * { .set-columns(@smartphonePortraitSteps); }
+	}
+	@media only screen and (min-width : @smartphone-landscape-step) {
+		// Smartphone landscape
+		.@{selector} > * { .set-columns(@smartphoneLandscapeSteps); }
+	}
+	@media only screen and (min-width : @tablet-portrait-step) {
+		// Tablet portrait
+		.@{selector} > * { .set-columns(@tabletPortraitSteps); }
+	}
+	@media only screen and (min-width : @tablet-landscape-step) {
+		// Tablet landscape
+		.@{selector} > * { .set-columns(@tabletLandscapeSteps); }
+	}
+	@media only screen and (min-width : @hd-ready-step) {
+		// HD Ready
+		.@{selector} > * { .set-columns(@hdReadySteps); }
+	}
+	@media only screen and (min-width : @hd-full-step) {
+		// Full HD
+		.@{selector} > * { .set-columns(@hdFullSteps); }
+	}
+}
+
+.responsive-rule(row,12,12,6,3,1,1);
+
+
+
+.full,
+.wide-1-of-16, .wide-2-of-16, .wide-3-of-16, .wide-4-of-16, .wide-5-of-16, .wide-6-of-16, .wide-7-of-16, .wide-8-of-16, .wide-9-of-16, .wide-10-of-16, .wide-11-of-16, .wide-12-of-16, .wide-13-of-16, .wide-14-of-16, .wide-15-of-16, .wide-16-of-16,
+.wide-1-of-12, .wide-2-of-12, .wide-3-of-12, .wide-4-of-12, .wide-5-of-12, .wide-6-of-12, .wide-7-of-12, .wide-8-of-12, .wide-9-of-12, .wide-10-of-12, .wide-11-of-12, .wide-12-of-12,
+.wide-1-of-10, .wide-2-of-10, .wide-3-of-10, .wide-4-of-10, .wide-5-of-10, .wide-6-of-10, .wide-7-of-10, .wide-8-of-10, .wide-9-of-10, .wide-10-of-10,
+.wide-1-of-8, .wide-2-of-8, .wide-3-of-8, .wide-4-of-8, .wide-5-of-8, .wide-6-of-8, .wide-7-of-8, .wide-8-of-8,
+.wide-1-of-6, .wide-2-of-6, .wide-3-of-6, .wide-4-of-6, .wide-5-of-6, .wide-6-of-6,
+.wide-1-of-5, .wide-2-of-5, .wide-3-of-5, .wide-4-of-5, .wide-5-of-5,
+.wide-1-of-4, .wide-2-of-4, .wide-3-of-4, .wide-4-of-4,
+.wide-1-of-3, .wide-2-of-3, .wide-3-of-3,
+.wide-1-of-2, .wide-2-of-2 {
+	.set-column-behavior();
+}
+
+.set-column-behavior() {
+	padding-left:@horizontal-padding;
+	padding-right:@horizontal-padding;
+	float: left;
+	position: relative;
+	.wrap;
+}
+
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                ROW                ===================================================================================================================================
+==               !!!!!               ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
 .columns *,
 .menu-columns * {
 	.wrap;
@@ -343,21 +521,14 @@ Frontsize global setting mixins
 .menu-columns > * {
 	padding-bottom:@vertical-padding;
 }
-.columns > *, .menu-columns > *, .full,
-.wide-1-of-16, .wide-2-of-16, .wide-3-of-16, .wide-4-of-16, .wide-5-of-16, .wide-6-of-16, .wide-7-of-16, .wide-8-of-16, .wide-9-of-16, .wide-10-of-16, .wide-11-of-16, .wide-12-of-16, .wide-13-of-16, .wide-14-of-16, .wide-15-of-16, .wide-16-of-16,
-.wide-1-of-12, .wide-2-of-12, .wide-3-of-12, .wide-4-of-12, .wide-5-of-12, .wide-6-of-12, .wide-7-of-12, .wide-8-of-12, .wide-9-of-12, .wide-10-of-12, .wide-11-of-12, .wide-12-of-12,
-.wide-1-of-10, .wide-2-of-10, .wide-3-of-10, .wide-4-of-10, .wide-5-of-10, .wide-6-of-10, .wide-7-of-10, .wide-8-of-10, .wide-9-of-10, .wide-10-of-10,
-.wide-1-of-8, .wide-2-of-8, .wide-3-of-8, .wide-4-of-8, .wide-5-of-8, .wide-6-of-8, .wide-7-of-8, .wide-8-of-8,
-.wide-1-of-6, .wide-2-of-6, .wide-3-of-6, .wide-4-of-6, .wide-5-of-6, .wide-6-of-6,
-.wide-1-of-5, .wide-2-of-5, .wide-3-of-5, .wide-4-of-5, .wide-5-of-5,
-.wide-1-of-4, .wide-2-of-4, .wide-3-of-4, .wide-4-of-4,
-.wide-1-of-3, .wide-2-of-3, .wide-3-of-3,
-.wide-1-of-2, .wide-2-of-2 {
-	padding-left:@horizontal-padding;
-	padding-right:@horizontal-padding;
-	float: left;
-	position: relative; // just to help who like to use some absolute element inside without need to assign position relative to all Frontsize selectors
-	.wrap;
+.columns > *, .menu-columns > * {
+	.set-column-behavior();
+}
+.columns > * {
+	input,
+	textarea {
+		margin-top: 0;
+	}
 }
 
 /*
@@ -365,10 +536,13 @@ Frontsize frontend framework
 Sizing rules and APIs
 */
 
+.row,
 .columns,
 .menu-columns {
 	width:100%;
 }
+
+.row > *{ .set-column-step(1,12); }
 
 .contain-2  > *, .contain-2.menu-columns  > * { .set-column-step(1,2); }
 .contain-3  > *, .contain-3.menu-columns  > * { .set-column-step(1,3); }
@@ -438,25 +612,26 @@ Sizing rules and APIs
 .columns > *.wide-5-of-6, .menu-columns > *.wide-5-of-6, .wide-5-of-6 { .set-column-step(5,6);}
 .columns > *.wide-6-of-6, .menu-columns > *.wide-6-of-6, .wide-6-of-6 { .set-column-step(6,6);}
 
-.columns > *.wide-1-of-5, .menu-columns > *.wide-1-of-5, .wide-1-of-5 { .set-column-step(1,5); }
-.columns > *.wide-2-of-5, .menu-columns > *.wide-2-of-5, .wide-2-of-5 { .set-column-step(2,5); }
-.columns > *.wide-3-of-5, .menu-columns > *.wide-3-of-5, .wide-3-of-5 { .set-column-step(3,5); }
-.columns > *.wide-4-of-5, .menu-columns > *.wide-4-of-5, .wide-4-of-5 { .set-column-step(4,5); }
-.columns > *.wide-5-of-5, .menu-columns > *.wide-5-of-5, .wide-5-of-5 { .set-column-step(5,5); }
+.row > *.wide-1-of-5, .columns > *.wide-1-of-5, .menu-columns > *.wide-1-of-5, .wide-1-of-5 { .set-column-step(1,5); }
+.row > *.wide-2-of-5, .columns > *.wide-2-of-5, .menu-columns > *.wide-2-of-5, .wide-2-of-5 { .set-column-step(2,5); }
+.row > *.wide-3-of-5, .columns > *.wide-3-of-5, .menu-columns > *.wide-3-of-5, .wide-3-of-5 { .set-column-step(3,5); }
+.row > *.wide-4-of-5, .columns > *.wide-4-of-5, .menu-columns > *.wide-4-of-5, .wide-4-of-5 { .set-column-step(4,5); }
+.row > *.wide-5-of-5, .columns > *.wide-5-of-5, .menu-columns > *.wide-5-of-5, .wide-5-of-5 { .set-column-step(5,5); }
 
-.columns > *.wide-1-of-4, .menu-columns > *.wide-1-of-4, .wide-1-of-4 { .set-column-step(1,4); }
-.columns > *.wide-2-of-4, .menu-columns > *.wide-2-of-4, .wide-2-of-4 { .set-column-step(2,4); }
-.columns > *.wide-3-of-4, .menu-columns > *.wide-3-of-4, .wide-3-of-4 { .set-column-step(3,4); }
-.columns > *.wide-4-of-4, .menu-columns > *.wide-4-of-4, .wide-4-of-4 { .set-column-step(4,4); }
+.row > *.wide-1-of-4, .columns > *.wide-1-of-4, .menu-columns > *.wide-1-of-4, .wide-1-of-4 { .set-column-step(1,4); }
+.row > *.wide-2-of-4, .columns > *.wide-2-of-4, .menu-columns > *.wide-2-of-4, .wide-2-of-4 { .set-column-step(2,4); }
+.row > *.wide-3-of-4, .columns > *.wide-3-of-4, .menu-columns > *.wide-3-of-4, .wide-3-of-4 { .set-column-step(3,4); }
+.row > *.wide-4-of-4, .columns > *.wide-4-of-4, .menu-columns > *.wide-4-of-4, .wide-4-of-4 { .set-column-step(4,4); }
 
-.columns > *.wide-1-of-3, .menu-columns > *.wide-1-of-3, .wide-1-of-3 { .set-column-step(1,3);}
-.columns > *.wide-2-of-3, .menu-columns > *.wide-2-of-3, .wide-2-of-3 { .set-column-step(2,3);}
-.columns > *.wide-3-of-3, .menu-columns > *.wide-3-of-3, .wide-3-of-3 { .set-column-step(3,3);}
+.row > *.wide-1-of-3, .columns > *.wide-1-of-3, .menu-columns > *.wide-1-of-3, .wide-1-of-3 { .set-column-step(1,3);}
+.row > *.wide-2-of-3, .columns > *.wide-2-of-3, .menu-columns > *.wide-2-of-3, .wide-2-of-3 { .set-column-step(2,3);}
+.row > *.wide-3-of-3, .columns > *.wide-3-of-3, .menu-columns > *.wide-3-of-3, .wide-3-of-3 { .set-column-step(3,3);}
 
-.columns > *.wide-1-of-2, .menu-columns > *.wide-1-of-2, .wide-1-of-2 { .set-column-step(1,2);}
-.columns > *.wide-2-of-2, .menu-columns > *.wide-2-of-2, .wide-2-of-2 { .set-column-step(2,2);}
+.row > *.wide-1-of-2, .columns > *.wide-1-of-2, .menu-columns > *.wide-1-of-2, .wide-1-of-2 { .set-column-step(1,2);}
+.row > *.wide-2-of-2, .columns > *.wide-2-of-2, .menu-columns > *.wide-2-of-2, .wide-2-of-2 { .set-column-step(2,2);}
 
-// to be sure to go on the next row 
+// to be sure to go on the next row
+
 .contain-2  > *:nth-child(2n+1),  .contain-2.menu-columns  > *:nth-child(2n+1)  { clear:both; }
 .contain-3  > *:nth-child(3n+1),  .contain-3.menu-columns  > *:nth-child(3n+1)  { clear:both; }
 .contain-4  > *:nth-child(4n+1),  .contain-4.menu-columns  > *:nth-child(4n+1)  { clear:both; }
@@ -466,6 +641,10 @@ Sizing rules and APIs
 .contain-10 > *:nth-child(10n+1), .contain-10.menu-columns > *:nth-child(10n+1) { clear:both; }
 .contain-12 > *:nth-child(12n+1), .contain-12.menu-columns > *:nth-child(12n+1) { clear:both; }
 .contain-16 > *:nth-child(16n+1), .contain-16.menu-columns > *:nth-child(16n+1) { clear:both; }
+
+
+
+
 
 /*
 ========================================================================================================================================================================
@@ -487,6 +666,7 @@ Frontsize internal mixins to extend with new columns
 	&:nth-child(4n+1) {clear:none;}
 	&:nth-child(5n+1) {clear:none;}
 	&:nth-child(6n+1) {clear:none;}
+	&:nth-child(7n+1) {clear:none;}
 	&:nth-child(8n+1) {clear:none;}
 	&:nth-child(10n+1){clear:none;}
 	&:nth-child(12n+1){clear:none;}
@@ -553,6 +733,9 @@ Frontsize internal mixins to extend with new columns
 .centered {
 	// manually center all the contents inside
 	text-align: center;
+}
+.capitalized {
+	text-transform: capitalize;
 }
 .to-right {
 	// manually center all the contents inside
@@ -820,7 +1003,6 @@ Frontsize internal mixins to extend with new columns
 	.not-till-hd-full { display:none; position: fixed; }
 	.columns > *.full-till-hd-full { width:100%; }
 	.full-till-hd-full { width:100%; }
-	//.full-till-hd-full > * { width:100%; }
 	.to-left-till-hd-full { text-align:left; }
 	.to-centered-till-hd-full { text-align:center; }
 }
@@ -829,7 +1011,6 @@ Frontsize internal mixins to extend with new columns
 	.not-till-hd-ready { display:none; position: fixed; }
 	.columns > *.full-till-hd-ready { width:100%; }
 	.full-till-hd-ready { width:100%; }
-	//.full-till-hd-ready > * { width:100%; }
 	.to-left-till-hd-ready { text-align:left; }
 	.to-centered-till-hd-ready { text-align:center; }
 }
@@ -838,7 +1019,6 @@ Frontsize internal mixins to extend with new columns
 	.not-till-tablet-landscape { display:none; position: fixed; }
 	.columns > *.full-till-tablet-landscape { width:100%; }
 	.full-till-tablet-landscape { width:100%; }
-	//.full-till-tablet-landscape > * { width:100%; }
 	.to-left-till-tablet-landscape { text-align:left; }
 	.to-centered-till-tablet-landscape { text-align:center; }
 }
@@ -847,17 +1027,15 @@ Frontsize internal mixins to extend with new columns
 	.not-till-tablet-portrait { display:none; position: fixed; }
 	.columns > *.full-till-tablet-portrait { width:100%; }
 	.full-till-tablet-portrait { width:100%; }
-	//.full-till-tablet-portrait > * { width:100%; }
 	.to-left-till-tablet-portrait { text-align:left; }
 	.to-centered-till-tablet-portrait { text-align:center; }
 	.not-hooked-till-tablet-landscape { position:static; }
 }
 @media only screen and (max-width : (@tablet-portrait-step - 1px)) {
 	// Smartphone landscape
-	.not-till-smartphone-landscape { display:none; position: fixed; }
+	.not-till-smartphone-landscape { display:none; position:fixed; }
 	.columns > *.full-till-smartphone-landscape { width:100%; }
 	.full-till-smartphone-landscape { width:100%; }
-	//.full-till-smartphone-landscape > * { width:100%; }
 	.to-left-till-smartphone-landscape { text-align:left; }
 	.to-centered-till-smartphone-landscape { text-align:center; }
 }
@@ -866,7 +1044,6 @@ Frontsize internal mixins to extend with new columns
 	.not-till-smartphone-portrait { display:none; position: fixed; }
 	.columns > *.full-till-smartphone-portrait { width:100%; }
 	.full-till-smartphone-portrait { width:100%; }
-	//.full-till-smartphone-portrait > * { width:100%; }
 	.to-left-till-smartphone-portrait { text-align:left; }
 	.to-centered-till-smartphone-portrait { text-align:center; }
 	.paginated-away {
@@ -878,4 +1055,30 @@ Frontsize internal mixins to extend with new columns
 		} 
 	}
 	nav a { display:block; width:100%; clear:both; }
+}
+
+// Media queries for selectors active from a specific resolution or higher
+@media only screen and (min-width : 1px) {
+	// Smartphone portrait
+	.not-from-smartphone-portrait { display:none; position:fixed; }
+}
+@media only screen and (min-width : @smartphone-landscape-step) {
+	// Smartphone landscape
+	.not-from-smartphone-landscape { display:none; position:fixed; }
+}
+@media only screen and (min-width : @tablet-portrait-step) {
+	// Tablet portrait
+	.not-from-tablet-portrait { display:none; position:fixed; }
+}
+@media only screen and (min-width : @tablet-landscape-step) {
+	// Tablet landscape
+	.not-from-tablet-landscape { display:none; position:fixed; }
+}
+@media only screen and (min-width : @hd-ready-step) {
+	// HD Ready
+	.not-from-hd-ready { display:none; position:fixed; }
+}
+@media only screen and (min-width : @hd-full-step) {
+	// Full HD
+	.not-from-hd-full { display:none; position:fixed; }
 }
