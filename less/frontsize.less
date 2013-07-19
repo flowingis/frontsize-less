@@ -7,123 +7,6 @@ Author:		Vittorio Vittori
 Website:	http://vittoriovittori.com
 */
 
-
-
-/*
-========================================================================================================================================================================
-==                                   ===================================================================================================================================
-==                                   ===================================================================================================================================
-==      ADVANCED CONFIGURATION       ===================================================================================================================================
-==                                   ===================================================================================================================================
-==                                   ===================================================================================================================================
-========================================================================================================================================================================
-*/
-
-/**
-Responsive columns behavior configuration
-change the number a columns per row by setting this
-
-For example, on tablet landscape 5 columns will be turned into 3 columns:
-@media only screen and (max-width : (@hd-ready-step - 1px)) {
-	.contain-5  > * { .set-columns(3); }
-}
-*/
-
-// Media queries for selectors active from smaller resolution device mobile to a specific one
-/*
-@media only screen and (min-width : @hd-full-step) {
-	// Full HD
-	// nothing to set here
-}
-@media only screen and (max-width : (@hd-full-step - 1px)) {
-	// HD Ready
-	// nothing to set here
-}
-*/
-
-//.row-steps(12, 6, 6, 3, 1);
-
-@media only screen and (max-width : (@hd-ready-step - 1px)) {
-	// Tablet landscape
-
-	// Contents rules
-	// .contain-2  > * { .set-columns(2); } // default
-	// .contain-3  > * { .set-columns(3); } // default
-	// .contain-4  > * { .set-columns(4); } // default
-	.contain-5  > * { .set-columns(3); } // normal, from 5 columns to 3
-	.contain-6  > * { .set-columns(3); } // normal, from 6 columns to 3
-	.contain-8  > * { .set-columns(4); } // normal, from 8 columns to 4
-	.contain-10 > * { .set-columns(5); } // narrow, from 5 columns to 5
-	.contain-12 > * { .set-columns(6); } // narrow, from 5 columns to 6
-	.contain-16 > * { .set-columns(8); } // narrow, from 5 columns to 8
-	
-	// Menus rules
-	.contain-5.menu-columns  > * { .set-columns(5); } // normal, from 5 columns to 3
-	.contain-6.menu-columns  > * { .set-columns(6); } // normal, from 6 columns to 3
-	.contain-8.menu-columns  > * { .set-columns(8); } // normal, from 8 columns to 4
-	.contain-10.menu-columns > * { .set-columns(10); } // narrow, from 5 columns to 5
-	.contain-12.menu-columns > * { .set-columns(12); } // narrow, from 5 columns to 6
-	.contain-16.menu-columns > * { .set-columns(16); } // narrow, from 5 columns to 8
-
-}
-@media only screen and (max-width : (@tablet-landscape-step - 1px)) {
-	// Tablet portrait
-
-	// Contents rules
-	// .contain-2  > * { .set-columns(2); } // default
-	// .contain-3  > * { .set-columns(3); } // default
-	.contain-4  > * { .set-columns(2); } // wide, from 4 columns to 2
-	.contain-5  > * { .set-columns(3); } // normal, from 5 columns to 3
-	.contain-6  > * { .set-columns(3); } // normal, from 6 columns to 3
-	.contain-8  > * { .set-columns(4); } // normal, from 8 columns to 4
-	.contain-10 > * { .set-columns(5); } // narrow, from 10 columns to 5
-	.contain-12 > * { .set-columns(6); } // narrow, from 12 columns to 6
-	.contain-16 > * { .set-columns(4); } // narrow, from 16 columns to 4
-
-	// Menus rules
-	.contain-4.menu-columns  > * { .set-columns(4); } // wide, from 4 columns to 2
-	.contain-5.menu-columns  > * { .set-columns(3); } // normal, from 5 columns to 3
-	.contain-6.menu-columns  > * { .set-columns(3); } // normal, from 6 columns to 3
-	.contain-8.menu-columns  > * { .set-columns(4); } // normal, from 8 columns to 4
-	.contain-10.menu-columns > * { .set-columns(5); } // narrow, from 10 columns to 5
-	.contain-12.menu-columns > * { .set-columns(4); } // narrow, from 12 columns to 6
-	.contain-16.menu-columns > * { .set-columns(4); } // narrow, from 16 columns to 4
-}
-@media only screen and (max-width : (@tablet-portrait-step - 1px)) {
-	// Smartphone landscape
-
-	// Contents rules and Menus rules
-	// .contain-2  > * { .set-columns(2); } // default
-	.contain-3  > *, .contain-3.menu-columns  > * { .set-columns(2); } // wide, from 3 columns to 2
-	.contain-4  > *, .contain-4.menu-columns  > * { .set-columns(2); } // wide, from 4 columns to 2
-	.contain-5  > *, .contain-5.menu-columns  > * { .set-columns(2); } // normal, from 5 columns to 2
-	.contain-6  > *, .contain-6.menu-columns  > * { .set-columns(2); } // normal, from 6 columns to 2
-	.contain-8  > *, .contain-8.menu-columns  > * { .set-columns(2); } // normal, from 8 columns to 2
-	.contain-10 > *, .contain-10.menu-columns > * { .set-columns(3); } // narrow, from 10 columns to 3
-	.contain-12 > *, .contain-12.menu-columns > * { .set-columns(3); } // narrow, from 12 columns to 3
-	.contain-16 > *, .contain-16.menu-columns > * { .set-columns(3); } // narrow, from 16 columns to 3
-}
-@media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
-	// Smartphone portrait
-
-	// Contents rules and Menus rules
-	.contain-2  > *, .contain-2.menu-columns  > * { .set-columns(1); } // wide, from 2 columns to 1
-	.contain-3  > *, .contain-3.menu-columns  > * { .set-columns(1); } // wide, from 3 columns to 1
-	.contain-4  > *, .contain-4.menu-columns  > * { .set-columns(1); } // wide, from 4 columns to 1
-	.contain-5  > *, .contain-5.menu-columns  > * { .set-columns(1); } // normal, from 5 columns to 1
-	.contain-6  > *, .contain-6.menu-columns  > * { .set-columns(1); } // normal, from 6 columns to 1
-	.contain-8  > *, .contain-8.menu-columns  > * { .set-columns(1); } // normal, from 8 columns to 1
-	.contain-10 > *, .contain-10.menu-columns > * { .set-columns(2); } // narrow, from 10 columns to 2
-	.contain-12 > *, .contain-12.menu-columns > * { .set-columns(2); } // narrow, from 12 columns to 2
-	.contain-16 > *, .contain-16.menu-columns > * { .set-columns(2); } // narrow, from 16 columns to 2
-}
-
-/**
-HERE ENDS YOUR CONFIGURATION
-*/
-
-
-
 /*
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
@@ -338,19 +221,18 @@ Frontsize global setting mixins
 /*
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
-==                ROW                ===================================================================================================================================
-==               !!!!!               ===================================================================================================================================
+==             RESPONSIVE            ===================================================================================================================================
+==               RULES               ===================================================================================================================================
 ==                                   ===================================================================================================================================
 ========================================================================================================================================================================
 */
 
-.responsive-rule(@selector:row, @hdFullSteps:12, @hdReadySteps:12, @tabletLandscapeSteps:6, @tabletPortraitSteps:3, @smartphoneLandscapeSteps:1, @smartphonePortraitSteps:1) {
-	
+.responsive-rule(@selector:row, @hdFullSteps:12, @hdReadySteps:12, @tabletLandscapeSteps:6, @tabletPortraitSteps:3, @smartphoneLandscapeSteps:1, @smartphonePortraitSteps:1, @overflow:auto) {
 	.@{selector} {
 		padding-top:@vertical-padding;
 		width:100%;
 		.wrap;
-		overflow:visible;
+		overflow:@overflow;
 		clear:both;
 	}
 	.@{selector} * {
@@ -365,89 +247,6 @@ Frontsize global setting mixins
 		clear:both;
 	}
 
-	.@{selector} > *.wide-1-of-16  { .set-column-step(1,16); }
-	.@{selector} > *.wide-2-of-16  { .set-column-step(2,16); }
-	.@{selector} > *.wide-3-of-16  { .set-column-step(3,16); }
-	.@{selector} > *.wide-4-of-16  { .set-column-step(4,16); }
-	.@{selector} > *.wide-5-of-16  { .set-column-step(5,16); }
-	.@{selector} > *.wide-6-of-16  { .set-column-step(6,16); }
-	.@{selector} > *.wide-7-of-16  { .set-column-step(7,16); }
-	.@{selector} > *.wide-8-of-16  { .set-column-step(8,16); }
-	.@{selector} > *.wide-9-of-16  { .set-column-step(9,16); }
-	.@{selector} > *.wide-10-of-16 { .set-column-step(10,16);}
-	.@{selector} > *.wide-11-of-16 { .set-column-step(11,16);}
-	.@{selector} > *.wide-12-of-16 { .set-column-step(12,16);}
-	.@{selector} > *.wide-13-of-16 { .set-column-step(13,16);}
-	.@{selector} > *.wide-14-of-16 { .set-column-step(14,16);}
-	.@{selector} > *.wide-15-of-16 { .set-column-step(15,16);}
-	.@{selector} > *.wide-16-of-16 { .set-column-step(16,16);}
-	
-	.@{selector} > *.wide-1-of-12  { .set-column-step(1,12); }
-	.@{selector} > *.wide-2-of-12  { .set-column-step(2,12); }
-	.@{selector} > *.wide-3-of-12  { .set-column-step(3,12); }
-	.@{selector} > *.wide-4-of-12  { .set-column-step(4,12); }
-	.@{selector} > *.wide-5-of-12  { .set-column-step(5,12); }
-	.@{selector} > *.wide-6-of-12  { .set-column-step(6,12); }
-	.@{selector} > *.wide-7-of-12  { .set-column-step(7,12); }
-	.@{selector} > *.wide-8-of-12  { .set-column-step(8,12); }
-	.@{selector} > *.wide-9-of-12  { .set-column-step(9,12); }
-	.@{selector} > *.wide-10-of-12 { .set-column-step(10,12);}
-	.@{selector} > *.wide-11-of-12 { .set-column-step(11,12);}
-	.@{selector} > *.wide-12-of-12 { .set-column-step(12,12);}
-	
-	.@{selector} > *.wide-1-of-10  { .set-column-step(1,10); }
-	.@{selector} > *.wide-2-of-10  { .set-column-step(2,10); }
-	.@{selector} > *.wide-3-of-10  { .set-column-step(3,10); }
-	.@{selector} > *.wide-4-of-10  { .set-column-step(4,10); }
-	.@{selector} > *.wide-5-of-10  { .set-column-step(5,10); }
-	.@{selector} > *.wide-6-of-10  { .set-column-step(6,10); }
-	.@{selector} > *.wide-7-of-10  { .set-column-step(7,10); }
-	.@{selector} > *.wide-8-of-10  { .set-column-step(8,10); }
-	.@{selector} > *.wide-9-of-10  { .set-column-step(9,10); }
-	.@{selector} > *.wide-10-of-10 { .set-column-step(10,10);}
-	
-	.@{selector} > *.wide-1-of-8 { .set-column-step(1,8);}
-	.@{selector} > *.wide-2-of-8 { .set-column-step(2,8);}
-	.@{selector} > *.wide-3-of-8 { .set-column-step(3,8);}
-	.@{selector} > *.wide-4-of-8 { .set-column-step(4,8);}
-	.@{selector} > *.wide-5-of-8 { .set-column-step(5,8);}
-	.@{selector} > *.wide-6-of-8 { .set-column-step(6,8);}
-	.@{selector} > *.wide-7-of-8 { .set-column-step(7,8);}
-	.@{selector} > *.wide-8-of-8 { .set-column-step(8,8);}
-	
-	.@{selector} > *.wide-1-of-7 { .set-column-step(1,7);}
-	.@{selector} > *.wide-2-of-7 { .set-column-step(2,7);}
-	.@{selector} > *.wide-3-of-7 { .set-column-step(3,7);}
-	.@{selector} > *.wide-4-of-7 { .set-column-step(4,7);}
-	.@{selector} > *.wide-5-of-7 { .set-column-step(5,7);}
-	.@{selector} > *.wide-6-of-7 { .set-column-step(6,7);}
-	.@{selector} > *.wide-7-of-7 { .set-column-step(7,7);}
-
-	.@{selector} > *.wide-1-of-6 { .set-column-step(1,6);}
-	.@{selector} > *.wide-2-of-6 { .set-column-step(2,6);}
-	.@{selector} > *.wide-3-of-6 { .set-column-step(3,6);}
-	.@{selector} > *.wide-4-of-6 { .set-column-step(4,6);}
-	.@{selector} > *.wide-5-of-6 { .set-column-step(5,6);}
-	.@{selector} > *.wide-6-of-6 { .set-column-step(6,6);}
-	
-	.@{selector} > *.wide-1-of-5 { .set-column-step(1,5);}
-	.@{selector} > *.wide-2-of-5 { .set-column-step(2,5);}
-	.@{selector} > *.wide-3-of-5 { .set-column-step(3,5);}
-	.@{selector} > *.wide-4-of-5 { .set-column-step(4,5);}
-	.@{selector} > *.wide-5-of-5 { .set-column-step(5,5);}
-	
-	.@{selector} > *.wide-1-of-4 { .set-column-step(1,4);}
-	.@{selector} > *.wide-2-of-4 { .set-column-step(2,4);}
-	.@{selector} > *.wide-3-of-4 { .set-column-step(3,4);}
-	.@{selector} > *.wide-4-of-4 { .set-column-step(4,4);}
-	
-	.@{selector} > *.wide-1-of-3 { .set-column-step(1,3);}
-	.@{selector} > *.wide-2-of-3 { .set-column-step(2,3);}
-	.@{selector} > *.wide-3-of-3 { .set-column-step(3,3);}
-	
-	.@{selector} > *.wide-1-of-2 { .set-column-step(1,2);}
-	.@{selector} > *.wide-2-of-2 { .set-column-step(2,2);}
-	
 	// Media queries for selectors active from a specific resolution or higher
 	@media only screen and (min-width : 1px) {
 		// Smartphone portrait
@@ -475,10 +274,6 @@ Frontsize global setting mixins
 	}
 }
 
-.responsive-rule(row,12,12,6,3,1,1);
-
-
-
 .full,
 .wide-1-of-16, .wide-2-of-16, .wide-3-of-16, .wide-4-of-16, .wide-5-of-16, .wide-6-of-16, .wide-7-of-16, .wide-8-of-16, .wide-9-of-16, .wide-10-of-16, .wide-11-of-16, .wide-12-of-16, .wide-13-of-16, .wide-14-of-16, .wide-15-of-16, .wide-16-of-16,
 .wide-1-of-12, .wide-2-of-12, .wide-3-of-12, .wide-4-of-12, .wide-5-of-12, .wide-6-of-12, .wide-7-of-12, .wide-8-of-12, .wide-9-of-12, .wide-10-of-12, .wide-11-of-12, .wide-12-of-12,
@@ -492,14 +287,6 @@ Frontsize global setting mixins
 	.set-column-behavior();
 }
 
-.set-column-behavior() {
-	padding-left:@horizontal-padding;
-	padding-right:@horizontal-padding;
-	float: left;
-	position: relative;
-	.wrap;
-}
-
 /*
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
@@ -509,141 +296,97 @@ Frontsize global setting mixins
 ========================================================================================================================================================================
 */
 
-.columns *,
-.menu-columns * {
-	.wrap;
-}
-.columns,
-.menu-columns {
-	padding-top:@vertical-padding;
-}
-.columns > *,
-.menu-columns > * {
-	padding-bottom:@vertical-padding;
-}
-.columns > *, .menu-columns > * {
-	.set-column-behavior();
-}
+
+.wide-1-of-16  { .set-column-step(1,16); }
+.wide-2-of-16  { .set-column-step(2,16); }
+.wide-3-of-16  { .set-column-step(3,16); }
+.wide-4-of-16  { .set-column-step(4,16); }
+.wide-5-of-16  { .set-column-step(5,16); }
+.wide-6-of-16  { .set-column-step(6,16); }
+.wide-7-of-16  { .set-column-step(7,16); }
+.wide-8-of-16  { .set-column-step(8,16); }
+.wide-9-of-16  { .set-column-step(9,16); }
+.wide-10-of-16 { .set-column-step(10,16);}
+.wide-11-of-16 { .set-column-step(11,16);}
+.wide-12-of-16 { .set-column-step(12,16);}
+.wide-13-of-16 { .set-column-step(13,16);}
+.wide-14-of-16 { .set-column-step(14,16);}
+.wide-15-of-16 { .set-column-step(15,16);}
+.wide-16-of-16 { .set-column-step(16,16);}
+
+.wide-1-of-12  { .set-column-step(1,12); }
+.wide-2-of-12  { .set-column-step(2,12); }
+.wide-3-of-12  { .set-column-step(3,12); }
+.wide-4-of-12  { .set-column-step(4,12); }
+.wide-5-of-12  { .set-column-step(5,12); }
+.wide-6-of-12  { .set-column-step(6,12); }
+.wide-7-of-12  { .set-column-step(7,12); }
+.wide-8-of-12  { .set-column-step(8,12); }
+.wide-9-of-12  { .set-column-step(9,12); }
+.wide-10-of-12 { .set-column-step(10,12);}
+.wide-11-of-12 { .set-column-step(11,12);}
+.wide-12-of-12 { .set-column-step(12,12);}
+
+.wide-1-of-10  { .set-column-step(1,10); }
+.wide-2-of-10  { .set-column-step(2,10); }
+.wide-3-of-10  { .set-column-step(3,10); }
+.wide-4-of-10  { .set-column-step(4,10); }
+.wide-5-of-10  { .set-column-step(5,10); }
+.wide-6-of-10  { .set-column-step(6,10); }
+.wide-7-of-10  { .set-column-step(7,10); }
+.wide-8-of-10  { .set-column-step(8,10); }
+.wide-9-of-10  { .set-column-step(9,10); }
+.wide-10-of-10 { .set-column-step(10,10);}
+
+.wide-1-of-8 { .set-column-step(1,8);}
+.wide-2-of-8 { .set-column-step(2,8);}
+.wide-3-of-8 { .set-column-step(3,8);}
+.wide-4-of-8 { .set-column-step(4,8);}
+.wide-5-of-8 { .set-column-step(5,8);}
+.wide-6-of-8 { .set-column-step(6,8);}
+.wide-7-of-8 { .set-column-step(7,8);}
+.wide-8-of-8 { .set-column-step(8,8);}
+
+.wide-1-of-7 { .set-column-step(1,7);}
+.wide-2-of-7 { .set-column-step(2,7);}
+.wide-3-of-7 { .set-column-step(3,7);}
+.wide-4-of-7 { .set-column-step(4,7);}
+.wide-5-of-7 { .set-column-step(5,7);}
+.wide-6-of-7 { .set-column-step(6,7);}
+.wide-7-of-7 { .set-column-step(7,7);}
+
+.wide-1-of-6 { .set-column-step(1,6);}
+.wide-2-of-6 { .set-column-step(2,6);}
+.wide-3-of-6 { .set-column-step(3,6);}
+.wide-4-of-6 { .set-column-step(4,6);}
+.wide-5-of-6 { .set-column-step(5,6);}
+.wide-6-of-6 { .set-column-step(6,6);}
+
+.wide-1-of-5 { .set-column-step(1,5); }
+.wide-2-of-5 { .set-column-step(2,5); }
+.wide-3-of-5 { .set-column-step(3,5); }
+.wide-4-of-5 { .set-column-step(4,5); }
+.wide-5-of-5 { .set-column-step(5,5); }
+
+.wide-1-of-4 { .set-column-step(1,4); }
+.wide-2-of-4 { .set-column-step(2,4); }
+.wide-3-of-4 { .set-column-step(3,4); }
+.wide-4-of-4 { .set-column-step(4,4); }
+
+.wide-1-of-3 { .set-column-step(1,3);}
+.wide-2-of-3 { .set-column-step(2,3);}
+.wide-3-of-3 { .set-column-step(3,3);}
+
+.wide-1-of-2 { .set-column-step(1,2);}
+.wide-2-of-2 { .set-column-step(2,2);}
+
+
 .columns > * {
 	input,
 	textarea {
 		margin-top: 0;
 	}
 }
-
-/*
-Frontsize frontend framework
-Sizing rules and APIs
-*/
-
-.row,
-.columns,
-.menu-columns {
-	width:100%;
-}
-
-.row > *{ .set-column-step(1,12); }
-
-.contain-2  > *, .contain-2.menu-columns  > * { .set-column-step(1,2); }
-.contain-3  > *, .contain-3.menu-columns  > * { .set-column-step(1,3); }
-.contain-4  > *, .contain-4.menu-columns  > * { .set-column-step(1,4); }
-.contain-5  > *, .contain-5.menu-columns  > * { .set-column-step(1,5); }
-.contain-6  > *, .contain-6.menu-columns  > * { .set-column-step(1,6); }
-.contain-8  > *, .contain-8.menu-columns  > * { .set-column-step(1,8); }
-.contain-10 > *, .contain-10.menu-columns > * { .set-column-step(1,10); }
-.contain-12 > *, .contain-12.menu-columns > * { .set-column-step(1,12); }
-.contain-16 > *, .contain-16.menu-columns > * { .set-column-step(1,16); }
-
-// to change the default rule of elements width balance to a more specific one
-.columns >  *.wide-1-of-16, .menu-columns >  *.wide-1-of-16,  .wide-1-of-16 { .set-column-step(1,16); }
-.columns >  *.wide-2-of-16, .menu-columns >  *.wide-2-of-16,  .wide-2-of-16 { .set-column-step(2,16); }
-.columns >  *.wide-3-of-16, .menu-columns >  *.wide-3-of-16,  .wide-3-of-16 { .set-column-step(3,16); }
-.columns >  *.wide-4-of-16, .menu-columns >  *.wide-4-of-16,  .wide-4-of-16 { .set-column-step(4,16); }
-.columns >  *.wide-5-of-16, .menu-columns >  *.wide-5-of-16,  .wide-5-of-16 { .set-column-step(5,16); }
-.columns >  *.wide-6-of-16, .menu-columns >  *.wide-6-of-16,  .wide-6-of-16 { .set-column-step(6,16); }
-.columns >  *.wide-7-of-16, .menu-columns >  *.wide-7-of-16,  .wide-7-of-16 { .set-column-step(7,16); }
-.columns >  *.wide-8-of-16, .menu-columns >  *.wide-8-of-16,  .wide-8-of-16 { .set-column-step(8,16); }
-.columns >  *.wide-9-of-16, .menu-columns >  *.wide-9-of-16,  .wide-9-of-16 { .set-column-step(9,16); }
-.columns > *.wide-10-of-16, .menu-columns > *.wide-10-of-16, .wide-10-of-16 { .set-column-step(10,16);}
-.columns > *.wide-11-of-16, .menu-columns > *.wide-11-of-16, .wide-11-of-16 { .set-column-step(11,16);}
-.columns > *.wide-12-of-16, .menu-columns > *.wide-12-of-16, .wide-12-of-16 { .set-column-step(12,16);}
-.columns > *.wide-13-of-16, .menu-columns > *.wide-13-of-16, .wide-13-of-16 { .set-column-step(13,16);}
-.columns > *.wide-14-of-16, .menu-columns > *.wide-14-of-16, .wide-14-of-16 { .set-column-step(14,16);}
-.columns > *.wide-15-of-16, .menu-columns > *.wide-15-of-16, .wide-15-of-16 { .set-column-step(15,16);}
-.columns > *.wide-16-of-16, .menu-columns > *.wide-16-of-16, .wide-16-of-16 { .set-column-step(16,16);}
-
-.columns >  *.wide-1-of-12, .menu-columns >  *.wide-1-of-12,  .wide-1-of-12 { .set-column-step(1,12); }
-.columns >  *.wide-2-of-12, .menu-columns >  *.wide-2-of-12,  .wide-2-of-12 { .set-column-step(2,12); }
-.columns >  *.wide-3-of-12, .menu-columns >  *.wide-3-of-12,  .wide-3-of-12 { .set-column-step(3,12); }
-.columns >  *.wide-4-of-12, .menu-columns >  *.wide-4-of-12,  .wide-4-of-12 { .set-column-step(4,12); }
-.columns >  *.wide-5-of-12, .menu-columns >  *.wide-5-of-12,  .wide-5-of-12 { .set-column-step(5,12); }
-.columns >  *.wide-6-of-12, .menu-columns >  *.wide-6-of-12,  .wide-6-of-12 { .set-column-step(6,12); }
-.columns >  *.wide-7-of-12, .menu-columns >  *.wide-7-of-12,  .wide-7-of-12 { .set-column-step(7,12); }
-.columns >  *.wide-8-of-12, .menu-columns >  *.wide-8-of-12,  .wide-8-of-12 { .set-column-step(8,12); }
-.columns >  *.wide-9-of-12, .menu-columns >  *.wide-9-of-12,  .wide-9-of-12 { .set-column-step(9,12); }
-.columns > *.wide-10-of-12, .menu-columns > *.wide-10-of-12, .wide-10-of-12 { .set-column-step(10,12);}
-.columns > *.wide-11-of-12, .menu-columns > *.wide-11-of-12, .wide-11-of-12 { .set-column-step(11,12);}
-.columns > *.wide-12-of-12, .menu-columns > *.wide-12-of-12, .wide-12-of-12 { .set-column-step(12,12);}
-
-.columns >  *.wide-1-of-10, .menu-columns >  *.wide-1-of-10,  .wide-1-of-10 { .set-column-step(1,10); }
-.columns >  *.wide-2-of-10, .menu-columns >  *.wide-2-of-10,  .wide-2-of-10 { .set-column-step(2,10); }
-.columns >  *.wide-3-of-10, .menu-columns >  *.wide-3-of-10,  .wide-3-of-10 { .set-column-step(3,10); }
-.columns >  *.wide-4-of-10, .menu-columns >  *.wide-4-of-10,  .wide-4-of-10 { .set-column-step(4,10); }
-.columns >  *.wide-5-of-10, .menu-columns >  *.wide-5-of-10,  .wide-5-of-10 { .set-column-step(5,10); }
-.columns >  *.wide-6-of-10, .menu-columns >  *.wide-6-of-10,  .wide-6-of-10 { .set-column-step(6,10); }
-.columns >  *.wide-7-of-10, .menu-columns >  *.wide-7-of-10,  .wide-7-of-10 { .set-column-step(7,10); }
-.columns >  *.wide-8-of-10, .menu-columns >  *.wide-8-of-10,  .wide-8-of-10 { .set-column-step(8,10); }
-.columns >  *.wide-9-of-10, .menu-columns >  *.wide-9-of-10,  .wide-9-of-10 { .set-column-step(9,10); }
-.columns > *.wide-10-of-10, .menu-columns > *.wide-10-of-10, .wide-10-of-10 { .set-column-step(10,10);}
-
-.columns > *.wide-1-of-8, .menu-columns > *.wide-1-of-8, .wide-1-of-8 { .set-column-step(1,8);}
-.columns > *.wide-2-of-8, .menu-columns > *.wide-2-of-8, .wide-2-of-8 { .set-column-step(2,8);}
-.columns > *.wide-3-of-8, .menu-columns > *.wide-3-of-8, .wide-3-of-8 { .set-column-step(3,8);}
-.columns > *.wide-4-of-8, .menu-columns > *.wide-4-of-8, .wide-4-of-8 { .set-column-step(4,8);}
-.columns > *.wide-5-of-8, .menu-columns > *.wide-5-of-8, .wide-5-of-8 { .set-column-step(5,8);}
-.columns > *.wide-6-of-8, .menu-columns > *.wide-6-of-8, .wide-6-of-8 { .set-column-step(6,8);}
-.columns > *.wide-7-of-8, .menu-columns > *.wide-7-of-8, .wide-7-of-8 { .set-column-step(7,8);}
-.columns > *.wide-8-of-8, .menu-columns > *.wide-8-of-8, .wide-8-of-8 { .set-column-step(8,8);}
-
-.columns > *.wide-1-of-6, .menu-columns > *.wide-1-of-6, .wide-1-of-6 { .set-column-step(1,6);}
-.columns > *.wide-2-of-6, .menu-columns > *.wide-2-of-6, .wide-2-of-6 { .set-column-step(2,6);}
-.columns > *.wide-3-of-6, .menu-columns > *.wide-3-of-6, .wide-3-of-6 { .set-column-step(3,6);}
-.columns > *.wide-4-of-6, .menu-columns > *.wide-4-of-6, .wide-4-of-6 { .set-column-step(4,6);}
-.columns > *.wide-5-of-6, .menu-columns > *.wide-5-of-6, .wide-5-of-6 { .set-column-step(5,6);}
-.columns > *.wide-6-of-6, .menu-columns > *.wide-6-of-6, .wide-6-of-6 { .set-column-step(6,6);}
-
-.row > *.wide-1-of-5, .columns > *.wide-1-of-5, .menu-columns > *.wide-1-of-5, .wide-1-of-5 { .set-column-step(1,5); }
-.row > *.wide-2-of-5, .columns > *.wide-2-of-5, .menu-columns > *.wide-2-of-5, .wide-2-of-5 { .set-column-step(2,5); }
-.row > *.wide-3-of-5, .columns > *.wide-3-of-5, .menu-columns > *.wide-3-of-5, .wide-3-of-5 { .set-column-step(3,5); }
-.row > *.wide-4-of-5, .columns > *.wide-4-of-5, .menu-columns > *.wide-4-of-5, .wide-4-of-5 { .set-column-step(4,5); }
-.row > *.wide-5-of-5, .columns > *.wide-5-of-5, .menu-columns > *.wide-5-of-5, .wide-5-of-5 { .set-column-step(5,5); }
-
-.row > *.wide-1-of-4, .columns > *.wide-1-of-4, .menu-columns > *.wide-1-of-4, .wide-1-of-4 { .set-column-step(1,4); }
-.row > *.wide-2-of-4, .columns > *.wide-2-of-4, .menu-columns > *.wide-2-of-4, .wide-2-of-4 { .set-column-step(2,4); }
-.row > *.wide-3-of-4, .columns > *.wide-3-of-4, .menu-columns > *.wide-3-of-4, .wide-3-of-4 { .set-column-step(3,4); }
-.row > *.wide-4-of-4, .columns > *.wide-4-of-4, .menu-columns > *.wide-4-of-4, .wide-4-of-4 { .set-column-step(4,4); }
-
-.row > *.wide-1-of-3, .columns > *.wide-1-of-3, .menu-columns > *.wide-1-of-3, .wide-1-of-3 { .set-column-step(1,3);}
-.row > *.wide-2-of-3, .columns > *.wide-2-of-3, .menu-columns > *.wide-2-of-3, .wide-2-of-3 { .set-column-step(2,3);}
-.row > *.wide-3-of-3, .columns > *.wide-3-of-3, .menu-columns > *.wide-3-of-3, .wide-3-of-3 { .set-column-step(3,3);}
-
-.row > *.wide-1-of-2, .columns > *.wide-1-of-2, .menu-columns > *.wide-1-of-2, .wide-1-of-2 { .set-column-step(1,2);}
-.row > *.wide-2-of-2, .columns > *.wide-2-of-2, .menu-columns > *.wide-2-of-2, .wide-2-of-2 { .set-column-step(2,2);}
-
-// to be sure to go on the next row
-
-.contain-2  > *:nth-child(2n+1),  .contain-2.menu-columns  > *:nth-child(2n+1)  { clear:both; }
-.contain-3  > *:nth-child(3n+1),  .contain-3.menu-columns  > *:nth-child(3n+1)  { clear:both; }
-.contain-4  > *:nth-child(4n+1),  .contain-4.menu-columns  > *:nth-child(4n+1)  { clear:both; }
-.contain-5  > *:nth-child(5n+1),  .contain-5.menu-columns  > *:nth-child(5n+1)  { clear:both; }
-.contain-6  > *:nth-child(6n+1),  .contain-6.menu-columns  > *:nth-child(6n+1)  { clear:both; }
-.contain-8  > *:nth-child(8n+1),  .contain-8.menu-columns  > *:nth-child(8n+1)  { clear:both; }
-.contain-10 > *:nth-child(10n+1), .contain-10.menu-columns > *:nth-child(10n+1) { clear:both; }
-.contain-12 > *:nth-child(12n+1), .contain-12.menu-columns > *:nth-child(12n+1) { clear:both; }
-.contain-16 > *:nth-child(16n+1), .contain-16.menu-columns > *:nth-child(16n+1) { clear:both; }
-
-
-
 
 
 /*
@@ -661,6 +404,7 @@ Frontsize internal mixins to extend with new columns
 */
 .set-columns(@columns) {
 	width:(100%/@columns) !important;
+	&:nth-child(1n+1) {clear:none;}
 	&:nth-child(2n+1) {clear:none;}
 	&:nth-child(3n+1) {clear:none;}
 	&:nth-child(4n+1) {clear:none;}
@@ -674,7 +418,7 @@ Frontsize internal mixins to extend with new columns
 	&:nth-child(@{columns}n+1) {clear:both;}
 }
 .set-column-step(@step, @columns) {
-	width:((100% * @step)/@columns);
+	width:((100% * @step)/@columns) !important;
 }
 .set-step-padding(@step) {
 	.with-steps-padding { padding:@step; }
@@ -682,6 +426,13 @@ Frontsize internal mixins to extend with new columns
 	.with-vertical-steps-padding { padding-top:@step; padding-bottom:@step; }
 	.with-top-steps-padding { padding-top:@step; }
 	.with-bottom-steps-padding { padding-bottom:@step; }
+}
+.set-column-behavior() {
+	padding-left:@horizontal-padding;
+	padding-right:@horizontal-padding;
+	float: left;
+	position: relative;
+	.wrap;
 }
 
 // not working yet in LESS 1.4.1
@@ -767,7 +518,6 @@ Frontsize internal mixins to extend with new columns
 .box {
 	overflow: auto;
 }
-
 
 .with-padding {
 	padding:@vertical-padding @horizontal-padding;
@@ -1001,51 +751,51 @@ Frontsize internal mixins to extend with new columns
 @media only screen and (min-width : @hd-full-step) {
 	// Full HD
 	.not-till-hd-full { display:none; position: fixed; }
-	.columns > *.full-till-hd-full { width:100%; }
-	.full-till-hd-full { width:100%; }
-	.to-left-till-hd-full { text-align:left; }
-	.to-centered-till-hd-full { text-align:center; }
+	.columns > *.fill-till-hd-full { width:100%; }
+	.fill-till-hd-full { width:100%; }
+	.left-till-hd-full { text-align:left; }
+	.centered-till-hd-full { text-align:center; }
 }
 @media only screen and (max-width : (@hd-full-step - 1px)) {
 	// HD Ready
 	.not-till-hd-ready { display:none; position: fixed; }
-	.columns > *.full-till-hd-ready { width:100%; }
-	.full-till-hd-ready { width:100%; }
-	.to-left-till-hd-ready { text-align:left; }
-	.to-centered-till-hd-ready { text-align:center; }
+	.columns > *.fill-till-hd-ready { width:100%; }
+	.fill-till-hd-ready { width:100%; }
+	.left-till-hd-ready { text-align:left; }
+	.centered-till-hd-ready { text-align:center; }
 }
 @media only screen and (max-width : (@hd-ready-step - 1px)) {
 	// Tablet landscape
 	.not-till-tablet-landscape { display:none; position: fixed; }
-	.columns > *.full-till-tablet-landscape { width:100%; }
-	.full-till-tablet-landscape { width:100%; }
-	.to-left-till-tablet-landscape { text-align:left; }
-	.to-centered-till-tablet-landscape { text-align:center; }
+	.columns > *.fill-till-tablet-landscape { width:100%; }
+	.fill-till-tablet-landscape { width:100%; }
+	.left-till-tablet-landscape { text-align:left; }
+	.centered-till-tablet-landscape { text-align:center; }
 }
 @media only screen and (max-width : (@tablet-landscape-step - 1px)) {
 	// Tablet portrait
 	.not-till-tablet-portrait { display:none; position: fixed; }
-	.columns > *.full-till-tablet-portrait { width:100%; }
-	.full-till-tablet-portrait { width:100%; }
-	.to-left-till-tablet-portrait { text-align:left; }
-	.to-centered-till-tablet-portrait { text-align:center; }
+	.columns > *.fill-till-tablet-portrait { width:100%; }
+	.fill-till-tablet-portrait { width:100%; }
+	.left-till-tablet-portrait { text-align:left; }
+	.centered-till-tablet-portrait { text-align:center; }
 	.not-hooked-till-tablet-landscape { position:static; }
 }
 @media only screen and (max-width : (@tablet-portrait-step - 1px)) {
 	// Smartphone landscape
 	.not-till-smartphone-landscape { display:none; position:fixed; }
-	.columns > *.full-till-smartphone-landscape { width:100%; }
-	.full-till-smartphone-landscape { width:100%; }
-	.to-left-till-smartphone-landscape { text-align:left; }
-	.to-centered-till-smartphone-landscape { text-align:center; }
+	.columns > *.fill-till-smartphone-landscape { width:100%; }
+	.fill-till-smartphone-landscape { width:100%; }
+	.left-till-smartphone-landscape { text-align:left; }
+	.centered-till-smartphone-landscape { text-align:center; }
 }
 @media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
 	// Smartphone portrait
 	.not-till-smartphone-portrait { display:none; position: fixed; }
-	.columns > *.full-till-smartphone-portrait { width:100%; }
-	.full-till-smartphone-portrait { width:100%; }
-	.to-left-till-smartphone-portrait { text-align:left; }
-	.to-centered-till-smartphone-portrait { text-align:center; }
+	.columns > *.fill-till-smartphone-portrait { width:100%; }
+	.fill-till-smartphone-portrait { width:100%; }
+	.left-till-smartphone-portrait { text-align:left; }
+	.centered-till-smartphone-portrait { text-align:center; }
 	.paginated-away {
 		// the first child will have text-align to left and the last child will have text-align to right
 		> * {
