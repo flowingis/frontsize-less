@@ -74,8 +74,11 @@
 .global-steps();				// .global-steps(200px, 100px, 50px, 0px);
 .global-steps-padding();
 
-.init-override-column-steps();
+.init-wide-column-steps();
+.fill-wide-column-steps-till("smartphone-landscape"); // smartphone-portrait | smartphone-landscape | tablet-portrait | tablet-landscape | hd-ready | hd-full
 
+// used for the nav top spacing, set it after global-steps-padding
+.padding-rule(nav-spacer-padding, 6em 0 2em 0, 6em 0 1em 0, 6em 0 1em 0, 0, 0);
 
 /*
 ========================================================================================================================================================================

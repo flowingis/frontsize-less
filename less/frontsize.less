@@ -241,7 +241,6 @@ Frontsize global setting mixins
 	.@{selector} > * {
 		padding-bottom:@vertical-padding;
 		.set-column-step(1, @hdFullSteps);
-		.set-column-behavior();
 	}
 	.@{selector} > *:nth-child(@{hdFullSteps}n+1) {
 		clear:both;
@@ -274,121 +273,36 @@ Frontsize global setting mixins
 	}
 }
 
-.full,
-.wide-1-of-16, .wide-2-of-16, .wide-3-of-16, .wide-4-of-16, .wide-5-of-16, .wide-6-of-16, .wide-7-of-16, .wide-8-of-16, .wide-9-of-16, .wide-10-of-16, .wide-11-of-16, .wide-12-of-16, .wide-13-of-16, .wide-14-of-16, .wide-15-of-16, .wide-16-of-16,
-.wide-1-of-12, .wide-2-of-12, .wide-3-of-12, .wide-4-of-12, .wide-5-of-12, .wide-6-of-12, .wide-7-of-12, .wide-8-of-12, .wide-9-of-12, .wide-10-of-12, .wide-11-of-12, .wide-12-of-12,
-.wide-1-of-10, .wide-2-of-10, .wide-3-of-10, .wide-4-of-10, .wide-5-of-10, .wide-6-of-10, .wide-7-of-10, .wide-8-of-10, .wide-9-of-10, .wide-10-of-10,
-.wide-1-of-8, .wide-2-of-8, .wide-3-of-8, .wide-4-of-8, .wide-5-of-8, .wide-6-of-8, .wide-7-of-8, .wide-8-of-8,
-.wide-1-of-6, .wide-2-of-6, .wide-3-of-6, .wide-4-of-6, .wide-5-of-6, .wide-6-of-6,
-.wide-1-of-5, .wide-2-of-5, .wide-3-of-5, .wide-4-of-5, .wide-5-of-5,
-.wide-1-of-4, .wide-2-of-4, .wide-3-of-4, .wide-4-of-4,
-.wide-1-of-3, .wide-2-of-3, .wide-3-of-3,
-.wide-1-of-2, .wide-2-of-2 {
-	.set-column-behavior();
-}
-
-/*
-========================================================================================================================================================================
-==                                   ===================================================================================================================================
-==                ROW                ===================================================================================================================================
-==               !!!!!               ===================================================================================================================================
-==                                   ===================================================================================================================================
-========================================================================================================================================================================
-*/
-
-.init-override-column-steps() {
-	.wide-1-of-16  { .set-column-step(1,16); }
-	.wide-2-of-16  { .set-column-step(2,16); }
-	.wide-3-of-16  { .set-column-step(3,16); }
-	.wide-4-of-16  { .set-column-step(4,16); }
-	.wide-5-of-16  { .set-column-step(5,16); }
-	.wide-6-of-16  { .set-column-step(6,16); }
-	.wide-7-of-16  { .set-column-step(7,16); }
-	.wide-8-of-16  { .set-column-step(8,16); }
-	.wide-9-of-16  { .set-column-step(9,16); }
-	.wide-10-of-16 { .set-column-step(10,16);}
-	.wide-11-of-16 { .set-column-step(11,16);}
-	.wide-12-of-16 { .set-column-step(12,16);}
-	.wide-13-of-16 { .set-column-step(13,16);}
-	.wide-14-of-16 { .set-column-step(14,16);}
-	.wide-15-of-16 { .set-column-step(15,16);}
-	.wide-16-of-16 { .set-column-step(16,16);}
-	
-	.wide-1-of-12  { .set-column-step(1,12); }
-	.wide-2-of-12  { .set-column-step(2,12); }
-	.wide-3-of-12  { .set-column-step(3,12); }
-	.wide-4-of-12  { .set-column-step(4,12); }
-	.wide-5-of-12  { .set-column-step(5,12); }
-	.wide-6-of-12  { .set-column-step(6,12); }
-	.wide-7-of-12  { .set-column-step(7,12); }
-	.wide-8-of-12  { .set-column-step(8,12); }
-	.wide-9-of-12  { .set-column-step(9,12); }
-	.wide-10-of-12 { .set-column-step(10,12);}
-	.wide-11-of-12 { .set-column-step(11,12);}
-	.wide-12-of-12 { .set-column-step(12,12);}
-	
-	.wide-1-of-10  { .set-column-step(1,10); }
-	.wide-2-of-10  { .set-column-step(2,10); }
-	.wide-3-of-10  { .set-column-step(3,10); }
-	.wide-4-of-10  { .set-column-step(4,10); }
-	.wide-5-of-10  { .set-column-step(5,10); }
-	.wide-6-of-10  { .set-column-step(6,10); }
-	.wide-7-of-10  { .set-column-step(7,10); }
-	.wide-8-of-10  { .set-column-step(8,10); }
-	.wide-9-of-10  { .set-column-step(9,10); }
-	.wide-10-of-10 { .set-column-step(10,10);}
-	
-	.wide-1-of-8 { .set-column-step(1,8);}
-	.wide-2-of-8 { .set-column-step(2,8);}
-	.wide-3-of-8 { .set-column-step(3,8);}
-	.wide-4-of-8 { .set-column-step(4,8);}
-	.wide-5-of-8 { .set-column-step(5,8);}
-	.wide-6-of-8 { .set-column-step(6,8);}
-	.wide-7-of-8 { .set-column-step(7,8);}
-	.wide-8-of-8 { .set-column-step(8,8);}
-	
-	.wide-1-of-7 { .set-column-step(1,7);}
-	.wide-2-of-7 { .set-column-step(2,7);}
-	.wide-3-of-7 { .set-column-step(3,7);}
-	.wide-4-of-7 { .set-column-step(4,7);}
-	.wide-5-of-7 { .set-column-step(5,7);}
-	.wide-6-of-7 { .set-column-step(6,7);}
-	.wide-7-of-7 { .set-column-step(7,7);}
-	
-	.wide-1-of-6 { .set-column-step(1,6);}
-	.wide-2-of-6 { .set-column-step(2,6);}
-	.wide-3-of-6 { .set-column-step(3,6);}
-	.wide-4-of-6 { .set-column-step(4,6);}
-	.wide-5-of-6 { .set-column-step(5,6);}
-	.wide-6-of-6 { .set-column-step(6,6);}
-	
-	.wide-1-of-5 { .set-column-step(1,5); }
-	.wide-2-of-5 { .set-column-step(2,5); }
-	.wide-3-of-5 { .set-column-step(3,5); }
-	.wide-4-of-5 { .set-column-step(4,5); }
-	.wide-5-of-5 { .set-column-step(5,5); }
-	
-	.wide-1-of-4 { .set-column-step(1,4); }
-	.wide-2-of-4 { .set-column-step(2,4); }
-	.wide-3-of-4 { .set-column-step(3,4); }
-	.wide-4-of-4 { .set-column-step(4,4); }
-	
-	.wide-1-of-3 { .set-column-step(1,3);}
-	.wide-2-of-3 { .set-column-step(2,3);}
-	.wide-3-of-3 { .set-column-step(3,3);}
-	
-	.wide-1-of-2 { .set-column-step(1,2);}
-	.wide-2-of-2 { .set-column-step(2,2);}
-}
 
 
-
-
-.columns > * {
-	input,
-	textarea {
-		margin-top: 0;
+.padding-rule(@selector, @hdFullPadding:6em, @hdReadyPadding:5em, @tabletLandscapePadding:4em, @tabletPortraitPadding:3em, @smartphoneLandscapePadding:2em, @smartphonePortraitPadding:1em) {
+	
+	// Media queries for selectors active from a specific resolution or higher
+	@media only screen and (min-width : 1px) {
+		// Smartphone portrait
+		.@{selector} { padding:@smartphonePortraitPadding; }
 	}
+	@media only screen and (min-width : @smartphone-landscape-step) {
+		// Smartphone landscape
+		.@{selector} { padding:@smartphoneLandscapePadding; }
+	}
+	@media only screen and (min-width : @tablet-portrait-step) {
+		// Tablet portrait
+		.@{selector} { padding:@tabletPortraitPadding; }
+	}
+	@media only screen and (min-width : @tablet-landscape-step) {
+		// Tablet landscape
+		.@{selector} { padding:@tabletLandscapePadding; }
+	}
+	@media only screen and (min-width : @hd-ready-step) {
+		// HD Ready
+		.@{selector} { padding:@hdReadyPadding; }
+	}
+	@media only screen and (min-width : @hd-full-step) {
+		// Full HD
+		.@{selector} { padding:@hdFullPadding; }
+	}
+	
 }
 
 
@@ -402,26 +316,162 @@ Frontsize global setting mixins
 ========================================================================================================================================================================
 */
 
-/**
-Frontsize internal mixins to extend with new columns
-*/
+.init-wide-column-steps() {
+	.wide-1-of-16  { .set-column-step(1,16);  }
+	.wide-2-of-16  { .set-column-step(2,16);  }
+	.wide-3-of-16  { .set-column-step(3,16);  }
+	.wide-4-of-16  { .set-column-step(4,16);  }
+	.wide-5-of-16  { .set-column-step(5,16);  }
+	.wide-6-of-16  { .set-column-step(6,16);  }
+	.wide-7-of-16  { .set-column-step(7,16);  }
+	.wide-8-of-16  { .set-column-step(8,16);  }
+	.wide-9-of-16  { .set-column-step(9,16);  }
+	.wide-10-of-16 { .set-column-step(10,16); }
+	.wide-11-of-16 { .set-column-step(11,16); }
+	.wide-12-of-16 { .set-column-step(12,16); }
+	.wide-13-of-16 { .set-column-step(13,16); }
+	.wide-14-of-16 { .set-column-step(14,16); }
+	.wide-15-of-16 { .set-column-step(15,16); }
+	.wide-16-of-16 { .set-column-step(16,16); }
+	
+	.wide-1-of-12  { .set-column-step(1,12);  }
+	.wide-2-of-12  { .set-column-step(2,12);  }
+	.wide-3-of-12  { .set-column-step(3,12);  }
+	.wide-4-of-12  { .set-column-step(4,12);  }
+	.wide-5-of-12  { .set-column-step(5,12);  }
+	.wide-6-of-12  { .set-column-step(6,12);  }
+	.wide-7-of-12  { .set-column-step(7,12);  }
+	.wide-8-of-12  { .set-column-step(8,12);  }
+	.wide-9-of-12  { .set-column-step(9,12);  }
+	.wide-10-of-12 { .set-column-step(10,12); }
+	.wide-11-of-12 { .set-column-step(11,12); }
+	.wide-12-of-12 { .set-column-step(12,12); }
+	
+	.wide-1-of-10  { .set-column-step(1,10);  }
+	.wide-2-of-10  { .set-column-step(2,10);  }
+	.wide-3-of-10  { .set-column-step(3,10);  }
+	.wide-4-of-10  { .set-column-step(4,10);  }
+	.wide-5-of-10  { .set-column-step(5,10);  }
+	.wide-6-of-10  { .set-column-step(6,10);  }
+	.wide-7-of-10  { .set-column-step(7,10);  }
+	.wide-8-of-10  { .set-column-step(8,10);  }
+	.wide-9-of-10  { .set-column-step(9,10);  }
+	.wide-10-of-10 { .set-column-step(10,10); }
+	
+	.wide-1-of-8 { .set-column-step(1,8); }
+	.wide-2-of-8 { .set-column-step(2,8); }
+	.wide-3-of-8 { .set-column-step(3,8); }
+	.wide-4-of-8 { .set-column-step(4,8); }
+	.wide-5-of-8 { .set-column-step(5,8); }
+	.wide-6-of-8 { .set-column-step(6,8); }
+	.wide-7-of-8 { .set-column-step(7,8); }
+	.wide-8-of-8 { .set-column-step(8,8); }
+	
+	.wide-1-of-7 { .set-column-step(1,7); }
+	.wide-2-of-7 { .set-column-step(2,7); }
+	.wide-3-of-7 { .set-column-step(3,7); }
+	.wide-4-of-7 { .set-column-step(4,7); }
+	.wide-5-of-7 { .set-column-step(5,7); }
+	.wide-6-of-7 { .set-column-step(6,7); }
+	.wide-7-of-7 { .set-column-step(7,7); }
+	
+	.wide-1-of-6 { .set-column-step(1,6); }
+	.wide-2-of-6 { .set-column-step(2,6); }
+	.wide-3-of-6 { .set-column-step(3,6); }
+	.wide-4-of-6 { .set-column-step(4,6); }
+	.wide-5-of-6 { .set-column-step(5,6); }
+	.wide-6-of-6 { .set-column-step(6,6); }
+	
+	.wide-1-of-5 { .set-column-step(1,5); }
+	.wide-2-of-5 { .set-column-step(2,5); }
+	.wide-3-of-5 { .set-column-step(3,5); }
+	.wide-4-of-5 { .set-column-step(4,5); }
+	.wide-5-of-5 { .set-column-step(5,5); }
+	
+	.wide-1-of-4 { .set-column-step(1,4); }
+	.wide-2-of-4 { .set-column-step(2,4); }
+	.wide-3-of-4 { .set-column-step(3,4); }
+	.wide-4-of-4 { .set-column-step(4,4); }
+	
+	.wide-1-of-3 { .set-column-step(1,3); }
+	.wide-2-of-3 { .set-column-step(2,3); }
+	.wide-3-of-3 { .set-column-step(3,3); }
+	
+	.wide-1-of-2 { .set-column-step(1,2); }
+	.wide-2-of-2 { .set-column-step(2,2); }
+
+	
+}
+
+.fill-wide-column-steps-till(@device:"hd-full") when (@device = "hd-full") {
+	@media only screen and (min-width : @hd-full-step) {
+		// Full HD
+		.fill-wide-column-steps();
+	}
+}
+.fill-wide-column-steps-till(@device:"hd-ready") when (@device = "hd-ready") {
+	@media only screen and (max-width : (@hd-full-step - 1px)) {
+		// HD Ready
+		.fill-wide-column-steps();
+	}
+}
+.fill-wide-column-steps-till(@device:"tablet-landscape") when (@device = "tablet-landscape") {
+	@media only screen and (max-width : (@hd-ready-step - 1px)) {
+		// Tablet landscape
+		.fill-wide-column-steps();
+	}
+}
+.fill-wide-column-steps-till(@device:"tablet-portrait") when (@device = "tablet-portrait") {
+	@media only screen and (max-width : (@tablet-landscape-step - 1px)) {
+		// Tablet portrait
+		.fill-wide-column-steps();
+	}
+}
+.fill-wide-column-steps-till(@device:"smartphone-landscape") when (@device = "smartphone-landscape") {
+	@media only screen and (max-width : (@tablet-portrait-step - 1px)) {
+		// Smartphone landscape
+		.fill-wide-column-steps();
+	}
+}
+.fill-wide-column-steps-till(@device:"smartphone-portrait") when (@device = "smartphone-portrait") {
+	@media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
+		// Smartphone portrait
+		.fill-wide-column-steps();
+	}
+}
+.fill-wide-column-steps() {
+	.wide-1-of-16, .wide-2-of-16, .wide-3-of-16, .wide-4-of-16, .wide-5-of-16, .wide-6-of-16, .wide-7-of-16, .wide-8-of-16, .wide-9-of-16, .wide-10-of-16, .wide-11-of-16, .wide-12-of-16, .wide-13-of-16, .wide-14-of-16, .wide-15-of-16, .wide-16-of-16,
+	.wide-1-of-12, .wide-2-of-12, .wide-3-of-12, .wide-4-of-12, .wide-5-of-12, .wide-6-of-12, .wide-7-of-12, .wide-8-of-12, .wide-9-of-12, .wide-10-of-12, .wide-11-of-12, .wide-12-of-12,
+	.wide-1-of-10, .wide-2-of-10, .wide-3-of-10, .wide-4-of-10, .wide-5-of-10, .wide-6-of-10, .wide-7-of-10, .wide-8-of-10, .wide-9-of-10, .wide-10-of-10,
+	.wide-1-of-8, .wide-2-of-8, .wide-3-of-8, .wide-4-of-8, .wide-5-of-8, .wide-6-of-8, .wide-7-of-8, .wide-8-of-8,
+	.wide-1-of-7, .wide-2-of-7, .wide-3-of-7, .wide-4-of-7, .wide-5-of-7, .wide-6-of-7, .wide-7-of-7,
+	.wide-1-of-6, .wide-2-of-6, .wide-3-of-6, .wide-4-of-6, .wide-5-of-6, .wide-6-of-6,
+	.wide-1-of-5, .wide-2-of-5, .wide-3-of-5, .wide-4-of-5, .wide-5-of-5,
+	.wide-1-of-4, .wide-2-of-4, .wide-3-of-4, .wide-4-of-4,
+	.wide-1-of-3, .wide-2-of-3, .wide-3-of-3,
+	.wide-1-of-2, .wide-2-of-2 {
+		width:100%;
+	}
+}
+
 .set-columns(@columns) {
 	width:(100%/@columns);
-	&:nth-child(1n+1) {clear:none;}
-	&:nth-child(2n+1) {clear:none;}
-	&:nth-child(3n+1) {clear:none;}
-	&:nth-child(4n+1) {clear:none;}
-	&:nth-child(5n+1) {clear:none;}
-	&:nth-child(6n+1) {clear:none;}
-	&:nth-child(7n+1) {clear:none;}
-	&:nth-child(8n+1) {clear:none;}
-	&:nth-child(10n+1){clear:none;}
-	&:nth-child(12n+1){clear:none;}
-	&:nth-child(16n+1){clear:none;}
+	&:nth-child(1n+1)  { clear:none; }
+	&:nth-child(2n+1)  { clear:none; }
+	&:nth-child(3n+1)  { clear:none; }
+	&:nth-child(4n+1)  { clear:none; }
+	&:nth-child(5n+1)  { clear:none; }
+	&:nth-child(6n+1)  { clear:none; }
+	&:nth-child(7n+1)  { clear:none; }
+	&:nth-child(8n+1)  { clear:none; }
+	&:nth-child(10n+1) { clear:none; }
+	&:nth-child(12n+1) { clear:none; }
+	&:nth-child(16n+1) { clear:none; }
 	&:nth-child(@{columns}n+1) {clear:both;}
 }
 .set-column-step(@step, @columns) {
 	width:((100% * @step)/@columns);
+	.set-column-behavior();
 }
 .set-step-padding(@step) {
 	.with-steps-padding { padding:@step; }
@@ -442,6 +492,23 @@ Frontsize internal mixins to extend with new columns
 .simple-view(@filename) { @import "views/@{filename}.less"; }
 .view(@view, @controller:"pages") { @import "views/@{controller}/@{view}.less"; }
 .model(@filename) { @import 'models/@{filename}.less'; }
+
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+==        FRONTSIZE BASE FIX         ===================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+.columns > * {
+	input,
+	textarea {
+		margin-top: 0;
+	}
+}
 
 /*
 ========================================================================================================================================================================
@@ -474,6 +541,9 @@ Frontsize internal mixins to extend with new columns
 	-moz-box-sizing: border-box;
 	-o-box-sizing: border-box;
 	box-sizing: border-box;
+}
+.full {
+	.set-column-behavior();
 }
 .full,
 .fill {
