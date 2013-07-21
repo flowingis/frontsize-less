@@ -489,9 +489,8 @@ Frontsize global setting mixins
 }
 
 // not working yet in LESS 1.4.1
-.simple-view(@filename) { @import "views/@{filename}.less"; }
-.view(@view, @controller:"pages") { @import "views/@{controller}/@{view}.less"; }
-.model(@filename) { @import 'models/@{filename}.less'; }
+.view(@view) { @import "views/@{view}"; }
+.model(@filename) { @import 'models/@{filename}'; }
 
 /*
 ========================================================================================================================================================================
