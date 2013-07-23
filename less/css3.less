@@ -605,3 +605,17 @@ http://caniuse.com/
 	-ms-user-select: none;
 	user-select: none;
 }
+
+.column-span(@span:none) {
+	/*
+	The CSS column-span property allows content to span across multiple columns on a multi-column layout.
+	This can be useful if you have a heading or other element within the multicol layout that needs to span across all columns.
+	Values: none | all;
+	*/
+	-webkit-column-span: @span;
+	-khtml-column-span: @span;
+	-moz-column-span: @span;
+	-ms-column-span: @span;
+	-o-column-span: @span;
+	column-span: @span;
+}

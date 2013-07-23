@@ -608,21 +608,15 @@ Frontsize global setting mixins
 .with-bottom-padding {
 	padding-bottom: @vertical-padding;
 }
-.no-padding {
-	padding:0;
+.without-padding {
+	padding:0 !important;
 }
 .without-bottom-padding {
 	padding-bottom:0 !important;
 }
-.without-padding {
-	// no padding for me and my children only
-	padding:0;
-	.without-padding-to-children;
-}
 .without-padding-to-children {
-	// no padding for my children only
 	> * {
-		padding:0;
+		padding:0 !important;
 	}
 }
 .without-padding-to-grandchildrens {
@@ -657,10 +651,10 @@ Frontsize global setting mixins
 		height: auto;
 	}
 }
-.float-l {
+.f-left {
 	float: left;
 }
-.float-r {
+.f-right {
 	float: right;
 }
 

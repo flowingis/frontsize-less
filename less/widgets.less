@@ -17,6 +17,9 @@
 .twitter-account { .button-account(#53bbef); }
 .github-account { .button-account(#cdcdcd, darken(grey,15%), rgba(255,255,255,.3)); }
 
+.tabs { .tabs(); }
+.paginator-circular { .paginator-circular(); }
+
 .pic { .pic(); }
 
 // tables
@@ -487,4 +490,48 @@
 		}
 	}
 }
-.tabs { .tabs(); }
+
+.paginator-circular(@containerLinkPadding:0 0.5em, @linkPadding:0.5em 0.875em, @backgroundColor:white, @color:#7b8284, @border:1px solid, @borderColor:#e2e2e2, @borderRadius:200px) {
+	display:inline-block;
+	padding:0;
+	> * {
+		padding:@containerLinkPadding;
+		.cell;
+		> * {
+			padding:@linkPadding;
+			color:@color;
+			background-color: @backgroundColor;
+			border:@border;
+			border-color:@borderColor;
+			.border-radius(@borderRadius);
+			.transition(box-shadow 0.25s ease-out, border-color 0.25s ease-out, background-color 0.25s ease-out, color 0.25s ease-out;);
+
+			&.paginator-text {
+				background-color:transparent;
+				border-color:transparent;
+			}
+
+			&:hover {
+				color:lighten(@color,5%);
+				border-color:darken(@borderColor,12%);
+				background-color: lighten(@backgroundColor,5%);
+				.box-shadow(0px 1px 6px rgba(0,0,0,.2));
+				
+				&.paginator-text {
+					color:lighten(@color,20%);
+					background-color:transparent;
+					border-color:transparent;
+					.box-shadow(none);
+				}
+			}
+			
+			&.selected {
+				cursor:default;
+				color:lighten(@color,5%);
+				border-color:darken(@borderColor,12%);
+				background-color: darken(@backgroundColor,5%);
+				.box-shadow(0px 0px 6px rgba(0,0,0,.2) inset);
+			}
+		}
+	}
+}
