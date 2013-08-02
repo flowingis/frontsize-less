@@ -19,6 +19,7 @@
 
 .tabs { .tabs(); }
 .paginator-circular { .paginator-circular(); }
+.message-status { .message-status(); }
 
 .pic { .pic(); }
 
@@ -515,7 +516,7 @@
 				color:lighten(@color,5%);
 				border-color:darken(@borderColor,12%);
 				background-color: lighten(@backgroundColor,5%);
-				.box-shadow(0px 1px 6px rgba(0,0,0,.2));
+				.box-shadow(0px 1px 6px rgba(0,0,0,.2), 0px 0px 0px rgba(0,0,0,0) inset;);
 				
 				&.paginator-text {
 					color:lighten(@color,20%);
@@ -525,13 +526,27 @@
 				}
 			}
 			
+			&:active,
 			&.selected {
 				cursor:default;
 				color:lighten(@color,5%);
 				border-color:darken(@borderColor,12%);
 				background-color: darken(@backgroundColor,5%);
-				.box-shadow(0px 0px 6px rgba(0,0,0,.2) inset);
+				.box-shadow(0px 0px 6px rgba(0,0,0,.2) inset, 0px 0px 0px rgba(0,0,0,0););
 			}
 		}
 	}
+}
+
+.message-status(@color:#de6646, @backgroundColor:desaturate(lighten(@color,30%),30%), @border:1px solid rgba(0,0,0,0.015), @borderRadius:0.25em, @boxShadow:0px 1px 3px rgba(0,0,0,0.075), @margin:0 0 @vertical-padding 0) {
+	width:100%;
+	margin:@margin;
+	padding:unit(@vertical-padding/2,em) @horizontal-padding;
+
+	color:@color;
+	background-color:@backgroundColor;
+	border:@border;
+
+	.border-radius(@borderRadius);
+	.box-shadow(@boxShadow);
 }

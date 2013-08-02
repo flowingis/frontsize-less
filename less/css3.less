@@ -524,6 +524,19 @@ http://caniuse.com/
 	-o-backface-visibility:@visibility;
 	backface-visibility:@visibility;
 }
+.transform-style(@style:flat) {
+	/*
+	The transform-style property specifies how nested elements are rendered in 3D space.
+	http://www.w3schools.com/cssref/css3_pr_transform-style.asp
+	Values: flat | preserve-3d
+	*/
+	-webkit-transform-style:@style;
+	-khtml-transform-style:@style;
+	-moz-transform-style:@style;
+	-ms-transform-style:@style;
+	-o-transform-style:@style;
+	transform-style:@style;
+}
 .resize(@resize:none) {
 	/*
 	The resize property specifies whether or not an element is resizable by the user.

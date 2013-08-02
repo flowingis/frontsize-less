@@ -124,19 +124,20 @@ Frontsize extended MIXINS
 }
 
 
-
-.sprite(@image, @coordinates, @width, @height) {
+.retina-sprite(@image, @width, @height) {
+	.sprite(@image, @width, @height);
+	background-size: 50%;
+}
+.sprite(@image, @width, @height) {
 	background-image:url("@{image}");
 	background-repeat:no-repeat;
-	background-position:@coordinates;
+	background-size: auto;
 	width:@width;
 	height:@height;
+	.wrap;
 }
-.sprite(@image, @coordinates, @width, @height, @hoverCoordinates) {
-	.sprite(@image, @coordinates, @width, @height);
-	&:hover {
-		background-position:@hoverCoordinates;
-	}
+.sprite-position(@horizontalPosition:0, @verticalPosition:0, @width:0px, @height:0px) {
+	background-position: unit(-(@horizontalPosition*@width),px) unit(-(@verticalPosition*@height),px);
 }
 
 
