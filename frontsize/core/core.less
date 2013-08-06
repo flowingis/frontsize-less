@@ -1,0 +1,402 @@
+
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+
+Frontsize - http://frontsize.com
+License:	Apache License v2.0
+Version:	1.1
+Date:		2013-06-08
+Author:		Vittorio Vittori
+Website:	http://vittoriovittori.com
+
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
+==             INTERNAL              ===================================================================================================================================
+==              MIXINS               ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+.init-wide-column-steps() {
+	.wide-1-of-16  { .set-column-step(1,16);  }
+	.wide-2-of-16  { .set-column-step(2,16);  }
+	.wide-3-of-16  { .set-column-step(3,16);  }
+	.wide-4-of-16  { .set-column-step(4,16);  }
+	.wide-5-of-16  { .set-column-step(5,16);  }
+	.wide-6-of-16  { .set-column-step(6,16);  }
+	.wide-7-of-16  { .set-column-step(7,16);  }
+	.wide-8-of-16  { .set-column-step(8,16);  }
+	.wide-9-of-16  { .set-column-step(9,16);  }
+	.wide-10-of-16 { .set-column-step(10,16); }
+	.wide-11-of-16 { .set-column-step(11,16); }
+	.wide-12-of-16 { .set-column-step(12,16); }
+	.wide-13-of-16 { .set-column-step(13,16); }
+	.wide-14-of-16 { .set-column-step(14,16); }
+	.wide-15-of-16 { .set-column-step(15,16); }
+	.wide-16-of-16 { .set-column-step(16,16); }
+	
+	.wide-1-of-12  { .set-column-step(1,12);  }
+	.wide-2-of-12  { .set-column-step(2,12);  }
+	.wide-3-of-12  { .set-column-step(3,12);  }
+	.wide-4-of-12  { .set-column-step(4,12);  }
+	.wide-5-of-12  { .set-column-step(5,12);  }
+	.wide-6-of-12  { .set-column-step(6,12);  }
+	.wide-7-of-12  { .set-column-step(7,12);  }
+	.wide-8-of-12  { .set-column-step(8,12);  }
+	.wide-9-of-12  { .set-column-step(9,12);  }
+	.wide-10-of-12 { .set-column-step(10,12); }
+	.wide-11-of-12 { .set-column-step(11,12); }
+	.wide-12-of-12 { .set-column-step(12,12); }
+	
+	.wide-1-of-10  { .set-column-step(1,10);  }
+	.wide-2-of-10  { .set-column-step(2,10);  }
+	.wide-3-of-10  { .set-column-step(3,10);  }
+	.wide-4-of-10  { .set-column-step(4,10);  }
+	.wide-5-of-10  { .set-column-step(5,10);  }
+	.wide-6-of-10  { .set-column-step(6,10);  }
+	.wide-7-of-10  { .set-column-step(7,10);  }
+	.wide-8-of-10  { .set-column-step(8,10);  }
+	.wide-9-of-10  { .set-column-step(9,10);  }
+	.wide-10-of-10 { .set-column-step(10,10); }
+	
+	.wide-1-of-8 { .set-column-step(1,8); }
+	.wide-2-of-8 { .set-column-step(2,8); }
+	.wide-3-of-8 { .set-column-step(3,8); }
+	.wide-4-of-8 { .set-column-step(4,8); }
+	.wide-5-of-8 { .set-column-step(5,8); }
+	.wide-6-of-8 { .set-column-step(6,8); }
+	.wide-7-of-8 { .set-column-step(7,8); }
+	.wide-8-of-8 { .set-column-step(8,8); }
+	
+	.wide-1-of-7 { .set-column-step(1,7); }
+	.wide-2-of-7 { .set-column-step(2,7); }
+	.wide-3-of-7 { .set-column-step(3,7); }
+	.wide-4-of-7 { .set-column-step(4,7); }
+	.wide-5-of-7 { .set-column-step(5,7); }
+	.wide-6-of-7 { .set-column-step(6,7); }
+	.wide-7-of-7 { .set-column-step(7,7); }
+	
+	.wide-1-of-6 { .set-column-step(1,6); }
+	.wide-2-of-6 { .set-column-step(2,6); }
+	.wide-3-of-6 { .set-column-step(3,6); }
+	.wide-4-of-6 { .set-column-step(4,6); }
+	.wide-5-of-6 { .set-column-step(5,6); }
+	.wide-6-of-6 { .set-column-step(6,6); }
+	
+	.wide-1-of-5 { .set-column-step(1,5); }
+	.wide-2-of-5 { .set-column-step(2,5); }
+	.wide-3-of-5 { .set-column-step(3,5); }
+	.wide-4-of-5 { .set-column-step(4,5); }
+	.wide-5-of-5 { .set-column-step(5,5); }
+	
+	.wide-1-of-4 { .set-column-step(1,4); }
+	.wide-2-of-4 { .set-column-step(2,4); }
+	.wide-3-of-4 { .set-column-step(3,4); }
+	.wide-4-of-4 { .set-column-step(4,4); }
+	
+	.wide-1-of-3 { .set-column-step(1,3); }
+	.wide-2-of-3 { .set-column-step(2,3); }
+	.wide-3-of-3 { .set-column-step(3,3); }
+	
+	.wide-1-of-2 { .set-column-step(1,2); }
+	.wide-2-of-2 { .set-column-step(2,2); }
+
+	
+}
+
+.fill-wide-column-steps() {
+	.wide-1-of-16, .wide-2-of-16, .wide-3-of-16, .wide-4-of-16, .wide-5-of-16, .wide-6-of-16, .wide-7-of-16, .wide-8-of-16, .wide-9-of-16, .wide-10-of-16, .wide-11-of-16, .wide-12-of-16, .wide-13-of-16, .wide-14-of-16, .wide-15-of-16, .wide-16-of-16,
+	.wide-1-of-12, .wide-2-of-12, .wide-3-of-12, .wide-4-of-12, .wide-5-of-12, .wide-6-of-12, .wide-7-of-12, .wide-8-of-12, .wide-9-of-12, .wide-10-of-12, .wide-11-of-12, .wide-12-of-12,
+	.wide-1-of-10, .wide-2-of-10, .wide-3-of-10, .wide-4-of-10, .wide-5-of-10, .wide-6-of-10, .wide-7-of-10, .wide-8-of-10, .wide-9-of-10, .wide-10-of-10,
+	.wide-1-of-8, .wide-2-of-8, .wide-3-of-8, .wide-4-of-8, .wide-5-of-8, .wide-6-of-8, .wide-7-of-8, .wide-8-of-8,
+	.wide-1-of-7, .wide-2-of-7, .wide-3-of-7, .wide-4-of-7, .wide-5-of-7, .wide-6-of-7, .wide-7-of-7,
+	.wide-1-of-6, .wide-2-of-6, .wide-3-of-6, .wide-4-of-6, .wide-5-of-6, .wide-6-of-6,
+	.wide-1-of-5, .wide-2-of-5, .wide-3-of-5, .wide-4-of-5, .wide-5-of-5,
+	.wide-1-of-4, .wide-2-of-4, .wide-3-of-4, .wide-4-of-4,
+	.wide-1-of-3, .wide-2-of-3, .wide-3-of-3,
+	.wide-1-of-2, .wide-2-of-2 {
+		width:100%;
+	}
+}
+
+.set-columns(@columns) {
+	width:(100%/@columns);
+	&:nth-child(1n+1)  { clear:none; }
+	&:nth-child(2n+1)  { clear:none; }
+	&:nth-child(3n+1)  { clear:none; }
+	&:nth-child(4n+1)  { clear:none; }
+	&:nth-child(5n+1)  { clear:none; }
+	&:nth-child(6n+1)  { clear:none; }
+	&:nth-child(7n+1)  { clear:none; }
+	&:nth-child(8n+1)  { clear:none; }
+	&:nth-child(10n+1) { clear:none; }
+	&:nth-child(12n+1) { clear:none; }
+	&:nth-child(16n+1) { clear:none; }
+	&:nth-child(@{columns}n+1) {clear:both;}
+}
+.set-column-step(@step, @columns) {
+	width:((100% * @step)/@columns);
+	.set-column-behavior();
+}
+.set-step-padding(@step) {
+	.with-steps-padding { padding:@step; }
+	.with-horizontal-steps-padding { padding-left:@step; padding-right:@step; }
+	.with-vertical-steps-padding { padding-top:@step; padding-bottom:@step; }
+	.with-top-steps-padding { padding-top:@step; }
+	.with-bottom-steps-padding { padding-bottom:@step; }
+}
+.set-column-behavior() {
+	padding-left:@horizontal-padding;
+	padding-right:@horizontal-padding;
+	float: left;
+	position: relative;
+	.wrap;
+}
+
+// not working yet in LESS 1.4.1
+.view(@view) {
+	@import "views/@{view}";
+}
+.model(@filename) {
+	@import 'models/@{filename}';
+}
+
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+==        FRONTSIZE BASE FIX         ===================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+.columns > * {
+	input,
+	textarea {
+		margin-top: 0;
+	}
+}
+
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+==        FRONTSIZE SELECTORS        ===================================================================================================================================
+==                                   ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+.use-steps,
+.use-wide-steps {
+	// center the steps container
+	margin: auto;
+	.wrap;
+}
+.columns,
+.menu-columns {
+	// be sure to contain the floated elements contained with my height
+	overflow: auto;
+	.wrap;
+}
+.menu-columns {
+	overflow: visible;
+}
+.wrap {
+	// avoid the unwanted width over the 100% of the size of the container
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.full {
+	.set-column-behavior();
+}
+.full,
+.fill {
+	// Remember: .full selector sets lateral padding too
+	// manually occupy all this row
+	width:100%;
+}
+
+.flip {
+	.backface-visibility(hidden);
+	.transform-style(preserve-3d);
+	.transform(rotateX(0deg) rotateY(-180deg));
+	.transition(all 0.3s ease-in-out);
+}
+.unflip {
+	.backface-visibility(hidden);
+	.transform-style(preserve-3d);
+	.transform(rotateX(0deg) rotateY(0deg));
+	.transition(all 0.3s ease-in-out);
+}
+
+.relative {
+	position: relative;
+}
+
+.hidden {
+	display:none;
+}
+.centered {
+	// manually center all the contents inside
+	text-align: center;
+}
+.capitalized {
+	text-transform: capitalize;
+}
+.to-right {
+	// manually center all the contents inside
+	text-align: right;
+}
+.to-left {
+	// manually center all the contents inside
+	text-align: left;
+}
+.clear {
+	// manually go down to the next row
+	clear:both;
+}
+.menu-list {
+	list-style-type: none;
+}
+.opposite-paged {
+	// the first child will have text-align to left and the last child will have text-align to right
+	> * {
+		&:first-child {
+			text-align: left;
+		}
+		&:last-child {
+			text-align: right;
+		}
+	} 
+}
+
+.box {
+	overflow: auto;
+}
+
+.with-padding {
+	padding:@vertical-padding @horizontal-padding;
+}
+.with-horizontal-padding {
+	padding-right: @horizontal-padding;
+	padding-left: @horizontal-padding;
+}
+.with-vertical-padding {
+	padding-top: @vertical-padding;
+	padding-bottom: @vertical-padding;
+}
+.with-top-padding {
+	padding-top: @vertical-padding;
+}
+.with-bottom-padding {
+	padding-bottom: @vertical-padding;
+}
+.without-padding {
+	padding:0 !important;
+}
+.without-bottom-padding {
+	padding-bottom:0 !important;
+}
+.without-padding-to-children {
+	> * {
+		padding:0 !important;
+	}
+}
+.without-padding-to-grandchildrens {
+	// no padding for my children's children only
+	> * > * {
+		padding:0;
+	}
+}
+.without-padding-to-all {
+	// no padding for everything inside on every level
+	> *, > * * {
+		padding:0;
+	}
+}
+.fluid {
+	// make an image responsive
+	height: auto;
+	max-width: 100%;
+	&.fill {
+		width: 100%;
+	}
+}
+.not-fluid {
+	// set an image with it's default behavior
+	width: auto;
+	height: auto;
+}
+.fluid-all {
+	// make all images responsive
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+.f-left {
+	float: left;
+}
+.f-right {
+	float: right;
+}
+
+.faded, .disabled {
+	opacity:0.5;
+}
+
+.disabled {
+	cursor: default;
+}
+
+.nav {
+	padding:0;
+
+	&.inline {
+		li {
+			display: inline-block;
+			margin-left: (@horizontal-padding / 2);
+			&:first-child {
+				margin-left:0;
+			}
+		}
+	}
+	&.vertical {
+		ul {
+			padding-left:0;
+			padding-right:0;
+		}
+	}
+	
+	li {
+
+		list-style-type: none;
+	}
+}
+.hookable {
+	.transition(top .3s ease-in-out);
+}
+
+.cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.debug {
+	.columns {
+		> * {
+			border:1px solid rgb(200,200,0);
+		}
+	}
+}
