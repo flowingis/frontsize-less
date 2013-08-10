@@ -2,99 +2,14 @@
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
 ==              BASE                 ===================================================================================================================================
-==              MIXIN                ===================================================================================================================================
-==             WIDGETS               ===================================================================================================================================
-==                                   ===================================================================================================================================
-========================================================================================================================================================================
-*/
-
-.code-base(@padding:0) {
-	font-family: @font-monospace;
-	padding:@padding;
-	
-	border:1px solid rgba(0,0,0,.03);
-	background-color: rgba(0,0,0,.075);
-
-	.border-radius(4px);
-	.box-shadow(0px 1px 0px rgba(255,255,255,.6));
-}
-
-.mark-base(@backgroundColor:rgb(255,255,0)) {
-	color:inherit;
-	background-color:@backgroundColor;
-
-	.box-shadow(0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75););
-}
-
-.input-text-base() {
-	border:1px solid rgba(0,0,0,.2);
-	background-color: rgba(0,0,0,.05);
-
-	color:@font-default-color;
-	
-	.box-shadow(inset 0px 1px 4px rgba(0,0,0,.15), 0px 0px 0px rgba(0,0,0,0););
-	.transition(border-color .25s ease-in-out, background-color .25s ease-in-out, box-shadow .25s ease-in-out;);
-
-	&:focus {
-		border-color:rgba(0,0,0,.3);
-		background-color: white;
-		.box-shadow(inset 0px 0px 0px rgba(0,0,0,0), 0px 1px 4px rgba(0,0,0,0.15););
-	}
-}
-
-.hr-base() {
-	border:none;
-	border-top:1px solid rgba(0,0,0,.075);
-	border-bottom:1px solid rgba(255,255,255,.8);
-	padding:0;
-	margin:@vertical-padding 0;
-}
-
-.a-base(@color:@font-default-color) {
-	line-height: 1.25;
-	text-decoration: none;
-	color:@color;
-	border-bottom:2px solid fade(@color, 30%);
-
-	@animation:0.3s ease-in-out;
-	.transition(border-bottom @animation, color @animation;);
-	
-	&:hover,
-	&.selected,
-	&.active {
-		color:saturate(darken(@color, 10%), 7%);
-		border-bottom-color: @color;
-	}
-	&.selected {
-		cursor: default;
-	}
-}
-/*
-.a-base(@color:@font-default-color) {
-
-	
-	border-bottom:2px solid transparent;
-	.transition(color .25s ease-out, border-color .25s ease-in-out;);
-
-	&:hover {
-		border-bottom-color:fade(@color, 50%);
-	}
-}
-*/
-
-/*
-========================================================================================================================================================================
-==                                   ===================================================================================================================================
-==                                   ===================================================================================================================================
-==             SECTIONS              ===================================================================================================================================
-==                                   ===================================================================================================================================
+==              HTML                 ===================================================================================================================================
 ==                                   ===================================================================================================================================
 ========================================================================================================================================================================
 */
 
 /*
 SMACSS - Base Rules
-http://smacss.com/book/type-base
+Url - http://smacss.com/book/type-base
 */
 
 body {
@@ -134,7 +49,7 @@ h1, h2, h3, h4, h5, h6 {
 */
 
 pre {
-	.code-base(1em);
+	.base-code(1em);
 	code {
 		border-color:transparent;
 		background-color: transparent;
@@ -149,7 +64,7 @@ hr {
 	.wrap;
 	display: block;
 	width:100%;
-	.hr-base();
+	.base-hr();
 }
 
 p,
@@ -167,10 +82,7 @@ div {
 }
 
 ul {
-	@padding:(@horizontal-padding + (@horizontal-padding/4));
-	padding-left:@padding;
-	padding-right:@padding;
-	padding-bottom:@padding;
+	.base-ul();
 }
 
 nav {
@@ -205,7 +117,7 @@ table {
 		</tr>
 	</table>
 
-	http://html5doctor.com/element-index/#table
+	Url - http://html5doctor.com/element-index/#table
 	*/
 }
 
@@ -232,7 +144,7 @@ caption {
 		</tbody>
 	</table>
 
-	http://html5doctor.com/element-index/#caption
+	Url - http://html5doctor.com/element-index/#caption
 	*/
 }
 
@@ -257,7 +169,7 @@ thead {
 		</tbody>
 	</table>
 
-	http://html5doctor.com/element-index/#thead
+	Url - http://html5doctor.com/element-index/#thead
 	*/
 }
 
@@ -287,7 +199,7 @@ tbody {
 		</tbody>
 	</table>
 
-	http://html5doctor.com/element-index/#tbody
+	Url - http://html5doctor.com/element-index/#tbody
 	*/
 }
 tfoot {
@@ -311,7 +223,7 @@ tfoot {
 		</tbody>
 	</table>
 
-	http://html5doctor.com/element-index/#tfoot
+	Url - http://html5doctor.com/element-index/#tfoot
 	*/
 }
 
@@ -335,7 +247,7 @@ tr {
 		</tr>
 	</table>
 
-	http://html5doctor.com/element-index/#tr
+	Url - http://html5doctor.com/element-index/#tr
 	*/
 }
 
@@ -359,7 +271,7 @@ th {
 		</tr>
 	</table>
 
-	http://html5doctor.com/element-index/#th
+	Url - http://html5doctor.com/element-index/#th
 	*/
 }
 
@@ -377,7 +289,7 @@ td {
 		</tr>
 	</table>
 
-	http://html5doctor.com/element-index/#td
+	Url - http://html5doctor.com/element-index/#td
 	*/
 }
 
@@ -406,7 +318,7 @@ col {
 		</tr>
 	</table>
 
-	http://html5doctor.com/element-index/#col
+	Url - http://html5doctor.com/element-index/#col
 	*/
 }
 
@@ -437,7 +349,7 @@ colgroup {
 		</tr>
 	</table>
 
-	http://html5doctor.com/element-index/#colgroup
+	Url - http://html5doctor.com/element-index/#colgroup
 	*/
 }
 
@@ -473,7 +385,7 @@ form {
 		</fieldset>
 	</form>
 
-	http://html5doctor.com/element-index/#form
+	Url - http://html5doctor.com/element-index/#form
 	*/
 }
 
@@ -504,7 +416,7 @@ fieldset {
 		</fieldset>
 	</form>
 	
-	http://html5doctor.com/element-index/#fieldset
+	Url - http://html5doctor.com/element-index/#fieldset
 	*/
 }
 
@@ -530,7 +442,7 @@ legend {
 		</fieldset>
 	</form>
 
-	http://html5doctor.com/element-index/#legend
+	Url - http://html5doctor.com/element-index/#legend
 	*/
 }
 
@@ -543,7 +455,7 @@ label {
 	<label for="un">Username:</label>
 	<input name="user-name" id="un" type="email" placeholder="Your username is your email address" required autofocus>
 
-	http://html5doctor.com/element-index/#label
+	Url - http://html5doctor.com/element-index/#label
 	*/
 	display: inline-block;
 	.wrap;
@@ -563,7 +475,7 @@ input {
 	<input name="user-name" type="email" placeholder="Your username is your email address" required autofocus>
 	<input name="password" type="password" placeholder="6 digits, a combination of numbers and letters" required>
 
-	http://html5doctor.com/element-index/#input
+	Url - http://html5doctor.com/element-index/#input
 	*/
 }
 
@@ -584,7 +496,7 @@ input[type="password"] {
 	margin-top:@vertical-padding;
 	padding:(@vertical-padding/2) (@horizontal-padding/2);
 	.input-placeholder(grey, lighten(grey, 20%));
-	.input-text-base();
+	.base-input-text();
 }
 
 input[type="reset"],
@@ -603,7 +515,7 @@ button {
 	Code snippet:
 	<button>Do something!</button>
 
-	http://html5doctor.com/element-index/#button
+	Url - http://html5doctor.com/element-index/#button
 	*/
 	.wrap;
 }
@@ -623,7 +535,7 @@ select {
 		<option value="Other">Other</option>
 	</select>
 
-	http://html5doctor.com/element-index/#select
+	Url - http://html5doctor.com/element-index/#select
 	*/
 }
 
@@ -645,7 +557,7 @@ datalist {
 		</datalist>
 	</label>
 
-	http://html5doctor.com/element-index/#datalist
+	Url - http://html5doctor.com/element-index/#datalist
 	*/
 }
 
@@ -670,7 +582,7 @@ optgroup {
 		</optgroup>
 	</select>
 	
-	http://html5doctor.com/element-index/#optgroup
+	Url - http://html5doctor.com/element-index/#optgroup
 	*/
 }
 
@@ -691,7 +603,7 @@ option {
 		<option value="">Canada</option>
 	</select>
 	
-	http://html5doctor.com/element-index/#option
+	Url - http://html5doctor.com/element-index/#option
 	*/
 }
 
@@ -705,7 +617,7 @@ textarea {
 		<textarea cols="50" rows="10"></textarea> 
 	</form>
 	
-	http://html5doctor.com/element-index/#textarea
+	Url - http://html5doctor.com/element-index/#textarea
 	*/
 	.fill;
 	.wrap;
@@ -726,7 +638,7 @@ keygen {
 		<input type="submit" value="Submit">
 	</form>
 	
-	http://html5doctor.com/element-index/#keygen
+	Url - http://html5doctor.com/element-index/#keygen
 	*/
 }
 
@@ -744,7 +656,7 @@ output {
 		<output for="flying" onforminput="value = flying.valueAsNumber">0</output>
 	</form>
 	
-	http://html5doctor.com/element-index/#output
+	Url - http://html5doctor.com/element-index/#output
 	*/
 }
 
@@ -765,7 +677,7 @@ progress {
 		</script>
 	</section>
 
-	http://html5doctor.com/element-index/#progress
+	Url - http://html5doctor.com/element-index/#progress
 	*/
 }
 
@@ -779,7 +691,7 @@ meter {
 	Code snippet:
 	Your score is: <meter> 2 out of 10 </meter>
 
-	http://html5doctor.com/element-index/#meter
+	Url - http://html5doctor.com/element-index/#meter
 	*/
 }
 
@@ -806,7 +718,7 @@ details {
         <p><label><input type="checkbox" name="ext" checked> Hide extension</label>
 	</details>
 
-	http://html5doctor.com/element-index/#details
+	Url - http://html5doctor.com/element-index/#details
 	*/
 }
 
@@ -820,7 +732,7 @@ summary {
         <p>Here is the source data that is discussed in the article ...</p>
 	</details>
 
-	http://html5doctor.com/element-index/#summary
+	Url - http://html5doctor.com/element-index/#summary
 	*/
 }
 
@@ -829,7 +741,7 @@ command {
 	The command element represents a command that the user can invoke.
 	A command can be part of a context menu or toolbar, using the menu element, or can be put anywhere else in the page, to define a keyboard shortcut.
 
-	http://html5doctor.com/element-index/#command
+	Url - http://html5doctor.com/element-index/#command
 	*/
 }
 
@@ -842,7 +754,7 @@ menu {
 
 	If a menu element's type attribute is in the list state, then the element either represents an unordered list of items (each represented by an li element), each of which represents a command that the user can perform or activate, or, if the element has no li element children, flow content describing available commands.
 	
-	http://html5doctor.com/element-index/#menu
+	Url - http://html5doctor.com/element-index/#menu
 	*/
 }
 
@@ -866,7 +778,7 @@ img {
 	The img element must not be used as a layout tool.
 	In particular, img elements should not be used to display transparent images, as they rarely convey meaning and rarely add anything useful to the document.
 
-	http://html5doctor.com/element-index/#img
+	Url - http://html5doctor.com/element-index/#img
 	*/
 
 	-ms-interpolation-mode: bicubic;
@@ -883,7 +795,7 @@ iframe {
 	The root element, in the form of an html element.
 	Any number of comments and space characters.
 
-	http://html5doctor.com/element-index/#iframe
+	Url - http://html5doctor.com/element-index/#iframe
 	*/
 }
 
@@ -897,7 +809,7 @@ embed {
 	The value must be a valid MIME type, optionally with parameters.
 	If both the type attribute and the src attribute are present, then the type attribute must specify the same MIME type as the explicit Content-Type metadata of the resource given by the src attribute.
 	
-	http://html5doctor.com/element-index/#embed
+	Url - http://html5doctor.com/element-index/#embed
 	*/
 }
 
@@ -905,7 +817,7 @@ object {
 	/*
 	The object element can represent an external resource, which, depending on the type of the resource, will either be treated as an image, as a nested browsing context, or as an external resource to be processed by a plugin.
 	
-	http://html5doctor.com/element-index/#object
+	Url - http://html5doctor.com/element-index/#object
 	*/
 }
 
@@ -914,7 +826,7 @@ param {
 	The param element defines parameters for plugins invoked by object elements.
 	It does not represent anything on its own.
 
-	http://html5doctor.com/element-index/#param
+	Url - http://html5doctor.com/element-index/#param
 	*/
 }
 
@@ -926,7 +838,7 @@ video {
 	User agents should not show this content to the user.
 	Authors should use this content to force older browsers to use a legacy video plugin or to inform the user of how to access the video content.
 
-	http://html5doctor.com/element-index/#video
+	Url - http://html5doctor.com/element-index/#video
 	*/
 }
 
@@ -944,7 +856,7 @@ audio {
 	Opera 10.5+ supports .ogg and .wav
 	Safari 4+ supports .mp3 and .wav
 
-	http://html5doctor.com/element-index/#audio
+	Url - http://html5doctor.com/element-index/#audio
 	*/
 }
 
@@ -956,7 +868,7 @@ source {
 	The value must be a valid non-empty URL potentially surrounded by spaces.
 	This attribute must be present.
 
-	http://html5doctor.com/element-index/#source
+	Url - http://html5doctor.com/element-index/#source
 	*/
 
 }
@@ -972,7 +884,7 @@ canvas {
 	When authors use the canvas element, they must also provide content that, when presented to the user, conveys essentially the same function or purpose as the bitmap canvas.
 	This content should be nested within the canvas element as a fallback.
 
-	http://html5doctor.com/element-index/#canvas
+	Url - http://html5doctor.com/element-index/#canvas
 	*/
 }
 
@@ -981,7 +893,7 @@ track {
 	The track element allows authors to specify explicit external timed text tracks for media elements.
 	It does not represent anything on its own.
 	
-	http://html5doctor.com/element-index/#track
+	Url - http://html5doctor.com/element-index/#track
 	*/
 }
 
@@ -990,7 +902,7 @@ map {
 	The map element, in conjunction with any area element descendants, defines an image map.
 	The element represents its children.
 	
-	http://html5doctor.com/element-index/#map
+	Url - http://html5doctor.com/element-index/#map
 	*/
 }
 
@@ -1000,7 +912,7 @@ area {
 
 	If the area element has no href attribute, then the area represented by the element cannot be selected, and the alt attribute must be omitted.
 	
-	http://html5doctor.com/element-index/#area
+	Url - http://html5doctor.com/element-index/#area
 	*/
 }
 
@@ -1021,13 +933,13 @@ a {
 
 	The target, rel, media, hreflang, and type attributes must be omitted if the href attribute is not present.
 	
-	http://html5doctor.com/element-index/#a
+	Url - http://html5doctor.com/element-index/#a
 	*/
 
 	display: inline-block;
 	color:@font-default-color;
 
-	.a-base();
+	.base-a();
 
 	&:hover {
 		color:darken(@font-default-color, 15%);
@@ -1041,7 +953,7 @@ br {
 	br elements must be used only for line breaks that are actually part of the content, as in poems or addresses.
 	br elements must not be used for separating thematic groups in a paragraph.
 	
-	http://html5doctor.com/element-index/#br
+	Url - http://html5doctor.com/element-index/#br
 	*/
 }
 
@@ -1050,7 +962,7 @@ wbr {
 	The wbr element represents a line break opportunity.
 	Any content inside wbr elements must not be considered part of the surrounding text.
 	
-	http://html5doctor.com/element-index/#wbr
+	Url - http://html5doctor.com/element-index/#wbr
 	*/
 }
 
@@ -1060,7 +972,7 @@ em {
 	The 'stress' being referred to is linguistic.
 	If spoken, this stress would be emphasised pronunciation on a word that can change the nuance of a sentence.
 	
-	http://html5doctor.com/element-index/#em
+	Url - http://html5doctor.com/element-index/#em
 	*/
 }
 
@@ -1070,7 +982,7 @@ strong {
 	Indicate relative importance by nesting strong elements; each strong element increases the importance of its contents.
 	Changing the importance of a piece of text with the strong element does not change the meaning of the sentence.
 	
-	http://html5doctor.com/element-index/#strong
+	Url - http://html5doctor.com/element-index/#strong
 	*/
 }
 
@@ -1080,7 +992,7 @@ i {
 	
 	Only use i when nothing more suitable is available — e.g., em for text with stress emphasis, strong for text with semantic importance, cite for titles in a citation or bibliography, dfn for defining a word, and var for mathematical variables.
 	
-	http://html5doctor.com/element-index/#b
+	Url - http://html5doctor.com/element-index/#b
 	*/
 }
 
@@ -1092,7 +1004,7 @@ b {
 	The b element should be used as a last resort when no other element is more appropriate.
 	In particular, headings should use the h1 to h6 elements, stress emphasis should use the em element, importance should be denoted with the strong element, and text marked or highlighted should use the mark element.
 	
-	http://html5doctor.com/element-index/#b
+	Url - http://html5doctor.com/element-index/#b
 	*/
 }
 
@@ -1101,7 +1013,7 @@ u {
 	The u element represents a span of text with an unarticulated, though explicitly rendered, non-textual annotation (when you are annotating something, but not explicitly saying what it is).
 	Examples include indicating misspelt words, labeling proper names in traditional Chinese prose, or indicating a family name when the name’s order is non-western.
 	
-	http://html5doctor.com/element-index/#u
+	Url - http://html5doctor.com/element-index/#u
 	*/
 }
 
@@ -1109,7 +1021,7 @@ s {
 	/*
 	The s element represents contents that are no longer accurate or no longer relevant.
 	
-	http://html5doctor.com/element-index/#s
+	Url - http://html5doctor.com/element-index/#s
 	*/
 }
 
@@ -1119,7 +1031,7 @@ small {
 	It is not intended to be presentational.
 	The small element should not be used for extended spans of text such as multiple paragraphs, lists, or sections of text. It is only intended for short runs of text.
 	
-	http://html5doctor.com/element-index/#small
+	Url - http://html5doctor.com/element-index/#small
 	*/
 }
 
@@ -1129,7 +1041,7 @@ abbr {
 	The optional title attribute may be used to provide an expansion of the abbreviation.
 	If specified, the title attribute must contain an expansion of the abbreviation and nothing else.
 	
-	http://html5doctor.com/element-index/#abbr
+	Url - http://html5doctor.com/element-index/#abbr
 	*/
 	cursor: help;
 }
@@ -1138,7 +1050,7 @@ q {
 	/*
 	The q element represents some phrasing content quoted from another source.
 	
-	http://html5doctor.com/element-index/#q
+	Url - http://html5doctor.com/element-index/#q
 	*/
 }
 
@@ -1150,7 +1062,7 @@ cite {
 	A person's name is not the title of a work — even if people call that person a piece of work — and the element must therefore not be used to mark up people's names.
 	(In some cases, the b element might be appropriate for names; e.g. in a gossip article where the names of famous people are keywords rendered with a different style to draw attention to them. In other cases, if an element is really needed, the span element can be used.)
 	
-	http://html5doctor.com/element-index/#cite
+	Url - http://html5doctor.com/element-index/#cite
 	*/
 }
 
@@ -1159,7 +1071,7 @@ dfn {
 	The dfn element represents the defining instance of a term.
 	The paragraph, description list group, or section that is the nearest ancestor of the dfn element must also contain the definition(s) for the term given by the dfn element.
 	
-	http://html5doctor.com/element-index/#dfn
+	Url - http://html5doctor.com/element-index/#dfn
 	*/
 }
 
@@ -1167,7 +1079,7 @@ sub {
 	/*
 	The sub element can be used inside a var element, for variables that have subscripts.
 	
-	http://html5doctor.com/element-index/#sub
+	Url - http://html5doctor.com/element-index/#sub
 	*/
 }
 
@@ -1175,7 +1087,7 @@ sup {
 	/*
 	The sup element represents a superscript and the sub element represents a subscript.
 	
-	http://html5doctor.com/element-index/#sup
+	Url - http://html5doctor.com/element-index/#sup
 	*/
 }
 
@@ -1184,7 +1096,7 @@ del {
 	The del element represents a removal from the document.
 	Thedel elements should not cross implied paragraph boundaries.
 	
-	http://html5doctor.com/element-index/#del
+	Url - http://html5doctor.com/element-index/#del
 	*/
 }
 
@@ -1193,7 +1105,7 @@ ins {
 	The ins element represents an addition to the document.
 	The ins elements should not cross implied paragraph boundaries.
 	
-	http://html5doctor.com/element-index/#ins
+	Url - http://html5doctor.com/element-index/#ins
 	*/
 }
 
@@ -1202,7 +1114,7 @@ time {
 	Represents a precise date and/or time in the proleptic Gregorian calendar.
 	The time element encodes modern dates and times in a machine-readable way, so that, for example, user agents could offer to add an event to the user's calendar.
 	
-	http://html5doctor.com/element-index/#time
+	Url - http://html5doctor.com/element-index/#time
 	*/
 
 }
@@ -1212,9 +1124,9 @@ code {
 	The code element represents a fragment of computer code.
 	This could be an XML element name, a filename, a computer program, or any other string that a computer would recognize.
 	
-	http://html5doctor.com/element-index/#code
+	Url - http://html5doctor.com/element-index/#code
 	*/
-	.code-base();
+	.base-code();
 }
 
 kbd {
@@ -1224,7 +1136,7 @@ kbd {
 	When the kbd element contains a samp element, it represents input based on system output, for example invoking a menu item.
 	When the kbd element is nested inside another kbd element, it represents an actual key or other single unit of input as appropriate for the input mechanism.
 	
-	http://html5doctor.com/element-index/#kbd
+	Url - http://html5doctor.com/element-index/#kbd
 	*/
 }
 
@@ -1232,7 +1144,7 @@ samp {
 	/*
 	The samp element represents (sample) output from a program or computing system.
 	
-	http://html5doctor.com/element-index/#samp
+	Url - http://html5doctor.com/element-index/#samp
 	*/
 }
 
@@ -1241,9 +1153,9 @@ var {
 	The var element represents a variable.
 	This could be an actual variable in a mathematical expression or programming context, or it could just be a term used as a placeholder in prose.
 	
-	http://html5doctor.com/element-index/#var
+	Url - http://html5doctor.com/element-index/#var
 	*/
-	.code-base();
+	.base-code();
 }
 
 mark {
@@ -1251,16 +1163,16 @@ mark {
 	Represents a run of text in one document marked or highlighted because of its relevance in another context.
 	When used in a quotation or other block of text referenced in a document, it indicates a highlight that was not present in the original document — e.g., a portion of text in an academic publication that has recently come under additional scrutiny.
 
-	http://html5doctor.com/element-index/#mark
+	Url - http://html5doctor.com/element-index/#mark
 	*/
-	.mark-base();
+	.base-mark();
 }
 
 bdi {
 	/*
 	The bdi element represents a span of text that is to be isolated from its surroundings for the purposes of bidirectional text formatting.
 	
-	http://html5doctor.com/element-index/#bdi
+	Url - http://html5doctor.com/element-index/#bdi
 	*/
 }
 
@@ -1269,7 +1181,7 @@ bdo {
 	The bdo element represents explicit text directionality formatting control for its children.
 	It allows authors to override the Unicode bidirectional algorithm by explicitly specifying a direction override.
 	
-	http://html5doctor.com/element-index/#bdo
+	Url - http://html5doctor.com/element-index/#bdo
 	*/
 }
 
@@ -1277,7 +1189,7 @@ span {
 	/*
 	The span element doesn't mean anything on its own, but can be useful when used together with the global attributes, e.g. class, lang, or dir. It represents its children.
 	
-	http://html5doctor.com/element-index/#span
+	Url - http://html5doctor.com/element-index/#span
 	*/
 }
 
@@ -1286,6 +1198,6 @@ ruby, rt, rp {
 	Represents a container for base text and ruby text — small annotations used for phonetic readings in languages such as Japanese and Chinese.
 	Examples include furigana and zhùyin fúhào (bopomofo).
 	
-	http://html5doctor.com/element-index/#ruby
+	Url - http://html5doctor.com/element-index/#ruby
 	*/
 }

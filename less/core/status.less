@@ -1,0 +1,246 @@
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
+==              STATUS               ===================================================================================================================================
+==             SELECTORS             ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+.use-steps,
+.use-wide-steps {
+	// center the steps container
+	margin: auto;
+	.wrap;
+}
+.columns,
+.menu-columns {
+	// be sure to contain the floated elements contained with my height
+	overflow: auto;
+	.wrap;
+}
+.menu-columns {
+	overflow: visible;
+}
+.wrap {
+	// avoid the unwanted width over the 100% of the size of the container
+	.box-sizing(border-box);
+}
+.full {
+	.set-column-behavior();
+}
+.full,
+.fill {
+	// Remember: .full selector sets lateral padding too
+	// manually occupy all this row
+	width:100%;
+}
+
+.flip {
+	.backface-visibility(hidden);
+	.transform-style(preserve-3d);
+	.transform(rotateX(0deg) rotateY(-180deg));
+	.transition(all 0.3s ease-in-out);
+}
+.unflip {
+	.backface-visibility(hidden);
+	.transform-style(preserve-3d);
+	.transform(rotateX(0deg) rotateY(0deg));
+	.transition(all 0.3s ease-in-out);
+}
+
+.relative {
+	position: relative;
+}
+
+.hidden {
+	display:none;
+}
+.centered {
+	// manually center all the contents inside
+	text-align: center;
+}
+.capitalized {
+	text-transform: capitalize;
+}
+.to-right {
+	// manually center all the contents inside
+	text-align: right;
+}
+.to-left {
+	// manually center all the contents inside
+	text-align: left;
+}
+.clear {
+	// manually go down to the next row
+	clear:both;
+}
+.menu-list {
+	list-style-type: none;
+}
+.opposite-paged {
+	// the first child will have text-align to left and the last child will have text-align to right
+	> * {
+		&:first-child {
+			text-align: left;
+		}
+		&:last-child {
+			text-align: right;
+		}
+	} 
+}
+
+.box {
+	overflow: auto;
+}
+
+.with-padding {
+	padding:@vertical-padding @horizontal-padding;
+}
+.with-horizontal-padding {
+	padding-right: @horizontal-padding;
+	padding-left: @horizontal-padding;
+}
+.with-vertical-padding {
+	padding-top: @vertical-padding;
+	padding-bottom: @vertical-padding;
+}
+.with-top-padding {
+	padding-top: @vertical-padding;
+}
+.with-bottom-padding {
+	padding-bottom: @vertical-padding;
+}
+.without-padding {
+	padding:0 !important;
+}
+.without-top-padding {
+	padding-top:0 !important;
+}
+.without-bottom-padding {
+	padding-bottom:0 !important;
+}
+
+.with-margin {
+	margin:@vertical-padding @horizontal-padding;
+}
+.with-horizontal-margin {
+	margin-right: @horizontal-padding;
+	margin-left: @horizontal-padding;
+}
+.with-vertical-margin {
+	margin-top: @vertical-padding;
+	margin-bottom: @vertical-padding;
+}
+.with-top-margin {
+	margin-top: @vertical-padding;
+}
+.with-bottom-margin {
+	margin-bottom: @vertical-padding;
+}
+.without-margin {
+	margin:0 !important;
+}
+.without-top-margin {
+	margin-top:0 !important;
+}
+.without-bottom-margin {
+	margin-bottom:0 !important;
+}
+
+.without-padding-to-children {
+	> * {
+		padding:0 !important;
+	}
+}
+.without-padding-to-grandchildrens {
+	// no padding for my children's children only
+	> * > * {
+		padding:0;
+	}
+}
+.without-padding-to-all {
+	// no padding for everything inside on every level
+	> *, > * * {
+		padding:0;
+	}
+}
+.fluid {
+	// make an image responsive
+	height: auto;
+	max-width: 100%;
+	&.fill {
+		width: 100%;
+	}
+}
+.not-fluid {
+	// set an image with it's default behavior
+	width: auto;
+	height: auto;
+}
+.fluid-all {
+	// make all images responsive
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+.f-left {
+	float: left;
+}
+.f-right {
+	float: right;
+}
+
+.faded, .disabled {
+	opacity:0.5;
+}
+.invisible {
+	opacity:0;
+}
+
+.disabled {
+	cursor: default;
+}
+
+.nav {
+	padding:0;
+
+	&.inline {
+		li {
+			display: inline-block;
+			margin-left: (@horizontal-padding / 2);
+			&:first-child {
+				margin-left:0;
+			}
+		}
+	}
+	&.vertical {
+		ul {
+			padding-left:0;
+			padding-right:0;
+		}
+	}
+	
+	li {
+
+		list-style-type: none;
+	}
+}
+.hookable {
+	.transition(top .3s ease-in-out);
+}
+
+.cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.debug {
+	.columns {
+		> * {
+			border:1px solid rgb(200,200,0);
+		}
+	}
+}

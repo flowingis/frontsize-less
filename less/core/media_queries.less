@@ -339,6 +339,197 @@
 ==                                   ===================================================================================================================================
 ========================================================================================================================================================================
 */
+
+.scale-font-size(@hdFull:1em, @hd-ready:1em, @tablet-landscape:1em, @tablet-portrait:1em, @smartphone-landscape:1em, @smartphone-portrait:1em, @lineHeightMultiplier:1.225) {
+	// Media queries for selectors active from the smaller resolution to a specific one
+	@media only screen and (min-width : @hd-full-step) {
+		// Full HD
+		font-size:@hdFull !important;
+		line-height:@lineHeightMultiplier;
+	}
+	@media only screen and (max-width : (@hd-full-step - 1px)) {
+		// HD Ready
+		font-size:@hd-ready !important;
+		line-height:@lineHeightMultiplier;
+	}
+	@media only screen and (max-width : (@hd-ready-step - 1px)) {
+		// Tablet landscape
+		font-size:@tablet-landscape !important;
+		line-height:@lineHeightMultiplier;
+	}
+	@media only screen and (max-width : (@tablet-landscape-step - 1px)) {
+		// Tablet portrait
+		font-size:@tablet-portrait !important;
+		line-height:@lineHeightMultiplier;
+	}
+	@media only screen and (max-width : (@tablet-portrait-step - 1px)) {
+		// Smartphone landscape
+		font-size:@smartphone-landscape !important;
+		line-height:@lineHeightMultiplier;
+	}
+	@media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
+		// Smartphone portrait
+		font-size:@smartphone-portrait !important;
+		line-height:@lineHeightMultiplier;
+	}
+}
+.scale-padding(@hd-full:0em, @hd-ready:0em, @tablet-landscape:0em, @tablet-portrait:0em, @smartphone-landscape:0em, @smartphone-portrait:0em) {
+	// Media queries for selectors active from the smaller resolution to a specific one
+	@media only screen and (min-width : @hd-full-step) {
+		// Full HD
+		padding:@hd-full;
+	}
+	@media only screen and (max-width : (@hd-full-step - 1px)) {
+		// HD Ready
+		padding:@hd-ready;
+	}
+	@media only screen and (max-width : (@hd-ready-step - 1px)) {
+		// Tablet landscape
+		padding:@tablet-landscape;
+	}
+	@media only screen and (max-width : (@tablet-landscape-step - 1px)) {
+		// Tablet portrait
+		padding:@tablet-portrait;
+	}
+	@media only screen and (max-width : (@tablet-portrait-step - 1px)) {
+		// Smartphone landscape
+		padding:@smartphone-landscape;
+	}
+	@media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
+		// Smartphone portrait
+		padding:@smartphone-portrait;
+	}
+}
+.scale-vertical-padding(@hd-full:0em, @hd-ready:0em, @tablet-landscape:0em, @tablet-portrait:0em, @smartphone-landscape:0em, @smartphone-portrait:0em) {
+	// Media queries for selectors active from the smaller resolution to a specific one
+	@media only screen and (min-width : @hd-full-step) {
+		// Full HD
+		padding-top:@hd-full;
+		padding-bottom:@hd-full;
+	}
+	@media only screen and (max-width : (@hd-full-step - 1px)) {
+		// HD Ready
+		padding-top:@hd-ready;
+		padding-bottom:@hd-ready;
+	}
+	@media only screen and (max-width : (@hd-ready-step - 1px)) {
+		// Tablet landscape
+		padding-top:@tablet-landscape;
+		padding-bottom:@tablet-landscape;
+	}
+	@media only screen and (max-width : (@tablet-landscape-step - 1px)) {
+		// Tablet portrait
+		padding-top:@tablet-portrait;
+		padding-bottom:@tablet-portrait;
+	}
+	@media only screen and (max-width : (@tablet-portrait-step - 1px)) {
+		// Smartphone landscape
+		padding-top:@smartphone-landscape;
+		padding-bottom:@smartphone-landscape;
+	}
+	@media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
+		// Smartphone portrait
+		padding-top:@smartphone-portrait;
+		padding-bottom:@smartphone-portrait;
+	}
+}
+.scale-top-padding(@hd-full:0em, @hd-ready:0em, @tablet-landscape:0em, @tablet-portrait:0em, @smartphone-landscape:0em, @smartphone-portrait:0em) {
+	// Media queries for selectors active from the smaller resolution to a specific one
+	@media only screen and (min-width : @hd-full-step) {
+		// Full HD
+		padding-top:@hd-full;
+	}
+	@media only screen and (max-width : (@hd-full-step - 1px)) {
+		// HD Ready
+		padding-top:@hd-ready;
+	}
+	@media only screen and (max-width : (@hd-ready-step - 1px)) {
+		// Tablet landscape
+		padding-top:@tablet-landscape;
+	}
+	@media only screen and (max-width : (@tablet-landscape-step - 1px)) {
+		// Tablet portrait
+		padding-top:@tablet-portrait;
+	}
+	@media only screen and (max-width : (@tablet-portrait-step - 1px)) {
+		// Smartphone landscape
+		padding-top:@smartphone-landscape;
+	}
+	@media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
+		// Smartphone portrait
+		padding-top:@smartphone-portrait;
+	}
+}
+.scale-bottom-padding(@hd-full:0em, @hd-ready:0em, @tablet-landscape:0em, @tablet-portrait:0em, @smartphone-landscape:0em, @smartphone-portrait:0em) {
+	// Media queries for selectors active from the smaller resolution to a specific one
+	@media only screen and (min-width : @hd-full-step) {
+		// Full HD
+		padding-bottom:@hd-full;
+	}
+	@media only screen and (max-width : (@hd-full-step - 1px)) {
+		// HD Ready
+		padding-bottom:@hd-ready;
+	}
+	@media only screen and (max-width : (@hd-ready-step - 1px)) {
+		// Tablet landscape
+		padding-bottom:@tablet-landscape;
+	}
+	@media only screen and (max-width : (@tablet-landscape-step - 1px)) {
+		// Tablet portrait
+		padding-bottom:@tablet-portrait;
+	}
+	@media only screen and (max-width : (@tablet-portrait-step - 1px)) {
+		// Smartphone landscape
+		padding-bottom:@smartphone-landscape;
+	}
+	@media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
+		// Smartphone portrait
+		padding-bottom:@smartphone-portrait;
+	}
+}
+.scale-horizontal-padding(@hd-full:0em, @hd-ready:0em, @tablet-landscape:0em, @tablet-portrait:0em, @smartphone-landscape:0em, @smartphone-portrait:0em) {
+	// Media queries for selectors active from the smaller resolution to a specific one
+	@media only screen and (min-width : @hd-full-step) {
+		// Full HD
+		padding-left:@hd-full;
+		padding-right:@hd-full;
+	}
+	@media only screen and (max-width : (@hd-full-step - 1px)) {
+		// HD Ready
+		padding-left:@hd-ready;
+		padding-right:@hd-ready;
+	}
+	@media only screen and (max-width : (@hd-ready-step - 1px)) {
+		// Tablet landscape
+		padding-left:@tablet-landscape;
+		padding-right:@tablet-landscape;
+	}
+	@media only screen and (max-width : (@tablet-landscape-step - 1px)) {
+		// Tablet portrait
+		padding-left:@tablet-portrait;
+		padding-right:@tablet-portrait;
+	}
+	@media only screen and (max-width : (@tablet-portrait-step - 1px)) {
+		// Smartphone landscape
+		padding-left:@smartphone-landscape;
+		padding-right:@smartphone-landscape;
+	}
+	@media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
+		// Smartphone portrait
+		padding-left:@smartphone-portrait;
+		padding-right:@smartphone-portrait;
+	}
+}
+
+
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
+==          VISIBILITY RULES         ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
 // Media queries for strict resolution selectors
 @media	only screen
 		and (min-width : @hd-full-step) {
@@ -424,32 +615,28 @@
 @media only screen and (min-width : @hd-full-step) {
 	// Full HD
 	.not-till-hd-full { display:none; position: fixed; }
-	.columns > *.fill-till-hd-full { width:100%; }
-	.fill-till-hd-full { width:100%; }
+	.fill-till-hd-full { width:100% !important; }
 	.left-till-hd-full { text-align:left; }
 	.centered-till-hd-full { text-align:center; }
 }
 @media only screen and (max-width : (@hd-full-step - 1px)) {
 	// HD Ready
 	.not-till-hd-ready { display:none; position: fixed; }
-	.columns > *.fill-till-hd-ready { width:100%; }
-	.fill-till-hd-ready { width:100%; }
+	.fill-till-hd-ready { width:100% !important; }
 	.left-till-hd-ready { text-align:left; }
 	.centered-till-hd-ready { text-align:center; }
 }
 @media only screen and (max-width : (@hd-ready-step - 1px)) {
 	// Tablet landscape
 	.not-till-tablet-landscape { display:none; position: fixed; }
-	.columns > *.fill-till-tablet-landscape { width:100%; }
-	.fill-till-tablet-landscape { width:100%; }
+	.fill-till-tablet-landscape { width:100% !important; }
 	.left-till-tablet-landscape { text-align:left; }
 	.centered-till-tablet-landscape { text-align:center; }
 }
 @media only screen and (max-width : (@tablet-landscape-step - 1px)) {
 	// Tablet portrait
 	.not-till-tablet-portrait { display:none; position: fixed; }
-	.columns > *.fill-till-tablet-portrait { width:100%; }
-	.fill-till-tablet-portrait { width:100%; }
+	.fill-till-tablet-portrait { width:100% !important; }
 	.left-till-tablet-portrait { text-align:left; }
 	.centered-till-tablet-portrait { text-align:center; }
 	.not-hooked-till-tablet-landscape { position:static; }
@@ -457,16 +644,14 @@
 @media only screen and (max-width : (@tablet-portrait-step - 1px)) {
 	// Smartphone landscape
 	.not-till-smartphone-landscape { display:none; position:fixed; }
-	.columns > *.fill-till-smartphone-landscape { width:100%; }
-	.fill-till-smartphone-landscape { width:100%; }
+	.fill-till-smartphone-landscape { width:100% !important; }
 	.left-till-smartphone-landscape { text-align:left; }
 	.centered-till-smartphone-landscape { text-align:center; }
 }
 @media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
 	// Smartphone portrait
 	.not-till-smartphone-portrait { display:none; position: fixed; }
-	.columns > *.fill-till-smartphone-portrait { width:100%; }
-	.fill-till-smartphone-portrait { width:100%; }
+	.fill-till-smartphone-portrait { width:100% !important; }
 	.left-till-smartphone-portrait { text-align:left; }
 	.centered-till-smartphone-portrait { text-align:center; }
 	.paginated-away {

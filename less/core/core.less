@@ -1,11 +1,3 @@
-/*
-Frontsize - http://frontsize.com
-License:	Apache License v2.0
-Version:	1.1
-Date:		2013-06-08
-Author:		Vittorio Vittori
-Website:	http://vittoriovittori.com
-*/
 
 /*
 ========================================================================================================================================================================
@@ -15,14 +7,14 @@ Website:	http://vittoriovittori.com
 ==                                   ===================================================================================================================================
 ==                                   ===================================================================================================================================
 ========================================================================================================================================================================
-*/
 
+Frontsize - http://frontsize.com
+License:	Apache License v2.0
+Version:	1.1
+Date:		2013-06-08
+Author:		Vittorio Vittori
+Website:	http://vittoriovittori.com
 
-
-
-
-
-/*
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
 ==             FRONTSIZE             ===================================================================================================================================
@@ -169,8 +161,12 @@ Website:	http://vittoriovittori.com
 }
 
 // not working yet in LESS 1.4.1
-.view(@view) { @import "views/@{view}"; }
-.model(@filename) { @import 'models/@{filename}'; }
+.view(@view) {
+	@import "views/@{view}";
+}
+.model(@filename) {
+	@import 'models/@{filename}';
+}
 
 /*
 ========================================================================================================================================================================
@@ -188,232 +184,3 @@ Website:	http://vittoriovittori.com
 		margin-top: 0;
 	}
 }
-
-/*
-========================================================================================================================================================================
-==                                   ===================================================================================================================================
-==                                   ===================================================================================================================================
-==        FRONTSIZE SELECTORS        ===================================================================================================================================
-==                                   ===================================================================================================================================
-==                                   ===================================================================================================================================
-========================================================================================================================================================================
-*/
-
-.use-steps,
-.use-wide-steps {
-	// center the steps container
-	margin: auto;
-	.wrap;
-}
-.columns,
-.menu-columns {
-	// be sure to contain the floated elements contained with my height
-	overflow: auto;
-	.wrap;
-}
-.menu-columns {
-	overflow: visible;
-}
-.wrap {
-	// avoid the unwanted width over the 100% of the size of the container
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-o-box-sizing: border-box;
-	box-sizing: border-box;
-}
-.full {
-	.set-column-behavior();
-}
-.full,
-.fill {
-	// Remember: .full selector sets lateral padding too
-	// manually occupy all this row
-	width:100%;
-}
-
-.flip {
-	.backface-visibility(hidden);
-	.transform-style(preserve-3d);
-	.transform(rotateX(0deg) rotateY(-180deg));
-	.transition(all 0.3s ease-in-out);
-}
-.unflip {
-	.backface-visibility(hidden);
-	.transform-style(preserve-3d);
-	.transform(rotateX(0deg) rotateY(0deg));
-	.transition(all 0.3s ease-in-out);
-}
-
-.hidden {
-	display:none;
-}
-.centered {
-	// manually center all the contents inside
-	text-align: center;
-}
-.capitalized {
-	text-transform: capitalize;
-}
-.to-right {
-	// manually center all the contents inside
-	text-align: right;
-}
-.to-left {
-	// manually center all the contents inside
-	text-align: left;
-}
-.clear {
-	// manually go down to the next row
-	clear:both;
-}
-.menu-list {
-	list-style-type: none;
-}
-.opposite-paged {
-	// the first child will have text-align to left and the last child will have text-align to right
-	> * {
-		&:first-child {
-			text-align: left;
-		}
-		&:last-child {
-			text-align: right;
-		}
-	} 
-}
-
-.box {
-	overflow: auto;
-}
-
-.with-padding {
-	padding:@vertical-padding @horizontal-padding;
-}
-.with-horizontal-padding {
-	padding-right: @horizontal-padding;
-	padding-left: @horizontal-padding;
-}
-.with-vertical-padding {
-	padding-top: @vertical-padding;
-	padding-bottom: @vertical-padding;
-}
-.with-top-padding {
-	padding-top: @vertical-padding;
-}
-.with-bottom-padding {
-	padding-bottom: @vertical-padding;
-}
-.without-padding {
-	padding:0 !important;
-}
-.without-bottom-padding {
-	padding-bottom:0 !important;
-}
-.without-padding-to-children {
-	> * {
-		padding:0 !important;
-	}
-}
-.without-padding-to-grandchildrens {
-	// no padding for my children's children only
-	> * > * {
-		padding:0;
-	}
-}
-.without-padding-to-all {
-	// no padding for everything inside on every level
-	> *, > * * {
-		padding:0;
-	}
-}
-.fluid {
-	// make an image responsive
-	height: auto;
-	max-width: 100%;
-	&.fill {
-		width: 100%;
-	}
-}
-.not-fluid {
-	// set an image with it's default behavior
-	width: auto;
-	height: auto;
-}
-.fluid-all {
-	// make all images responsive
-	img {
-		width: 100%;
-		height: auto;
-	}
-}
-.f-left {
-	float: left;
-}
-.f-right {
-	float: right;
-}
-
-.faded, .disabled {
-	opacity:0.5;
-}
-
-.disabled {
-	cursor: default;
-}
-
-.nav {
-	padding:0;
-
-	&.inline {
-		li {
-			display: inline-block;
-			margin-left: (@horizontal-padding / 2);
-			&:first-child {
-				margin-left:0;
-			}
-		}
-	}
-	&.vertical {
-		ul {
-			padding-left:0;
-			padding-right:0;
-		}
-	}
-	
-	li {
-
-		list-style-type: none;
-	}
-}
-.hookable {
-	.transition(top .3s ease-in-out);
-}
-
-.cell {
-	display: table-cell;
-	vertical-align: middle;
-}
-
-.debug {
-	.columns {
-		> * {
-			border:1px solid rgb(200,200,0);
-		}
-	}
-}
-
-/*
-========================================================================================================================================================================
-==                                   ===================================================================================================================================
-==             FRONTSIZE             ===================================================================================================================================
-==            DEPENDANCES            ===================================================================================================================================
-==                                   ===================================================================================================================================
-========================================================================================================================================================================
-*/
-
-@import "normalize.less";
-@import "base.less";
-@import "css3.less";
-@import "mixins.less";
-@import "widgets.less";
-@import "media_queries.less";
-@import "theme.less";

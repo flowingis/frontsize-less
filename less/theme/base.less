@@ -1,0 +1,109 @@
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==              BASE                 ===================================================================================================================================
+==              MIXIN                ===================================================================================================================================
+==             WIDGETS               ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+.base-code(@padding:0) {
+	font-family: @font-monospace;
+	padding:@padding;
+	
+	border:1px solid rgba(0,0,0,.03);
+	background-color: rgba(0,0,0,.075);
+
+	.border-radius(4px);
+	.box-shadow(0px 1px 0px rgba(255,255,255,.6));
+}
+
+.base-mark(@backgroundColor:rgb(255,255,0)) {
+	color:inherit;
+	background-color:@backgroundColor;
+
+	.box-shadow(0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 2px rgba(255, 255, 255, 0.75););
+}
+
+.base-input-text() {
+	border:1px solid rgba(0,0,0,.2);
+	background-color: rgba(0,0,0,.05);
+
+	color:@font-default-color;
+	
+	.box-shadow(inset 0px 1px 4px rgba(0,0,0,.15), 0px 0px 0px rgba(0,0,0,0););
+	.transition(border-color .25s ease-in-out, background-color .25s ease-in-out, box-shadow .25s ease-in-out;);
+
+	&:focus {
+		border-color:rgba(0,0,0,.3);
+		background-color: white;
+		.box-shadow(inset 0px 0px 0px rgba(0,0,0,0), 0px 1px 4px rgba(0,0,0,0.15););
+	}
+}
+
+.base-hr() {
+	border:none;
+	border-top:1px solid rgba(0,0,0,.075);
+	border-bottom:1px solid rgba(255,255,255,.8);
+	padding:0;
+	margin:@vertical-padding 0;
+}
+
+.base-a(@color:@font-default-color) {
+	line-height: @font-line-height;
+	text-decoration: none;
+	color:@color;
+	border-bottom:2px solid fade(@color, 30%);
+
+	@animation:0.3s ease-in-out;
+	.transition(border-bottom @animation, color @animation;);
+	
+	&:hover,
+	&.selected,
+	&.active {
+		color:saturate(darken(@color, 10%), 7%);
+		border-bottom-color: @color;
+	}
+	&.selected {
+		cursor: default;
+	}
+}
+
+.base-ul() {
+	@padding:(@horizontal-padding + (@horizontal-padding/4));
+	padding-left:@padding;
+	padding-right:@padding;
+	padding-bottom:@padding;
+}
+
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==              BASE                 ===================================================================================================================================
+==            SETTINGS               ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+
+body {
+	.font-smoothing(); // if you want to enable font smoothing (will be applied to webkit only)
+	background-color: desaturate(@backgroundGreyDark,10%);
+	text-shadow:1px 1px 0px rgba(255,255,255,.61);
+}
+
+a {
+	text-decoration: none;
+	color:saturate(darken(@textGrey, 10%), 10%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color:@textBlack;
+}
+
+hr {
+	@border:2px solid @backgroundBlack;
+	border:none;
+	border-bottom:@border;
+}
