@@ -14,15 +14,8 @@
 	margin: auto;
 	.wrap;
 }
-.columns,
-.menu-columns {
-	// be sure to contain the floated elements contained with my height
-	overflow: auto;
-	.wrap;
-}
-.menu-columns {
-	overflow: visible;
-}
+
+
 .wrap {
 	// avoid the unwanted width over the 100% of the size of the container
 	.box-sizing(border-box);
@@ -34,7 +27,7 @@
 .fill {
 	// Remember: .full selector sets lateral padding too
 	// manually occupy all this row
-	width:100%;
+	width: 100%;
 }
 
 .flip {
@@ -49,34 +42,49 @@
 	.transform(rotateX(0deg) rotateY(0deg));
 	.transition(all 0.3s ease-in-out);
 }
-
+.gain-margin {
+	margin-left: -@horizontal-padding;
+	margin-right: -@horizontal-padding;
+}
 .relative {
 	position: relative;
 }
-
+.selected {
+	cursor: default;
+}
 .hidden {
-	display:none;
+	display: none;
+}
+.capitalized {
+	text-transform: capitalize;
 }
 .centered {
 	// manually center all the contents inside
 	text-align: center;
 }
-.capitalized {
-	text-transform: capitalize;
-}
-.to-right {
+.right {
 	// manually center all the contents inside
 	text-align: right;
 }
-.to-left {
+.left {
 	// manually center all the contents inside
 	text-align: left;
 }
+.to-center {
+	margin-left: auto;
+	margin-right: auto;
+}
+.to-left {
+	float: left;
+}
+.to-right {
+	float: right;
+}
 .clear {
 	// manually go down to the next row
-	clear:both;
+	clear: both;
 }
-.menu-list {
+.no-list-style {
 	list-style-type: none;
 }
 .opposite-paged {
@@ -91,135 +99,162 @@
 	} 
 }
 
+.help {
+	.base-abbr();
+}
+
 .box {
-	overflow: auto;
+	overflow: auto !important;
 }
 
 .with-padding {
-	padding:@vertical-padding @horizontal-padding;
+	padding: @vertical-padding @horizontal-padding;
 }
 .with-horizontal-padding {
-	padding-right: @horizontal-padding;
-	padding-left: @horizontal-padding;
+	padding-right: @horizontal-padding !important;
+	padding-left: @horizontal-padding !important;
 }
 .with-vertical-padding {
-	padding-top: @vertical-padding;
-	padding-bottom: @vertical-padding;
+	padding-top: @vertical-padding !important;
+	padding-bottom: @vertical-padding !important;
 }
 .with-top-padding {
-	padding-top: @vertical-padding;
+	padding-top: @vertical-padding !important;
 }
 .with-bottom-padding {
-	padding-bottom: @vertical-padding;
+	padding-bottom: @vertical-padding !important;
 }
-.without-padding {
-	padding:0 !important;
+.with-left-padding {
+	padding-left: @horizontal-padding !important;
 }
-.without-top-padding {
-	padding-top:0 !important;
+.with-right-padding {
+	padding-right: @horizontal-padding !important;
 }
-.without-bottom-padding {
-	padding-bottom:0 !important;
+.no-padding {
+	padding: 0 !important;
+}
+.no-top-padding {
+	padding-top: 0 !important;
+}
+.no-bottom-padding {
+	padding-bottom: 0 !important;
 }
 
 .with-margin {
-	margin:@vertical-padding @horizontal-padding;
+	margin: @vertical-padding @horizontal-padding !important;
 }
 .with-horizontal-margin {
-	margin-right: @horizontal-padding;
-	margin-left: @horizontal-padding;
+	margin-right: @horizontal-padding !important;
+	margin-left: @horizontal-padding !important;
 }
 .with-vertical-margin {
-	margin-top: @vertical-padding;
-	margin-bottom: @vertical-padding;
+	margin-top: @vertical-padding !important;
+	margin-bottom: @vertical-padding !important;
 }
 .with-top-margin {
-	margin-top: @vertical-padding;
+	margin-top: @vertical-padding !important;
 }
 .with-bottom-margin {
-	margin-bottom: @vertical-padding;
+	margin-bottom: @vertical-padding !important;
 }
-.without-margin {
-	margin:0 !important;
+.with-left-margin {
+	margin-left: @horizontal-padding !important;
 }
-.without-top-margin {
-	margin-top:0 !important;
+.with-right-margin {
+	margin-right: @horizontal-padding !important;
 }
-.without-bottom-margin {
-	margin-bottom:0 !important;
+.no-margin {
+	margin: 0 !important;
+}
+.no-top-margin {
+	margin-top: 0 !important;
+}
+.no-bottom-margin {
+	margin-bottom: 0 !important;
 }
 
-.without-padding-to-children {
-	> * {
-		padding:0 !important;
-	}
+.move-bottom-left {
+	position: absolute;
+	bottom:0px;
+	left:0px;
 }
-.without-padding-to-grandchildrens {
-	// no padding for my children's children only
-	> * > * {
-		padding:0;
-	}
+.move-bottom-right {
+	position: absolute;
+	bottom:0px;
+	right:0px;
 }
-.without-padding-to-all {
-	// no padding for everything inside on every level
-	> *, > * * {
-		padding:0;
-	}
+.move-top-left {
+	position: absolute;
+	top:0px;
+	left:0px;
 }
+.move-top-right {
+	position: absolute;
+	top:0px;
+	right:0px;
+}
+
 .fluid {
 	// make an image responsive
 	height: auto;
-	max-width: 100%;
-	&.fill {
-		width: 100%;
-	}
+	max-width: 100% !important;
 }
 .not-fluid {
 	// set an image with it's default behavior
-	width: auto;
-	height: auto;
+	width: auto !important;
+	height: auto !important;
 }
 .fluid-all {
 	// make all images responsive
 	img {
-		width: 100%;
-		height: auto;
+		width: 100% !important;
+		height: auto !important;
 	}
 }
-.f-left {
-	float: left;
+.underline {
+	text-decoration: underline;
 }
-.f-right {
-	float: right;
+.line-through {
+	text-decoration: line-through;
 }
-
-.faded, .disabled {
-	opacity:0.5;
+.faded {
+	opacity: @status-faded-opacity !important;
+}
+.disabled {
+	opacity: @status-disabled-opacity !important;
 }
 .invisible {
-	opacity:0;
+	opacity: 0 !important;
 }
 
 .disabled {
 	cursor: default;
 }
 
+.inline {
+	display: inline-block;
+}
+
+.block {
+	display: block;
+}
+
 .nav {
-	padding:0;
+	padding: 0;
 
 	&.inline {
 		li {
 			display: inline-block;
 			margin-left: (@horizontal-padding / 2);
 			&:first-child {
-				margin-left:0;
+				margin-left: 0;
 			}
 		}
 	}
 	&.vertical {
 		ul {
-			padding-left:0;
-			padding-right:0;
+			padding-left: 0;
+			padding-right: 0;
 		}
 	}
 	
@@ -232,15 +267,26 @@
 	.transition(top .3s ease-in-out);
 }
 
+.table {
+	.as-table(@global-padding, top, 100%);
+}
+.inline-table {
+	.as-table(@global-padding, top, auto);
+}
 .cell {
-	display: table-cell;
-	vertical-align: middle;
+	.as-table-cell(0, middle);
+}
+.cell-top {
+	.as-table-cell(0, top);
+}
+.cell-bottom {
+	.as-table-cell(0, bottom);
 }
 
-.debug {
-	.columns {
-		> * {
-			border:1px solid rgb(200,200,0);
-		}
-	}
+.front-horizontal-flip {
+	// 3d to be implemented
+}
+
+.rear-horizontal-flip {
+	// 3d to be implemented
 }

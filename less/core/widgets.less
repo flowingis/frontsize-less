@@ -23,12 +23,6 @@
 
 .pic { .pic(); }
 
-// tables
-.table { .table(); }
-.table-header { .table-header(); }
-.table-row { .table-row(); }
-.table-cell { .table-cell(); }
-
 /*
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
@@ -38,7 +32,7 @@
 ========================================================================================================================================================================
 */
 
-.hooked(@zIndex:auto) {
+.hooked(@zIndex:100) {
 	position:fixed;
 	width:100%;
 	left:0px;
@@ -53,58 +47,6 @@
 	&.to-bottom {
 		bottom:0px;
 	}
-}
-
-
-/* TABLES */
-.table(@padding:1em, @verticalAlign:middle, @evenBackground:transparent, @oddBackground:transparent) {
-	/*
-	<div class="table">
-		<div class="table-row">
-			 <div class="table-cell table-header">
-			 	...
-			</div>
-		</div>
-		<div class="table-row">
-			 <div class="table-cell">
-			 	...
-			</div>
-		</div>
-	</div>
-	*/
-	display: table;
-	width:100%;
-}
-.table-row(@padding:1em, @verticalAlign:middle, @evenBackground:transparent, @oddBackground:transparent) {
-	// see .table mixin for details on usage
-	display: table-row;
-	&.even-odd {
-		> * {
-			&:nth-child(even) {
-				background-color: @evenBackground;
-			}
-			&:nth-child(odd) {
-				background-color: @oddBackground;
-			}
-		}
-	}
-}
-.table-cell(@padding:0.5em, @verticalAlign:middle) {
-	// see .table mixin for details on usage
-	display: table-cell;
-	vertical-align: @verticalAlign;
-	padding:@padding;
-}
-.table-header(@padding:0.5em, @verticalAlign:middle) {
-	// see .table mixin for details on usage
-	font-weight: 700;
-	vertical-align: @verticalAlign;
-	padding:@padding;
-}
-.table-footer(@padding:0.5em, @verticalAlign:middle) {
-	// see .table mixin for details on usage
-	vertical-align: @verticalAlign;
-	padding:@padding;
 }
 
 
@@ -277,7 +219,11 @@
 .pic(@borderWidth:3px) {
 	border:@borderWidth solid white;
 	outline: 1px solid rgba(0,0,0,.05);
+	line-height: 0;
 	.box-shadow(0px 2px 3px rgba(0,0,0,.3));
+	&:hover {
+		border:@borderWidth solid white;
+	}
 }
 
 .text-buried(@color:black, @light:rgba(255,255,255,.05), @offset:1px) {
@@ -349,7 +295,7 @@
 
 	&:hover {
 		border-color:rgba(0, 0, 0, 0.15);
-		border-bottom-color:rgba(0, 0, 0, 0.3);
+		border-bottom-color:rgba(0, 0, 0, 0.2);
 		color:darken(@textColor,10%);
 		background-color: darken(@color,5%);
 	}

@@ -12,6 +12,16 @@
 @import "theme/fix";				// .theme("fix");
 @import "theme/base";				// .theme("base");
 @import "theme/widgets";			// .theme("widgets");
+@import "theme/status";			    // .theme("status");
+// @import "theme/mixins";			// .theme("mixins");
+// @import "theme/media_queries";	// .theme("media_queries");
+
+// @import "theme/layout/header";			// .layout("header");
+// @import "theme/layout/footer";			// .layout("footer");
+// @import "theme/layout/section";			// .layout("section");
+
+// @import "theme/models/user";			    // .model("widget");
+// @import "theme/views/pages/home";		// .view("pages/home");
 
 /*
 ========================================================================================================================================================================
@@ -41,21 +51,23 @@
 
 // comment what you don't need to gain weight for your CSS file.
 //.responsive-rule(selector-name, @hd-full-columns, @hd-ready-columns, @tablet-landscape-columns, @tablet-portrait-columns, @smartphone-landscape-columns, @smartphone-portrait-columns);
-.responsive-rule(row,              12,12,6,3,1,1);
-.responsive-rule(contain-2-columns, 2, 2,2,2,1,1);
-.responsive-rule(contain-3-columns, 3, 3,3,2,1,1);
-.responsive-rule(contain-4-columns, 4, 4,2,2,2,1);
-.responsive-rule(contain-5-nav,     5, 5,5,3,1,1);
-.responsive-rule(contain-6-nav,     6, 6,6,2,2,1);
+.responsive-rule(row, 12,12,6,3,1,1);
+.create-column-set(12, hd, "smartphone-landscape");
+
+@miniFontFamily:'Lucida Grande', Tahoma, Verdana, Arial, Helvetica, sans-serif;
+.font-rule(mini-font, @miniFontFamily, 16px, 11px, 11px, 11px, 11px, 11px, antialiased, 1);
+
 
 // set the margins
 // .global-steps & .global-steps-padding always at the bottom of the configuration
-.global-steps();				// .global-steps(200px, 100px, 50px, 0px);
+.global-steps(500px, 100px, 50px, 100%, 100%, 100%);
+@tinyStepMargin:30px;
+.steps-rule(tiny-steps, 500px+@tinyStepMargin, 100px+@tinyStepMargin, 50px+@tinyStepMargin, 100%, 100%, 100%);
 .global-steps-padding();
 
-.init-wide-column-steps();
-.fill-wide-column-steps-till("smartphone-landscape"); // smartphone-portrait | smartphone-landscape | tablet-portrait | tablet-landscape | hd-ready | hd-full
+
 
 // used for the nav top spacing, set it after global-steps-padding
-.padding-rule(nav-spacer-padding, 6em 0 2em 0, 6em 0 1em 0, 6em 0 1em 0, 0, 0);
-.padding-rule(cake-error, 6em 0 2em 0, 6em 0 1em 0, 6em 0 1em 0, 0, 0);
+.padding-rule(padding-nav-spacer, 6em 0 2em 0, 6em 0 1em 0, 6em 0 1em 0, 0, 0);
+.margin-rule(margin-from-header, 1em auto 0 auto, 1em auto 0 auto, 1em auto 0 auto, 0, 0);
+

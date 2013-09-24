@@ -8,85 +8,79 @@
 ========================================================================================================================================================================
 */
 
-// For a faster develop you skip these Media queries rules, Frontsize should be enough to do the job.
-
-// Add a slash "/" to the beginning of this line if you want to use these media queries rules
+// =====================================================================================================================================================================
 // Media queries for selectors active from the smaller resolution to a specific one
-
 // RECOMMENDED for Mobile first develop
-@media only screen and (min-width : @hd-full-step) {
+// Keep this @media sequence to let it works correctly
+// =====================================================================================================================================================================
+@media @till-hd-full {
 	// Full HD
 }
-@media only screen and (max-width : (@hd-full-step - 1px)) {
+@media @till-hd-ready {
 	// HD Ready
 }
-@media only screen and (max-width : (@hd-ready-step - 1px)) {
+@media @till-tablet-landscape {
 	// Tablet landscape
 }
-@media only screen and (max-width : (@tablet-landscape-step - 1px)) {
+@media @till-tablet-portrait {
 	// Tablet portrait
 }
-@media only screen and (max-width : (@tablet-portrait-step - 1px)) {
+@media @till-smartphone-landscape {
 	// Smartphone landscape
 }
-@media only screen and (max-width : (@smartphone-landscape-step - 1px)) {
+@media @till-smartphone-portrait {
 	// Smartphone portrait
 }
 
+// =====================================================================================================================================================================
 // Media queries for selectors active from a specific resolution or higher
 // RECOMMENDED for Mobile first develop
-@media only screen and (min-width : 1px) {
+// Keep this @media sequence to let it works correctly
+// =====================================================================================================================================================================
+@media @from-smartphone-portrait {
 	// Smartphone portrait
 }
-@media only screen and (min-width : @smartphone-landscape-step) {
+@media @from-smartphone-landscape {
 	// Smartphone landscape
 }
-@media only screen and (min-width : @tablet-portrait-step) {
+@media @from-tablet-portrait {
 	// Tablet portrait
 }
-@media only screen and (min-width : @tablet-landscape-step) {
+@media @from-tablet-landscape {
 	// Tablet landscape
 }
-@media only screen and (min-width : @hd-ready-step) {
+@media @from-hd-ready {
 	// HD Ready
 }
-@media only screen and (min-width : @hd-full-step) {
+@media @from-hd-full {
 	// Full HD
 }
 
+// =====================================================================================================================================================================
 // Media queries for strict resolution range selectors
 // NOT RECOMMENDED for Mobile first develop
-@media	only screen
-		and (min-width : @hd-full-step) {
+// Keep this @media sequence to let it works correctly
+// =====================================================================================================================================================================
+@media @only-hd-full {
 	// Full HD
 }
 
-@media	only screen
-		and (min-width : @hd-ready-step)
-		and (max-width : (@hd-full-step - 1px)) {
+@media @only-hd-ready {
 	// HD Ready
 }
 
-@media	only screen
-		and (min-width : @tablet-landscape-step)
-		and (max-width : (@hd-ready-step - 1px)) {
+@media @only-tablet-landscape {
 	// Tablet landscape
 }
 
-@media	only screen
-		and (min-width : @tablet-portrait-step)
-		and (max-width : (@tablet-landscape-step - 1px)) {
+@media @only-tablet-portrait {
 	// Tablet portrait
 }
 
-@media	only screen
-		and (min-width : @smartphone-landscape-step)
-		and (max-width : (@tablet-portrait-step - 1px)) {
+@media @only-smartphone-landscape {
 	// Smartphone landscape
 }
 
-@media	only screen
-		and (min-width : 1px)
-		and (max-width : (@smartphone-landscape-step - 1px)) {
+@media @only-smartphone-portrait {
 	// Smartphone portrait
 }

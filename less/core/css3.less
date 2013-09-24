@@ -21,7 +21,6 @@ http://caniuse.com/
 	.transition(color .4s ease-in-out);
 	.transition(border-color .4s ease-in-out .2s);
 	*/
-	.ease;
 	-webkit-transition:@transition;
 	-khtml-transition:@transition;
 	-moz-transition:@transition;
@@ -53,6 +52,15 @@ http://caniuse.com/
 	-o-transition-property:@property;
 	transition-property:@property;
 }
+.transition-property(@property:all) when (@property = transform) {
+	-webkit-transition-property:-webkit-transform;
+	-khtml-transition-property:-khtml-transform;
+	-moz-transition-property:-moz-transform;
+	-ms-transition-property:-ms-transform;
+	-o-transition-property:-o-transform;
+	transition-property:transform;
+}
+
 .transition-timing-function(@easing:ease-in-out) {
 	-webkit-transition-timing-function:@easing;
 	-khtml-transition-timing-function:@easing;
@@ -61,9 +69,7 @@ http://caniuse.com/
 	-o-transition-timing-function:@easing;
 	transition-timing-function:@easing;
 }
-.ease(@easing:ease-in-out) {
-	.transition-timing-function(@easing);
-}
+
 .global-placeholder(@color:#999999, @focused:#CCCCCC) {
 	// sets the color of the input text placeholder attribute
 	::-webkit-input-placeholder { color:@color; }
@@ -219,42 +225,15 @@ http://caniuse.com/
 	-o-border-radius:@radius;
 	border-radius:@radius;
 }
-.round-top(@radius:6px) {
-	// sets the top radius of the element
-	/*
-	Default usage
-	.round-top(top-radius-only);
-	.round-top(4px);
-	*/
-	.border-radius(@radius @radius 0px 0px);
+.outline-radius(@radius:6px) {
+	-webkit-outline-radius:@radius;
+	-khtml-outline-radius:@radius;
+	-moz-outline-radius:@radius;
+	-ms-outline-radius:@radius;
+	-o-outline-radius:@radius;
+	outline-radius:@radius;
 }
-.round-bottom(@radius:6px) {
-	// sets the bottom radius of the element
-	/*
-	Default usage
-	.round-bottom(bottom-radius-only);
-	.round-bottom(4px);
-	*/
-	.border-radius(0px 0px @radius @radius);
-}
-.round-left(@radius:6px) {
-	// sets the left radius of the element
-	/*
-	Default usage
-	.round-left(left-radius-only);
-	.round-left(4px);
-	*/
-	.border-radius(@radius 0px 0px @radius);
-}
-.round-right(@radius:6px) {
-	// sets the right radius of the element
-	/*
-	Default usage
-	.round-right(right-radius-only);
-	.round-right(4px);
-	*/
-	.border-radius(0px @radius @radius 0px);
-}
+
 .border-image(@params) {
 	// Specify an image as the border around an element
 	/*

@@ -7,36 +7,34 @@
 ========================================================================================================================================================================
 */
 
-.background-retina(@defaultImage, @retinaImage, @backgroundSize: auto) {
+.background-retina(@defaultImage, @retinaImage, @backgroundSize:auto) {
 	/*
 	@background-size: auto | px | % |  cover | contain
 	.background-retina("path/image-low-res.png", "path/image-high-res.png");
 	*/
-	background-image:url('@{defaultImage}');
+	.background-image(@defaultImage);
 	background-size:@backgroundSize;
-	@media
-	only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio:2),
-	only screen and (-webkit-min-device-pixel-ratio: 2),
-	only screen and (   min--moz-device-pixel-ratio: 2),
-	only screen and (     -o-min-device-pixel-ratio: 2/1),
-	only screen and (        min-device-pixel-ratio: 2),
-	only screen and (        		 min-resolution: 192dpi),
-	only screen and (                min-resolution: 2dppx) {
-		background-image:url('@{retinaImage}');
+	@media @display-retina {
+		.background-image(@retinaImage);
 	}
 }
 .sprite-retina(@defaultImage, @retinaImage, @width, @height) {
 
 	.sprite(@defaultImage, @width, @height);
 
-	@media
-	only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio:2),
-	only screen and (-webkit-min-device-pixel-ratio: 2),
-	only screen and (   min--moz-device-pixel-ratio: 2),
-	only screen and (     -o-min-device-pixel-ratio: 2/1),
-	only screen and (        min-device-pixel-ratio: 2),
-	only screen and (        		 min-resolution: 192dpi),
-	only screen and (                min-resolution: 2dppx) {
-		.sprite(@retinaImage, @width, @height, 50%);
+	@media @display-retina {
+		.sprite(@retinaImage, @width, @height, @width @height);
+	}
+}
+
+@media @display-retina {
+	.not-retina-only {
+		display:none;
+	}
+}
+
+@media @display-standard {
+	.retina-only {
+		display:none;
 	}
 }

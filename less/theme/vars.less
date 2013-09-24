@@ -23,7 +23,7 @@
 @font-line-height:1.25;
 
 @font-default:@font-sans;
-@font-default-color:#7b8284;
+@font-default-color:#5A5A55;
 
 /*
 ========================================================================================================================================================================
@@ -34,7 +34,14 @@
 ========================================================================================================================================================================
 */
 
-@images-folder:'/img';
+@use-rootpath: true;
+@rootpath: '/img';
+@path-theme: 'theme';
+@path-retina: '@{path-theme}/retina';
+
+// NOT yet implemented
+@prefix-free: false; // it disables CSS3 cross browser prefixes, you can set it to true and use with http://leaverou.github.io/prefixfree/
+
 
 /*
 ========================================================================================================================================================================
@@ -47,6 +54,7 @@
 
 @horizontal-padding:1em;
 @vertical-padding:1em;
+@global-padding: @vertical-padding @horizontal-padding;
 
 /*
 ========================================================================================================================================================================
@@ -57,6 +65,8 @@
 ========================================================================================================================================================================
 */
 
+@status-faded-opacity:0.5;
+@status-disabled-opacity:0.5;
 @status-default:black;
 @status-info:blue;
 @status-success:green;
@@ -91,15 +101,11 @@
 */
 
 
-// Text colors
-@textGrey:#7b8284;
-@textGreyLight:#b1b1b1;
-@textBlack:#322e20;
+@bodyBorderRadius: 0.25em;
 
-// Element colors
-@backgroundBlack:#393634;
-@backgroundGrey:#7b8284;
-@backgroundGreyLight:#b1b1b1;
-@backgroundGreyDark:saturate(darken(@backgroundGrey,10%),10%);
-@backgroundAqua:#1ba6da;
-@backgroundAzure:#e2e2e2;
+@colorDefault: #B1B1B1;
+@colorHeading: #9CBC71;
+@colorGreen:#9CBC71;
+@colorKetchup:#E43F00;
+@backgroundBeige: #F9FAF3;
+@textGreyLight:#b1b1b1;

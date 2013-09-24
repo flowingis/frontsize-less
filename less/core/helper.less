@@ -1,0 +1,302 @@
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==             FRONTSIZE             ===================================================================================================================================
+==             MIXINS                ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
+
+// Easing effects
+.ease(@easing) when (@easing) {
+	.transition-timing-function(@easing);
+}
+.ease(@easing) when (@easing = ease-in-quad) {
+	.transition-timing-function(cubic-bezier(0.550, 0.085, 0.680, 0.530));
+}
+.ease(@easing) when (@easing = ease-in-cubic) {
+	.transition-timing-function(cubic-bezier(0.550, 0.055, 0.675, 0.190));
+}
+.ease(@easing) when (@easing = ease-in-quart) {
+	.transition-timing-function(cubic-bezier(0.895, 0.030, 0.685, 0.220));
+}
+.ease(@easing) when (@easing = ease-in-quint) {
+	.transition-timing-function(cubic-bezier(0.755, 0.050, 0.855, 0.060));
+}
+.ease(@easing) when (@easing = ease-in-sine) {
+	.transition-timing-function(cubic-bezier(0.470, 0.000, 0.745, 0.715));
+}
+.ease(@easing) when (@easing = ease-in-expo) {
+	.transition-timing-function(cubic-bezier(0.950, 0.050, 0.795, 0.035));
+}
+.ease(@easing) when (@easing = ease-in-circ) {
+	.transition-timing-function(cubic-bezier(0.600, 0.040, 0.980, 0.335));
+}
+.ease(@easing) when (@easing = ease-in-back) {
+	.transition-timing-function(cubic-bezier(0.600,-0.280, 0.735, 0.045));
+}
+.ease(@easing) when (@easing = ease-out-quad) {
+	.transition-timing-function(cubic-bezier(0.250, 0.460, 0.450, 0.940));
+}
+.ease(@easing) when (@easing = ease-out-cubic) {
+	.transition-timing-function(cubic-bezier(0.215, 0.610, 0.355, 1.000));
+}
+.ease(@easing) when (@easing = ease-out-quart) {
+	.transition-timing-function(cubic-bezier(0.165, 0.840, 0.440, 1.000));
+}
+.ease(@easing) when (@easing = ease-out-quint) {
+	.transition-timing-function(cubic-bezier(0.230, 1.000, 0.320, 1.000));
+}
+.ease(@easing) when (@easing = ease-out-sine) {
+	.transition-timing-function(cubic-bezier(0.390, 0.575, 0.565, 1.000));
+}
+.ease(@easing) when (@easing = ease-out-expo) {
+	.transition-timing-function(cubic-bezier(0.190, 1.000, 0.220, 1.000));
+}
+.ease(@easing) when (@easing = ease-out-circ) {
+	.transition-timing-function(cubic-bezier(0.075, 0.820, 0.165, 1.000));
+}
+.ease(@easing) when (@easing = ease-out-back) {
+	.transition-timing-function(cubic-bezier(0.175, 0.885, 0.320, 1.275));
+}
+.ease(@easing) when (@easing = ease-in-out-quad) {
+	.transition-timing-function(cubic-bezier(0.455, 0.030, 0.515, 0.955));
+}
+.ease(@easing) when (@easing = ease-in-out-cubic) {
+	.transition-timing-function(cubic-bezier(0.645, 0.045, 0.355, 1.000));
+}
+.ease(@easing) when (@easing = ease-in-out-quart) {
+	.transition-timing-function(cubic-bezier(0.770, 0.000, 0.175, 1.000));
+}
+.ease(@easing) when (@easing = ease-in-out-quint) {
+	.transition-timing-function(cubic-bezier(0.860, 0.000, 0.070, 1.000));
+}
+.ease(@easing) when (@easing = ease-in-out-sine) {
+	.transition-timing-function(cubic-bezier(0.445, 0.050, 0.550, 0.950));
+}
+.ease(@easing) when (@easing = ease-in-out-expo) {
+	.transition-timing-function(cubic-bezier(1.000, 0.000, 0.000, 1.000));
+}
+.ease(@easing) when (@easing = ease-in-out-circ) {
+	.transition-timing-function(cubic-bezier(0.785, 0.135, 0.150, 0.860));
+}
+.ease(@easing) when (@easing = ease-in-out-back) {
+	.transition-timing-function(cubic-bezier(0.680,-0.550, 0.265, 1.550));
+}
+
+
+/* backgrounds */
+
+.vertical-gradient(@color:#cbcbcb, @strenght:5%) {
+	/*
+	Remember to put the ; after a list of comma separated params to group them:
+	.method(1,2,3;); => .method(@params) {...}
+
+	If the method expect a list of params you don't need it:
+	.method(1,2,3); => .method(@param-1, @param-2, @param-3) {...}
+	*/
+	.linear-gradient(top, saturate(lighten(@color,@strenght),(-@strenght/2)) 0%, saturate(darken(@color,@strenght),(@strenght/2))100%;);
+}
+.gloss-gradient(@top: rgb(200,200,200), @middle: rgb(100,100,100), @bottom: rgb(150,150,150)) {
+	.linear-gradient(bottom, @top 0%, @middle 50%, @bottom 100%;);
+}
+.background-image(@backgroundImage) when (@use-rootpath = false) {
+	background-image: url('@backgroundImage');
+}
+.background-image(@backgroundImage) when (@use-rootpath = true) {
+	background-image: url('@{rootpath}/@{backgroundImage}');
+}
+
+.background-responsive(@hdFullBackground, @hdReadyBackground, @tabletLandscapeBackground, @tabletPortraitBackground, @smartphoneLandscapeBackground, @smartphonePortraitBackground) {
+	/*
+	.background-responsive(
+		"path/hd-full/background.png",
+		"path/hd-ready/background.png",
+		"path/tablet-landscape/background.png",
+		"path/tablet-portrait/background.png",
+		"path/smartphone-landscape/background.png",
+		"path/smartphone-portrait/background.png"
+	);
+	*/
+	.background-hd-full(@hdFullBackground);
+	.background-hd-ready(@hdReadyBackground);
+	.background-tablet-landscape(@tabletLandscapeBackground);
+	.background-tablet-portrait(@tabletPortraitBackground);
+	.background-smartphone-landscape(@smartphoneLandscapeBackground);
+	.background-smartphone-portrait(@smartphonePortraitBackground);
+}
+.background-hd-full(@hdFullBackground) {
+	@media @from-hd-full {
+		// Full HD
+		.background-image(@hdFullBackground);
+	}
+}
+.background-hd-ready(@hdReadyBackground) {
+	@media @from-hd-ready {
+		// HD Ready
+		.background-image(@hdReadyBackground);
+	}
+}
+.background-tablet-landscape(@tabletLandscapeBackground) {
+	@media @from-tablet-landscape {
+		// Tablet landscape
+		.background-image(@tabletLandscapeBackground);
+	}
+}
+.background-tablet-portrait(@tabletPortraitBackground) {
+	@media @from-tablet-portrait {
+		// Tablet portrait
+		.background-image(@tabletPortraitBackground);
+	}
+}
+.background-smartphone-landscape(@smartphoneLandscapeBackground) {
+	@media @from-smartphone-landscape {
+		// Smartphone landscape
+		.background-image(@smartphoneLandscapeBackground);
+	}
+}
+.background-smartphone-portrait(@smartphonePortraitBackground) {
+	@media @from-smartphone-portrait {
+		// Smartphone portrait
+		.background-image(@smartphonePortraitBackground);
+	}
+}
+
+.hd-display(@display:inherit) {
+	@media @only-hd-full {
+		// Full HD
+		display: @display;
+	}
+	@media @only-hd-ready {
+		// HD Ready
+		display: @display;
+	}
+}
+
+.tablet-display(@display:inherit) {
+	@media only print {
+		// For print, behave as tablet portrait
+		display: @display;
+	}
+	@media @only-tablet-landscape {
+		// Tablet landscape
+		display: @display;
+	}
+	@media @only-tablet-portrait {
+		// Tablet portrait
+		display: @display;
+	}
+}
+
+.smartphone-display(@display:inherit) {
+	@media @only-smartphone-landscape {
+		// Smartphone landscape
+		display: @display;
+	}
+	@media @only-smartphone-portrait {
+		// Smartphone portrait
+		display: @display;
+	}
+}
+
+.sprite(@image, @width, @height, @backgroudSize:auto) {
+	.background-image(@image);
+	background-repeat:no-repeat;
+	background-size:@backgroudSize;
+	width:@width;
+	height:@height;
+	.wrap;
+}
+.sprite-position(@horizontalPosition:0, @verticalPosition:0, @width:0px, @height:@width) {
+	background-position: unit(-(@horizontalPosition*@width),px) unit(-(@verticalPosition*@height),px);
+}
+.sprite-coordinates(@positionX:0px, @positionY:0px) {
+	background-position: -@positionX -@positionY;
+}
+
+.hide-text-overflow(@overflow:ellipsis) {
+	text-overflow: @overflow;
+	overflow: hidden;
+}
+
+.disable-outline() {
+	&::-moz-focus-inner {
+  		border: 0;
+	}
+	outline:0;
+	outline:none;
+}
+
+.default-element() {
+	.appearance(button);
+	outline:0;
+	display: inline-block;
+	border: none;
+	background-color: transparent;
+}
+
+.round-top(@radius:6px) {
+	// sets the top radius of the element
+	/*
+	Default usage
+	.round-top(4px);
+	*/
+	.border-radius(@radius @radius 0px 0px);
+}
+.round-bottom(@radius:6px) {
+	// sets the bottom radius of the element
+	/*
+	Default usage
+	.round-bottom(4px);
+	*/
+	.border-radius(0px 0px @radius @radius);
+}
+.round-left(@radius:6px) {
+	// sets the left radius of the element
+	/*
+	Default usage
+	.round-left(4px);
+	*/
+	.border-radius(@radius 0px 0px @radius);
+}
+.round-right(@radius:6px) {
+	// sets the right radius of the element
+	/*
+	Default usage
+	.round-right(4px);
+	*/
+	.border-radius(0px @radius @radius 0px);
+}
+
+.arrow-left(@size:1em, @color:#FFFFFF, @top:0px, @right:0px) {
+	position: relative;
+	font-size: 0;
+	line-height: 0;
+	width: 0px;
+	border-top: @size solid transparent;
+	border-right: @size solid @color;
+	border-bottom: @size solid transparent;
+	right: @right;
+	top: @top;
+}
+
+.as-table(@cellPadding:@global-padding, @verticalAlign:middle, @tableWidth:100%) {
+	display: table;
+	width: @tableWidth;
+	> * {
+		.as-table-row(@cellPadding, @verticalAlign);
+	}
+}
+
+.as-table-row(@cellPadding:@global-padding, @verticalAlign:middle) {
+	display: table-row;
+	> * {
+		.as-table-cell(@cellPadding, @verticalAlign);
+	}
+}
+
+.as-table-cell(@cellPadding:@global-padding, @verticalAlign:middle) {
+	display: table-cell;
+	padding: @cellPadding;
+	vertical-align: @verticalAlign;
+}
