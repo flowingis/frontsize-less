@@ -33,7 +33,7 @@ Website:	http://vittoriovittori.com
 @to-smartphone-landscape-step: (@smartphone-landscape-step - 1px);
 @to-smartphone-portrait-step:  (@smartphone-portrait-step - 1px);
 
-@only-smartphone-portrait:  ~"only screen and (min-width : 1px) and (max-width : @{to-smartphone-portrait-step})";
+@only-smartphone-portrait:  ~"only screen and (min-width : 1px) and (max-width : @{to-smartphone-landscape-step})";
 @only-smartphone-landscape: ~"only screen and (min-width : @{smartphone-landscape-step}) and (max-width : @{to-tablet-portrait-step})";
 @only-tablet-portrait:      ~"only screen and (min-width : @{tablet-portrait-step}) and (max-width : @{to-tablet-landscape-step}), only print";
 @only-tablet-landscape:     ~"only screen and (min-width : @{tablet-landscape-step}) and (max-width : @{to-hd-ready-step})";
