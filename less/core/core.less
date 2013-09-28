@@ -69,7 +69,7 @@ Website:	http://vittoriovittori.com
 ========================================================================================================================================================================
 */
 
-.create-column-set (@total:12, @name:col, @fill:"smartphone-landscape", @index:@total) {
+.add-column-set (@name:col, @total:12, @fill:"smartphone-landscape", @index:@total) {
 	.loop-column-set(@total, @name, @index);
 	.loop-column-set-fill(@total, @fill, @index);
 }
@@ -126,38 +126,24 @@ Website:	http://vittoriovittori.com
 	.loop-column-set-fill(@total, @fill, @index - 1);
 }
 
-.default-column-sets () {
-	.create-column-set(12, smartphone);
-	.create-column-set(12, tablet);
-	.create-column-set(12, hd);
-}
-
 .set-columns(@columns) {
 	width:(100%/@columns);
-	&:nth-child(1n+1)  { clear:none; }
-	&:nth-child(2n+1)  { clear:none; }
-	&:nth-child(3n+1)  { clear:none; }
-	&:nth-child(4n+1)  { clear:none; }
-	&:nth-child(5n+1)  { clear:none; }
-	&:nth-child(6n+1)  { clear:none; }
-	&:nth-child(7n+1)  { clear:none; }
-	&:nth-child(8n+1)  { clear:none; }
-	&:nth-child(10n+1) { clear:none; }
-	&:nth-child(12n+1) { clear:none; }
-	&:nth-child(16n+1) { clear:none; }
+	//&:nth-child(1n+1)  { clear:none; }
+	//&:nth-child(2n+1)  { clear:none; }
+	//&:nth-child(3n+1)  { clear:none; }
+	//&:nth-child(4n+1)  { clear:none; }
+	//&:nth-child(5n+1)  { clear:none; }
+	//&:nth-child(6n+1)  { clear:none; }
+	//&:nth-child(7n+1)  { clear:none; }
+	//&:nth-child(8n+1)  { clear:none; }
+	//&:nth-child(10n+1) { clear:none; }
+	//&:nth-child(12n+1) { clear:none; }
+	//&:nth-child(16n+1) { clear:none; }
 	&:nth-child(@{columns}n+1) {clear:both;}
 }
 
 .set-column-step(@step, @columns) {
 	width:((100% * @step)/@columns);
-}
-
-.set-step-padding(@step) {
-	.with-steps-padding { padding:@step; }
-	.with-horizontal-steps-padding { padding-left:@step; padding-right:@step; }
-	.with-vertical-steps-padding { padding-top:@step; padding-bottom:@step; }
-	.with-top-steps-padding { padding-top:@step; }
-	.with-bottom-steps-padding { padding-bottom:@step; }
 }
 
 .set-column-behavior() {

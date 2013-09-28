@@ -161,44 +161,6 @@
 		.background-image(@smartphonePortraitBackground);
 	}
 }
-
-.hd-display(@display:inherit) {
-	@media @only-hd-full {
-		// Full HD
-		display: @display;
-	}
-	@media @only-hd-ready {
-		// HD Ready
-		display: @display;
-	}
-}
-
-.tablet-display(@display:inherit) {
-	@media only print {
-		// For print, behave as tablet portrait
-		display: @display;
-	}
-	@media @only-tablet-landscape {
-		// Tablet landscape
-		display: @display;
-	}
-	@media @only-tablet-portrait {
-		// Tablet portrait
-		display: @display;
-	}
-}
-
-.smartphone-display(@display:inherit) {
-	@media @only-smartphone-landscape {
-		// Smartphone landscape
-		display: @display;
-	}
-	@media @only-smartphone-portrait {
-		// Smartphone portrait
-		display: @display;
-	}
-}
-
 .sprite(@image, @width, @height, @backgroudSize:auto) {
 	.background-image(@image);
 	background-repeat:no-repeat;

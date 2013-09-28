@@ -35,10 +35,10 @@
 
 
 // set font scaling to change the font size depending by different resolutions
-.global-font-scaling();
-.global-small-font-scaling(@font-default, .75em, antialiased, @font-default, 14px, antialiased, @font-default, 14px, antialiased);
-.global-h-font-scaling();		// same config of .global-font-scaling
-
+.body-font(1.5em, 1.25em, 1em, 1em, 1em, 1em, 1.5);
+.headings-font(1.5em, 1.25em, 1.125em, 1.125em, 1em, 1em);
+.add-fonts-rule(with-small-fonts, @font-default, .75em, antialiased, @font-default, 14px, antialiased, @font-default, 14px, antialiased);
+.add-font-rule(mini-font, @miniFontFamily, 16px, 11px, 11px, 11px, 11px, 11px, antialiased, 1); @miniFontFamily:'Lucida Grande', Tahoma, Verdana, Arial, Helvetica, sans-serif;
 
 /*
 ========================================================================================================================================================================
@@ -50,24 +50,15 @@
 */
 
 // comment what you don't need to gain weight for your CSS file.
-//.responsive-rule(selector-name, @hd-full-columns, @hd-ready-columns, @tablet-landscape-columns, @tablet-portrait-columns, @smartphone-landscape-columns, @smartphone-portrait-columns);
-.responsive-rule(row, 12,12,6,3,1,1);
-.create-column-set(12, hd, "smartphone-landscape");
+.add-container-row(row, 2,2,2,2,1,1);
+//.add-container-row(box, [viewports columns]);
 
-@miniFontFamily:'Lucida Grande', Tahoma, Verdana, Arial, Helvetica, sans-serif;
-.font-rule(mini-font, @miniFontFamily, 16px, 11px, 11px, 11px, 11px, 11px, antialiased, 1);
-
+.default-column-sets(12);
+//.add-column-set(wide, 6);
+//.add-column-set(huge, 4);
 
 // set the margins
-// .global-steps & .global-steps-padding always at the bottom of the configuration
-.global-steps(500px, 100px, 50px, 100%, 100%, 100%);
-@tinyStepMargin:30px;
-.steps-rule(tiny-steps, 500px+@tinyStepMargin, 100px+@tinyStepMargin, 50px+@tinyStepMargin, 100%, 100%, 100%);
-.global-steps-padding();
-
-
-
-// used for the nav top spacing, set it after global-steps-padding
-.padding-rule(padding-nav-spacer, 6em 0 2em 0, 6em 0 1em 0, 6em 0 1em 0, 0, 0);
-.margin-rule(margin-from-header, 1em auto 0 auto, 1em auto 0 auto, 1em auto 0 auto, 0, 0);
+// put .global-steps & .global-steps-padding always at the bottom of the configuration
+.add-viewports-steps(use-steps, 500px, 100px, 50px, 0px);
+.add-viewports-steps(tiny-steps, (500px + @tinyStepMargin), (100px + @tinyStepMargin), (50px + @tinyStepMargin), 0px); @tinyStepMargin:30px;
 
