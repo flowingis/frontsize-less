@@ -1,0 +1,33 @@
+.example {
+	@params:background .25s ease-in-out, border .25s ease-in-out, border-radius .25s ease-in-out;
+	.border-radius(0px);
+	background-color: rgba(0,0,0,.5);
+	border:1px solid rgba(0,0,0,0);
+	
+	.transition(@params);
+
+
+	&.without-structure {
+		background-color: white;
+		border:1px solid rgba(0,0,0,.15);
+		.border-radius(.5em);
+
+		.transition(@params);
+		> * {
+			.transition(@params);
+			border:1px solid rgba(0,0,0,0);
+		}
+	}
+	> * {
+		.transition(@params);
+		border:1px solid rgba(0,0,0,.25);
+		background-color: rgba(255,255,255,.3);
+		&:first-child {
+
+		}
+	}
+	> * > * {
+		//.round(.25em);
+		background-color: white;
+	}
+}

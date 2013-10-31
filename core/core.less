@@ -57,8 +57,6 @@ Website:	http://vittoriovittori.com
 @display-retina:   ~"only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio:2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx)";
 @display-standard: ~"only screen and (-webkit-max-device-pixel-ratio: 1) and (aspect-ratio:1), only screen and (-webkit-max-device-pixel-ratio: 1), only screen and (max--moz-device-pixel-ratio: 1), only screen and (-o-max-device-pixel-ratio: 1/11), only screen and (max-device-pixel-ratio: 1), only screen and (max-resolution: 1dppx)";
 
-
-
 /*
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
@@ -69,41 +67,43 @@ Website:	http://vittoriovittori.com
 ========================================================================================================================================================================
 */
 
-.add-column-set (@name:col, @totalSteps:12, @index:@totalSteps) {
-	.loop-column-set(@totalSteps, @name, @index);
+.addColumnSet(@name:col, @totalSteps:12, @index:@totalSteps) {
+	.loopColumnSet(@totalSteps, @name, @index);
 }
 
-.apply-fill-to-column-set(@name, @totalSteps, @fillViewport:"smartphone-landscape") {
-	.loop-column-set-fill(@totalSteps, @fillViewport, @index:@totalSteps);
+.applyFillToColumnSet(@name, @totalSteps, @fillViewport:"smartphone-landscape") {
+	.loopColumnSetFill(@totalSteps, @fillViewport, @index:@totalSteps);
 }
 
-.loop-column-set (@total, @name, @index) when (@index > 0) {
+.loopColumnSet (@total, @name, @index) when (@index > 0) {
 	.@{name}-@{index}-of-@{total} {
-		.set-column-step(@index, @total);
-		.set-column-behavior();
+		.setColumnStep(@index, @total);
+		.setColumnBehavior();
 	}
-	.loop-column-set(@total, @name, @index - 1);
+	.loopColumnSet(@total, @name, @index - 1);
 }
 
-.loop-column-set-fill (@total, @fill, @index) when (@fill = "tablet-landscape") and (@index > 0) {
+.loopColumnSetFill(@total, @fill, @index) when (@fill = "tablet-landscape") and (@index > 0) {
 	@media @till-hd-ready {
 		// Tablet landscape
 		.@{name}-@{index}-of-@{total} {
 			width: 100%;
 		}
 	}
-	.loop-column-set-fill(@total, @fill, @index - 1);
+	.loopColumnSetFill(@total, @fill, @index - 1);
 }
-.loop-column-set-fill (@total, @fill, @index) when (@fill = "tablet-portrait") and (@index > 0) {
+
+.loopColumnSetFill(@total, @fill, @index) when (@fill = "tablet-portrait") and (@index > 0) {
 	@media @till-tablet-landscape {
 		// Tablet portrait
 		.@{name}-@{index}-of-@{total} {
 			width: 100%;
 		}
 	}
-	.loop-column-set-fill(@total, @fill, @index - 1);
+	.loopColumnSetFill(@total, @fill, @index - 1);
 }
-.loop-column-set-fill (@total, @fill, @index) when (@fill = "smartphone-landscape") and (@index > 0) {
+
+.loopColumnSetFill(@total, @fill, @index) when (@fill = "smartphone-landscape") and (@index > 0) {
 	//@media @till-tablet-portrait {
 	@media only screen and (max-width: 767px) {
 		// Smartphone landscape
@@ -111,20 +111,20 @@ Website:	http://vittoriovittori.com
 			width: 100%;
 		}
 	}
-	.loop-column-set-fill(@total, @fill, @index - 1);
+	.loopColumnSetFill(@total, @fill, @index - 1);
 }
 
-.loop-column-set-fill (@total, @fill, @index) when (@fill = "smartphone-portrait") and (@index > 0) {
+.loopColumnSetFill(@total, @fill, @index) when (@fill = "smartphone-portrait") and (@index > 0) {
 	@media @till-smartphone-landscape {
 		// Smartphone portrait
 		.@{name}-@{index}-of-@{total} {
 			width: 100%;
 		}
 	}
-	.loop-column-set-fill(@total, @fill, @index - 1);
+	.loopColumnSetFill(@total, @fill, @index - 1);
 }
 
-.set-columns(@columns) {
+.setColumns(@columns) {
 	width:(100%/@columns);
 	//&:nth-child(1n+1)  { clear:none; }
 	//&:nth-child(2n+1)  { clear:none; }
@@ -140,22 +140,15 @@ Website:	http://vittoriovittori.com
 	&:nth-child(@{columns}n+1) {clear:both;}
 }
 
-.set-column-step(@step, @columns) {
+.setColumnStep(@step, @columns) {
 	width:((100% * @step)/@columns);
 }
 
-.set-column-behavior() {
+.setColumnBehavior(@usePosition:true) {
 	padding-left:@horizontal-padding;
 	padding-right:@horizontal-padding;
 	float: left;
-	position: relative;
 	.wrap;
-}
-
-// not working yet in LESS 1.4.1
-.view(@view) {
-	@import "views/@{view}";
-}
-.model(@filename) {
-	@import 'models/@{filename}';
+}.setColumnBehavior(@usePosition:true) when (@usePosition = true) {
+	position: relative;
 }

@@ -8,14 +8,13 @@
 ========================================================================================================================================================================
 */
 
-.add-viewports-steps(@selector:use-steps, @hdFullMargin:500px, @hdReadyMargin:100px, @tabletLandscapeMargin:50px, @tabletPortraitMargin:20px) {
+.addViewportsSteps(@selector:use-steps, @hdFullMargin:500px, @hdReadyMargin:100px, @tabletLandscapeMargin:50px, @tabletPortraitMargin:20px) {
 	// Media queries for selectors active from a specific resolution or higher
 	// smartphone viewports were removed to improve width compatibility with all smartphone models
 	.@{selector} {
 		margin: auto;
 		.wrap;
 	}
-
 	@media @from-tablet-portrait {
 		// Tablet portrait
 		.@{selector} {
@@ -42,19 +41,19 @@
 	}
 }
 
-.body-font(@hdFull:1.5em, @hdReady:1.25em, @tabletLandscape:1em, @tabletPortrait:1em, @smartphoneLandscape:1em, @smartphonePortrait:1em, @lineHeightMultiplier:1.5) {
+.bodyFont(@hdFull:(@font-size + (@font-size/2)), @hdReady:(@font-size + (@font-size/4)), @tabletLandscape:@font-size, @tabletPortrait:@font-size, @smartphoneLandscape:@font-size, @smartphonePortrait:@font-size, @lineHeightMultiplier:@font-line-height) {
 	// Media queries for selectors active from a specific resolution or higher
 	@media @from-smartphone-portrait {
 		// Smartphone portrait
 		body {
-			font-size:@smartphonePortrait;
+			font-size: @smartphonePortrait;
 			line-height: @lineHeightMultiplier;
 		}
 	}
 	@media @from-smartphone-landscape {
 		// Smartphone landscape
 		body {
-			font-size:@smartphoneLandscape;
+			font-size: @smartphoneLandscape;
 			line-height: @lineHeightMultiplier;
 		}
 	}
@@ -87,8 +86,8 @@
 		}
 	}
 }
-.add-fonts-rule(@selector:with-small-fonts, @fontFamilyHd:@font-small, @fontSizeHd:0.75em, @antialiasHd:antialiased, @fontFamilyTablet:@font-small, @fontSizeTablet:0.75em, @antialiasTablet:antialiased, @fontFamilySmartphone:@font-small, @fontSizeSmartphone:0.85em, @antialiasSmartphone:subpixel-antialiased) {
-	
+
+.addFontsRule(@selector:with-small-fonts, @fontFamilyHd:@font-small, @fontSizeHd:0.75em, @antialiasHd:antialiased, @fontFamilyTablet:@font-small, @fontSizeTablet:0.75em, @antialiasTablet:antialiased, @fontFamilySmartphone:@font-small, @fontSizeSmartphone:0.85em, @antialiasSmartphone:subpixel-antialiased) {
 	// Media queries for selectors active from a specific resolution or higher
 	@media @from-hd-ready {
 		// HD Ready
@@ -96,7 +95,7 @@
 			font-family:@fontFamilyHd;
 			font-size:@fontSizeHd;
 			.font-smoothing(@antialiasHd);
-		}	
+		}
 	}
 	@media @from-hd-full {
 		// Full HD
@@ -104,7 +103,7 @@
 			font-family:@fontFamilyHd;
 			font-size:@fontSizeHd;
 			.font-smoothing(@antialiasHd);
-		}	
+		}
 	}
 	@media @from-tablet-portrait {
 		// Tablet portrait
@@ -112,7 +111,7 @@
 			font-family:@fontFamilyTablet;
 			font-size:@fontSizeTablet;
 			.font-smoothing(@antialiasTablet);
-		}	
+		}
 	}
 	@media @from-tablet-landscape {
 		// Tablet landscape
@@ -120,7 +119,7 @@
 			font-family:@fontFamilyTablet;
 			font-size:@fontSizeTablet;
 			.font-smoothing(@antialiasTablet);
-		}	
+		}
 	}
 	@media @from-smartphone-portrait {
 		// Smartphone portrait
@@ -128,7 +127,7 @@
 			font-family:@fontFamilySmartphone;
 			font-size:@fontSizeSmartphone;
 			.font-smoothing(@antialiasSmartphone);
-		}	
+		}
 	}
 	@media @from-smartphone-landscape {
 		// Smartphone landscape
@@ -136,155 +135,154 @@
 			font-family:@fontFamilySmartphone;
 			font-size:@fontSizeSmartphone;
 			.font-smoothing(@antialiasSmartphone);
-		}	
+		}
 	}
 }
 
-.headings-font(@hdFull:1.5em, @hdReady:1.25em, @tabletLandscape:1.125em, @tabletPortrait:1.125em, @smartphoneLandscape:1em, @smartphonePortrait:1em) {
+.headingsFont(@hdFullFontSize:1.5em, @hdReadyFontSize:1.25em, @tabletLandscapeFontSize:1.125em, @tabletPortraitFontSize:1.125em, @smartphoneLandscapeFontSize:1em, @smartphonePortraitFontSize:1em) {
 	// Media queries for selectors active from a specific resolution or higher
-	
 	@media @from-smartphone-portrait {
 		// Smartphone portrait
 		h1 {
-			font-size: (@h1 * @smartphonePortrait);
+			font-size: (@h1 * @smartphonePortraitFontSize);
 		}
 		h2 {
-			font-size: (@h2 * @smartphonePortrait);
+			font-size: (@h2 * @smartphonePortraitFontSize);
 		}
 		h3 {
-			font-size: (@h3 * @smartphonePortrait);
+			font-size: (@h3 * @smartphonePortraitFontSize);
 		}
 		h4 {
-			font-size: (@h4 * @smartphonePortrait);
+			font-size: (@h4 * @smartphonePortraitFontSize);
 		}
 		h5 {
-			font-size: (@h5 * @smartphonePortrait);
+			font-size: (@h5 * @smartphonePortraitFontSize);
 		}
 		h6 {
-			font-size: (@h6 * @smartphonePortrait);
+			font-size: (@h6 * @smartphonePortraitFontSize);
 		}
 		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (@smartphonePortrait / 4);
+			margin-bottom: (@smartphonePortraitFontSize / 4);
 		}
 	}
 	@media @from-smartphone-landscape {
 		// Smartphone landscape
 		h1 {
-			font-size: (@h1 * @smartphoneLandscape);
+			font-size: (@h1 * @smartphoneLandscapeFontSize);
 		}
 		h2 {
-			font-size: (@h2 * @smartphoneLandscape);
+			font-size: (@h2 * @smartphoneLandscapeFontSize);
 		}
 		h3 {
-			font-size: (@h3 * @smartphoneLandscape);
+			font-size: (@h3 * @smartphoneLandscapeFontSize);
 		}
 		h4 {
-			font-size: (@h4 * @smartphoneLandscape);
+			font-size: (@h4 * @smartphoneLandscapeFontSize);
 		}
 		h5 {
-			font-size: (@h5 * @smartphoneLandscape);
+			font-size: (@h5 * @smartphoneLandscapeFontSize);
 		}
 		h6 {
-			font-size: (@h6 * @smartphoneLandscape);
+			font-size: (@h6 * @smartphoneLandscapeFontSize);
 		}
 		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (@smartphoneLandscape / 4);
+			margin-bottom: (@smartphoneLandscapeFontSize / 4);
 		}
 	}
 	@media @from-tablet-portrait {
 		// Tablet portrait
 		h1 {
-			font-size: (@h1 * @tabletPortrait);
+			font-size: (@h1 * @tabletPortraitFontSize);
 		}
 		h2 {
-			font-size: (@h2 * @tabletPortrait);
+			font-size: (@h2 * @tabletPortraitFontSize);
 		}
 		h3 {
-			font-size: (@h3 * @tabletPortrait);
+			font-size: (@h3 * @tabletPortraitFontSize);
 		}
 		h4 {
-			font-size: (@h4 * @tabletPortrait);
+			font-size: (@h4 * @tabletPortraitFontSize);
 		}
 		h5 {
-			font-size: (@h5 * @tabletPortrait);
+			font-size: (@h5 * @tabletPortraitFontSize);
 		}
 		h6 {
-			font-size: (@h6 * @tabletPortrait);
+			font-size: (@h6 * @tabletPortraitFontSize);
 		}
 		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (@tabletPortrait / 4);
+			margin-bottom: (@tabletPortraitFontSize / 4);
 		}
 	}
 	@media @from-tablet-landscape {
 		// Tablet landscape
 		h1 {
-			font-size: (@h1 * @tabletLandscape);
+			font-size: (@h1 * @tabletLandscapeFontSize);
 		}
 		h2 {
-			font-size: (@h2 * @tabletLandscape);
+			font-size: (@h2 * @tabletLandscapeFontSize);
 		}
 		h3 {
-			font-size: (@h3 * @tabletLandscape);
+			font-size: (@h3 * @tabletLandscapeFontSize);
 		}
 		h4 {
-			font-size: (@h4 * @tabletLandscape);
+			font-size: (@h4 * @tabletLandscapeFontSize);
 		}
 		h5 {
-			font-size: (@h5 * @tabletLandscape);
+			font-size: (@h5 * @tabletLandscapeFontSize);
 		}
 		h6 {
-			font-size: (@h6 * @tabletLandscape);
+			font-size: (@h6 * @tabletLandscapeFontSize);
 		}
 		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (@tabletLandscape / 4);
+			margin-bottom: (@tabletLandscapeFontSize / 4);
 		}
 	}
 	@media @from-hd-ready {
 		// HD Ready
 		h1 {
-			font-size: (@h1 * @hdReady);
+			font-size: (@h1 * @hdReadyFontSize);
 		}
 		h2 {
-			font-size: (@h2 * @hdReady);
+			font-size: (@h2 * @hdReadyFontSize);
 		}
 		h3 {
-			font-size: (@h3 * @hdReady);
+			font-size: (@h3 * @hdReadyFontSize);
 		}
 		h4 {
-			font-size: (@h4 * @hdReady);
+			font-size: (@h4 * @hdReadyFontSize);
 		}
 		h5 {
-			font-size: (@h5 * @hdReady);
+			font-size: (@h5 * @hdReadyFontSize);
 		}
 		h6 {
-			font-size: (@h6 * @hdReady);
+			font-size: (@h6 * @hdReadyFontSize);
 		}
 		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (@hdReady / 4);
+			margin-bottom: (@hdReadyFontSize / 4);
 		}
 	}
 	@media @from-hd-full {
 		// Full HD
 		h1 {
-			font-size: (@h1 * @hdFull);
+			font-size: (@h1 * @hdFullFontSize);
 		}
 		h2 {
-			font-size: (@h2 * @hdFull);
+			font-size: (@h2 * @hdFullFontSize);
 		}
 		h3 {
-			font-size: (@h3 * @hdFull);
+			font-size: (@h3 * @hdFullFontSize);
 		}
 		h4 {
-			font-size: (@h4 * @hdFull);
+			font-size: (@h4 * @hdFullFontSize);
 		}
 		h5 {
-			font-size: (@h5 * @hdFull);
+			font-size: (@h5 * @hdFullFontSize);
 		}
 		h6 {
-			font-size: (@h6 * @hdFull);
+			font-size: (@h6 * @hdFullFontSize);
 		}
 		h1, h2, h3, h4, h5, h6 {
-			margin-bottom: (@hdFull / 4);
+			margin-bottom: (@hdFullFontSize / 4);
 		}
 	}
 }
@@ -298,7 +296,7 @@
 ========================================================================================================================================================================
 */
 
-.add-font-rule(@selector, @fontFamily:@font-default, @hdFull:1em, @hdReady:1em, @tabletLandscape:1em, @tabletPortrait:1em, @smartphoneLandscape:1em, @smartphonePortrait:1em, @antialias:antialiased , @lineHeightMultiplier:1.225) {
+.addFontRule(@selector, @fontFamily:@font-default, @hdFullFontSize:1em, @hdReadyFontSize:1em, @tabletLandscapeFontSize:1em, @tabletPortraitFontSize:1em, @smartphoneLandscapeFontSize:1em, @smartphonePortraitFontSize:1em, @antialias:antialiased, @lineHeightMultiplier:1.225) {
 	// Media queries for selectors active from the smaller resolution to a specific one
 	.@{selector} {
 		font-family:@fontFamily;
@@ -307,48 +305,48 @@
 	@media @from-hd-full {
 		// Full HD
 		.@{selector} {
-			font-size:@hdFull !important;
+			font-size:@hdFullFontSize !important;
 			line-height:@lineHeightMultiplier;
 		}
 	}
 	@media @till-hd-full {
 		// HD Ready
 		.@{selector} {
-			font-size:@hdReady !important;
+			font-size:@hdReadyFontSize !important;
 			line-height:@lineHeightMultiplier;
 		}
 	}
 	@media @till-hd-ready {
 		// Tablet landscape
 		.@{selector} {
-			font-size:@tabletLandscape !important;
+			font-size:@tabletLandscapeFontSize !important;
 			line-height:@lineHeightMultiplier;
 		}
 	}
 	@media @till-tablet-landscape {
 		// Tablet portrait
 		.@{selector} {
-			font-size:@tabletPortrait !important;
+			font-size:@tabletPortraitFontSize !important;
 			line-height:@lineHeightMultiplier;
 		}
 	}
 	@media @till-tablet-portrait {
 		// Smartphone landscape
 		.@{selector} {
-			font-size:@smartphoneLandscape !important;
+			font-size:@smartphoneLandscapeFontSize !important;
 			line-height:@lineHeightMultiplier;
 		}
 	}
 	@media @till-smartphone-landscape {
 		// Smartphone portrait
 		.@{selector} {
-			font-size:@smartphonePortrait !important;
+			font-size:@smartphonePortraitFontSize !important;
 			line-height:@lineHeightMultiplier;
 		}
 	}
 }
 
-.add-container-row(@selector:row, @hdFullSteps:0, @hdReadySteps:12, @tabletLandscapeSteps:6, @tabletPortraitSteps:3, @smartphoneLandscapeSteps:1, @smartphonePortraitSteps:1) {
+.addContainerRow(@selector:row, @hdFullSteps:0, @hdReadySteps:12, @tabletLandscapeSteps:6, @tabletPortraitSteps:3, @smartphoneLandscapeSteps:1, @smartphonePortraitSteps:1) {
 	.@{selector} {
 		padding-top:@vertical-padding;
 		width:auto;
@@ -364,58 +362,58 @@
 		.wrap;
 	}
 	.@{selector} > * {
+		min-height: 1px;
 		padding-bottom:@vertical-padding;
 	}
-
-	.check-auto-clear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector);
+	.checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector);
 }
 
-.check-auto-clear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector) when (@hdFullSteps > 0) {
+.checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector) when (@hdFullSteps > 0) {
 	// Media queries for selectors active from a specific resolution or higher
 	.@{selector} > * {
 		padding-bottom:@vertical-padding;
-		.set-column-behavior();
-		.set-column-step(1, @hdFullSteps);
+		.setColumnBehavior();
+		.setColumnStep(1, @hdFullSteps);
 	}
 	@media @only-smartphone-portrait {
 		// Smartphone portrait
 		.@{selector} > * {
-			.set-columns(@smartphonePortraitSteps);
+			.setColumns(@smartphonePortraitSteps);
 		}
 	}
 	@media @only-smartphone-landscape {
 		// Smartphone landscape
 		.@{selector} > * {
-			.set-columns(@smartphoneLandscapeSteps);
+			.setColumns(@smartphoneLandscapeSteps);
 		}
 	}
 	@media @only-tablet-portrait {
 		// Tablet portrait
 		.@{selector} > * {
-			.set-columns(@tabletPortraitSteps);
+			.setColumns(@tabletPortraitSteps);
 		}
 	}
 	@media @only-tablet-landscape {
 		// Tablet landscape
 		.@{selector} > * {
-			.set-columns(@tabletLandscapeSteps);
+			.setColumns(@tabletLandscapeSteps);
 		}
 	}
 	@media @only-hd-ready {
 		// HD Ready
 		.@{selector} > * {
-			.set-columns(@hdReadySteps);
+			.setColumns(@hdReadySteps);
 		}
 	}
 	@media @only-hd-full {
 		// Full HD
 		.@{selector} > * {
-			.set-columns(@hdFullSteps);
+			.setColumns(@hdFullSteps);
 		}
 	}
 }
 
-.add-padding-rule(@selector, @hdFullPadding:6em, @hdReadyPadding:5em, @tabletLandscapePadding:4em, @tabletPortraitPadding:3em, @smartphoneLandscapePadding:2em, @smartphonePortraitPadding:1em) {
+.addPaddingRule(@selector, @hdFullPadding:6em, @hdReadyPadding:5em, @tabletLandscapePadding:4em, @tabletPortraitPadding:3em, @smartphoneLandscapePadding:2em, @smartphonePortraitPadding:1em) {
 	// Media queries for selectors active from a specific resolution or higher
 	@media @from-smartphone-portrait {
 		// Smartphone portrait
@@ -443,7 +441,7 @@
 	}
 }
 
-.add-margin-rule(@selector, @hdFullMargin:6em, @hdReadyMargin:5em, @tabletLandscapeMargin:4em, @tabletPortraitMargin:3em, @smartphoneLandscapeMargin:2em, @smartphonePortraitMargin:1em) {
+.addMarginRule(@selector, @hdFullMargin:6em, @hdReadyMargin:5em, @tabletLandscapeMargin:4em, @tabletPortraitMargin:3em, @smartphoneLandscapeMargin:2em, @smartphonePortraitMargin:1em) {
 	// Media queries for selectors active from a specific resolution or higher
 	@media @from-smartphone-portrait {
 		// Smartphone portrait
@@ -471,9 +469,6 @@
 	}
 }
 
-
-
-
 /*
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
@@ -482,7 +477,8 @@
 ==                                   ===================================================================================================================================
 ========================================================================================================================================================================
 */
-.set-viewports-padding(@hdFullPadding:6em, @hdReadyPadding:5em, @tabletLandscapePadding:4em, @tabletPortraitPadding:3em, @smartphoneLandscapePadding:2em, @smartphonePortraitPadding:1em) {
+
+.setViewportsPadding(@hdFullPadding:6em, @hdReadyPadding:5em, @tabletLandscapePadding:4em, @tabletPortraitPadding:3em, @smartphoneLandscapePadding:2em, @smartphonePortraitPadding:1em) {
 	// Media queries for selectors active from a specific resolution or higher
 	@media @from-smartphone-portrait {
 		// Smartphone portrait
@@ -509,7 +505,8 @@
 		padding:@hdFullPadding;
 	}
 }
-.set-viewports-margin(@hdFullMargin:6em, @hdReadyMargin:5em, @tabletLandscapeMargin:4em, @tabletPortraitMargin:3em, @smartphoneLandscapeMargin:2em, @smartphonePortraitMargin:1em) {
+
+.setViewportsMargin(@hdFullMargin:6em, @hdReadyMargin:5em, @tabletLandscapeMargin:4em, @tabletPortraitMargin:3em, @smartphoneLandscapeMargin:2em, @smartphonePortraitMargin:1em) {
 	// Media queries for selectors active from a specific resolution or higher
 	@media @from-smartphone-portrait {
 		// Smartphone portrait
@@ -536,7 +533,8 @@
 		margin:@hdFullMargin;
 	}
 }
-.set-viewports-font-size(@hdFull:1em, @hd-ready:1em, @tablet-landscape:1em, @tablet-portrait:1em, @smartphone-landscape:1em, @smartphone-portrait:1em, @lineHeightMultiplier:1.225) {
+
+.setViewportsFontSize(@hdFull:1em, @hd-ready:1em, @tablet-landscape:1em, @tablet-portrait:1em, @smartphone-landscape:1em, @smartphone-portrait:1em, @lineHeightMultiplier:@font-line-height) {
 	// Media queries for selectors active from the smaller resolution to a specific one
 	@media @from-hd-full {
 		// Full HD
@@ -569,7 +567,8 @@
 		line-height:@lineHeightMultiplier;
 	}
 }
-.set-viewports-vertical-padding(@hd-full:0em, @hd-ready:0em, @tablet-landscape:0em, @tablet-portrait:0em, @smartphone-landscape:0em, @smartphone-portrait:0em) {
+
+.setViewportsVerticalPadding(@hd-full:0em, @hd-ready:0em, @tablet-landscape:0em, @tablet-portrait:0em, @smartphone-landscape:0em, @smartphone-portrait:0em) {
 	// Media queries for selectors active from the smaller resolution to a specific one
 	@media @from-hd-full {
 		// Full HD
@@ -602,7 +601,8 @@
 		padding-bottom:@smartphone-portrait;
 	}
 }
-.set-viewports-top-padding(@hd-full:0em, @hd-ready:0em, @tablet-landscape:0em, @tablet-portrait:0em, @smartphone-landscape:0em, @smartphone-portrait:0em) {
+
+.setViewportsTopPadding(@hd-full:0em, @hd-ready:0em, @tablet-landscape:0em, @tablet-portrait:0em, @smartphone-landscape:0em, @smartphone-portrait:0em) {
 	// Media queries for selectors active from the smaller resolution to a specific one
 	@media @from-hd-full {
 		// Full HD
@@ -629,7 +629,8 @@
 		padding-top:@smartphone-portrait;
 	}
 }
-.set-viewports-bottom-padding(@hd-full:0em, @hd-ready:0em, @tablet-landscape:0em, @tablet-portrait:0em, @smartphone-landscape:0em, @smartphone-portrait:0em) {
+
+.setViewportsBottomPadding(@hd-full:0em, @hd-ready:0em, @tablet-landscape:0em, @tablet-portrait:0em, @smartphone-landscape:0em, @smartphone-portrait:0em) {
 	// Media queries for selectors active from the smaller resolution to a specific one
 	@media @from-hd-full {
 		// Full HD
@@ -656,7 +657,8 @@
 		padding-bottom:@smartphone-portrait;
 	}
 }
-.set-viewports-horizontal-padding(@hd-full:0em, @hd-ready:0em, @tablet-landscape:0em, @tablet-portrait:0em, @smartphone-landscape:0em, @smartphone-portrait:0em) {
+
+.setViewportsHorizontalPadding(@hd-full:0em, @hd-ready:0em, @tablet-landscape:0em, @tablet-portrait:0em, @smartphone-landscape:0em, @smartphone-portrait:0em) {
 	// Media queries for selectors active from the smaller resolution to a specific one
 	@media @from-hd-full {
 		// Full HD
@@ -690,31 +692,28 @@
 	}
 }
 
-
-
-// 
-.default-column-sets (@steps:12, @hdViewport:wide, @tabletViewport:tablet, @smartphoneViewport:smartphone) {
+.defaultColumnSets (@steps:12, @hdViewport:wide, @tabletViewport:tablet, @smartphoneViewport:smartphone) {
 	@media @from-smartphone-portrait {
 		// Smartphone portrait
-		.add-column-set(@hdViewport, @steps);
-		.add-column-set(@tabletViewport, @steps);
-		.add-column-set(@smartphoneViewport, @steps);
+		.addColumnSet(@hdViewport, @steps);
+		.addColumnSet(@tabletViewport, @steps);
+		.addColumnSet(@smartphoneViewport, @steps);
 	}
 	@media @from-tablet-portrait {
 		// Tablet portrait
-		.add-column-set(@smartphoneViewport, @steps);
-		.add-column-set(@hdViewport, @steps);
-		.add-column-set(@tabletViewport, @steps);
+		.addColumnSet(@smartphoneViewport, @steps);
+		.addColumnSet(@hdViewport, @steps);
+		.addColumnSet(@tabletViewport, @steps);
 	}
 	@media @from-hd-ready {
 		// HD Ready
-		.add-column-set(@smartphoneViewport, @steps);
-		.add-column-set(@tabletViewport, @steps);
-		.add-column-set(@hdViewport, @steps);
+		.addColumnSet(@smartphoneViewport, @steps);
+		.addColumnSet(@tabletViewport, @steps);
+		.addColumnSet(@hdViewport, @steps);
 	}
-	.apply-fill-to-column-set(@smartphoneViewport, @steps, "smartphone-landscape");
-	.apply-fill-to-column-set(@tabletViewport, @steps, "smartphone-landscape");
-	.apply-fill-to-column-set(@hdViewport, @steps, "smartphone-landscape");
+	.applyFillToColumnSet(@smartphoneViewport, @steps, "smartphone-landscape");
+	.applyFillToColumnSet(@tabletViewport, @steps, "smartphone-landscape");
+	.applyFillToColumnSet(@hdViewport, @steps, "smartphone-landscape");
 }
 
 

@@ -13,7 +13,6 @@ For more compatibility details:
 http://caniuse.com/
 */
 
-
 .transition(@transition:.3s ease-in-out initial) {
 	/*
 	classic css transition style
@@ -664,12 +663,56 @@ http://caniuse.com/
 	Values: none | both | horizontal | vertical
 	*/
 	resize: @resize;
+	overflow: auto;
 }.resize(@resize:none) when (@use-css-prefix = true) {
 	-webkit-resize: @resize;
 	-khtml-resize: @resize;
 	-moz-resize: @resize;
 	-ms-resize: @resize;
 	-o-resize: @resize;
+}
+
+.hyphens(@hyphens:none) {
+	/*
+	Sets how to split words to improve the layout of paragraphs
+	Url - http://www.w3schools.com/cssref/css3_pr_resize.asp
+	Values: none | both | horizontal | vertical
+	*/
+	hyphens: @hyphens;
+	word-wrap: break-word;
+}.hyphens(@hyphens:none) when (@use-css-prefix = true) {
+	-webkit-hyphens: @hyphens;
+	-khtml-hyphens: @hyphens;
+    -moz-hyphens: @hyphens;
+    -ms-hyphens: @hyphens;
+    -o-hyphens: @hyphens;
+}
+
+.image-resolution(@resolution:1dppx) {
+	/*
+	http://www.w3.org/TR/css3-images/#image-resolution
+	Values: from-image | snap | dpi
+	*/
+	image-resolution:@resolution;
+}.image-resolution(@resolution:1dppx) when (@use-css-prefix = true) {
+	-webkit-image-resolution: @resolution;
+	-khtml-image-resolution: @resolution;
+    -moz-image-resolution: @resolution;
+    -ms-image-resolution: @resolution;
+    -o-image-resolution: @resolution;
+}
+
+.marks(@marks:crop cross) {
+	/*
+	Values: crop | cross
+	*/
+	marks:@marks;
+}.marks(@marks:crop cross) when (@use-css-prefix = true) {
+	-webkit-marks: @marks;
+	-khtml-marks: @marks;
+    -moz-marks: @marks;
+    -ms-marks: @marks;
+    -o-marks: @marks;
 }
 
 .appearance(@appearence:normal) {
@@ -687,7 +730,7 @@ http://caniuse.com/
 }.appearance(@appearence:normal) when (@use-css-prefix = true) {
 	-webkit-appearance: @appearence;
 	-khtml-appearance: @appearence;
-	-moz-appearance: @appearence;
+	-moz-appearance: @appearence;	// For now is not working for form elements radio and checkbox
 	-ms-appearance: @appearence;
 	-o-appearance: @appearence;
 }
@@ -779,4 +822,20 @@ http://caniuse.com/
 	-moz-column-span: @span;
 	-ms-column-span: @span;
 	-o-column-span: @span;
+}
+
+.opacity(@opacity) {
+	opacity:@opacity;
+}.opacity(@opacity) when (@use-css-prefix = true) {
+	-khtml-opacity: @opacity;
+	-moz-opacity: @opacity;
+	@msOpacity:(@opacity * 100);
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=@{msOpacity})";
+	filter:~"alpha(opacity=@{msOpacity})";
+}
+
+.text-overflow(@overflow:ellipsis) {
+	text-overflow: @overflow;
+}.text-overflow(@overflow:ellipsis) when (@use-css-prefix = true) {
+	-ms-text-overflow: @overflow;
 }

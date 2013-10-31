@@ -87,7 +87,7 @@
 
 /* backgrounds */
 
-.vertical-gradient(@color:#cbcbcb, @strenght:5%) {
+.verticalGradient(@color:#cbcbcb, @strenght:5%) {
 	/*
 	Remember to put the ; after a list of comma separated params to group them:
 	.method(1,2,3;); => .method(@params) {...}
@@ -97,19 +97,18 @@
 	*/
 	.linear-gradient(top, saturate(lighten(@color,@strenght),(-@strenght/2)) 0%, saturate(darken(@color,@strenght),(@strenght/2))100%;);
 }
-.gloss-gradient(@top: rgb(200,200,200), @middle: rgb(100,100,100), @bottom: rgb(150,150,150)) {
+.glossGradient(@top: rgb(200,200,200), @middle: rgb(100,100,100), @bottom: rgb(150,150,150)) {
 	.linear-gradient(bottom, @top 0%, @middle 50%, @bottom 100%;);
 }
-.background-image(@backgroundImage) when (@use-rootpath = false) {
+.backgroundImage(@backgroundImage) when (@use-rootpath = false) {
 	background-image: url('@backgroundImage');
-}
-.background-image(@backgroundImage) when (@use-rootpath = true) {
+}.backgroundImage(@backgroundImage) when (@use-rootpath = true) {
 	background-image: url('@{rootpath}/@{backgroundImage}');
 }
 
-.background-responsive(@hdFullBackground, @hdReadyBackground, @tabletLandscapeBackground, @tabletPortraitBackground, @smartphoneLandscapeBackground, @smartphonePortraitBackground) {
+.backgroundResponsive(@hdFullBackground, @hdReadyBackground, @tabletLandscapeBackground, @tabletPortraitBackground, @smartphoneLandscapeBackground, @smartphonePortraitBackground) {
 	/*
-	.background-responsive(
+	.backgroundResponsive(
 		"path/hd-full/background.png",
 		"path/hd-ready/background.png",
 		"path/tablet-landscape/background.png",
@@ -118,86 +117,84 @@
 		"path/smartphone-portrait/background.png"
 	);
 	*/
-	.background-hd-full(@hdFullBackground);
-	.background-hd-ready(@hdReadyBackground);
-	.background-tablet-landscape(@tabletLandscapeBackground);
-	.background-tablet-portrait(@tabletPortraitBackground);
-	.background-smartphone-landscape(@smartphoneLandscapeBackground);
-	.background-smartphone-portrait(@smartphonePortraitBackground);
+	.backgroundHdFull(@hdFullBackground);
+	.backgroundHdReady(@hdReadyBackground);
+	.backgroundTabletLandscape(@tabletLandscapeBackground);
+	.backgroundTabletPortrait(@tabletPortraitBackground);
+	.backgroundSmartphoneLandscape(@smartphoneLandscapeBackground);
+	.backgroundSmartphonePortrait(@smartphonePortraitBackground);
 }
-.background-hd-full(@hdFullBackground) {
+.backgroundHdFull(@hdFullBackground) {
 	@media @from-hd-full {
 		// Full HD
-		.background-image(@hdFullBackground);
+		.backgroundImage(@hdFullBackground);
 	}
 }
-.background-hd-ready(@hdReadyBackground) {
+.backgroundHdReady(@hdReadyBackground) {
 	@media @from-hd-ready {
 		// HD Ready
-		.background-image(@hdReadyBackground);
+		.backgroundImage(@hdReadyBackground);
 	}
 }
-.background-tablet-landscape(@tabletLandscapeBackground) {
+.backgroundTabletLandscape(@tabletLandscapeBackground) {
 	@media @from-tablet-landscape {
 		// Tablet landscape
-		.background-image(@tabletLandscapeBackground);
+		.backgroundImage(@tabletLandscapeBackground);
 	}
 }
-.background-tablet-portrait(@tabletPortraitBackground) {
+.backgroundTabletPortrait(@tabletPortraitBackground) {
 	@media @from-tablet-portrait {
 		// Tablet portrait
-		.background-image(@tabletPortraitBackground);
+		.backgroundImage(@tabletPortraitBackground);
 	}
 }
-.background-smartphone-landscape(@smartphoneLandscapeBackground) {
+.backgroundSmartphoneLandscape(@smartphoneLandscapeBackground) {
 	@media @from-smartphone-landscape {
 		// Smartphone landscape
-		.background-image(@smartphoneLandscapeBackground);
+		.backgroundImage(@smartphoneLandscapeBackground);
 	}
 }
-.background-smartphone-portrait(@smartphonePortraitBackground) {
+.backgroundSmartphonePortrait(@smartphonePortraitBackground) {
 	@media @from-smartphone-portrait {
 		// Smartphone portrait
-		.background-image(@smartphonePortraitBackground);
+		.backgroundImage(@smartphonePortraitBackground);
 	}
 }
-.sprite(@image, @width, @height, @backgroudSize:auto) {
-	.background-image(@image);
+.sprite(@image, @width, @height:@width, @backgroudSize:auto) {
+	.backgroundImage(@image);
 	background-repeat:no-repeat;
 	background-size:@backgroudSize;
-	width:@width;
-	height:@height;
+	.size(@width, @height);
 	.wrap;
 }
-.sprite-position(@horizontalPosition:0, @verticalPosition:0, @width:0px, @height:@width) {
+.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0px, @height:@width) {
 	background-position: unit(-(@horizontalPosition*@width),px) unit(-(@verticalPosition*@height),px);
 }
-.sprite-coordinates(@positionX:0px, @positionY:0px) {
+.spriteCoordinates(@positionX:0px, @positionY:0px) {
 	background-position: -@positionX -@positionY;
 }
-
-.hide-text-overflow(@overflow:ellipsis) {
-	text-overflow: @overflow;
+.cropText(@overflow:ellipsis, @whiteSpace:nowrap) {
 	overflow: hidden;
+	white-space: @whiteSpace;
+	.text-overflow(@overflow);
 }
-
-.disable-outline() {
-	&::-moz-focus-inner {
-  		border: 0;
-	}
+.disableOutline() {
 	outline:0;
 	outline:none;
+}.disableOutline() when (@use-css-prefix = true) {
+	&::-moz-focus-inner {
+		border: 0;
+	}
 }
-
-.default-element() {
-	.appearance(button);
+.defaultElement() {
+	.appearance(none);
 	outline:0;
 	display: inline-block;
 	border: none;
 	background-color: transparent;
 }
 
-.round-top(@radius:6px) {
+.roundTop(@radius:6px) {
 	// sets the top radius of the element
 	/*
 	Default usage
@@ -205,7 +202,7 @@
 	*/
 	.border-radius(@radius @radius 0px 0px);
 }
-.round-bottom(@radius:6px) {
+.roundBottom(@radius:6px) {
 	// sets the bottom radius of the element
 	/*
 	Default usage
@@ -213,7 +210,7 @@
 	*/
 	.border-radius(0px 0px @radius @radius);
 }
-.round-left(@radius:6px) {
+.roundLeft(@radius:6px) {
 	// sets the left radius of the element
 	/*
 	Default usage
@@ -221,7 +218,7 @@
 	*/
 	.border-radius(@radius 0px 0px @radius);
 }
-.round-right(@radius:6px) {
+.roundRight(@radius:6px) {
 	// sets the right radius of the element
 	/*
 	Default usage
@@ -229,8 +226,7 @@
 	*/
 	.border-radius(0px @radius @radius 0px);
 }
-
-.arrow-left(@size:1em, @color:#FFFFFF, @top:0px, @right:0px) {
+.arrowLeft(@size:1em, @color:#FFFFFF, @top:0px, @right:0px) {
 	position: relative;
 	font-size: 0;
 	line-height: 0;
@@ -242,23 +238,58 @@
 	top: @top;
 }
 
-.as-table(@cellPadding:@global-padding, @verticalAlign:middle, @tableWidth:100%) {
+.asTable(@cellPadding:@global-padding, @verticalAlign:middle, @tableWidth:100%) {
 	display: table;
 	width: @tableWidth;
 	> * {
-		.as-table-row(@cellPadding, @verticalAlign);
+		.asTableRow(@cellPadding, @verticalAlign);
 	}
 }
 
-.as-table-row(@cellPadding:@global-padding, @verticalAlign:middle) {
+.asTableRow(@cellPadding:@global-padding, @verticalAlign:middle) {
 	display: table-row;
 	> * {
-		.as-table-cell(@cellPadding, @verticalAlign);
+		.asTableCell(@cellPadding, @verticalAlign);
 	}
 }
 
-.as-table-cell(@cellPadding:@global-padding, @verticalAlign:middle) {
+.asTableCell(@cellPadding:@global-padding, @verticalAlign:middle) {
 	display: table-cell;
 	padding: @cellPadding;
 	vertical-align: @verticalAlign;
+}
+
+.moveTop(@top:0px, @position:relative) {
+	position: @position;
+	top:@top;
+}
+
+.moveBottom(@bottom:0px, @position:relative) {
+	position: @position;
+	bottom:@bottom;
+}
+
+.moveLeft(@left:0px, @position:relative) {
+	position: @position;
+	left:@left;
+}
+
+.moveRight(@right:0px, @position:relative) {
+	position: @position;
+	right:@right;
+}
+
+.size(@width, @height:@width) {
+	width: @width;
+	height: @height;
+}
+
+.textOverflow(@textOverflow:ellipsis, @whiteSpace:nowrap) {
+	overflow: hidden;
+	text-overflow: @textOverflow;
+	white-space: @whiteSpace;
+}
+
+.outlineBoxShadow(@outlineOpacity:0.2, @boxShadow:0px 0px 0px transparent) {
+	.box-shadow(0px 0px 1px rgba(0,0,0,@outlineOpacity), @boxShadow;);
 }

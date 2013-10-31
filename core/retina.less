@@ -7,21 +7,40 @@
 ========================================================================================================================================================================
 */
 
-.background-retina(@defaultImage, @retinaImage, @backgroundSize:auto) {
+.backgroundRetina(@defaultImage, @retinaImage, @backgroundSize:auto) {
 	/*
 	@background-size: auto | px | % |  cover | contain
 	.background-retina("path/image-low-res.png", "path/image-high-res.png");
 	*/
-	.background-image(@defaultImage);
+	.backgroundImage(@defaultImage);
 	background-size:@backgroundSize;
 	@media @display-retina {
-		.background-image(@retinaImage);
+		.backgroundImage(@retinaImage);
 	}
 }
-.sprite-retina(@defaultImage, @retinaImage, @width, @height) {
 
+.backgroundIconRetina(@defaultImage, @retinaImage, @width, @height:@width) {
+	.backgroundImage(@defaultImage);
+	background-size:@width @height;
+	background-repeat: no-repeat;
+	@media @display-retina {
+		background-size: 200%;
+		.backgroundImage(@retinaImage);
+	}
+}
+
+.iconRetina(@defaultImage, @retinaImage, @width, @height:@width) {
+	.backgroundImage(@defaultImage);
+	.size(@width, @height);
+	background-size:@width @height;
+	@media @display-retina {
+		background-size: 200%;
+		.backgroundImage(@retinaImage);
+	}
+}
+
+.spriteRetina(@defaultImage, @retinaImage, @width, @height:@width) {
 	.sprite(@defaultImage, @width, @height);
-
 	@media @display-retina {
 		.sprite(@retinaImage, @width, @height, @width @height);
 	}
