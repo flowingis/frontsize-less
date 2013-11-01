@@ -19,30 +19,24 @@
 	}
 }
 
+.iconRetina(@defaultImage, @retinaImage, @width, @height:@width) {
+	.size(@width, @height);
+	.backgroundIconRetina(@defaultImage, @retinaImage, @width, @height);
+}
+
 .backgroundIconRetina(@defaultImage, @retinaImage, @width, @height:@width) {
 	.backgroundImage(@defaultImage);
 	background-size:@width @height;
 	background-repeat: no-repeat;
 	@media @display-retina {
-		background-size: 200%;
 		.backgroundImage(@retinaImage);
 	}
 }
 
-.iconRetina(@defaultImage, @retinaImage, @width, @height:@width) {
-	.backgroundImage(@defaultImage);
-	.size(@width, @height);
-	background-size:@width @height;
-	@media @display-retina {
-		background-size: 200%;
-		.backgroundImage(@retinaImage);
-	}
-}
-
-.spriteRetina(@defaultImage, @retinaImage, @width, @height:@width) {
+.spriteRetina(@defaultImage, @retinaImage, @width, @height:@width, @imageWidth, @imageHeight) {
 	.sprite(@defaultImage, @width, @height);
 	@media @display-retina {
-		.sprite(@retinaImage, @width, @height, @width @height);
+		.sprite(@retinaImage, @width, @height, @imageWidth @imageHeight);
 	}
 }
 
