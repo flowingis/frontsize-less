@@ -15,7 +15,7 @@ Url - http://html5doctor.com/element-index/
 .base-p();
 .base-blockquote(4px solid lighten(@font-default-color, 20%), lighten(@font-default-color, 45%), @global-padding, italic, '«', '»');
 .base-code(0 0.25em, rgba(0,0,0,.075));
-.base-abbr(@textGreyLight);
+.base-abbr(#FCFCFC);
 .base-kbd(@font-monospace);
 .base-samp(@font-monospace);
 .base-small(@font-small-size);
@@ -73,7 +73,7 @@ Url - http://html5doctor.com/element-index/
 		text-shadow:1px 1px 0px rgba(255,255,255,.61);
 		font-family: @font-default;
 		
-		background-color: desaturate(@backgroundGreyDark,10%);
+		background-color: #FCFCFC;
 		
 		.font-smoothing(); // if you want to enable font smoothing (will be applied to webkit only)
 	}
@@ -442,7 +442,10 @@ Url - http://html5doctor.com/element-index/
 		@size:24px;
 		.size(@size);
 		.moveTop((@size / 4));
-		.spriteRetina("input-radio-1x.png", "input-radio-2x.png", @size);
+
+		@imageWidth:(@size * 2);
+		@imageHeight:@size;
+		.spriteRetina("input-radio-1x.png", "input-radio-2x.png", @size, @size, @imageWidth, @imageHeight);
 
 		&:checked {
 			.spritePosition(1, 0, @size);
@@ -460,7 +463,10 @@ Url - http://html5doctor.com/element-index/
 		@size:32px;
 		.size(@size);
 		.moveTop((@size / 4));
-		.spriteRetina("input-checkbox-1x.png", "input-checkbox-2x.png", @size);
+
+		@imageWidth:(@size * 2);
+		@imageHeight:@size;
+		.spriteRetina("input-checkbox-1x.png", "input-checkbox-2x.png", @size, @size, @imageWidth, @imageHeight);
 
 		&:checked {
 			.spritePosition(1, 0, @size);

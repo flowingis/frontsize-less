@@ -54,13 +54,6 @@
 @status-disabled-opacity: 0.5;
 @status-table-padding: 0.5em;
 
-// not used yet
-@status-default:black;
-@status-info:blue;
-@status-success:green;
-@status-warning:orange;
-@status-error:red;
-
 /*
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
@@ -148,17 +141,7 @@ background-image: url("/img/background.png");
 // comment what you don't need to gain weight for your CSS file.
 //.responsive-rule(selector-name, @hd-full-columns, @hd-ready-columns, @tablet-landscape-columns, @tablet-portrait-columns, @smartphone-landscape-columns, @smartphone-portrait-columns);
 .addContainerRow(row);
-.addContainerRow(contain-2-columns, 2,2,2,1,1,1);
-.addContainerRow(contain-3-columns, 3,3,3,2,1,1);
-.addContainerRow(contain-4-columns, 4,4,2,2,1,1);
 
 // set the margins
-.defaultColumnSets(10);
 .defaultColumnSets(12);
 .addViewportsSteps(use-steps, 500px, 100px, 50px, 0px);
-
-// used for the nav top spacing, set it after global-steps-padding
-.addPaddingRule(nav-spacer-padding, 6em 0 2em 0, 6em 0 1em 0, 6em 0 1em 0, 0, 0);
-
-
-
