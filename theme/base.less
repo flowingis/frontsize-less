@@ -15,7 +15,7 @@ Url - http://html5doctor.com/element-index/
 .base-p();
 .base-blockquote(4px solid lighten(@font-default-color, 20%), lighten(@font-default-color, 45%), @global-padding, italic, '«', '»');
 .base-code(0 0.25em, rgba(0,0,0,.075));
-.base-abbr(#FCFCFC);
+.base-abbr(@textGreyLight);
 .base-kbd(@font-monospace);
 .base-samp(@font-monospace);
 .base-small(@font-small-size);
@@ -28,18 +28,19 @@ Url - http://html5doctor.com/element-index/
 .base-img();
 
 .base-form(1em 0 0 0);
-.base-submit();
-.base-input-text();
-.base-input-range();
-.base-input-radio();
-.base-input-checkbox();
-.base-textarea(100px, 300px, vertical);
-.base-label();
-.base-select();
-.base-datalist();
-.base-output();
-.base-fieldset();
-.base-legend();
+.base-form-submit();
+.base-form-text();
+.base-form-range();
+.base-form-radio();
+.base-form-checkbox();
+.base-form-textarea(100px, 300px, vertical);
+.base-form-label();
+.base-form-file();
+.base-form-select();
+.base-form-datalist();
+.base-form-output();
+.base-form-fieldset();
+.base-form-legend();
 
 .base-h(black, @font-heading, bold);
 .base-table(middle, separate);
@@ -73,7 +74,7 @@ Url - http://html5doctor.com/element-index/
 		text-shadow:1px 1px 0px rgba(255,255,255,.61);
 		font-family: @font-default;
 		
-		background-color: #FCFCFC;
+		background-color: desaturate(@backgroundGreyDark,10%);
 		
 		.font-smoothing(); // if you want to enable font smoothing (will be applied to webkit only)
 	}
@@ -397,7 +398,7 @@ Url - http://html5doctor.com/element-index/
 	}
 }
 
-.base-input-text(@color:@font-default-color, @border:1px solid rgba(0,0,0,.2), @borderFocused:1px solid rgba(0,0,0,0.3), @backgroundColor:rgba(0,0,0,.05), @backgroundColorFocused:white, @padding:0.5em, @placeholderColor:@color) {
+.base-form-text(@color:@font-default-color, @border:1px solid rgba(0,0,0,.2), @borderFocused:1px solid rgba(0,0,0,0.3), @backgroundColor:rgba(0,0,0,.05), @backgroundColorFocused:white, @padding:0.5em, @placeholderColor:@color) {
 	textarea,
 	input[type="text"],
 	input[type="email"],
@@ -425,13 +426,20 @@ Url - http://html5doctor.com/element-index/
 	}
 }
 
-.base-input-range() {
+.base-form-file(@backgroundColor:rgba(0,0,0,.05)) {
+	input[type="file"] {
+		.defaultElement();
+		.button-dark-metal();
+	}
+}
+
+.base-form-range() {
 	input[type="range"] {
 		
 	}
 }
 
-.base-input-radio(@checkedBackgroundColor:white, @checkedBorderColor:lighten(@font-default-color, 15%), @backgroundColor:@font-default-color, @borderColor:white) {
+.base-form-radio(@checkedBackgroundColor:white, @checkedBorderColor:lighten(@font-default-color, 15%), @backgroundColor:@font-default-color, @borderColor:white) {
 	input[type="radio"] {
 		.user-select(none);
 		cursor: pointer;
@@ -452,7 +460,7 @@ Url - http://html5doctor.com/element-index/
 		}
 	}
 }
-.base-input-checkbox(@checkedBackgroundColor:white, @checkedBorderColor:lighten(@font-default-color, 15%), @backgroundColor:@font-default-color, @borderColor:white) {
+.base-form-checkbox(@checkedBackgroundColor:white, @checkedBorderColor:lighten(@font-default-color, 15%), @backgroundColor:@font-default-color, @borderColor:white) {
 	input[type="checkbox"] {
 		.user-select(none);
 		cursor: pointer;
@@ -625,7 +633,7 @@ Url - http://html5doctor.com/element-index/
 	}
 }
 
-.base-textarea(@minHeight:100px, @maxHeight:300px, @resize:vertical) {
+.base-form-textarea(@minHeight:100px, @maxHeight:300px, @resize:vertical) {
 	textarea {
 		/*
 		The textarea element represents a multiline plain text edit control for the element's raw value.
@@ -653,7 +661,7 @@ Url - http://html5doctor.com/element-index/
 	}
 }
 
-.base-label() {
+.base-form-label() {
 
 	label {
 		/*
@@ -679,14 +687,14 @@ Url - http://html5doctor.com/element-index/
 
 
 
-.base-output() {
+.base-form-output() {
 	output {
 		// Url - http://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_output
 
 	}
 }
 
-.base-datalist(@color:@font-default-color, @backgroundColorOdd:rgb(230,230,230), @backgroundColorEven:white, @backgroundColorHoverOdd:rgb(240,240,240), @backgroundColorHoverEven:@backgroundColorHoverOdd) {
+.base-form-datalist(@color:@font-default-color, @backgroundColorOdd:rgb(230,230,230), @backgroundColorEven:white, @backgroundColorHoverOdd:rgb(240,240,240), @backgroundColorHoverEven:@backgroundColorHoverOdd) {
 	datalist *,
 	select option {
 		// Url - http://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_datalist
@@ -709,7 +717,7 @@ Url - http://html5doctor.com/element-index/
 
 
 
-.base-select(@backgroundColor:@font-default-color) {
+.base-form-select(@backgroundColor:@font-default-color) {
 	select,
 	keygen {
 		/*
@@ -753,7 +761,7 @@ Url - http://html5doctor.com/element-index/
 	}
 }
 
-.base-fieldset(@backgroundColor:desaturate(lighten(@font-default-color, 45%), 2%)) {
+.base-form-fieldset(@backgroundColor:desaturate(lighten(@font-default-color, 45%), 2%)) {
 	fieldset {
 		/*
 		The fieldset element is expected to establish a new block formatting context.
@@ -791,7 +799,7 @@ Url - http://html5doctor.com/element-index/
 	}
 }
 
-.base-legend(@backgroundColor:desaturate(lighten(@font-default-color, 45%), 2%)) {
+.base-form-legend(@backgroundColor:desaturate(lighten(@font-default-color, 45%), 2%)) {
 	legend {
 		/*
 		The legend element represents a caption for the rest of the contents of the legend element's parent fieldset element, if any.
@@ -826,7 +834,7 @@ Url - http://html5doctor.com/element-index/
 	}
 }
 
-.base-submit() {
+.base-form-submit() {
 	button,
 	input[type="reset"],
 	input[type="button"],
