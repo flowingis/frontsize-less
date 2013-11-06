@@ -178,6 +178,7 @@
 	white-space: @whiteSpace;
 	.text-overflow(@overflow);
 }
+
 .disableOutline() {
 	outline:0;
 	outline:none;
@@ -226,17 +227,7 @@
 	*/
 	.border-radius(0px @radius @radius 0px);
 }
-.arrowLeft(@size:1em, @color:#FFFFFF, @top:0px, @right:0px) {
-	position: relative;
-	font-size: 0;
-	line-height: 0;
-	width: 0px;
-	border-top: @size solid transparent;
-	border-right: @size solid @color;
-	border-bottom: @size solid transparent;
-	right: @right;
-	top: @top;
-}
+
 
 .asTable(@cellPadding:@global-padding, @verticalAlign:middle, @tableWidth:100%) {
 	display: table;
@@ -284,10 +275,16 @@
 	height: @height;
 }
 
-.textOverflow(@textOverflow:ellipsis, @whiteSpace:nowrap) {
-	overflow: hidden;
-	text-overflow: @textOverflow;
-	white-space: @whiteSpace;
+.arrowLeft(@size:1em, @color:#FFFFFF, @top:0px, @right:0px) {
+	position: relative;
+	font-size: 0;
+	line-height: 0;
+	width: 0px;
+	border-top: @size solid transparent;
+	border-right: @size solid @color;
+	border-bottom: @size solid transparent;
+	right: @right;
+	top: @top;
 }
 
 .outlineBoxShadow(@outlineOpacity:0.2, @boxShadow:0px 0px 0px transparent) {
