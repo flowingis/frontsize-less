@@ -1,4 +1,6 @@
 frontsize
 =========
 
-A frontend framework
+A frontend framework.
+
+Documentation **in progress**, will be available soon...
