@@ -91,9 +91,7 @@ Website:	http://vittoriovittori.com
 		}
 	}
 	.loopColumnSetFill(@total, @fill, @index - 1);
-}
-
-.loopColumnSetFill(@total, @fill, @index) when (@fill = "tablet-portrait") and (@index > 0) {
+}.loopColumnSetFill(@total, @fill, @index) when (@fill = "tablet-portrait") and (@index > 0) {
 	@media @till-tablet-landscape {
 		// Tablet portrait
 		.@{name}-@{index}-of-@{total} {
@@ -101,9 +99,7 @@ Website:	http://vittoriovittori.com
 		}
 	}
 	.loopColumnSetFill(@total, @fill, @index - 1);
-}
-
-.loopColumnSetFill(@total, @fill, @index) when (@fill = "smartphone-landscape") and (@index > 0) {
+}.loopColumnSetFill(@total, @fill, @index) when (@fill = "smartphone-landscape") and (@index > 0) {
 	//@media @till-tablet-portrait {
 	@media only screen and (max-width: 767px) {
 		// Smartphone landscape
@@ -112,9 +108,7 @@ Website:	http://vittoriovittori.com
 		}
 	}
 	.loopColumnSetFill(@total, @fill, @index - 1);
-}
-
-.loopColumnSetFill(@total, @fill, @index) when (@fill = "smartphone-portrait") and (@index > 0) {
+}.loopColumnSetFill(@total, @fill, @index) when (@fill = "smartphone-portrait") and (@index > 0) {
 	@media @till-smartphone-landscape {
 		// Smartphone portrait
 		.@{name}-@{index}-of-@{total} {
