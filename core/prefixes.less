@@ -13,7 +13,7 @@ For more compatibility details:
 http://caniuse.com/
 */
 
-.transition(@transition:.3s ease-in-out initial) {
+.transition(@transition:0.3s ease-in-out initial) {
 	/*
 	classic css transition style
 	.transition(width .4s ease-in-out);
@@ -21,7 +21,7 @@ http://caniuse.com/
 	.transition(border-color .4s ease-in-out .2s);
 	*/
 	transition: @transition;
-}.transition(@transition) when (@use-css-prefix = true) {
+}.transition(@transition:0.3s ease-in-out initial) when (@use-css-prefix = true) {
 	-webkit-transition: @transition;
 	-khtml-transition: @transition;
 	-moz-transition: @transition;
@@ -29,9 +29,9 @@ http://caniuse.com/
 	-o-transition: @transition;
 }
 
-.transition-delay(@delay:.5s) {
+.transition-delay(@delay:0.5s) {
 	transition-delay: @delay;
-}.transition-delay(@delay) when (@use-css-prefix = true) {
+}.transition-delay(@delay:0.5s) when (@use-css-prefix = true) {
 	-webkit-transition: @delay;
 	-khtml-transition: @delay;
 	-moz-transition: @delay;
@@ -39,9 +39,9 @@ http://caniuse.com/
 	-o-transition: @delay;
 }
 
-.transition-duration(@duration:.5s) {
+.transition-duration(@duration:0.5s) {
 	transition-duration: @duration;
-}.transition-duration(@duration:.5s) when (@use-css-prefix = true) {
+}.transition-duration(@duration:0.5s) when (@use-css-prefix = true) {
 	-webkit-transition-duration: @duration;
 	-khtml-transition-duration: @duration;
 	-moz-transition-duration: @duration;
@@ -76,7 +76,7 @@ http://caniuse.com/
 	-o-transition-timing-function: @easing;
 }
 
-.global-placeholder(@color:#999999, @focused:#CCCCCC) {
+.globalPlaceholder(@color:#999999, @focused:#CCCCCC) {
 	// sets the color of the input text placeholder attribute
 	:input-placeholder {
 		color: @color;
@@ -84,7 +84,7 @@ http://caniuse.com/
 	input:focus:input-placeholder {
 		color: @focused;
 	}
-}.global-placeholder(@color, @focused) when (@use-css-prefix = true) {
+}.globalPlaceholder(@color, @focused) when (@use-css-prefix = true) {
 	::-webkit-input-placeholder {
 		color: @color;
 	}
@@ -166,7 +166,7 @@ http://caniuse.com/
 	}
 }
 
-.global-selection(@text-color:inherit, @background-color:inherit) {
+.globalSelection(@text-color:inherit, @background-color:inherit) {
 	// Sets the color of the text selection area  and the color of the text selected
 	::selection {
 		background: @background-color; color: @text-color;
@@ -174,7 +174,7 @@ http://caniuse.com/
 	img::selection {
 		background: transparent;
 	}
-}.global-selection(@text-color, @background-color) when (@use-css-prefix = true) {
+}.globalSelection(@text-color, @background-color) when (@use-css-prefix = true) {
 	::-moz-selection {
 		background: @background-color;
 		color: @text-color;
@@ -259,11 +259,13 @@ http://caniuse.com/
 .column-span(@span:1) {
 	/*
 	Url - http://www.w3schools.com/cssref/css3_pr_column-span.asp
-	*/
 	// The column-span property specifies how many columns an element should span across.
-	// 1 | all
+	The CSS column-span property allows content to span across multiple columns on a multi-column layout.
+	This can be useful if you have a heading or other element within the multicol layout that needs to span across all columns.
+	Values: 1 | none | all;
+	*/
 	column-span: @span;
-}.column-span(@span:1) when (@use-css-prefix = true) {
+}.column-span(@span:none) when (@use-css-prefix = true) {
 	-webkit-column-span: @span;
 	-khtml-column-span: @span;
 	-moz-column-span: @span;
@@ -343,9 +345,9 @@ http://caniuse.com/
 	-ms-border-image: @params;
 	-o-border-image: @params;
 }
-.display-box() {
+.displayBox() {
 	display:box;
-}.display-box() when (@use-css-prefix = true) {
+}.displayBox() when (@use-css-prefix = true) {
 	display:-webkit-box;
 	display:-ms-flexbox;
 	display:-khtml-box;
@@ -475,7 +477,7 @@ http://caniuse.com/
 	
 	Notice: The container element must have display property set to box as in the example above
 	.container {
-		.display-box();
+		.displayBox();
 		.children-1 {
 			.box-ordinal-group(2);
 		}
@@ -515,12 +517,9 @@ http://caniuse.com/
 	// sets the shadow of the element
 	/*
 	Default usage
-	.shadow(x y blur [expand] color [inset]);
-	.shadow(1px 2px 4px rgba(0,0,0,.3));
-	
-	For complex shadows pass a less @var
-	@var: 0px 2px 4px -1px rgba(0,0,0,.3), inset 0px 1px 4px rgba(255,255,255,.5);
-	.shadow(@var);
+	.box-shadow(x y blur [expand] color [inset]);
+	.box-shadow(1px 2px 4px rgba(0,0,0,.3));
+	.box-shadow(0px 2px 4px -1px rgba(0,0,0,.3), inset 0px 1px 4px rgba(255,255,255,.5););
 	*/
 	box-shadow: @params;
 }.box-shadow(@params) when (@use-css-prefix = true) {
@@ -683,9 +682,9 @@ http://caniuse.com/
 }.hyphens(@hyphens:none) when (@use-css-prefix = true) {
 	-webkit-hyphens: @hyphens;
 	-khtml-hyphens: @hyphens;
-    -moz-hyphens: @hyphens;
-    -ms-hyphens: @hyphens;
-    -o-hyphens: @hyphens;
+	-moz-hyphens: @hyphens;
+	-ms-hyphens: @hyphens;
+	-o-hyphens: @hyphens;
 }
 
 .image-resolution(@resolution:1dppx) {
@@ -697,22 +696,24 @@ http://caniuse.com/
 }.image-resolution(@resolution:1dppx) when (@use-css-prefix = true) {
 	-webkit-image-resolution: @resolution;
 	-khtml-image-resolution: @resolution;
-    -moz-image-resolution: @resolution;
-    -ms-image-resolution: @resolution;
-    -o-image-resolution: @resolution;
+	-moz-image-resolution: @resolution;
+	-ms-image-resolution: @resolution;
+	-o-image-resolution: @resolution;
 }
 
-.marks(@marks:crop cross) {
+.marks(@marks:none) {
 	/*
-	Values: crop | cross
+	This property specifies what sort of marks should be rendered just outside the rendered page box.
+	The characteristics and position of the marks will be browser dependent.
+	Values: inherit | none | crop | cross | crop cross
 	*/
 	marks:@marks;
-}.marks(@marks:crop cross) when (@use-css-prefix = true) {
+}.marks(@marks:none) when (@use-css-prefix = true) {
 	-webkit-marks: @marks;
 	-khtml-marks: @marks;
-    -moz-marks: @marks;
-    -ms-marks: @marks;
-    -o-marks: @marks;
+	-moz-marks: @marks;
+	-ms-marks: @marks;
+	-o-marks: @marks;
 }
 
 .appearance(@appearence:normal) {
@@ -809,24 +810,9 @@ http://caniuse.com/
 	user-select: none;
 }
 
-.column-span(@span:none) {
-	/*
-	The CSS column-span property allows content to span across multiple columns on a multi-column layout.
-	This can be useful if you have a heading or other element within the multicol layout that needs to span across all columns.
-	Values: none | all;
-	*/
-	column-span: @span;
-}.column-span(@span:none) when (@use-css-prefix = true) {
-	-webkit-column-span: @span;
-	-khtml-column-span: @span;
-	-moz-column-span: @span;
-	-ms-column-span: @span;
-	-o-column-span: @span;
-}
-
-.opacity(@opacity) {
+.opacity(@opacity:1) {
 	opacity:@opacity;
-}.opacity(@opacity) when (@use-css-prefix = true) {
+}.opacity(@opacity:1) when (@use-css-prefix = true) {
 	-khtml-opacity: @opacity;
 	-moz-opacity: @opacity;
 	@msOpacity:(@opacity * 100);
