@@ -546,9 +546,6 @@ http://caniuse.com/
 }
 
 // Url - http://www.w3schools.com/cssref/css3_pr_transform.asp
-.skew(@degrees:0deg) {
-	.transform(skew(@degrees));
-}
 .matrix(@matrix6:0,0,0,0,0,0;) {
 	.transform(matrix(@matrix6));
 }
@@ -598,13 +595,13 @@ http://caniuse.com/
 	// x, y, z, angle
 	.transform(rotate3d(@rotation));
 }
-.skew(@angles:0,0) {
+.skew(@angles:0deg,0deg) {
 	.transform(skew(@angles));
 }
-.skewX(@angle:0) {
+.skewX(@angle:0deg) {
 	.transform(skewX(@angle));
 }
-.skewY(@angle:0) {
+.skewY(@angle:0deg) {
 	.transform(skewY(@angle));
 }
 .perspective(@perspective:0) {
