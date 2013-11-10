@@ -80,6 +80,7 @@ Url - http://html5doctor.com/element-index/
 	}
 }
 
+
 .base-a(@color:@font-default-color, @userSelect:none) {
 	/*
 	If the a element has an href attribute, then it represents a hyperlink (a hypertext anchor).
@@ -132,7 +133,7 @@ Url - http://html5doctor.com/element-index/
 	h6 {
 		font-family: @fontFamily;
 		font-weight: @fontWeight;
-		color: @color;		
+		color: @color;
 		line-height: @lineHeight;
 		margin: @margin;
 		.user-select();
@@ -627,7 +628,7 @@ Url - http://html5doctor.com/element-index/
 		*/
 		td {
 			text-align: @textAlign;
-			color:@color;
+			color: @color;
 		}
 		
 	}
@@ -743,7 +744,7 @@ Url - http://html5doctor.com/element-index/
 
 		color: @font-default-color;
 		font-weight: normal;
-		.textOverflow();
+		//.cropText();
 
 		border: 2px solid @backgroundColor;
 		background-color: desaturate(lighten(@backgroundColor, 45%), 2%);
@@ -827,7 +828,6 @@ Url - http://html5doctor.com/element-index/
 		@round: 20px;
 		font-weight: bold;
 		background-color: @backgroundColor;
-		//border: @border;
 		padding:(@vertical-padding / 1.5) @horizontal-padding;
 		margin-left: -(@horizontal-padding);
 		.border-radius(@round @round 0px 0px);
@@ -865,4 +865,3 @@ Url - http://html5doctor.com/element-index/
 		-ms-interpolation-mode: bicubic;
 	}
 }
-
