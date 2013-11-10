@@ -100,10 +100,10 @@
 .glossGradient(@top: rgb(200,200,200), @middle: rgb(100,100,100), @bottom: rgb(150,150,150)) {
 	.linear-gradient(bottom, @top 0%, @middle 50%, @bottom 100%;);
 }
-.backgroundImage(@backgroundImage) when (@use-rootpath = false) {
-	background-image: url('@backgroundImage');
-}.backgroundImage(@backgroundImage) when (@use-rootpath = true) {
-	background-image: url('@{rootpath}/@{backgroundImage}');
+.backgroundImage(@backgroundImage, @path:'') when (@use-rootpath = false) {
+	background-image: url('@{path}@{backgroundImage}');
+}.backgroundImage(@backgroundImage, @path:@rootpath) when (@use-rootpath = true) {
+	background-image: url('@{path}/@{backgroundImage}');
 }
 
 .backgroundResponsive(@hdFullBackground, @hdReadyBackground, @tabletLandscapeBackground, @tabletPortraitBackground, @smartphoneLandscapeBackground, @smartphonePortraitBackground) {
@@ -270,7 +270,7 @@
 	right:@right;
 }
 
-.size(@width, @height:@width) {
+.size(@width:16px, @height:@width) {
 	width: @width;
 	height: @height;
 }
