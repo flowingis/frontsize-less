@@ -9,9 +9,9 @@
 ========================================================================================================================================================================
 
 Frontsize - http://frontsize.com
-License:	Apache License v2.0
-Version:	1.1
-Date:		2013-06-08
+License:	MIT Licence
+Version:	1.0
+Date:		2014-01-01
 Author:		Vittorio Vittori
 Website:	http://vittoriovittori.com
 */
@@ -19,7 +19,6 @@ Website:	http://vittoriovittori.com
 /*
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
-==               GLOBAL              ===================================================================================================================================
 ==             RESPONSIVE            ===================================================================================================================================
 ==                VARS               ===================================================================================================================================
 ==                                   ===================================================================================================================================
@@ -33,26 +32,36 @@ Website:	http://vittoriovittori.com
 @to-smartphone-landscape-step: (@smartphone-landscape-step - 1px);
 @to-smartphone-portrait-step:  (@smartphone-portrait-step - 1px);
 
-@only-smartphone-portrait:  ~"only screen and (min-width: 1px) and (max-width : @{to-smartphone-landscape-step})";
-@only-smartphone-landscape: ~"only screen and (min-width: @{smartphone-landscape-step}) and (max-width : @{to-tablet-portrait-step})";
-@only-tablet-portrait:      ~"only screen and (min-width: @{tablet-portrait-step}) and (max-width : @{to-tablet-landscape-step}), only print";
-@only-tablet-landscape:     ~"only screen and (min-width: @{tablet-landscape-step}) and (max-width : @{to-hd-ready-step})";
-@only-hd-ready:             ~"only screen and (min-width: @{hd-ready-step}) and (max-width : @{to-hd-full-step})";
-@only-hd-full:              ~"only screen and (min-width: @{hd-full-step})";
+/*
+========================================================================================================================================================================
+==                                   ===================================================================================================================================
+==               GLOBAL              ===================================================================================================================================
+==             RESPONSIVE            ===================================================================================================================================
+==           VIEWPORTS VARS          ===================================================================================================================================
+==                                   ===================================================================================================================================
+========================================================================================================================================================================
+*/
 
-@from-smartphone-portrait:  ~"only screen and (min-width: 1px)";
-@from-smartphone-landscape: ~"only screen and (min-width: @{smartphone-landscape-step})";
-@from-tablet-portrait:      ~"only screen and (min-width: @{tablet-portrait-step}), only print";
-@from-tablet-landscape:     ~"only screen and (min-width: @{tablet-landscape-step})";
-@from-hd-ready:             ~"only screen and (min-width: @{hd-ready-step})";
-@from-hd-full:              @only-hd-full;
+@only-smartphone-portrait:         ~"only screen and (min-width: 1px) and (max-width : @{to-smartphone-landscape-step})";
+@only-smartphone-landscape:        ~"only screen and (min-width: @{smartphone-landscape-step}) and (max-width : @{to-tablet-portrait-step})";
+@only-tablet-portrait:             ~"only screen and (min-width: @{tablet-portrait-step}) and (max-width : @{to-tablet-landscape-step}), only print";
+@only-tablet-landscape:            ~"only screen and (min-width: @{tablet-landscape-step}) and (max-width : @{to-hd-ready-step})";
+@only-hd-ready:                    ~"only screen and (min-width: @{hd-ready-step}) and (max-width : @{to-hd-full-step})";
+@only-hd-full:                     ~"only screen and (min-width: @{hd-full-step})";
 
-@till-smartphone-portrait:  ~"only screen and (max-width: @{to-smartphone-portrait-step})"; // useless!
-@till-smartphone-landscape: ~"only screen and (max-width: @{to-smartphone-landscape-step})";
-@till-tablet-portrait:      ~"only screen and (max-width: @{to-tablet-portrait-step})";
-@till-tablet-landscape:     ~"only screen and (max-width: @{to-tablet-landscape-step}), only print";
-@till-hd-ready:             ~"only screen and (max-width: @{to-hd-ready-step})";
-@till-hd-full:              ~"only screen and (max-width: @{to-hd-full-step})";
+@from-smartphone-portrait:         ~"only screen and (min-width: 1px)";
+@from-smartphone-landscape:        ~"only screen and (min-width: @{smartphone-landscape-step})";
+@from-tablet-portrait:             ~"only screen and (min-width: @{tablet-portrait-step}), only print";
+@from-tablet-landscape:            ~"only screen and (min-width: @{tablet-landscape-step})";
+@from-hd-ready:                    ~"only screen and (min-width: @{hd-ready-step})";
+@from-hd-full:                     @only-hd-full;
+
+@till-smartphone-portrait:         ~"only screen and (max-width: @{to-smartphone-portrait-step})"; // useless!
+@till-smartphone-landscape:        ~"only screen and (max-width: @{to-smartphone-landscape-step})";
+@till-tablet-portrait:             ~"only screen and (max-width: @{to-tablet-portrait-step})";
+@till-tablet-landscape:            ~"only screen and (max-width: @{to-tablet-landscape-step}), only print";
+@till-hd-ready:                    ~"only screen and (max-width: @{to-hd-ready-step})";
+@till-hd-full:                     ~"only screen and (max-width: @{to-hd-full-step})";
 
 @retina-from-smartphone-portrait:  ~"@{from-smartphone-portrait},	@{display-retina-standard-only}"; // this woking only with @display-retina-standard-only
 @retina-from-smartphone-landscape: ~"@{from-smartphone-landscape},	@{display-retina-standard-only}"; // this woking only with @display-retina-standard-only
@@ -61,9 +70,11 @@ Website:	http://vittoriovittori.com
 @retina-from-hd-ready:             ~"@{from-hd-ready},				@{display-retina-standard-only}"; // this woking only with @display-retina-standard-only
 @retina-from-hd-full:              ~"@{from-hd-full},				@{display-retina-standard-only}"; // this woking only with @display-retina-standard-only
 
-@display-retina-standard-only: ~"only screen and (min-device-pixel-ratio: 2)";
-@display-retina:   ~"only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio:2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx)";
-@display-standard: ~"only screen and (-webkit-max-device-pixel-ratio: 1) and (aspect-ratio:1), only screen and (-webkit-max-device-pixel-ratio: 1), only screen and (max--moz-device-pixel-ratio: 1), only screen and (-o-max-device-pixel-ratio: 1/11), only screen and (max-device-pixel-ratio: 1), only screen and (max-resolution: 1dppx)";
+@display-retina-standard-only:     ~"only screen and (min-device-pixel-ratio: 2)";
+@display-retina:                   ~"only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio:2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx)";
+@display-standard:                 ~"only screen and (-webkit-max-device-pixel-ratio: 1) and (aspect-ratio:1), only screen and (-webkit-max-device-pixel-ratio: 1), only screen and (max--moz-device-pixel-ratio: 1), only screen and (-o-max-device-pixel-ratio: 1/11), only screen and (max-device-pixel-ratio: 1), only screen and (max-resolution: 1dppx)";
+
+@print-viewport: @only-tablet-portrait;
 
 /*
 ========================================================================================================================================================================
