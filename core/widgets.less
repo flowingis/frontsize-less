@@ -7,23 +7,6 @@
 ========================================================================================================================================================================
 */
 
-.hooked(@zIndex:100) {
-	position:fixed;
-	width:100%;
-	left:0px;
-	z-index:@zIndex;
-	.wrap;
-	
-	.transition(top .3s ease-in-out);
-
-	&.to-top {
-		top:0px;
-	}
-	&.to-bottom {
-		bottom:0px;
-	}
-}
-
 .area-hifi(@hifiColor:#3d4041) {
 	z-index: 10;
 	border-bottom:1px solid lighten(@hifiColor,8%);

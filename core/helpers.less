@@ -290,3 +290,20 @@
 .outlineBoxShadow(@outlineOpacity:0.2, @boxShadow:0px 0px 0px transparent) {
 	.box-shadow(0px 0px 1px rgba(0,0,0,@outlineOpacity), @boxShadow;);
 }
+
+.hooked(@zIndex:100) {
+	position:fixed;
+	width:100%;
+	left:0px;
+	z-index:@zIndex;
+	.wrap;
+	
+	.transition(top .3s ease-in-out);
+
+	&.to-top {
+		top:0px;
+	}
+	&.to-bottom {
+		bottom:0px;
+	}
+}
