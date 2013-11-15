@@ -21,17 +21,17 @@
 
 .backgroundRetinaResponsive(
 	@defaultHdFullImage,
-	@retinaHdFullImage,
-	@defaultHdReadyRetinaImage,
-	@retinaHdReadyRetinaImage,
-	@defaulTabletLandscapeBackground,
-	@retinaTabletLandscapeBackground,
-	@defaulTabletPortraitBackground,
-	@retinaTabletPortraitBackground,
-	@defaultSmartphoneLandscapeBackground,
-	@retinaSmartphoneLandscapeBackground,
-	@defaultSmartphonePortraitBackground,
-	@retinaSmartphonePortraitBackground,
+	@retinaHdFullImage:@defaultHdFullImage,
+	@defaultHdReadyRetinaImage:@defaultHdFullImage,
+	@retinaHdReadyRetinaImage:@defaultHdReadyRetinaImage,
+	@defaulTabletLandscapeBackground:@defaultHdReadyRetinaImage,
+	@retinaTabletLandscapeBackground:@defaulTabletLandscapeBackground,
+	@defaulTabletPortraitBackground:@defaulTabletLandscapeBackground,
+	@retinaTabletPortraitBackground:@defaulTabletPortraitBackground,
+	@defaultSmartphoneLandscapeBackground:@defaulTabletPortraitBackground,
+	@retinaSmartphoneLandscapeBackground:@defaultSmartphoneLandscapeBackground,
+	@defaultSmartphonePortraitBackground:@defaultSmartphoneLandscapeBackground,
+	@retinaSmartphonePortraitBackground:@defaultSmartphonePortraitBackground,
 	@backgroundSize:auto,
 	@rootPath:''
 	) when (@use-rootpath = false) {
@@ -44,17 +44,17 @@
 	.backgroundRetinaHdFull(@defaultHdFullImage, @retinaHdFullImage, @rootPath);
 }.backgroundRetinaResponsive(
 	@defaultHdFullImage,
-	@retinaHdFullImage,
-	@defaultHdReadyRetinaImage,
-	@retinaHdReadyRetinaImage,
-	@defaulTabletLandscapeBackground,
-	@retinaTabletLandscapeBackground,
-	@defaulTabletPortraitBackground,
-	@retinaTabletPortraitBackground,
-	@defaultSmartphoneLandscapeBackground,
-	@retinaSmartphoneLandscapeBackground,
-	@defaultSmartphonePortraitBackground,
-	@retinaSmartphonePortraitBackground,
+	@retinaHdFullImage:@defaultHdFullImage,
+	@defaultHdReadyRetinaImage:@defaultHdFullImage,
+	@retinaHdReadyRetinaImage:@defaultHdReadyRetinaImage,
+	@defaulTabletLandscapeBackground:@defaultHdReadyRetinaImage,
+	@retinaTabletLandscapeBackground:@defaulTabletLandscapeBackground,
+	@defaulTabletPortraitBackground:@defaulTabletLandscapeBackground,
+	@retinaTabletPortraitBackground:@defaulTabletPortraitBackground,
+	@defaultSmartphoneLandscapeBackground:@defaulTabletPortraitBackground,
+	@retinaSmartphoneLandscapeBackground:@defaultSmartphoneLandscapeBackground,
+	@defaultSmartphonePortraitBackground:@defaultSmartphoneLandscapeBackground,
+	@retinaSmartphonePortraitBackground:@defaultSmartphonePortraitBackground,
 	@backgroundSize:auto,
 	@rootPath:@rootpath
 	) when (@use-rootpath = true) {
@@ -67,7 +67,7 @@
 	.backgroundRetinaHdFull(@defaultHdFullImage, @retinaHdFullImage, @rootPath);
 }
 
-.backgroundRetinaHdFull(@defaultHdFullImage, @retinaHdFullImage, @rootPath:@rootpath) when (@use-rootpath = true) {
+.backgroundRetinaHdFull(@defaultHdFullImage, @retinaHdFullImage:@defaultHdFullImage, @rootPath:@rootpath) when (@use-rootpath = true) {
 	@media @from-hd-full {
 		// Full HD
 		.backgroundImage(@defaultHdFullImage, @rootPath);
@@ -76,7 +76,7 @@
 		// Full HD Retina
 		.backgroundImage(@retinaHdFullImage, @rootPath);
 	}
-}.backgroundRetinaHdFull(@defaultHdFullImage, @retinaHdFullImage, @rootPath:'') when (@use-rootpath = false) {
+}.backgroundRetinaHdFull(@defaultHdFullImage, @retinaHdFullImage:@defaultHdFullImage, @rootPath:'') when (@use-rootpath = false) {
 	@media @from-hd-full {
 		// Full HD
 		.backgroundImage(@defaultHdFullImage, @rootPath);
@@ -87,7 +87,7 @@
 	}
 }
 
-.backgroundRetinaHdReady(@defaultHdReadyRetinaImage, @retinaHdReadyRetinaImage, @rootPath:@rootpath) when (@use-rootpath = true) {
+.backgroundRetinaHdReady(@defaultHdReadyRetinaImage, @retinaHdReadyRetinaImage:@defaultHdReadyRetinaImage, @rootPath:@rootpath) when (@use-rootpath = true) {
 	@media @from-hd-ready {
 		// HD Ready
 		.backgroundImage(@defaultHdReadyRetinaImage, @rootPath);
@@ -96,7 +96,7 @@
 		// HD Ready Retina
 		.backgroundImage(@retinaHdReadyRetinaImage, @rootPath);
 	}
-}.backgroundRetinaHdReady(@defaultHdReadyRetinaImage, @retinaHdReadyRetinaImage, @rootPath:'') when (@use-rootpath = false) {
+}.backgroundRetinaHdReady(@defaultHdReadyRetinaImage, @retinaHdReadyRetinaImage:@defaultHdReadyRetinaImage, @rootPath:'') when (@use-rootpath = false) {
 	@media @from-hd-ready {
 		// HD Ready
 		.backgroundImage(@defaultHdReadyRetinaImage, @rootPath);
@@ -107,7 +107,7 @@
 	}
 }
 
-.backgroundRetinaTabletLandscape(@defaulTabletLandscapeBackground, @retinaTabletLandscapeBackground, @rootPath:@rootpath) when (@use-rootpath = true) {
+.backgroundRetinaTabletLandscape(@defaulTabletLandscapeBackground, @retinaTabletLandscapeBackground:@defaulTabletLandscapeBackground, @rootPath:@rootpath) when (@use-rootpath = true) {
 	@media @from-tablet-landscape {
 		// Tablet landscape
 		.backgroundImage(@defaulTabletLandscapeBackground, @rootPath);
@@ -116,7 +116,7 @@
 		// Tablet landscape Retina
 		.backgroundImage(@retinaTabletLandscapeBackground, @rootPath);
 	}
-}.backgroundRetinaTabletLandscape(@defaulTabletLandscapeBackground, @retinaTabletLandscapeBackground, @rootPath:'') when (@use-rootpath = false) {
+}.backgroundRetinaTabletLandscape(@defaulTabletLandscapeBackground, @retinaTabletLandscapeBackground:@defaulTabletLandscapeBackground, @rootPath:'') when (@use-rootpath = false) {
 	@media @from-tablet-landscape {
 		// Tablet landscape
 		.backgroundImage(@defaulTabletLandscapeBackground, @rootPath);
@@ -127,7 +127,7 @@
 	}
 }
 
-.backgroundRetinaTabletPortrait(@defaulTabletPortraitBackground, @retinaTabletPortraitBackground, @rootPath:@rootpath) when (@use-rootpath = true) {
+.backgroundRetinaTabletPortrait(@defaulTabletPortraitBackground, @retinaTabletPortraitBackground:@defaulTabletPortraitBackground, @rootPath:@rootpath) when (@use-rootpath = true) {
 	@media @from-tablet-portrait {
 		// Tablet portrait
 		.backgroundImage(@defaulTabletPortraitBackground, @rootPath);
@@ -136,7 +136,7 @@
 		// Tablet portrait Retina
 		.backgroundImage(@retinaTabletPortraitBackground, @rootPath);
 	}
-}.backgroundRetinaTabletPortrait(@defaulTabletPortraitBackground, @retinaTabletPortraitBackground, @rootPath:'') when (@use-rootpath = false) {
+}.backgroundRetinaTabletPortrait(@defaulTabletPortraitBackground, @retinaTabletPortraitBackground:@defaulTabletPortraitBackground, @rootPath:'') when (@use-rootpath = false) {
 	@media @from-tablet-portrait {
 		// Tablet portrait
 		.backgroundImage(@defaulTabletPortraitBackground, @rootPath);
@@ -147,7 +147,7 @@
 	}
 }
 
-.backgroundRetinaSmartphoneLandscape(@defaultSmartphoneLandscapeBackground, @retinaSmartphoneLandscapeBackground, @rootPath:@rootpath) when (@use-rootpath = true) {
+.backgroundRetinaSmartphoneLandscape(@defaultSmartphoneLandscapeBackground, @retinaSmartphoneLandscapeBackground:@defaultSmartphoneLandscapeBackground, @rootPath:@rootpath) when (@use-rootpath = true) {
 	@media @from-smartphone-landscape {
 		// Smartphone landscape
 		.backgroundImage(@defaultSmartphoneLandscapeBackground, @rootPath);
@@ -156,7 +156,7 @@
 		// Smartphone landscape Retina
 		.backgroundImage(@retinaSmartphoneLandscapeBackground, @rootPath);
 	}
-}.backgroundRetinaSmartphoneLandscape(@defaultSmartphoneLandscapeBackground, @retinaSmartphoneLandscapeBackground, @rootPath:'') when (@use-rootpath = false) {
+}.backgroundRetinaSmartphoneLandscape(@defaultSmartphoneLandscapeBackground, @retinaSmartphoneLandscapeBackground:@defaultSmartphoneLandscapeBackground, @rootPath:'') when (@use-rootpath = false) {
 	@media @from-smartphone-landscape {
 		// Smartphone landscape
 		.backgroundImage(@defaultSmartphoneLandscapeBackground, @rootPath);
@@ -167,7 +167,7 @@
 	}
 }
 
-.backgroundRetinaSmartphonePortrait(@defaultSmartphonePortraitBackground, @retinaSmartphonePortraitBackground, @rootPath:@rootpath) when (@use-rootpath = true) {
+.backgroundRetinaSmartphonePortrait(@defaultSmartphonePortraitBackground, @retinaSmartphonePortraitBackground:@defaultSmartphonePortraitBackground, @rootPath:@rootpath) when (@use-rootpath = true) {
 	@media @from-smartphone-portrait {
 		// Smartphone portrait
 		.backgroundImage(@defaultSmartphonePortraitBackground, @rootPath);
@@ -176,7 +176,7 @@
 		// Smartphone portrait Retina
 		.backgroundImage(@retinaSmartphonePortraitBackground, @rootPath);
 	}
-}.backgroundRetinaSmartphonePortrait(@defaultSmartphonePortraitBackground, @retinaSmartphonePortraitBackground, @rootPath:'') when (@use-rootpath = false) {
+}.backgroundRetinaSmartphonePortrait(@defaultSmartphonePortraitBackground, @retinaSmartphonePortraitBackground:@defaultSmartphonePortraitBackground, @rootPath:'') when (@use-rootpath = false) {
 	@media @from-smartphone-portrait {
 		// Smartphone portrait
 		.backgroundImage(@defaultSmartphonePortraitBackground, @rootPath);
@@ -192,7 +192,7 @@
 	.backgroundIconRetina(@defaultImage, @retinaImage, @width, @height);
 }
 
-.backgroundIconRetina(@defaultImage, @retinaImage, @width, @height:@width) {
+.backgroundIconRetina(@defaultImage, @retinaImage:@defaultImage, @width:100%, @height:@width) {
 	.backgroundImage(@defaultImage);
 	background-size:@width @height;
 	background-repeat: no-repeat;
