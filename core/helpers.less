@@ -103,7 +103,7 @@
 .backgroundImage(@backgroundImage, @path:'') when (@use-rootpath = false) {
 	background-image: url('@{path}@{backgroundImage}');
 }.backgroundImage(@backgroundImage, @path:@rootpath) when (@use-rootpath = true) {
-	background-image: url('@{path}/@{backgroundImage}');
+	background-image: url('@{path}@{backgroundImage}');
 }
 
 .backgroundResponsive(@hdFullBackground, @hdReadyBackground, @tabletLandscapeBackground, @tabletPortraitBackground, @smartphoneLandscapeBackground, @smartphonePortraitBackground) {
