@@ -95,12 +95,20 @@ Website:	http://vittoriovittori.com
 	.loopColumnSetFill(@prefix, @totalSteps, @fillViewport, @index:@totalSteps);
 }
 
-.loopColumnSet (@total, @prefix, @index) when (@index > 0) {
+.loopColumnSet (@total, @prefix, @index, @prevRule:~"") when (@index = @total) {
+	@nextRule:~".@{prefix}-@{index}-of-@{total}";
+	.loopColumnSet(@total, @prefix, @index - 1, @nextRule);
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"") when (@index > 0) and (@index < @total) {
+	@nextRule:~"@{prevRule}, .@{prefix}-@{index}-of-@{total}";
+	.loopColumnSet(@total, @prefix, @index - 1, @nextRule);
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"") when (@index > 0) {
 	.@{prefix}-@{index}-of-@{total} {
 		.setColumnStep(@index, @total);
+	}
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"") when (@index = 0) {
+	@{prevRule} {
 		.setColumnBehavior();
 	}
-	.loopColumnSet(@total, @prefix, @index - 1);
 }
 
 .loopColumnSetFill(@prefix, @total, @fill, @index) when (@fill = "tablet-landscape") and (@index > 0) {
@@ -120,8 +128,7 @@ Website:	http://vittoriovittori.com
 	}
 	.loopColumnSetFill(@prefix, @total, @fill, @index - 1);
 }.loopColumnSetFill(@prefix, @total, @fill, @index) when (@fill = "smartphone-landscape") and (@index > 0) {
-	//@media @till-tablet-portrait {
-	@media only screen and (max-width: 767px) {
+	@media @till-tablet-portrait {
 		// Smartphone landscape
 		.@{prefix}-@{index}-of-@{total} {
 			width: 100%;
