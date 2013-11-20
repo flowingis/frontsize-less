@@ -108,6 +108,7 @@ Website:	http://vittoriovittori.com
 }.loopColumnSet (@total, @prefix, @index, @prevRule:~"") when (@index = 0) {
 	@{prevRule} {
 		.setColumnBehavior();
+		.box-sizing(border-box);
 	}
 }
 
@@ -169,7 +170,6 @@ Website:	http://vittoriovittori.com
 	padding-left:@horizontal-padding;
 	padding-right:@horizontal-padding;
 	float: left;
-	.wrap;
 }.setColumnBehavior(@usePosition:true) when (@usePosition = true) {
 	position: relative;
 }

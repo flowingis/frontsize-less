@@ -347,23 +347,16 @@
 }
 
 .addContainerRow(@selector:row, @hdFullSteps:0, @hdReadySteps:12, @tabletLandscapeSteps:6, @tabletPortraitSteps:3, @smartphoneLandscapeSteps:1, @smartphonePortraitSteps:1) {
+	.@{selector},
+	.@{selector} *,
+	.@{selector} > * {
+		.box-sizing(border-box);
+	}
 	.@{selector} {
 		padding-top:@vertical-padding;
 		width:auto;
-		.wrap;
 		overflow:auto;
 		clear:both;
-		&.wide {
-			margin-left: -@horizontal-padding;
-			margin-right: -@horizontal-padding;
-		}
-	}
-	.@{selector} * {
-		.wrap;
-	}
-	.@{selector} > * {
-		min-height: 1px;
-		padding-bottom:@vertical-padding;
 	}
 	.checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector);
 }
@@ -371,6 +364,7 @@
 .checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector) when (@hdFullSteps > 0) {
 	// Media queries for selectors active from a specific resolution or higher
 	.@{selector} > * {
+		min-height: 1px;
 		padding-bottom:@vertical-padding;
 		.setColumnBehavior();
 		.setColumnStep(1, @hdFullSteps);
