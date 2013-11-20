@@ -102,6 +102,11 @@
 	text-align: left !important;
 }
 
+.justify {
+	// manually center all the contents inside
+	text-align: justify !important;
+}
+
 .underline {
 	text-decoration: underline;
 }
@@ -114,7 +119,6 @@
 	.user-select(none);
 }
 
-.nowrap,
 .no-wrap {
 	white-space: nowrap;
 }
@@ -326,6 +330,10 @@
 	.asTable(@status-table-padding, middle, 100%);
 }
 
+.table-top {
+	.asTable(@status-table-padding, top, 100%);
+}
+
 .inline-table {
 	.asTable(@status-table-padding, middle, auto);
 }
@@ -343,7 +351,8 @@
 }
 
 .hookable {
-	.transition(top .3s ease-in-out);
+	@transition: 0.3s ease-in-out;
+	.transition(top @transition, right @transition, bottom @transition, left @transition);
 }
 
 /*
