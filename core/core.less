@@ -86,55 +86,56 @@ Website:	http://vittoriovittori.com
 ========================================================================================================================================================================
 */
 
-.addColumnSet(@name:col, @totalSteps:12, @index:@totalSteps) {
-	.loopColumnSet(@totalSteps, @name, @index);
+.addColumnSet(@prefix:col, @totalSteps:12) {
+	@startIndex: @totalSteps;
+	.loopColumnSet(@totalSteps, @prefix, @startIndex);
 }
 
-.applyFillToColumnSet(@name, @totalSteps, @fillViewport:"smartphone-landscape") {
-	.loopColumnSetFill(@totalSteps, @fillViewport, @index:@totalSteps);
+.applyFillToColumnSet(@prefix, @totalSteps, @fillViewport:"smartphone-landscape") {
+	.loopColumnSetFill(@prefix, @totalSteps, @fillViewport, @index:@totalSteps);
 }
 
-.loopColumnSet (@total, @name, @index) when (@index > 0) {
-	.@{name}-@{index}-of-@{total} {
+.loopColumnSet (@total, @prefix, @index) when (@index > 0) {
+	.@{prefix}-@{index}-of-@{total} {
 		.setColumnStep(@index, @total);
 		.setColumnBehavior();
 	}
-	.loopColumnSet(@total, @name, @index - 1);
+	.loopColumnSet(@total, @prefix, @index - 1);
 }
 
-.loopColumnSetFill(@total, @fill, @index) when (@fill = "tablet-landscape") and (@index > 0) {
+.loopColumnSetFill(@prefix, @total, @fill, @index) when (@fill = "tablet-landscape") and (@index > 0) {
 	@media @till-hd-ready {
 		// Tablet landscape
-		.@{name}-@{index}-of-@{total} {
+		.@{prefix}-@{index}-of-@{total} {
 			width: 100%;
 		}
 	}
-	.loopColumnSetFill(@total, @fill, @index - 1);
-}.loopColumnSetFill(@total, @fill, @index) when (@fill = "tablet-portrait") and (@index > 0) {
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1);
+}.loopColumnSetFill(@prefix, @total, @fill, @index) when (@fill = "tablet-portrait") and (@index > 0) {
 	@media @till-tablet-landscape {
 		// Tablet portrait
-		.@{name}-@{index}-of-@{total} {
+		.@{prefix}-@{index}-of-@{total} {
 			width: 100%;
 		}
 	}
-	.loopColumnSetFill(@total, @fill, @index - 1);
-}.loopColumnSetFill(@total, @fill, @index) when (@fill = "smartphone-landscape") and (@index > 0) {
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1);
+}.loopColumnSetFill(@prefix, @total, @fill, @index) when (@fill = "smartphone-landscape") and (@index > 0) {
 	//@media @till-tablet-portrait {
 	@media only screen and (max-width: 767px) {
 		// Smartphone landscape
-		.@{name}-@{index}-of-@{total} {
+		.@{prefix}-@{index}-of-@{total} {
 			width: 100%;
 		}
 	}
-	.loopColumnSetFill(@total, @fill, @index - 1);
-}.loopColumnSetFill(@total, @fill, @index) when (@fill = "smartphone-portrait") and (@index > 0) {
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1);
+}.loopColumnSetFill(@prefix, @total, @fill, @index) when (@fill = "smartphone-portrait") and (@index > 0) {
 	@media @till-smartphone-landscape {
 		// Smartphone portrait
-		.@{name}-@{index}-of-@{total} {
+		.@{prefix}-@{index}-of-@{total} {
 			width: 100%;
 		}
 	}
-	.loopColumnSetFill(@total, @fill, @index - 1);
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1);
 }
 
 .setColumns(@columns) {
