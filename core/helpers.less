@@ -88,14 +88,10 @@
 /* backgrounds */
 
 .verticalGradient(@color:#cbcbcb, @strenght:5%) {
-	/*
-	Remember to put the ; after a list of comma separated params to group them:
-	.method(1,2,3;); => .method(@params) {...}
-
-	If the method expect a list of params you don't need it:
-	.method(1,2,3); => .method(@param-1, @param-2, @param-3) {...}
-	*/
-	.linear-gradient(top, saturate(lighten(@color,@strenght),(-@strenght/2)) 0%, saturate(darken(@color,@strenght),(@strenght/2))100%;);
+	@lighten: saturate(lighten(@color,@strenght),(-@strenght/2));
+	@darken: saturate(darken(@color,@strenght),(@strenght/2));
+	.linear-gradient(top, @lighten 0%, @darken 100%;);
+	filter: progid:dximagetransform.microsoft.gradient(startColorstr='@{lighten}', endColorstr='@{darken}', GradientType=0);
 }
 .glossGradient(@top: rgb(200,200,200), @middle: rgb(100,100,100), @bottom: rgb(150,150,150)) {
 	.linear-gradient(bottom, @top 0%, @middle 50%, @bottom 100%;);
