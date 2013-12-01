@@ -63,16 +63,16 @@ Website:	http://vittoriovittori.com
 @till-hd-ready:                    ~"only screen and (max-width: @{to-hd-ready-step})";
 @till-hd-full:                     ~"only screen and (max-width: @{to-hd-full-step})";
 
-@retina-from-smartphone-portrait:  ~"@{from-smartphone-portrait},	@{display-retina-standard-only}"; // this woking only with @display-retina-standard-only
-@retina-from-smartphone-landscape: ~"@{from-smartphone-landscape},	@{display-retina-standard-only}"; // this woking only with @display-retina-standard-only
-@retina-from-tablet-portrait:      ~"@{from-tablet-portrait},		@{display-retina-standard-only}"; // this woking only with @display-retina-standard-only
-@retina-from-tablet-landscape:     ~"@{from-tablet-landscape},		@{display-retina-standard-only}"; // this woking only with @display-retina-standard-only
-@retina-from-hd-ready:             ~"@{from-hd-ready},				@{display-retina-standard-only}"; // this woking only with @display-retina-standard-only
-@retina-from-hd-full:              ~"@{from-hd-full},				@{display-retina-standard-only}"; // this woking only with @display-retina-standard-only
+@retina-from-smartphone-portrait:  ~"@{from-smartphone-portrait},	@{display-retina-compatible}"; // this woking only with @display-retina-browser-compatible
+@retina-from-smartphone-landscape: ~"@{from-smartphone-landscape},	@{display-retina-compatible}"; // this woking only with @display-retina-browser-compatible
+@retina-from-tablet-portrait:      ~"@{from-tablet-portrait},		@{display-retina-compatible}"; // this woking only with @display-retina-browser-compatible
+@retina-from-tablet-landscape:     ~"@{from-tablet-landscape},		@{display-retina-compatible}"; // this woking only with @display-retina-browser-compatible
+@retina-from-hd-ready:             ~"@{from-hd-ready},				@{display-retina-compatible}"; // this woking only with @display-retina-browser-compatible
+@retina-from-hd-full:              ~"@{from-hd-full},				@{display-retina-compatible}"; // this woking only with @display-retina-browser-compatible
 
-@display-retina-standard-only:     ~"only screen and (min-device-pixel-ratio: 2)";
-@display-retina:                   ~"only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx)";
-@display-standard:                 ~"only screen and (-webkit-max-device-pixel-ratio: 1) and (aspect-ratio: 1), only screen and (-webkit-max-device-pixel-ratio: 1), only screen and (max--moz-device-pixel-ratio: 1), only screen and (-o-max-device-pixel-ratio: 1/11), only screen and (max-device-pixel-ratio: 1), only screen and (max-resolution: 1dppx)";
+@display-retina-browser-compatible:     ~"only screen and (min-device-pixel-ratio: 2)";
+@display-retina:                        ~"only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx)";
+@display-standard:                      ~"only screen and (-webkit-max-device-pixel-ratio: 1) and (aspect-ratio: 1), only screen and (-webkit-max-device-pixel-ratio: 1), only screen and (max--moz-device-pixel-ratio: 1), only screen and (-o-max-device-pixel-ratio: 1/11), only screen and (max-device-pixel-ratio: 1), only screen and (max-resolution: 1dppx)";
 
 @print-viewport: @only-tablet-portrait;
 
