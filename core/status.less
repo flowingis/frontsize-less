@@ -348,7 +348,15 @@
 	}
 }
 
-
+.commas > * {
+	&::after {
+		content: ", ";
+	}
+	&:last-child::after,
+	&.no-comma::after {
+		content: "";
+	}
+}
 
 .table {
 	.asTable(@status-table-padding, middle, 100%);
