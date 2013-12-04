@@ -686,7 +686,7 @@
 	}
 }
 
-.defaultColumnSets (@steps:12, @hdViewport:wide, @tabletViewport:tablet, @smartphoneViewport:smartphone) {
+.defaultColumnSets (@steps:12, @hdViewport:wide, @tabletViewport:tablet, @smartphoneViewport:smartphone, @fillFromViewport:"smartphone-landscape") {
 	@media @from-smartphone-portrait {
 		// Smartphone portrait
 		.addColumnSet(@hdViewport, @steps);
@@ -705,9 +705,9 @@
 		.addColumnSet(@tabletViewport, @steps);
 		.addColumnSet(@hdViewport, @steps);
 	}
-	.applyFillToColumnSet(@smartphoneViewport, @steps, "smartphone-landscape");
-	.applyFillToColumnSet(@tabletViewport, @steps, "smartphone-landscape");
-	.applyFillToColumnSet(@hdViewport, @steps, "smartphone-landscape");
+	.applyFillToColumnSet(@smartphoneViewport, @steps, "none");
+	.applyFillToColumnSet(@tabletViewport, @steps, @fillFromViewport);
+	.applyFillToColumnSet(@hdViewport, @steps, @fillFromViewport);
 }
 
 
