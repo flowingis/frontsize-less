@@ -271,6 +271,12 @@
 	height: @height;
 }
 
+.icon(@backgroundImage, @width, @height:@width) {
+	.size(@width, @height);
+	.backgroundImage(@backgroundImage);
+	background-repeat: no-repeat;
+}
+
 .arrowLeft(@size:1em, @color:#FFFFFF, @top:0px, @right:0px) {
 	position: relative;
 	font-size: 0;
