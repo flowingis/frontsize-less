@@ -63,12 +63,12 @@ Website:	http://vittoriovittori.com
 @till-hd-ready:                    ~"only screen and (max-width: @{to-hd-ready-step})";
 @till-hd-full:                     ~"only screen and (max-width: @{to-hd-full-step})";
 
-@retina-from-smartphone-portrait:  ~"@{from-smartphone-portrait},	@{display-retina-compatible}"; // this woking only with @display-retina-browser-compatible
-@retina-from-smartphone-landscape: ~"@{from-smartphone-landscape},	@{display-retina-compatible}"; // this woking only with @display-retina-browser-compatible
-@retina-from-tablet-portrait:      ~"@{from-tablet-portrait},		@{display-retina-compatible}"; // this woking only with @display-retina-browser-compatible
-@retina-from-tablet-landscape:     ~"@{from-tablet-landscape},		@{display-retina-compatible}"; // this woking only with @display-retina-browser-compatible
-@retina-from-hd-ready:             ~"@{from-hd-ready},				@{display-retina-compatible}"; // this woking only with @display-retina-browser-compatible
-@retina-from-hd-full:              ~"@{from-hd-full},				@{display-retina-compatible}"; // this woking only with @display-retina-browser-compatible
+@retina-from-smartphone-portrait:  ~"@{from-smartphone-portrait},	@{display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+@retina-from-smartphone-landscape: ~"@{from-smartphone-landscape},	@{display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+@retina-from-tablet-portrait:      ~"@{from-tablet-portrait},		@{display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+@retina-from-tablet-landscape:     ~"@{from-tablet-landscape},		@{display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+@retina-from-hd-ready:             ~"@{from-hd-ready},				@{display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+@retina-from-hd-full:              ~"@{from-hd-full},				@{display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
 
 @display-retina-browser-compatible:     ~"only screen and (min-device-pixel-ratio: 2)";
 @display-retina:                        ~"only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx)";
