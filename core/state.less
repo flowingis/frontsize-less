@@ -56,19 +56,6 @@
 	overflow: auto !important;
 }
 
-.flip {
-	.backface-visibility(hidden);
-	.transform-style(preserve-3d);
-	.transform(rotateX(0deg) rotateY(-180deg));
-	.transition(all 0.3s ease-in-out);
-	&.reverse {
-		.backface-visibility(hidden);
-		.transform-style(preserve-3d);
-		.transform(rotateX(0deg) rotateY(0deg));
-		.transition(all 0.3s ease-in-out);
-	}
-}
-
 .pointer {
 	cursor: pointer;
 }
@@ -174,13 +161,30 @@
 	float: right;
 }
 
+.clear {
+	// manually go down to the next row
+	clear: both;
+}
+
 .relative {
 	position: relative;
 }
 
-.clear {
-	// manually go down to the next row
-	clear: both;
+.absolute {
+	position: absolute;
+	float: none;
+	&.to-bottom {
+		bottom: 0px;
+	}
+	&.to-top {
+		top: 0px;
+	}
+	&.to-right {
+		right: 0px;
+	}
+	&.to-left {
+		left: 0px;
+	}
 }
 
 .move-bottom-left {
