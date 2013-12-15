@@ -705,9 +705,9 @@
 		.addColumnSet(@tabletViewport, @steps);
 		.addColumnSet(@hdViewport, @steps);
 	}
-	.applyFillToColumnSet(@smartphoneViewport, @steps, "none");
 	.applyFillToColumnSet(@tabletViewport, @steps, @fillFromViewport);
 	.applyFillToColumnSet(@hdViewport, @steps, @fillFromViewport);
+	.preventSmartphoneColumnSet(@smartphoneViewport, @steps);
 }
 
 
