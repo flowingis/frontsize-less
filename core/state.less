@@ -450,35 +450,47 @@
 ========================================================================================================================================================================
 */
 // Media queries for strict resolution selectors
+@media @only-hd {
+	//.only-on-hd				{ display:none; }
+	.only-on-tablet				{ display:none; }
+	.only-on-smartphone			{ display:none; }
+	.not-on-hd					{ display: none; }
+}
+
 @media @only-hd-full {
 	// Full HD
-	//.only-on-hd-full				{ background-color:pink; padding:.25em;}
+	//.only-on-hd-full				{ background-color:pink; }
 	.only-on-hd-ready				{ display: none; }
 	.only-on-tablet-landscape		{ display: none; }
 	.only-on-tablet-portrait		{ display: none; }
 	.only-on-smartphone-landscape	{ display: none; }
 	.only-on-smartphone-portrait	{ display: none; }
-	.not-on-hd						{ display: none; }
 	.not-on-hd-full					{ display: none; }
 }
 
 @media @only-hd-ready {
 	// HD Ready
 	.only-on-hd-full				{ display: none; }
-	//.only-on-hd-ready				{ background-color:aqua; padding:.25em; }
+	//.only-on-hd-ready				{ background-color:aqua; }
 	.only-on-tablet-landscape		{ display: none; }
 	.only-on-tablet-portrait		{ display: none; }
 	.only-on-smartphone-landscape	{ display: none; }
 	.only-on-smartphone-portrait	{ display: none; }
-	.not-on-hd						{ display: none; }
 	.not-on-hd-ready				{ display: none; }
+}
+
+@media @only-tablet {
+	.only-on-hd					{ display:none; }
+	//.only-on-tablet			{ display:none; }
+	.only-on-smartphone			{ display:none; }
+	.not-on-tablet				{ display: none; }
 }
 
 @media @only-tablet-landscape {
 	// Tablet landscape
 	.only-on-hd-full				{ display: none; }
 	.only-on-hd-ready				{ display: none; }
-	//.only-on-tablet-landscape		{ background-color:yellow; padding:.25em;}
+	//.only-on-tablet-landscape		{ background-color:yellow; }
 	.only-on-tablet-portrait		{ display: none; }
 	.only-on-smartphone-landscape	{ display: none; }
 	.only-on-smartphone-portrait	{ display: none; }
@@ -488,14 +500,20 @@
 
 @media	@only-tablet-portrait {
 	// Tablet portrait
-	.only-on-hd-full				{display:none;}
-	.only-on-hd-ready				{display:none;}
-	.only-on-tablet-landscape		{display:none;}
-	//.only-on-tablet-portrait		{background-color:orange; padding:.25em;}
-	.only-on-smartphone-landscape	{display:none;}
-	.only-on-smartphone-portrait	{display:none;}
-	.not-on-tablet 					{display:none;}
-	.not-on-tablet-portrait 		{display:none;}
+	.only-on-hd-full				{ display: none; }
+	.only-on-hd-ready				{ display: none; }
+	.only-on-tablet-landscape		{ display: none; }
+	//.only-on-tablet-portrait		{ background-color: orange; }
+	.only-on-smartphone-landscape	{ display: none; }
+	.only-on-smartphone-portrait	{ display: none; }
+	.not-on-tablet-portrait 		{ display: none; }
+}
+
+@media @only-smartphone {
+	.only-on-hd					{ display:none; }
+	.only-on-tablet				{ display:none; }
+	//.only-on-smartphone		{ display:none; }
+	.not-on-smartphone			{ display: none; }
 }
 
 @media @only-smartphone-landscape {
@@ -506,7 +524,6 @@
 	.only-on-tablet-portrait		{display:none;}
 	//.only-on-smartphone-landscape	{background-color:lightgrey; padding:.25em;}
 	.only-on-smartphone-portrait	{display:none;}
-	.not-on-smartphone 				{display:none;}
 	.not-on-smartphone-landscape 	{display:none;}
 }
 
@@ -518,7 +535,6 @@
 	.only-on-tablet-portrait		{display:none;}
 	.only-on-smartphone-landscape	{display:none;}
 	//.only-on-smartphone-portrait	{background-color:lightblue; padding:.25em;}
-	.not-on-smartphone 				{display:none;}
 	.not-on-smartphone-portrait 	{display:none;}
 }
 
@@ -537,6 +553,9 @@
 	.not-till-hd-full			{ display: none !important; }
 	.block-till-hd-full			{ display: block !important; }
 	.fill-till-hd-full			{ width: 100% !important; }
+	.almost-till-hd-full		{ width: 75% !important; }
+	.half-till-hd-full			{ width: 50% !important; }
+	.little-till-hd-full		{ width: 25% !important; }
 	.text-left-till-hd-full		{ text-align: left !important; }
 	.text-center-till-hd-full	{ text-align: center !important; }
 	.text-right-till-hd-full	{ text-align: right !important; }
@@ -550,6 +569,9 @@
 	.not-till-hd-ready					{ display: none !important; }
 	.block-till-hd-ready				{ display: block !important; }
 	.fill-till-hd-ready					{ width: 100% !important; }
+	.almost-till-hd-ready				{ width: 75% !important; }
+	.half-till-hd-ready					{ width: 50% !important; }
+	.little-till-hd-ready				{ width: 25% !important; }
 	.text-left-till-hd-ready			{ text-align: left !important; }
 	.text-center-till-hd-ready			{ text-align: center !important; }
 	.text-right-till-hd-ready			{ text-align: right !important; }
@@ -563,6 +585,9 @@
 	.not-till-tablet-landscape				{ display: none !important; }
 	.block-till-tablet-landscape			{ display: block !important; }
 	.fill-till-tablet-landscape				{ width: 100% !important; }
+	.almost-till-tablet-landscape			{ width: 75% !important; }
+	.half-till-tablet-landscape				{ width: 50% !important; }
+	.little-till-tablet-landscape			{ width: 25% !important; }
 	.text-left-till-tablet-landscape		{ text-align: left !important; }
 	.text-center-till-tablet-landscape		{ text-align: center !important; }
 	.text-right-till-tablet-landscape		{ text-align: right !important; }
@@ -577,6 +602,9 @@
 	.not-till-tablet-portrait				{ display: none !important; }
 	.block-till-tablet-portrait				{ display: block !important; }
 	.fill-till-tablet-portrait				{ width: 100% !important; }
+	.almost-till-tablet-portrait			{ width: 75% !important; }
+	.half-till-tablet-portrait				{ width: 50% !important; }
+	.little-till-tablet-portrait			{ width: 25% !important; }
 	.text-left-till-tablet-portrait			{ text-align: left !important; }
 	.text-center-till-tablet-portrait		{ text-align: center !important; }
 	.text-right-till-tablet-portrait		{ text-align: right !important; }
@@ -591,6 +619,9 @@
 	.not-till-smartphone-landscape				{ display: none !important; }
 	.block-till-smartphone-landscape			{ display: block !important; }
 	.fill-till-smartphone-landscape				{ width: 100% !important; }
+	.almost-till-smartphone-landscape			{ width: 75% !important; }
+	.half-till-smartphone-landscape				{ width: 50% !important; }
+	.little-till-smartphone-landscape			{ width: 25% !important; }
 	.text-left-till-smartphone-landscape		{ text-align: left !important; }
 	.text-center-till-smartphone-landscape		{ text-align: center !important; }
 	.text-right-till-smartphone-landscape		{ text-align: right !important; }
