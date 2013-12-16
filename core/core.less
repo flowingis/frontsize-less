@@ -90,79 +90,138 @@ Website:	http://vittoriovittori.com
 ========================================================================================================================================================================
 */
 
-.addColumnSet(@prefix:col, @totalSteps:12) {
+.addColumnSet(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) {
 	@startIndex: @totalSteps;
-	.loopColumnSet(@totalSteps, @prefix, @startIndex);
+	.loopColumnSet(@totalSteps, @prefix, @startIndex, ~"", @viewTotalColumns, @columnsSeparator);
 }
 
-.applyFillToColumnSet(@prefix, @totalSteps, @fillViewport:"smartphone-landscape") {
-	.loopColumnSetFill(@prefix, @totalSteps, @fillViewport, @index:@totalSteps);
-}
-
-.preventSmartphoneColumnSet(@prefix:col, @totalSteps:12) {
+.applyFillToColumnSet(@prefix, @totalSteps, @fillViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-) {
 	@startIndex: @totalSteps;
-	.loopSmartphoneColumnSet(@prefix, @totalSteps, @startIndex)
+	.loopColumnSetFill(@prefix, @totalSteps, @fillViewport, @startIndex, @viewTotalColumns, @columnsSeparator);
 }
 
-.loopColumnSet (@total, @prefix, @index, @prevRule:~"") when (@index = @total) {
-	@nextRule:~".@{prefix}-@{index}-of-@{total}";
-	.loopColumnSet(@total, @prefix, @index - 1, @nextRule);
-}.loopColumnSet (@total, @prefix, @index, @prevRule:~"") when (@index > 0) and (@index < @total) {
-	@nextRule:~"@{prevRule}, .@{prefix}-@{index}-of-@{total}";
-	.loopColumnSet(@total, @prefix, @index - 1, @nextRule);
-}.loopColumnSet (@total, @prefix, @index, @prevRule:~"") when (@index > 0) {
-	.@{prefix}-@{index}-of-@{total} {
+.preventSmartphoneColumnSet(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) {
+	@startIndex: @totalSteps;
+	.loopSmartphoneColumnSet(@prefix, @totalSteps, @startIndex, @viewTotalColumns, @columnsSeparator);
+}
+
+.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = true) {
+	@nextRule:~".@{prefix}@{index}@{columnsSeparator}@{total}";
+	.loopColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = true) {
+	@nextRule:~"@{prevRule}, .@{prefix}@{index}@{columnsSeparator}@{total}";
+	.loopColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = true) {
+	.@{prefix}@{index}@{columnsSeparator}@{total} {
 		.setColumnStep(@index, @total);
 	}
-}.loopColumnSet (@total, @prefix, @index, @prevRule:~"") when (@index = 0) {
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = true) {
 	@{prevRule} {
 		.setColumnBehavior();
 		.box-sizing(border-box);
 	}
 }
 
-.loopSmartphoneColumnSet(@prefix, @total, @index) when (@index > 0) {
+.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = false) {
+	@nextRule:~".@{prefix}@{index}";
+	.loopColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = false) {
+	@nextRule:~"@{prevRule}, .@{prefix}@{index}";
+	.loopColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = false) {
+	.@{prefix}@{index} {
+		.setColumnStep(@index, @total);
+	}
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = false) {
+	@{prevRule} {
+		.setColumnBehavior();
+		.box-sizing(border-box);
+	}
+}
+
+.loopSmartphoneColumnSet(@prefix, @total, @index, @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = true) {
 	@media @till-tablet-portrait {
 		// Smartphone landscape
-		.@{prefix}-@{index}-of-@{total} {
+		.@{prefix}@{index}@{columnsSeparator}@{total} {
 			.setColumnStep(@index, @total);
 		}
 	}
-	.loopSmartphoneColumnSet(@prefix, @total, @index - 1);
-}
-
-.loopColumnSetFill(@prefix, @total, @fill, @index) when (@fill = "tablet-landscape") and (@index > 0) {
-	@media @till-hd-ready {
-		// Tablet landscape
-		.@{prefix}-@{index}-of-@{total} {
-			width: 100%;
-		}
-	}
-	.loopColumnSetFill(@prefix, @total, @fill, @index - 1);
-}.loopColumnSetFill(@prefix, @total, @fill, @index) when (@fill = "tablet-portrait") and (@index > 0) {
-	@media @till-tablet-landscape {
-		// Tablet portrait
-		.@{prefix}-@{index}-of-@{total} {
-			width: 100%;
-		}
-	}
-	.loopColumnSetFill(@prefix, @total, @fill, @index - 1);
-}.loopColumnSetFill(@prefix, @total, @fill, @index) when (@fill = "smartphone-landscape") and (@index > 0) {
+	.loopSmartphoneColumnSet(@prefix, @total, @index - 1, @viewTotalColumns, @columnsSeparator);
+}.loopSmartphoneColumnSet(@prefix, @total, @index, @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = false) {
 	@media @till-tablet-portrait {
 		// Smartphone landscape
-		.@{prefix}-@{index}-of-@{total} {
+		.@{prefix}@{index} {
+			.setColumnStep(@index, @total);
+		}
+	}
+	.loopSmartphoneColumnSet(@prefix, @total, @index - 1, @viewTotalColumns, @columnsSeparator);
+}
+
+.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator) when (@fill = "tablet-landscape") and (@index > 0) and (@viewTotalColumns = true) {
+	@media @till-hd-ready {
+		// Tablet landscape
+		.@{prefix}@{index}@{columnsSeparator}@{total} {
 			width: 100%;
 		}
 	}
-	.loopColumnSetFill(@prefix, @total, @fill, @index - 1);
-}.loopColumnSetFill(@prefix, @total, @fill, @index) when (@fill = "smartphone-portrait") and (@index > 0) {
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator) when (@fill = "tablet-portrait") and (@index > 0) and (@viewTotalColumns = true) {
+	@media @till-tablet-landscape {
+		// Tablet portrait
+		.@{prefix}@{index}@{columnsSeparator}@{total} {
+			width: 100%;
+		}
+	}
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator) when (@fill = "smartphone-landscape") and (@index > 0) and (@viewTotalColumns = true) {
+	@media @till-tablet-portrait {
+		// Smartphone landscape
+		.@{prefix}@{index}@{columnsSeparator}@{total} {
+			width: 100%;
+		}
+	}
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator) when (@fill = "smartphone-portrait") and (@index > 0) and (@viewTotalColumns = true) {
 	@media @till-smartphone-landscape {
 		// Smartphone portrait
-		.@{prefix}-@{index}-of-@{total} {
+		.@{prefix}@{index}@{columnsSeparator}@{total} {
 			width: 100%;
 		}
 	}
-	.loopColumnSetFill(@prefix, @total, @fill, @index - 1);
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator);
+}
+.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator) when (@fill = "tablet-landscape") and (@index > 0) and (@viewTotalColumns = false) {
+	@media @till-hd-ready {
+		// Tablet landscape
+		.@{prefix}@{index} {
+			width: 100%;
+		}
+	}
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator) when (@fill = "tablet-portrait") and (@index > 0) and (@viewTotalColumns = false) {
+	@media @till-tablet-landscape {
+		// Tablet portrait
+		.@{prefix}@{index} {
+			width: 100%;
+		}
+	}
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator) when (@fill = "smartphone-landscape") and (@index > 0) and (@viewTotalColumns = false) {
+	@media @till-tablet-portrait {
+		// Smartphone landscape
+		.@{prefix}@{index} {
+			width: 100%;
+		}
+	}
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator) when (@fill = "smartphone-portrait") and (@index > 0) and (@viewTotalColumns = false) {
+	@media @till-smartphone-landscape {
+		// Smartphone portrait
+		.@{prefix}@{index} {
+			width: 100%;
+		}
+	}
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator);
 }
 
 .setColumns(@columns) {
