@@ -95,7 +95,7 @@ Website:	http://vittoriovittori.com
 	.loopColumnSet(@totalSteps, @prefix, @startIndex, ~"", @viewTotalColumns, @columnsSeparator);
 }
 
-.applyFillToColumnSet(@prefix, @totalSteps, @fillViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-) {
+.addColumnSetWithFill(@prefix, @totalSteps, @fillViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-) {
 	@startIndex: @totalSteps;
 	.loopColumnSetFill(@prefix, @totalSteps, @fillViewport, @startIndex, @viewTotalColumns, @columnsSeparator);
 }
