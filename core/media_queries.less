@@ -41,7 +41,7 @@
 	}
 }
 
-.bodyFont(@hdFull:(@font-size + (@font-size/2)), @hdReady:(@font-size + (@font-size/4)), @tabletLandscape:@font-size, @tabletPortrait:@font-size, @smartphoneLandscape:@font-size, @smartphonePortrait:@font-size, @lineHeightMultiplier:@font-line-height) {
+.setFontScaling(@hdFull:(@font-size + (@font-size/2)), @hdReady:(@font-size + (@font-size/4)), @tabletLandscape:@font-size, @tabletPortrait:@font-size, @smartphoneLandscape:@font-size, @smartphonePortrait:@font-size, @lineHeightMultiplier:@font-line-height) {
 	// Media queries for selectors active from a specific resolution or higher
 	@media @from-smartphone-portrait {
 		// Smartphone portrait
@@ -354,7 +354,7 @@
 	}
 	.@{selector} {
 		padding-top:@vertical-padding;
-		width:auto;
+		width:100%;
 		overflow:auto;
 		clear:both;
 	}
@@ -365,7 +365,7 @@
 	// Media queries for selectors active from a specific resolution or higher
 	.@{selector} > * {
 		min-height: 1px;
-		padding-bottom:@vertical-padding;
+		//padding-bottom:@vertical-padding;
 		.setColumnBehavior();
 		.setColumnStep(1, @hdFullSteps);
 	}
@@ -686,28 +686,28 @@
 	}
 }
 
-.defaultColumnSets (@steps:12, @hdViewport:wide, @tabletViewport:tablet, @smartphoneViewport:smartphone) {
+.addColumnsSet(@steps:12, @hdViewportPrefix:hd-, @tabletViewportPrefix:tablet-, @smartphoneViewportPrefix:smartphone-, @fillFromViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-) {
 	@media @from-smartphone-portrait {
 		// Smartphone portrait
-		.addColumnSet(@hdViewport, @steps);
-		.addColumnSet(@tabletViewport, @steps);
-		.addColumnSet(@smartphoneViewport, @steps);
+		.addColumnSet(@hdViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+		.addColumnSet(@tabletViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+		.addColumnSet(@smartphoneViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
 	}
 	@media @from-tablet-portrait {
 		// Tablet portrait
-		.addColumnSet(@smartphoneViewport, @steps);
-		.addColumnSet(@hdViewport, @steps);
-		.addColumnSet(@tabletViewport, @steps);
+		.addColumnSet(@smartphoneViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+		.addColumnSet(@hdViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+		.addColumnSet(@tabletViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
 	}
 	@media @from-hd-ready {
 		// HD Ready
-		.addColumnSet(@smartphoneViewport, @steps);
-		.addColumnSet(@tabletViewport, @steps);
-		.addColumnSet(@hdViewport, @steps);
+		.addColumnSet(@smartphoneViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+		.addColumnSet(@tabletViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+		.addColumnSet(@hdViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
 	}
-	.applyFillToColumnSet(@smartphoneViewport, @steps, "smartphone-landscape");
-	.applyFillToColumnSet(@tabletViewport, @steps, "smartphone-landscape");
-	.applyFillToColumnSet(@hdViewport, @steps, "smartphone-landscape");
+	.addFillToColumnSet(@tabletViewportPrefix, @steps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
+	.addFillToColumnSet(@hdViewportPrefix, @steps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
+	.preventSmartphoneColumnSet(@smartphoneViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
 }
 
 

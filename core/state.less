@@ -2,7 +2,7 @@
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
 ==             FRONTSIZE             ===================================================================================================================================
-==              STATUS               ===================================================================================================================================
+==               STATE               ===================================================================================================================================
 ==             SELECTORS             ===================================================================================================================================
 ==                                   ===================================================================================================================================
 ========================================================================================================================================================================
@@ -19,6 +19,7 @@
 
 .full {
 	.setColumnBehavior(false);
+	float: none;
 }
 
 .inline {
@@ -27,33 +28,40 @@
 }
 
 .block {
-	display: block;
+	display: block !important;
 }
 
 .full,
 .fill {
-	width: 100%;
+	width: 100% !important;
+}
+
+.little {
+	width: 25% !important;
+}
+
+.half {
+	width: 50% !important;
+}
+
+.almost {
+	width: 75% !important;
 }
 
 .auto {
-	width: auto;
+	width: auto !important;
 }
 
 .box {
 	overflow: auto !important;
 }
 
-.flip {
-	.backface-visibility(hidden);
-	.transform-style(preserve-3d);
-	.transform(rotateX(0deg) rotateY(-180deg));
-	.transition(all 0.3s ease-in-out);
-	&.reverse {
-		.backface-visibility(hidden);
-		.transform-style(preserve-3d);
-		.transform(rotateX(0deg) rotateY(0deg));
-		.transition(all 0.3s ease-in-out);
-	}
+.visible {
+	overflow: visible !important;
+}
+
+.cut {
+	overflow: hidden !important;
 }
 
 .pointer {
@@ -65,13 +73,13 @@
 }
 
 .faded {
-	opacity: @status-faded-opacity !important;
+	opacity: @state-faded-opacity !important;
 	.transition(opacity 0.25s ease-out);
 }
 
 .disabled {
 	cursor: default;
-	opacity: @status-disabled-opacity !important;
+	opacity: @state-disabled-opacity !important;
 	.transition(opacity 0.25s ease-out);
 }
 
@@ -80,11 +88,7 @@
 }
 
 .hidden {
-	display: none;
-}
-
-.capitalized {
-	text-transform: capitalize;
+	display: none !important;
 }
 
 .text-center {
@@ -107,12 +111,28 @@
 	text-align: justify !important;
 }
 
+.uppercase {
+	text-transform: uppercase;
+}
+
+.lowercase {
+	text-transform: lowercase;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+
 .underline {
 	text-decoration: underline;
 }
 
 .line-through {
 	text-decoration: line-through;
+}
+
+.bold {
+	font-weight: bold;
 }
 
 .unselectable {
@@ -132,8 +152,9 @@
 }
 
 .gain-margin {
-	margin-left: -@horizontal-padding;
-	margin-right: -@horizontal-padding;
+	width: auto !important;
+	margin-left: -@horizontal-padding !important;
+	margin-right: -@horizontal-padding !important;
 }
 
 .to-center {
@@ -149,13 +170,30 @@
 	float: right;
 }
 
+.clear {
+	// manually go down to the next row
+	clear: both;
+}
+
 .relative {
 	position: relative;
 }
 
-.clear {
-	// manually go down to the next row
-	clear: both;
+.absolute {
+	position: absolute;
+	float: none;
+	&.to-bottom {
+		bottom: 0px;
+	}
+	&.to-top {
+		top: 0px;
+	}
+	&.to-right {
+		right: 0px;
+	}
+	&.to-left {
+		left: 0px;
+	}
 }
 
 .move-bottom-left {
@@ -224,9 +262,22 @@
 	padding-bottom: 0 !important;
 }
 
-.no-vertcal-padding {
+.no-vertical-padding {
 	padding-top: 0 !important;
 	padding-bottom: 0 !important;
+}
+
+.no-left-padding {
+	padding-left: 0 !important;
+}
+
+.no-right-padding {
+	padding-right: 0 !important;
+}
+
+.no-horizontal-padding {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 
 .with-margin {
@@ -271,9 +322,22 @@
 	margin-bottom: 0 !important;
 }
 
-.no-vertcal-margin {
+.no-vertical-margin {
 	margin-top: 0 !important;
 	margin-bottom: 0 !important;
+}
+
+.no-left-margin {
+	margin-left: 0 !important;
+}
+
+.no-right-margin {
+	margin-right: 0 !important;
+}
+
+.no-horizontal-margin {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
 }
 
 .no-list-style {
@@ -327,15 +391,15 @@
 
 
 .table {
-	.asTable(@status-table-padding, middle, 100%);
+	.asTable(@state-table-padding, middle, 100%);
 }
 
 .table-top {
-	.asTable(@status-table-padding, top, 100%);
+	.asTable(@state-table-padding, top, 100%);
 }
 
 .inline-table {
-	.asTable(@status-table-padding, middle, auto);
+	.asTable(@state-table-padding, middle, auto);
 }
 
 .cell {
@@ -348,6 +412,28 @@
 
 .cell-bottom {
 	.asTableCell(0, bottom);
+}
+
+.fixed {
+	position: fixed;
+	&.cover {
+		bottom:0;
+		top:0;
+		right:0;
+		left:0;
+	}
+	&.to-bottom {
+		bottom:0;
+	}
+	&.to-top {
+		top:0;
+	}
+	&.to-right {
+		right:0;
+	}
+	&.to-left {
+		left:0;
+	}
 }
 
 .hookable {
@@ -364,35 +450,47 @@
 ========================================================================================================================================================================
 */
 // Media queries for strict resolution selectors
+@media @only-hd {
+	//.only-on-hd				{ display:none; }
+	.only-on-tablet				{ display:none; }
+	.only-on-smartphone			{ display:none; }
+	.not-on-hd					{ display: none; }
+}
+
 @media @only-hd-full {
 	// Full HD
-	//.only-on-hd-full				{ background-color:pink; padding:.25em;}
+	//.only-on-hd-full				{ background-color:pink; }
 	.only-on-hd-ready				{ display: none; }
 	.only-on-tablet-landscape		{ display: none; }
 	.only-on-tablet-portrait		{ display: none; }
 	.only-on-smartphone-landscape	{ display: none; }
 	.only-on-smartphone-portrait	{ display: none; }
-	.not-on-hd						{ display: none; }
 	.not-on-hd-full					{ display: none; }
 }
 
 @media @only-hd-ready {
 	// HD Ready
 	.only-on-hd-full				{ display: none; }
-	//.only-on-hd-ready				{ background-color:aqua; padding:.25em; }
+	//.only-on-hd-ready				{ background-color:aqua; }
 	.only-on-tablet-landscape		{ display: none; }
 	.only-on-tablet-portrait		{ display: none; }
 	.only-on-smartphone-landscape	{ display: none; }
 	.only-on-smartphone-portrait	{ display: none; }
-	.not-on-hd						{ display: none; }
 	.not-on-hd-ready				{ display: none; }
+}
+
+@media @only-tablet {
+	.only-on-hd					{ display:none; }
+	//.only-on-tablet			{ display:none; }
+	.only-on-smartphone			{ display:none; }
+	.not-on-tablet				{ display: none; }
 }
 
 @media @only-tablet-landscape {
 	// Tablet landscape
 	.only-on-hd-full				{ display: none; }
 	.only-on-hd-ready				{ display: none; }
-	//.only-on-tablet-landscape		{ background-color:yellow; padding:.25em;}
+	//.only-on-tablet-landscape		{ background-color:yellow; }
 	.only-on-tablet-portrait		{ display: none; }
 	.only-on-smartphone-landscape	{ display: none; }
 	.only-on-smartphone-portrait	{ display: none; }
@@ -402,14 +500,20 @@
 
 @media	@only-tablet-portrait {
 	// Tablet portrait
-	.only-on-hd-full				{display:none;}
-	.only-on-hd-ready				{display:none;}
-	.only-on-tablet-landscape		{display:none;}
-	//.only-on-tablet-portrait		{background-color:orange; padding:.25em;}
-	.only-on-smartphone-landscape	{display:none;}
-	.only-on-smartphone-portrait	{display:none;}
-	.not-on-tablet 					{display:none;}
-	.not-on-tablet-portrait 		{display:none;}
+	.only-on-hd-full				{ display: none; }
+	.only-on-hd-ready				{ display: none; }
+	.only-on-tablet-landscape		{ display: none; }
+	//.only-on-tablet-portrait		{ background-color: orange; }
+	.only-on-smartphone-landscape	{ display: none; }
+	.only-on-smartphone-portrait	{ display: none; }
+	.not-on-tablet-portrait 		{ display: none; }
+}
+
+@media @only-smartphone {
+	.only-on-hd					{ display:none; }
+	.only-on-tablet				{ display:none; }
+	//.only-on-smartphone		{ display:none; }
+	.not-on-smartphone			{ display: none; }
 }
 
 @media @only-smartphone-landscape {
@@ -420,7 +524,6 @@
 	.only-on-tablet-portrait		{display:none;}
 	//.only-on-smartphone-landscape	{background-color:lightgrey; padding:.25em;}
 	.only-on-smartphone-portrait	{display:none;}
-	.not-on-smartphone 				{display:none;}
 	.not-on-smartphone-landscape 	{display:none;}
 }
 
@@ -432,7 +535,6 @@
 	.only-on-tablet-portrait		{display:none;}
 	.only-on-smartphone-landscape	{display:none;}
 	//.only-on-smartphone-portrait	{background-color:lightblue; padding:.25em;}
-	.not-on-smartphone 				{display:none;}
 	.not-on-smartphone-portrait 	{display:none;}
 }
 
@@ -448,101 +550,149 @@
 // Media queries for selectors active from smaller resolution device mobile to a specific one
 @media @till-hd-full {
 	// Full HD
-	.not-till-hd-full			{ display:none !important; }
-	.block-till-hd-full			{ display:block; }
-	.fill-till-hd-full			{ width:100% !important; }
-	.text-left-till-hd-full		{ text-align: left; }
-	.text-centered-till-hd-full	{ text-align: center; }
-	.text-right-till-hd-full	{ text-align: right; }
+	.not-till-hd-full			{ display: none !important; }
+	.block-till-hd-full			{ display: block !important; }
+	.fill-till-hd-full			{ width: 100% !important; }
+	.almost-till-hd-full		{ width: 75% !important; }
+	.half-till-hd-full			{ width: 50% !important; }
+	.little-till-hd-full		{ width: 25% !important; }
+	.text-left-till-hd-full		{ text-align: left !important; }
+	.text-center-till-hd-full	{ text-align: center !important; }
+	.text-right-till-hd-full	{ text-align: right !important; }
+	.to-center-till-hd-full		{ margin: auto !important; }
+	.to-left-till-hd-full		{ float: left !important; }
+	.to-right-till-hd-full		{ float: right !important; }
 }
 
 @media @till-hd-ready {
 	// HD Ready
-	.not-till-hd-ready				{ display: none !important; }
-	.block-till-hd-ready			{ display: block; }
-	.fill-till-hd-ready				{ width: 100% !important; }
-	.text-left-till-hd-ready		{ text-align: left; }
-	.text-centered-till-hd-ready	{ text-align: center; }
-	.text-right-till-hd-ready		{ text-align: right; }
+	.not-till-hd-ready					{ display: none !important; }
+	.block-till-hd-ready				{ display: block !important; }
+	.fill-till-hd-ready					{ width: 100% !important; }
+	.almost-till-hd-ready				{ width: 75% !important; }
+	.half-till-hd-ready					{ width: 50% !important; }
+	.little-till-hd-ready				{ width: 25% !important; }
+	.text-left-till-hd-ready			{ text-align: left !important; }
+	.text-center-till-hd-ready			{ text-align: center !important; }
+	.text-right-till-hd-ready			{ text-align: right !important; }
+	.to-center-till-hd-ready			{ margin: auto !important; }
+	.to-left-till-hd-ready				{ float: left !important; }
+	.to-right-till-hd-ready				{ float: right !important; }
 }
 
 @media @till-tablet-landscape {
 	// Tablet landscape
 	.not-till-tablet-landscape				{ display: none !important; }
-	.block-till-tablet-landscape			{ display: block; }
+	.block-till-tablet-landscape			{ display: block !important; }
 	.fill-till-tablet-landscape				{ width: 100% !important; }
-	.text-left-till-tablet-landscape		{ text-align: left; }
-	.text-centered-till-tablet-landscape	{ text-align: center; }
-	.text-right-till-tablet-landscape		{ text-align: right; }
-	.not-hooked-till-tablet-landscape		{ position: static; }
+	.almost-till-tablet-landscape			{ width: 75% !important; }
+	.half-till-tablet-landscape				{ width: 50% !important; }
+	.little-till-tablet-landscape			{ width: 25% !important; }
+	.text-left-till-tablet-landscape		{ text-align: left !important; }
+	.text-center-till-tablet-landscape		{ text-align: center !important; }
+	.text-right-till-tablet-landscape		{ text-align: right !important; }
+	.not-fixed-till-tablet-landscape		{ position: static !important; }
+	.to-center-till-tablet-landscape		{ margin: auto !important; }
+	.to-left-till-tablet-landscape			{ float: left !important; }
+	.to-right-till-tablet-landscape			{ float: right !important; }
 }
 
 @media @till-tablet-portrait {
 	// Tablet portrait
 	.not-till-tablet-portrait				{ display: none !important; }
-	.block-till-tablet-portrait				{ display: block; }
+	.block-till-tablet-portrait				{ display: block !important; }
 	.fill-till-tablet-portrait				{ width: 100% !important; }
-	.text-left-till-tablet-portrait			{ text-align: left; }
-	.text-centered-till-tablet-portrait		{ text-align: center; }
-	.text-right-till-tablet-portrait		{ text-align: right; }
-	.not-hooked-till-tablet-portrait		{ position: static; }
+	.almost-till-tablet-portrait			{ width: 75% !important; }
+	.half-till-tablet-portrait				{ width: 50% !important; }
+	.little-till-tablet-portrait			{ width: 25% !important; }
+	.text-left-till-tablet-portrait			{ text-align: left !important; }
+	.text-center-till-tablet-portrait		{ text-align: center !important; }
+	.text-right-till-tablet-portrait		{ text-align: right !important; }
+	.not-fixed-till-tablet-portrait			{ position: static !important; }
+	.to-center-till-tablet-portrait			{ margin: auto !important; }
+	.to-left-till-tablet-portrait			{ float: left !important; }
+	.to-right-till-tablet-portrait			{ float: right !important; }
 }
 
 @media @till-smartphone-landscape {
 	// Smartphone landscape
 	.not-till-smartphone-landscape				{ display: none !important; }
-	.block-till-smartphone-landscape			{ display: block; }
+	.block-till-smartphone-landscape			{ display: block !important; }
 	.fill-till-smartphone-landscape				{ width: 100% !important; }
-	.text-left-till-smartphone-landscape		{ text-align: left; }
-	.text-centered-till-smartphone-landscape	{ text-align: center; }
-	.text-right-till-smartphone-landscape		{ text-align: right; }
+	.almost-till-smartphone-landscape			{ width: 75% !important; }
+	.half-till-smartphone-landscape				{ width: 50% !important; }
+	.little-till-smartphone-landscape			{ width: 25% !important; }
+	.text-left-till-smartphone-landscape		{ text-align: left !important; }
+	.text-center-till-smartphone-landscape		{ text-align: center !important; }
+	.text-right-till-smartphone-landscape		{ text-align: right !important; }
+	.to-center-till-smartphone-landscape		{ margin: auto !important; }
+	.to-left-till-smartphone-landscape			{ float: left !important; }
+	.to-right-till-smartphone-landscape			{ float: right !important; }
 }
 
 // Media queries for selectors active from a specific resolution or higher
 @media @from-smartphone-portrait {
 	// Smartphone portrait
 	.not-from-smartphone-portrait			{ display:none !important; }
-	.text-centered-from-smartphone-portrait	{ text-align: center; }
-	.text-left-from-smartphone-portrait		{ text-align: left; }
-	.text-right-from-smartphone-portrait	{ text-align: right; }
+	.text-center-from-smartphone-portrait	{ text-align: center !important; }
+	.text-left-from-smartphone-portrait		{ text-align: left !important; }
+	.text-right-from-smartphone-portrait	{ text-align: right !important; }
+	.to-center-from-smartphone-portrait		{ margin: auto !important; }
+	.to-left-from-smartphone-portrait		{ float: left !important; }
+	.to-right-from-smartphone-portrait		{ float: right !important; }
 }
 
 @media @from-smartphone-landscape {
 	// Smartphone landscape
 	.not-from-smartphone-landscape				{ display:none; position:fixed; }
-	.text-centered-from-smartphone-landscape	{ text-align: center; }
-	.text-left-from-smartphone-landscape		{ text-align: left; }
-	.text-right-from-smartphone-landscape		{ text-align: right; }
+	.text-center-from-smartphone-landscape		{ text-align: center !important; }
+	.text-left-from-smartphone-landscape		{ text-align: left !important; }
+	.text-right-from-smartphone-landscape		{ text-align: right !important; }
+	.to-center-from-smartphone-landscape		{ margin: auto !important; }
+	.to-left-from-smartphone-landscape			{ float: left !important; }
+	.to-right-from-smartphone-landscape			{ float: right !important; }
 }
 
 @media @from-tablet-portrait {
 	// Tablet portrait
 	.not-from-tablet-portrait			{ display:none !important; }
-	.text-centered-from-tablet-portrait	{ text-align: center; }
-	.text-left-from-tablet-portrait		{ text-align: left; }
-	.text-right-from-tablet-portrait	{ text-align: right; }
+	.text-center-from-tablet-portrait	{ text-align: center !important; }
+	.text-left-from-tablet-portrait		{ text-align: left !important; }
+	.text-right-from-tablet-portrait	{ text-align: right !important; }
+	.to-center-from-tablet-portrait		{ margin: auto !important; }
+	.to-left-from-tablet-portrait		{ float: left !important; }
+	.to-right-from-tablet-portrait		{ float: right !important; }
 }
 
 @media @from-tablet-landscape {
 	// Tablet landscape
 	.not-from-tablet-landscape				{ display:none !important; }
-	.text-centered-from-tablet-landscape	{ text-align: center; }
-	.text-left-from-tablet-landscape		{ text-align: left; }
-	.text-right-from-tablet-landscape		{ text-align: right; }
+	.text-center-from-tablet-landscape		{ text-align: center !important; }
+	.text-left-from-tablet-landscape		{ text-align: left !important; }
+	.text-right-from-tablet-landscape		{ text-align: right !important; }
+	.to-center-from-tablet-landscape		{ margin: auto !important; }
+	.to-left-from-tablet-landscape			{ float: left !important; }
+	.to-right-from-tablet-landscape			{ float: right !important; }
 }
 
 @media @from-hd-ready {
 	// HD Ready
 	.not-from-hd-ready				{ display:none !important; }
-	.text-centered-from-hd-ready	{ text-align: center; }
-	.text-left-from-hd-ready		{ text-align: left; }
-	.text-right-from-hd-ready		{ text-align: right; }
+	.text-center-from-hd-ready		{ text-align: center !important; }
+	.text-left-from-hd-ready		{ text-align: left !important; }
+	.text-right-from-hd-ready		{ text-align: right !important; }
+	.to-center-from-hd-ready		{ margin: auto !important; }
+	.to-left-from-hd-ready			{ float: left !important; }
+	.to-right-from-hd-ready			{ float: right !important; }
 }
 
 @media @from-hd-full {
 	// Full HD
 	.not-from-hd-full			{ display:none !important; }
-	.text-centered-from-hd-full	{ text-align: center; }
-	.text-left-from-hd-full		{ text-align: left; }
-	.text-right-from-hd-full	{ text-align: right; }
+	.text-center-from-hd-full	{ text-align: center !important; }
+	.text-left-from-hd-full		{ text-align: left !important; }
+	.text-right-from-hd-full	{ text-align: right !important; }
+	.to-center-from-hd-full		{ margin: auto !important; }
+	.to-left-from-hd-full		{ float: left !important; }
+	.to-right-from-hd-full		{ float: right !important; }
 }

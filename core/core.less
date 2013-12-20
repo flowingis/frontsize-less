@@ -10,7 +10,7 @@
 
 Frontsize - http://frontsize.com
 License:	MIT Licence
-Version:	1.0
+Version:	1.0.0
 Date:		2014-01-01
 Author:		Vittorio Vittori
 Website:	http://vittoriovittori.com
@@ -49,6 +49,10 @@ Website:	http://vittoriovittori.com
 @only-hd-ready:                    ~"only screen and (min-width: @{hd-ready-step}) and (max-width : @{to-hd-full-step})";
 @only-hd-full:                     ~"only screen and (min-width: @{hd-full-step})";
 
+@only-smartphone:                  ~"only screen and (min-width: 1px) and (max-width : @{to-tablet-portrait-step})";
+@only-tablet:                      ~"only screen and (min-width: @{tablet-portrait-step}) and (max-width : @{to-hd-ready-step}), only print";
+@only-hd:                          @from-hd-ready;
+
 @from-smartphone-portrait:         ~"only screen and (min-width: 1px)";
 @from-smartphone-landscape:        ~"only screen and (min-width: @{smartphone-landscape-step})";
 @from-tablet-portrait:             ~"only screen and (min-width: @{tablet-portrait-step}), only print";
@@ -63,16 +67,16 @@ Website:	http://vittoriovittori.com
 @till-hd-ready:                    ~"only screen and (max-width: @{to-hd-ready-step})";
 @till-hd-full:                     ~"only screen and (max-width: @{to-hd-full-step})";
 
-@retina-from-smartphone-portrait:  ~"@{from-smartphone-portrait},	@{display-retina-standard-only}"; // this woking only with @display-retina-standard-only
-@retina-from-smartphone-landscape: ~"@{from-smartphone-landscape},	@{display-retina-standard-only}"; // this woking only with @display-retina-standard-only
-@retina-from-tablet-portrait:      ~"@{from-tablet-portrait},		@{display-retina-standard-only}"; // this woking only with @display-retina-standard-only
-@retina-from-tablet-landscape:     ~"@{from-tablet-landscape},		@{display-retina-standard-only}"; // this woking only with @display-retina-standard-only
-@retina-from-hd-ready:             ~"@{from-hd-ready},				@{display-retina-standard-only}"; // this woking only with @display-retina-standard-only
-@retina-from-hd-full:              ~"@{from-hd-full},				@{display-retina-standard-only}"; // this woking only with @display-retina-standard-only
+@retina-from-smartphone-portrait:  ~"@{from-smartphone-portrait},	@{display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+@retina-from-smartphone-landscape: ~"@{from-smartphone-landscape},	@{display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+@retina-from-tablet-portrait:      ~"@{from-tablet-portrait},		@{display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+@retina-from-tablet-landscape:     ~"@{from-tablet-landscape},		@{display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+@retina-from-hd-ready:             ~"@{from-hd-ready},				@{display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
+@retina-from-hd-full:              ~"@{from-hd-full},				@{display-retina-browser-compatible}"; // this woking only with @display-retina-browser-compatible
 
-@display-retina-standard-only:     ~"only screen and (min-device-pixel-ratio: 2)";
-@display-retina:                   ~"only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx)";
-@display-standard:                 ~"only screen and (-webkit-max-device-pixel-ratio: 1) and (aspect-ratio: 1), only screen and (-webkit-max-device-pixel-ratio: 1), only screen and (max--moz-device-pixel-ratio: 1), only screen and (-o-max-device-pixel-ratio: 1/11), only screen and (max-device-pixel-ratio: 1), only screen and (max-resolution: 1dppx)";
+@display-retina-browser-compatible:     ~"only screen and (min-device-pixel-ratio: 2)";
+@display-retina:                        ~"only screen and (-webkit-min-device-pixel-ratio: 2) and (aspect-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 2dppx)";
+@display-standard:                      ~"only screen and (-webkit-max-device-pixel-ratio: 1) and (aspect-ratio: 1), only screen and (-webkit-max-device-pixel-ratio: 1), only screen and (max--moz-device-pixel-ratio: 1), only screen and (-o-max-device-pixel-ratio: 1/11), only screen and (max-device-pixel-ratio: 1), only screen and (max-resolution: 1dppx)";
 
 @print-viewport: @only-tablet-portrait;
 
@@ -86,79 +90,142 @@ Website:	http://vittoriovittori.com
 ========================================================================================================================================================================
 */
 
-.addColumnSet(@prefix:col, @totalSteps:12) {
+.addColumnSet(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) {
 	@startIndex: @totalSteps;
-	.loopColumnSet(@totalSteps, @prefix, @startIndex);
+	.loopColumnSet(@totalSteps, @prefix, @startIndex, ~"", @viewTotalColumns, @columnsSeparator);
 }
 
-.applyFillToColumnSet(@prefix, @totalSteps, @fillViewport:"smartphone-landscape") {
-	.loopColumnSetFill(@prefix, @totalSteps, @fillViewport, @index:@totalSteps);
+.addFillToColumnSet(@prefix, @totalSteps, @fillViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-) {
+	@startIndex: @totalSteps;
+	.loopColumnSetFill(@prefix, @totalSteps, @fillViewport, @startIndex, @viewTotalColumns, @columnsSeparator);
 }
 
-.loopColumnSet (@total, @prefix, @index, @prevRule:~"") when (@index = @total) {
-	@nextRule:~".@{prefix}-@{index}-of-@{total}";
-	.loopColumnSet(@total, @prefix, @index - 1, @nextRule);
-}.loopColumnSet (@total, @prefix, @index, @prevRule:~"") when (@index > 0) and (@index < @total) {
-	@nextRule:~"@{prevRule}, .@{prefix}-@{index}-of-@{total}";
-	.loopColumnSet(@total, @prefix, @index - 1, @nextRule);
-}.loopColumnSet (@total, @prefix, @index, @prevRule:~"") when (@index > 0) {
-	.@{prefix}-@{index}-of-@{total} {
+.preventSmartphoneColumnSet(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) {
+	@startIndex: @totalSteps;
+	.loopSmartphoneColumnSet(@prefix, @totalSteps, @startIndex, @viewTotalColumns, @columnsSeparator);
+}
+
+.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = true) {
+	@nextRule:~".@{prefix}@{index}@{columnsSeparator}@{total}";
+	.loopColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = true) {
+	@nextRule:~"@{prevRule}, .@{prefix}@{index}@{columnsSeparator}@{total}";
+	.loopColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = true) {
+	.@{prefix}@{index}@{columnsSeparator}@{total} {
 		.setColumnStep(@index, @total);
 	}
-}.loopColumnSet (@total, @prefix, @index, @prevRule:~"") when (@index = 0) {
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = true) {
 	@{prevRule} {
 		.setColumnBehavior();
 		.box-sizing(border-box);
 	}
 }
 
-.loopColumnSetFill(@prefix, @total, @fill, @index) when (@fill = "tablet-landscape") and (@index > 0) {
-	@media @till-hd-ready {
-		// Tablet landscape
-		.@{prefix}-@{index}-of-@{total} {
-			width: 100%;
-		}
+.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = false) {
+	@nextRule:~".@{prefix}@{index}";
+	.loopColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = false) {
+	@nextRule:~"@{prevRule}, .@{prefix}@{index}";
+	.loopColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = false) {
+	.@{prefix}@{index} {
+		.setColumnStep(@index, @total);
 	}
-	.loopColumnSetFill(@prefix, @total, @fill, @index - 1);
-}.loopColumnSetFill(@prefix, @total, @fill, @index) when (@fill = "tablet-portrait") and (@index > 0) {
-	@media @till-tablet-landscape {
-		// Tablet portrait
-		.@{prefix}-@{index}-of-@{total} {
-			width: 100%;
-		}
+}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = false) {
+	@{prevRule} {
+		.setColumnBehavior();
+		.box-sizing(border-box);
 	}
-	.loopColumnSetFill(@prefix, @total, @fill, @index - 1);
-}.loopColumnSetFill(@prefix, @total, @fill, @index) when (@fill = "smartphone-landscape") and (@index > 0) {
+}
+
+.loopSmartphoneColumnSet(@prefix, @total, @index, @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = true) {
 	@media @till-tablet-portrait {
 		// Smartphone landscape
-		.@{prefix}-@{index}-of-@{total} {
+		.@{prefix}@{index}@{columnsSeparator}@{total} {
+			.setColumnStep(@index, @total);
+		}
+	}
+	.loopSmartphoneColumnSet(@prefix, @total, @index - 1, @viewTotalColumns, @columnsSeparator);
+}.loopSmartphoneColumnSet(@prefix, @total, @index, @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = false) {
+	@media @till-tablet-portrait {
+		// Smartphone landscape
+		.@{prefix}@{index} {
+			.setColumnStep(@index, @total);
+		}
+	}
+	.loopSmartphoneColumnSet(@prefix, @total, @index - 1, @viewTotalColumns, @columnsSeparator);
+}
+
+.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator) when (@fill = "tablet-landscape") and (@index > 0) and (@viewTotalColumns = true) {
+	@media @till-hd-ready {
+		// Tablet landscape
+		.@{prefix}@{index}@{columnsSeparator}@{total} {
 			width: 100%;
 		}
 	}
-	.loopColumnSetFill(@prefix, @total, @fill, @index - 1);
-}.loopColumnSetFill(@prefix, @total, @fill, @index) when (@fill = "smartphone-portrait") and (@index > 0) {
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator) when (@fill = "tablet-portrait") and (@index > 0) and (@viewTotalColumns = true) {
+	@media @till-tablet-landscape {
+		// Tablet portrait
+		.@{prefix}@{index}@{columnsSeparator}@{total} {
+			width: 100%;
+		}
+	}
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator) when (@fill = "smartphone-landscape") and (@index > 0) and (@viewTotalColumns = true) {
+	@media @till-tablet-portrait {
+		// Smartphone landscape
+		.@{prefix}@{index}@{columnsSeparator}@{total} {
+			width: 100%;
+		}
+	}
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator) when (@fill = "smartphone-portrait") and (@index > 0) and (@viewTotalColumns = true) {
 	@media @till-smartphone-landscape {
 		// Smartphone portrait
-		.@{prefix}-@{index}-of-@{total} {
+		.@{prefix}@{index}@{columnsSeparator}@{total} {
 			width: 100%;
 		}
 	}
-	.loopColumnSetFill(@prefix, @total, @fill, @index - 1);
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator);
+}
+.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator) when (@fill = "tablet-landscape") and (@index > 0) and (@viewTotalColumns = false) {
+	@media @till-hd-ready {
+		// Tablet landscape
+		.@{prefix}@{index} {
+			width: 100%;
+		}
+	}
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator) when (@fill = "tablet-portrait") and (@index > 0) and (@viewTotalColumns = false) {
+	@media @till-tablet-landscape {
+		// Tablet portrait
+		.@{prefix}@{index} {
+			width: 100%;
+		}
+	}
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator) when (@fill = "smartphone-landscape") and (@index > 0) and (@viewTotalColumns = false) {
+	@media @till-tablet-portrait {
+		// Smartphone landscape
+		.@{prefix}@{index} {
+			width: 100%;
+		}
+	}
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator);
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator) when (@fill = "smartphone-portrait") and (@index > 0) and (@viewTotalColumns = false) {
+	@media @till-smartphone-landscape {
+		// Smartphone portrait
+		.@{prefix}@{index} {
+			width: 100%;
+		}
+	}
+	.loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator);
 }
 
 .setColumns(@columns) {
 	width:(100%/@columns);
-	//&:nth-child(1n+1)  { clear:none; }
-	//&:nth-child(2n+1)  { clear:none; }
-	//&:nth-child(3n+1)  { clear:none; }
-	//&:nth-child(4n+1)  { clear:none; }
-	//&:nth-child(5n+1)  { clear:none; }
-	//&:nth-child(6n+1)  { clear:none; }
-	//&:nth-child(7n+1)  { clear:none; }
-	//&:nth-child(8n+1)  { clear:none; }
-	//&:nth-child(10n+1) { clear:none; }
-	//&:nth-child(12n+1) { clear:none; }
-	//&:nth-child(16n+1) { clear:none; }
 	&:nth-child(@{columns}n+1) {clear:both;}
 }
 
@@ -167,8 +234,9 @@ Website:	http://vittoriovittori.com
 }
 
 .setColumnBehavior(@usePosition:true) {
-	padding-left:@horizontal-padding;
-	padding-right:@horizontal-padding;
+	padding-left: @horizontal-padding;
+	padding-right: @horizontal-padding;
+	padding-bottom: @vertical-padding;
 	float: left;
 }.setColumnBehavior(@usePosition:true) when (@usePosition = true) {
 	position: relative;

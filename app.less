@@ -22,11 +22,12 @@
 @font-serif:		georgia, 'times new roman', times, serif;
 @font-monospace:	menlo, monaco, 'courier new', monospace;
 @font-small:		'lucida grande', tahoma, verdana, arial, sans-serif;
-@font-heading:		@font-sans;
+
+@font-default-color: #7b8284;
+@font-default: @font-sans;
+@font-heading: @font-sans;
 @font-line-height:	1.25;
 
-@font-default: @font-sans;
-@font-default-color: #7b8284;
 
 /*
 ========================================================================================================================================================================
@@ -44,15 +45,15 @@
 /*
 ========================================================================================================================================================================
 ==                                   ===================================================================================================================================
-==              STATUS               ===================================================================================================================================
+==              STATE                ===================================================================================================================================
 ==              COLORS               ===================================================================================================================================
 ==                                   ===================================================================================================================================
 ========================================================================================================================================================================
 */
 
-@status-faded-opacity: 0.5;
-@status-disabled-opacity: 0.5;
-@status-table-padding: 0.5em;
+@state-faded-opacity: 0.5;
+@state-disabled-opacity: 0.5;
+@state-table-padding: 0.5em;
 
 /*
 ========================================================================================================================================================================
@@ -122,11 +123,11 @@ background-image: url("/img/background.png");
 ========================================================================================================================================================================
 */
 
-
+.useFrontsizeWidgets();
 
 // set font scaling to change the font size depending by different resolutions
-.bodyFont();
-.headingsFont();		// same config of .global-font-scaling
+.setFontScaling();
+.headingsFont();
 .addFontsRule(with-small-fonts, @font-default, @font-small-size, antialiased, @font-default, 14px, antialiased, @font-default, 14px, antialiased);
 
 /*
@@ -139,9 +140,9 @@ background-image: url("/img/background.png");
 */
 
 // comment what you don't need to gain weight for your CSS file.
-//.responsive-rule(selector-name, @hd-full-columns, @hd-ready-columns, @tablet-landscape-columns, @tablet-portrait-columns, @smartphone-landscape-columns, @smartphone-portrait-columns);
+//.addContainerRow(selector-name, @hd-full-columns, @hd-ready-columns, @tablet-landscape-columns, @tablet-portrait-columns, @smartphone-landscape-columns, @smartphone-portrait-columns);
 .addContainerRow(row);
 
 // set the margins
-.defaultColumnSets(12);
+.addColumnsSet(12);
 .addViewportsSteps(use-steps, 500px, 100px, 50px, 0px);
