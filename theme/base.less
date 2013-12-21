@@ -1,12 +1,8 @@
-/*
-
-SMACSS - Base Rules
-Url - http://smacss.com/book/type-base
-
-HTML5 elements
-Url - http://html5doctor.com/element-index/
-
-*/
+// SMACSS - Base Rules
+// Url - http://smacss.com/book/type-base
+// 
+// HTML5 elements
+// Url - http://html5doctor.com/element-index/
 
 .base-body();
 .base-a(@font-default-color, none);
@@ -51,15 +47,13 @@ Url - http://html5doctor.com/element-index/
 .base-figcaption(@vertical-padding 0 0 0);
 .base-tfoot();
 
-/*
-========================================================================================================================================================================
-==                                   ===================================================================================================================================
-==              BASE                 ===================================================================================================================================
-==              MIXIN                ===================================================================================================================================
-==             WIDGETS               ===================================================================================================================================
-==                                   ===================================================================================================================================
-========================================================================================================================================================================
-*/
+// ========================================================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==              BASE                 ===================================================================================================================================
+// ==              MIXIN                ===================================================================================================================================
+// ==             WIDGETS               ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ========================================================================================================================================================================
 
 .base-body() {
 	* {
@@ -82,14 +76,12 @@ Url - http://html5doctor.com/element-index/
 
 
 .base-a(@color:@font-default-color, @userSelect:none) {
-	/*
-	If the a element has an href attribute, then it represents a hyperlink (a hypertext anchor).
-	If the a element has no href attribute, then the element represents a placeholder for where a link might otherwise have been placed, if it had been relevant.
-
-	The target, rel, media, hreflang, and type attributes must be omitted if the href attribute is not present.
-	
-	Url - http://html5doctor.com/element-index/#a
-	*/
+	// If the a element has an href attribute, then it represents a hyperlink (a hypertext anchor).
+	// If the a element has no href attribute, then the element represents a placeholder for where a link might otherwise have been placed, if it had been relevant.
+	// 
+	// The target, rel, media, hreflang, and type attributes must be omitted if the href attribute is not present.
+	// 
+	// Url - http://html5doctor.com/element-index/#a
 	a {
 		display: inline-block;
 		line-height: @font-line-height;
@@ -141,19 +133,15 @@ Url - http://html5doctor.com/element-index/
 }
 
 .base-code(@padding:0 0.25em, @backgroundColor:rgba(0,0,0,.075), @color:inherit) {
-	/*
-	The code element represents a fragment of computer code.
-	This could be an XML element name, a filename, a computer program, or any other string that a computer would recognize.
-	
-	Url - http://html5doctor.com/element-index/#code
-	*/
-
-	/*
-	The var element represents a variable.
-	This could be an actual variable in a mathematical expression or programming context, or it could just be a term used as a placeholder in prose.
-	
-	Url - http://html5doctor.com/element-index/#var
-	*/
+	// The code element represents a fragment of computer code.
+	// This could be an XML element name, a filename, a computer program, or any other string that a computer would recognize.
+	// 
+	// Url - http://html5doctor.com/element-index/#code
+	// 
+	// The var element represents a variable.
+	// This could be an actual variable in a mathematical expression or programming context, or it could just be a term used as a placeholder in prose.
+	// 
+	// Url - http://html5doctor.com/element-index/#var
 	code,
 	.code,
 	var,
@@ -254,17 +242,15 @@ Url - http://html5doctor.com/element-index/
 }
 
 .base-meter() {
-	/*
-	When the meter binding applies to a meter element, the element is expected to render as an 'inline-block' box with a 'height' of '1em' and a 'width' of '5em', a 'vertical-align' of '-0.2em', and with its contents depicting a gauge.
-
-	When the element is wider than it is tall(or square), the depiction is expected to be of a horizontal gauge, with the minimum value on the right if the 'direction' property on this element has a computed value of 'rtl', and on the left otherwise.
-	When the element is taller than it is wide, it is expected to depict a vertical gauge, with the minimum value on the bottom.
-
-	Code snippet:
-	Your score is: <meter> 2 out of 10 </meter>
-
-	Url - http://html5doctor.com/element-index/#meter
-	*/
+	// When the meter binding applies to a meter element, the element is expected to render as an 'inline-block' box with a 'height' of '1em' and a 'width' of '5em', a 'vertical-align' of '-0.2em', and with its contents depicting a gauge.
+	// 
+	// When the element is wider than it is tall(or square), the depiction is expected to be of a horizontal gauge, with the minimum value on the right if the 'direction' property on this element has a computed value of 'rtl', and on the left otherwise.
+	// When the element is taller than it is wide, it is expected to depict a vertical gauge, with the minimum value on the bottom.
+	// 
+	// Code snippet:
+	// Your score is: <meter> 2 out of 10 </meter>
+	// 
+	// Url - http://html5doctor.com/element-index/#meter
 	meter {
 		// meter | progress
 		binding: meter;
@@ -273,34 +259,29 @@ Url - http://html5doctor.com/element-index/
 
 .base-progress() {
 	progress {
-		/*
-		Represents the completion progress of a task.
-		Progress may be either indeterminate — meaning it is unclear how much work remains before the task is complete (e.g., the task is waiting for a response from a remote host) — or a numeric value between 0 and a given maximum, explicitly specifying the fraction of work that has so far been completed.
-
-		Code snippet:
-		<section>
-			<p>Progress: <progress> <span id="p">0</span>% </progress> </p>
-
-			<script>
-			var progressBar = document.getElementById('p');
-			function updateProgress(newValue) {
-				progressBar.textContent = newValue;
-			}
-			</script>
-		</section>
-
-		Url - http://html5doctor.com/element-index/#progress
-		*/
+		// Represents the completion progress of a task.
+		// Progress may be either indeterminate — meaning it is unclear how much work remains before the task is complete (e.g., the task is waiting for a response from a remote host) — or a numeric value between 0 and a given maximum, explicitly specifying the fraction of work that has so far been completed.
+		// 
+		// Code snippet:
+		// <section>
+		// 	<p>Progress: <progress> <span id="p">0</span>% </progress> </p>
+		// 	
+		// 	<script>
+		// 	var progressBar = document.getElementById('p');
+		// 	function updateProgress(newValue) {
+		// 		progressBar.textContent = newValue;
+		// 	}
+		// 	</script>
+		// </section>
+		// 
+		// Url - http://html5doctor.com/element-index/#progress
 	}
 }
 
 .base-s(@color:@font-default-color, @textDecoration:line-through, @opacity:@state-faded-opacity) {
 	s {
-		/*
-		The s element represents contents that are no longer accurate or no longer relevant.
-		
-		Url - http://html5doctor.com/element-index/#s
-		*/
+		// The s element represents contents that are no longer accurate or no longer relevant.
+		// Url - http://html5doctor.com/element-index/#s
 		color: @color;
 		text-decoration: @textDecoration;
 		opacity: @opacity;
@@ -309,12 +290,10 @@ Url - http://html5doctor.com/element-index/
 
 
 .base-mark(@backgroundColor:rgb(255,255,0)) {
-	/*
-	Represents a run of text in one document marked or highlighted because of its relevance in another context.
-	When used in a quotation or other block of text referenced in a document, it indicates a highlight that was not present in the original document — e.g., a portion of text in an academic publication that has recently come under additional scrutiny.
-
-	Url - http://html5doctor.com/element-index/#mark
-	*/
+	// Represents a run of text in one document marked or highlighted because of its relevance in another context.
+	// When used in a quotation or other block of text referenced in a document, it indicates a highlight that was not present in the original document — e.g., a portion of text in an academic publication that has recently come under additional scrutiny.
+	// 
+	// Url - http://html5doctor.com/element-index/#mark
 	mark {
 		color:inherit;
 		background-color:@backgroundColor;
@@ -347,13 +326,11 @@ Url - http://html5doctor.com/element-index/
 }
 
 .base-abbr(@borderColor:@font-default-color) {
-	/*
-	Represents an abbreviation or acronym.
-	The optional title attribute may be used to provide an expansion of the abbreviation.
-	If specified, the title attribute must contain an expansion of the abbreviation and nothing else.
-	
-	Url - http://html5doctor.com/element-index/#abbr
-	*/
+	// Represents an abbreviation or acronym.
+	// The optional title attribute may be used to provide an expansion of the abbreviation.
+	// If specified, the title attribute must contain an expansion of the abbreviation and nothing else.
+	// 
+	// Url - http://html5doctor.com/element-index/#abbr
 	abbr,
 	abbr[title] {
 		border-bottom: 2px dotted @borderColor;
@@ -373,13 +350,11 @@ Url - http://html5doctor.com/element-index/
 
 .base-small(@fontSize:0.75em) {
 	small {
-		/*
-		Represents side comments such as small print.
-		It is not intended to be presentational.
-		The small element should not be used for extended spans of text such as multiple paragraphs, lists, or sections of text. It is only intended for short runs of text.
-		
-		Url - http://html5doctor.com/element-index/#small
-		*/
+		// Represents side comments such as small print.
+		// It is not intended to be presentational.
+		// The small element should not be used for extended spans of text such as multiple paragraphs, lists, or sections of text. It is only intended for short runs of text.
+		// 
+		// Url - http://html5doctor.com/element-index/#small
 		font-size: @fontSize;
 	}
 }
@@ -497,22 +472,20 @@ Url - http://html5doctor.com/element-index/
 
 .base-table(@verticalAlign:middle, @borderCollapse:collapse) {
 	table {
-		/*
-		The table element represents data with more than one dimension, in the form of a table.
-		Tables must not be used as layout aids.
-	
-		Code snippet:
-		<table>
-			<tr>
-				<td>dog</td>
-				<td>cat</td>
-				<td>horse</td>
-				<td>iguana</td>
-			</tr>
-		</table>
-	
-		Url - http://html5doctor.com/element-index/#table
-		*/
+		// The table element represents data with more than one dimension, in the form of a table.
+		// Tables must not be used as layout aids.
+		// 
+		// Code snippet:
+		// <table>
+		// 	<tr>
+		// 		<td>dog</td>
+		// 		<td>cat</td>
+		// 		<td>horse</td>
+		// 		<td>iguana</td>
+		// 	</tr>
+		// </table>
+		// 
+		// Url - http://html5doctor.com/element-index/#table
 		border-collapse: @borderCollapse;
 		vertical-align: @verticalAlign;
 		width: 100%;
@@ -525,31 +498,29 @@ Url - http://html5doctor.com/element-index/
 }
 .base-caption(@padding:@global-padding) {
 	caption {
-		/*
-		The caption element represents the title of the table that is its parent, if it has a parent and that is a table element.
-	
-		When a table element is the only content in a figure element other than the figcaption, the caption element should be omitted in favor of the figcaption.
-	
-		Code snippet:
-		<table>
-			<caption>Monthly savings</caption>
-			<thead>
-				<tr>
-					<th scope="col">Header 1</th>
-					<th scope="col">Header 2</th>
-					<th scope="col">Header 3</th>
-				</tr>
-			</thead>
-			<tfoot>
-				...
-			</tfoot>
-			<tbody>
-				...
-			</tbody>
-		</table>
-	
-		Url - http://html5doctor.com/element-index/#caption
-		*/
+		// The caption element represents the title of the table that is its parent, if it has a parent and that is a table element.
+		// 
+		// When a table element is the only content in a figure element other than the figcaption, the caption element should be omitted in favor of the figcaption.
+		// 
+		// Code snippet:
+		// <table>
+		// 	<caption>Monthly savings</caption>
+		// 	<thead>
+		// 		<tr>
+		// 			<th scope="col">Header 1</th>
+		// 			<th scope="col">Header 2</th>
+		// 			<th scope="col">Header 3</th>
+		// 		</tr>
+		// 	</thead>
+		// 	<tfoot>
+		// 		...
+		// 	</tfoot>
+		// 	<tbody>
+		// 		...
+		// 	</tbody>
+		// </table>
+		// 
+		// Url - http://html5doctor.com/element-index/#caption
 		padding: @padding;
 	}
 }
@@ -604,28 +575,26 @@ Url - http://html5doctor.com/element-index/
 }
 .base-tfoot(@textAlign:center, @color:lighten(@font-default-color,20%)) {
 	tfoot {
-		/*
-		The tfoot element represents the block of rows that consist of the column summaries (footers) for the parent table element, if the tfoot element has a parent and it is a table.
-	
-		Code snippet:
-		<table>
-			<thead>
-				...
-			</thead>
-			<tfoot>
-				<tr>
-					<td>Footer 1</td>
-					<td>Footer 2</td>
-					<td>Footer 3</td>
-				</tr>
-			</tfoot>
-			<tbody>
-				...
-			</tbody>
-		</table>
-	
-		Url - http://html5doctor.com/element-index/#tfoot
-		*/
+		// The tfoot element represents the block of rows that consist of the column summaries (footers) for the parent table element, if the tfoot element has a parent and it is a table.
+		// 
+		// Code snippet:
+		// <table>
+		// 	<thead>
+		// 		...
+		// 	</thead>
+		// 	<tfoot>
+		// 		<tr>
+		// 			<td>Footer 1</td>
+		// 			<td>Footer 2</td>
+		// 			<td>Footer 3</td>
+		// 		</tr>
+		// 	</tfoot>
+		// 	<tbody>
+		// 		...
+		// 	</tbody>
+		// </table>
+		// 
+		// Url - http://html5doctor.com/element-index/#tfoot
 		td {
 			text-align: @textAlign;
 			color: @color;
@@ -636,17 +605,15 @@ Url - http://html5doctor.com/element-index/
 
 .base-form-textarea(@minHeight:100px, @maxHeight:300px, @resize:vertical) {
 	textarea {
-		/*
-		The textarea element represents a multiline plain text edit control for the element's raw value.
-		The contents of the control represent the control's default value.
-	
-		Code snippet:
-		<form action="/action-name.php" method="post" enctype="multipart/form-data">
-			<textarea cols="50" rows="10"></textarea> 
-		</form>
-		
-		Url - http://html5doctor.com/element-index/#textarea
-		*/
+		// The textarea element represents a multiline plain text edit control for the element's raw value.
+		// The contents of the control represent the control's default value.
+		// 
+		// Code snippet:
+		// <form action="/action-name.php" method="post" enctype="multipart/form-data">
+		// 	<textarea cols="50" rows="10"></textarea> 
+		// </form>
+		// 
+		// Url - http://html5doctor.com/element-index/#textarea
 		width:100%;
 		.wrap;
 		.resize(@resize);
@@ -665,16 +632,15 @@ Url - http://html5doctor.com/element-index/
 .base-form-label() {
 
 	label {
-		/*
-		The label represents a caption in a user interface.
-		The caption can be associated with a specific form control, known as the label element's labeled control, either using for attribute, or by putting the form control inside the label element itself.
-	
-		Code snippet:
-		<label for="un">Username:</label>
-		<input name="user-name" id="un" type="email" placeholder="Your username is your email address" required autofocus>
-	
-		Url - http://html5doctor.com/element-index/#label
-		*/
+		// The label represents a caption in a user interface.
+		// The caption can be associated with a specific form control, known as the label element's labeled control, either using for attribute, or by putting the form control inside the label element itself.
+		// 
+		// Code snippet:
+		// <label for="un">Username:</label>
+		// <input name="user-name" id="un" type="email" placeholder="Your username is your email address" required autofocus>
+		// 
+		// Url - http://html5doctor.com/element-index/#label
+		
 		display: inline-block;
 		.wrap;
 		.user-select(none);
@@ -721,22 +687,21 @@ Url - http://html5doctor.com/element-index/
 .base-form-select(@backgroundColor:@font-default-color) {
 	select,
 	keygen {
-		/*
-		The select element represents a control for selecting amongst a set of options.
-		
-		Code snippet:
-		<select id="title" name="title">
-			<option value="" selected>Please choose</option>
-			<option value="Mr">Mr</option>
-			<option value="Miss">Miss</option>
-			<option value="Mrs">Mrs</option>
-			<option value="Ms">Ms</option>
-			<option value="Dr">Dr</option>
-			<option value="Other">Other</option>
-		</select>
+		// The select element represents a control for selecting amongst a set of options.
+		// 
+		// Code snippet:
+		// <select id="title" name="title">
+		// 	<option value="" selected>Please choose</option>
+		// 	<option value="Mr">Mr</option>
+		// 	<option value="Miss">Miss</option>
+		// 	<option value="Mrs">Mrs</option>
+		// 	<option value="Ms">Ms</option>
+		// 	<option value="Dr">Dr</option>
+		// 	<option value="Other">Other</option>
+		// </select>
+		// 
+		// Url - http://html5doctor.com/element-index/#select
 
-		Url - http://html5doctor.com/element-index/#select
-		*/
 		.defaultElement();
 
 		cursor: pointer;
@@ -764,34 +729,33 @@ Url - http://html5doctor.com/element-index/
 
 .base-form-fieldset(@backgroundColor:desaturate(lighten(@font-default-color, 45%), 2%)) {
 	fieldset {
-		/*
-		The fieldset element is expected to establish a new block formatting context.
-	
-		If the fieldset element has a child that matches the conditions in the list below, then the first such child is the fieldset element's rendered legend:
-		The child is a legend element.
-		The child is not out-of-flow (e.g. not absolutely positioned or floated).
-		The child is generating a box (e.g. it is not 'display:none').
-		
-		Code snippet:
-		<form id="app-login" action="process.php">
-			<fieldset>
-				<legend>Login Details</legend>
-				<div>
-					<label for="user-name">Username:</label>
-					<input name="user-name" type="email" placeholder="Your username is your email address" required autofocus>
-				</div>
-				<div>
-					<label for="password">Password:</label>
-					<input name="password" type="password" placeholder="6 digits, a combination of numbers and letters" required>
-				</div>
-				<div>
-					<input name="login" type="submit" value="Login">
-				</div>
-			</fieldset>
-		</form>
-		
-		Url - http://html5doctor.com/element-index/#fieldset
-		*/
+		// The fieldset element is expected to establish a new block formatting context.
+		// 
+		// If the fieldset element has a child that matches the conditions in the list below, then the first such child is the fieldset element's rendered legend:
+		// The child is a legend element.
+		// The child is not out-of-flow (e.g. not absolutely positioned or floated).
+		// The child is generating a box (e.g. it is not 'display:none').
+		// 
+		// Code snippet:
+		// <form id="app-login" action="process.php">
+		// 	<fieldset>
+		// 		<legend>Login Details</legend>
+		// 		<div>
+		// 			<label for="user-name">Username:</label>
+		// 			<input name="user-name" type="email" placeholder="Your username is your email address" required autofocus>
+		// 		</div>
+		// 		<div>
+		// 			<label for="password">Password:</label>
+		// 			<input name="password" type="password" placeholder="6 digits, a combination of numbers and letters" required>
+		// 		</div>
+		// 		<div>
+		// 			<input name="login" type="submit" value="Login">
+		// 		</div>
+		// 	</fieldset>
+		// </form>
+		// 
+		// Url - http://html5doctor.com/element-index/#fieldset
+
 		background-color: @backgroundColor;
 		border:none;
 		padding:@global-padding;
@@ -802,29 +766,29 @@ Url - http://html5doctor.com/element-index/
 
 .base-form-legend(@backgroundColor:desaturate(lighten(@font-default-color, 45%), 2%)) {
 	legend {
-		/*
-		The legend element represents a caption for the rest of the contents of the legend element's parent fieldset element, if any.
 		
-		Code snippet:
-		<form id="app-login" action="process.php">
-			<fieldset>
-				<legend>Login Details</legend>
-				<div>
-					<label for="user-name">Username:</label>
-					<input name="user-name" type="email" placeholder="Your username is your email address" required autofocus>
-				</div>
-				<div>
-					<label for="password">Password:</label>
-					<input name="password" type="password" placeholder="6 digits, a combination of numbers and letters" required>
-				</div>
-				<div>
-					<input name="login" type="submit" value="Login">
-				</div>
-			</fieldset>
-		</form>
-	
-		Url - http://html5doctor.com/element-index/#legend
-		*/
+		// The legend element represents a caption for the rest of the contents of the legend element's parent fieldset element, if any.
+		// 
+		// Code snippet:
+		// <form id="app-login" action="process.php">
+		// 	<fieldset>
+		// 		<legend>Login Details</legend>
+		// 		<div>
+		// 			<label for="user-name">Username:</label>
+		// 			<input name="user-name" type="email" placeholder="Your username is your email address" required autofocus>
+		// 		</div>
+		// 		<div>
+		// 			<label for="password">Password:</label>
+		// 			<input name="password" type="password" placeholder="6 digits, a combination of numbers and letters" required>
+		// 		</div>
+		// 		<div>
+		// 			<input name="login" type="submit" value="Login">
+		// 		</div>
+		// 	</fieldset>
+		// </form>
+		// 
+		// Url - http://html5doctor.com/element-index/#legend
+
 		@round: 20px;
 		font-weight: bold;
 		background-color: @backgroundColor;
@@ -846,18 +810,15 @@ Url - http://html5doctor.com/element-index/
 
 .base-img() {
 	img {
-		/*
-		An img element represents an image.
-		The image given by the src attribute is the embedded content, and the value of the alt attribute is the img element's fallback content.
-	
-		The src attribute must be present, and must contain a valid non-empty URL potentially surrounded by spaces referencing a non-interactive, optionally animated, image resource that is neither paged nor scripted.
-	
-		The img element must not be used as a layout tool.
-		In particular, img elements should not be used to display transparent images, as they rarely convey meaning and rarely add anything useful to the document.
-	
-		Url - http://html5doctor.com/element-index/#img
-		*/
-	
+		// An img element represents an image.
+		// The image given by the src attribute is the embedded content, and the value of the alt attribute is the img element's fallback content.
+		// 
+		// The src attribute must be present, and must contain a valid non-empty URL potentially surrounded by spaces referencing a non-interactive, optionally animated, image resource that is neither paged nor scripted.
+		// 
+		// The img element must not be used as a layout tool.
+		// In particular, img elements should not be used to display transparent images, as they rarely convey meaning and rarely add anything useful to the document.
+		// 
+		// Url - http://html5doctor.com/element-index/#img
 		interpolation-mode: bicubic;
 	}
 }.base-img() when (@use-css-prefix = true) {

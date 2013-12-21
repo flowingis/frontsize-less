@@ -1,11 +1,9 @@
-/*
-========================================================================================================================================================================
-==                                   ===================================================================================================================================
-==             FRONTSIZE             ===================================================================================================================================
-==             MIXINS                ===================================================================================================================================
-==                                   ===================================================================================================================================
-========================================================================================================================================================================
-*/
+// ========================================================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==             FRONTSIZE             ===================================================================================================================================
+// ==             MIXINS                ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ========================================================================================================================================================================
 
 // Easing effects
 .ease(@easing) when (@easing) {
@@ -84,9 +82,7 @@
 	.transition-timing-function(cubic-bezier(0.680,-0.550, 0.265, 1.550));
 }
 
-
-/* backgrounds */
-
+// backgrounds
 .verticalGradient(@color:#cbcbcb, @strenght:5%) {
 	@lighten: saturate(lighten(@color,@strenght),(-@strenght/2));
 	@darken: saturate(darken(@color,@strenght),(@strenght/2));
@@ -103,16 +99,14 @@
 }
 
 .backgroundResponsive(@hdFullBackground, @hdReadyBackground, @tabletLandscapeBackground, @tabletPortraitBackground, @smartphoneLandscapeBackground, @smartphonePortraitBackground) {
-	/*
-	.backgroundResponsive(
-		"path/hd-full/background.png",
-		"path/hd-ready/background.png",
-		"path/tablet-landscape/background.png",
-		"path/tablet-portrait/background.png",
-		"path/smartphone-landscape/background.png",
-		"path/smartphone-portrait/background.png"
-	);
-	*/
+	// .backgroundResponsive(
+	//     "path/hd-full/background.png",
+	//     "path/hd-ready/background.png",
+	//     "path/tablet-landscape/background.png",
+	//     "path/tablet-portrait/background.png",
+	//     "path/smartphone-landscape/background.png",
+	//     "path/smartphone-portrait/background.png"
+	// );
 	.backgroundHdFull(@hdFullBackground);
 	.backgroundHdReady(@hdReadyBackground);
 	.backgroundTabletLandscape(@tabletLandscapeBackground);
@@ -193,34 +187,18 @@
 
 .roundTop(@radius:6px) {
 	// sets the top radius of the element
-	/*
-	Default usage
-	.round-top(4px);
-	*/
 	.border-radius(@radius @radius 0px 0px);
 }
 .roundBottom(@radius:6px) {
 	// sets the bottom radius of the element
-	/*
-	Default usage
-	.round-bottom(4px);
-	*/
 	.border-radius(0px 0px @radius @radius);
 }
 .roundLeft(@radius:6px) {
 	// sets the left radius of the element
-	/*
-	Default usage
-	.round-left(4px);
-	*/
 	.border-radius(@radius 0px 0px @radius);
 }
 .roundRight(@radius:6px) {
 	// sets the right radius of the element
-	/*
-	Default usage
-	.round-right(4px);
-	*/
 	.border-radius(0px @radius @radius 0px);
 }
 

@@ -1,25 +1,19 @@
-/*
-========================================================================================================================================================================
-==                                   ===================================================================================================================================
-==               CSS 3               ===================================================================================================================================
-==           CROSS BROWSER           ===================================================================================================================================
-==        COMAPTIBILITY MIXINS       ===================================================================================================================================
-==                                   ===================================================================================================================================
-========================================================================================================================================================================
-*/
+// ========================================================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==               CSS 3               ===================================================================================================================================
+// ==           CROSS BROWSER           ===================================================================================================================================
+// ==        COMAPTIBILITY MIXINS       ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ========================================================================================================================================================================
 
-/*
-For more compatibility details:
-http://caniuse.com/
-*/
+// For more compatibility details:
+// http://caniuse.com/
 
 .transition(@transition:0.3s ease-in-out initial) {
-	/*
-	classic css transition style
-	.transition(width .4s ease-in-out);
-	.transition(color .4s ease-in-out);
-	.transition(border-color .4s ease-in-out .2s);
-	*/
+	// classic css transition style
+	// .transition(width .4s ease-in-out);
+	// .transition(color .4s ease-in-out);
+	// .transition(border-color .4s ease-in-out .2s);
 	transition: @transition;
 }.transition(@transition:0.3s ease-in-out initial) when (@use-css-prefix = true) {
 	-webkit-transition: @transition;
@@ -204,10 +198,8 @@ http://caniuse.com/
 }
 
 .font-smoothing(@antialias:antialiased) {
-	/*
-	Sets the antialias text for the whole page
-	Values: antialiased | subpixel-antialiased | none
-	*/
+	// Sets the antialias text for the whole page
+	// Values: antialiased | subpixel-antialiased | none
 	font-smoothing: @antialias;
 }.font-smoothing(@antialias:antialiased) when (@use-css-prefix = true) {
 	-webkit-font-smoothing: @antialias;
@@ -218,9 +210,7 @@ http://caniuse.com/
 }
 
 .column-count(@count:auto) {
-	/*
-	Url - http://www.w3schools.com/cssref/css3_pr_column-count.asp
-	*/
+	// Url - http://www.w3schools.com/cssref/css3_pr_column-count.asp
 	column-count: @count;
 }.column-count(@count:auto) when (@use-css-prefix = true) {
 	-webkit-column-count: @count;
@@ -231,9 +221,7 @@ http://caniuse.com/
 }
 
 .column-gap(@gap:normal) {
-	/*
-	Url - http://www.w3schools.com/cssref/css3_pr_column-gap.asp
-	*/
+	// Url - http://www.w3schools.com/cssref/css3_pr_column-gap.asp
 	column-gap: @gap;
 }.column-gap(@gap:normal) when (@use-css-prefix = true) {
 	-webkit-column-gap: @gap;
@@ -244,9 +232,7 @@ http://caniuse.com/
 }
 
 .column-rule(@rule:medium none black) {
-	/*
-	Url - http://www.w3schools.com/cssref/css3_pr_column-rule.asp
-	*/
+	// Url - http://www.w3schools.com/cssref/css3_pr_column-rule.asp
 	column-rule: @rule;
 }.column-rule(@rule:medium none black) when (@use-css-prefix = true) {
 	-webkit-column-rule: @rule;
@@ -257,13 +243,11 @@ http://caniuse.com/
 }
 
 .column-span(@span:1) {
-	/*
-	Url - http://www.w3schools.com/cssref/css3_pr_column-span.asp
+	// Url - http://www.w3schools.com/cssref/css3_pr_column-span.asp
 	// The column-span property specifies how many columns an element should span across.
-	The CSS column-span property allows content to span across multiple columns on a multi-column layout.
-	This can be useful if you have a heading or other element within the multicol layout that needs to span across all columns.
-	Values: 1 | none | all;
-	*/
+	// The CSS column-span property allows content to span across multiple columns on a multi-column layout.
+	// This can be useful if you have a heading or other element within the multicol layout that needs to span across all columns.
+	// Values: 1 | none | all;
 	column-span: @span;
 }.column-span(@span:none) when (@use-css-prefix = true) {
 	-webkit-column-span: @span;
@@ -274,9 +258,7 @@ http://caniuse.com/
 }
 
 .column-width(@rule:auto) {
-	/*
-	Url - http://www.w3schools.com/cssref/css3_pr_column-width.asp
-	*/
+	// Url - http://www.w3schools.com/cssref/css3_pr_column-width.asp
 	// The column-width property specifies the width of the columns.
 	column-width: @rule;
 }.column-width(@rule:auto) when (@use-css-prefix = true) {
@@ -288,9 +270,7 @@ http://caniuse.com/
 }
 
 .columns(@columns:auto auto) {
-	/*
-	Url - http://www.w3schools.com/cssref/css3_pr_columns.asp
-	*/
+	// Url - http://www.w3schools.com/cssref/css3_pr_columns.asp
 	// The columns property is a shorthand property for setting column-width and column-count.
 	columns: @columns;
 }.columns(@columns:auto auto) when (@use-css-prefix = true) {
@@ -303,12 +283,10 @@ http://caniuse.com/
 
 .border-radius(@radius:6px) {
 	// sets a radius to the angles of the element
-	/*
-	Default usage
-	.border-radius(top-left-radius top-right-radius bottom-right-radius bottom-left-radius);
-	.border-radius(4px);
-	.border-radius(4px 6px 8px 10px);
-	*/
+	// Default usage
+	// .border-radius(top-left-radius top-right-radius bottom-right-radius bottom-left-radius);
+	// .border-radius(4px);
+	// .border-radius(4px 6px 8px 10px);
 	border-radius: @radius;
 }.border-radius(@radius:6px) when (@use-css-prefix = true) {
 	-webkit-border-radius: @radius;
@@ -330,13 +308,9 @@ http://caniuse.com/
 
 .border-image(@params) {
 	// Specify an image as the border around an element
-	/*
-	Url - http://www.w3schools.com/cssref/css3_pr_border-image.asp
-	*/
-	/*
-	Defaut usage
-	.border-image(url(border.png) 30 30 round);
-	*/
+	// Url - http://www.w3schools.com/cssref/css3_pr_border-image.asp
+	// Defaut usage
+	// .border-image(url(border.png) 30 30 round);
 	border-image: @params;
 }.border-image(@params) when (@use-css-prefix = true) {
 	-webkit-border-image: @params;
@@ -356,11 +330,9 @@ http://caniuse.com/
 }
 
 .box-align(@align:stretch) {
-	/*
-	The box-align property specifies how to align the child elements of a box.
-	Url - http://www.w3schools.com/cssref/css3_pr_box-align.asp
-	Values: start | end | center | baseline | stretch
-	*/
+	// The box-align property specifies how to align the child elements of a box.
+	// Url - http://www.w3schools.com/cssref/css3_pr_box-align.asp
+	// Values: start | end | center | baseline | stretch
 	box-align: @align;
 }.box-align(@align:stretch) when (@use-css-prefix = true) {
 	-webkit-box-align: @align;
@@ -371,11 +343,9 @@ http://caniuse.com/
 }
 
 .box-direction(@direction:normal) {
-	/*
-	The box-direction property specifies the direction in which child elements of a box element are laid out.
-	Url - http://www.w3schools.com/cssref/css3_pr_box-direction.asp
-	Values: normal | reverse | inherit
-	*/
+	// The box-direction property specifies the direction in which child elements of a box element are laid out.
+	// Url - http://www.w3schools.com/cssref/css3_pr_box-direction.asp
+	// Values: normal | reverse | inherit
 	box-direction: @direction;
 }.box-direction(@direction:normal) when (@use-css-prefix = true) {
 	-webkit-box-direction: @direction;
@@ -386,19 +356,16 @@ http://caniuse.com/
 }
 
 .box-flex(@flexibility:0.0) {
-	/*
-	The box-flex property specifies whether the child elements of a box is flexible or inflexible in size.
-	Tip: Elements that are flexible can shrink or grow as the box shrinks and grows. Whenever there is extra space in a box, flexible elements are expanded to fill that space.
-	Values: 0.0 | 0.5 | 1 | etc.
-	
-	Notice: The container element must have display property set to box as in the example above
-	.container {
-		.display-box();
-		.children {
-			.box-flex();
-		}
-	}
-	*/
+	// The box-flex property specifies whether the child elements of a box is flexible or inflexible in size.
+	// Tip: Elements that are flexible can shrink or grow as the box shrinks and grows. Whenever there is extra space in a box, flexible elements are expanded to fill that space.
+	// Values: 0.0 | 0.5 | 1 | etc.
+	// Notice: The container element must have display property set to box as in the example above
+	// .container {
+	//     .display-box();
+	//     .children {
+	//         .box-flex();
+	//     }
+	// }
 	box-flex: @flexibility;
 }.box-flex(@flexibility:0.0) when (@use-css-prefix = true) {
 	-webkit-box-flex: @flexibility;
@@ -409,25 +376,21 @@ http://caniuse.com/
 }
 
 .box-ordinal-group(@order:1) {
-	/*
-	Url - http://www.w3schools.com/cssref/css3_pr_box-ordinal-group.asp
-
-	The box-ordinal-group property specifies the display order of the child elements of a box.
-	Elements with a lower value are displayed before those with a higher value.
-	Note: The display order of the elements with the same group value depend on their source order.
-	Values: integers
-	
-	Notice: The container element must have display property set to box as in the example above
-	.container {
-		.display-box();
-		.children-1 {
-			.box-ordinal-group(2);
-		}
-		.children-2 {
-			.box-ordinal-group(1);
-		}
-	}
-	*/
+	// Url - http://www.w3schools.com/cssref/css3_pr_box-ordinal-group.asp
+	// The box-ordinal-group property specifies the display order of the child elements of a box.
+	// Elements with a lower value are displayed before those with a higher value.
+	// Note: The display order of the elements with the same group value depend on their source order.
+	// Values: integers
+	// Notice: The container element must have display property set to box as in the example above
+	// .container {
+	//     .display-box();
+	//     .children-1 {
+	//         .box-ordinal-group(2);
+	//     }
+	//     .children-2 {
+	//         .box-ordinal-group(1);
+	//     }
+	// }
 	box-ordinal-group: @order;
 }.box-ordinal-group(@order:1) when (@use-css-prefix = true) {
 	-webkit-box-ordinal-group: @order;
@@ -439,24 +402,20 @@ http://caniuse.com/
 }
 
 .box-orient(@orient:inline-axis) {
-	/*
-	Url - http://www.w3schools.com/cssref/css3_pr_box-orient.asp
-
-	The box-orient property specifies whether the children of a box should be laid out horizontally or vertically.
-	Tip: Children within a horizontal box are displayed from left to right, and children within a vertical box are displayed top to bottom. However, the box-direction and box-ordinal-group properties can change this ordering.
-	Values: horizontal | vertical | inline-axis | block-axis | inherit
-	
-	Notice: The container element must have display property set to box as in the example above
-	.container {
-		.display-box();
-		.children-1 {
-			.box-ordinal-group(2);
-		}
-		.children-2 {
-			.box-ordinal-group(1);
-		}
-	}
-	*/
+	// Url - http://www.w3schools.com/cssref/css3_pr_box-orient.asp
+	// The box-orient property specifies whether the children of a box should be laid out horizontally or vertically.
+	// Tip: Children within a horizontal box are displayed from left to right, and children within a vertical box are displayed top to bottom. However, the box-direction and box-ordinal-group properties can change this ordering.
+	// Values: horizontal | vertical | inline-axis | block-axis | inherit
+	// Notice: The container element must have display property set to box as in the example above
+	// .container {
+	//     .display-box();
+	//     .children-1 {
+	//         .box-ordinal-group(2);
+	//     }
+	//     .children-2 {
+	//         .box-ordinal-group(1);
+	//     }
+	// }
 	box-orient: @orient;
 }.box-orient(@orient:inline-axis) when (@use-css-prefix = true) {
 	-webkit-box-orient: @orient;
@@ -468,24 +427,20 @@ http://caniuse.com/
 }
 
 .box-pack(@pack) {
-	/*
-	Url - http://www.w3schools.com/cssref/css3_pr_box-pack.asp
-
-	The box-pack property specifies where child elements of a box are placed when the box is larger than the size of the children.
-	This property specifies the horizontal position in horizontal boxes, and the vertical position in vertical boxes.
-	Values: start | end | center | justify
-	
-	Notice: The container element must have display property set to box as in the example above
-	.container {
-		.displayBox();
-		.children-1 {
-			.box-ordinal-group(2);
-		}
-		.children-2 {
-			.box-ordinal-group(1);
-		}
-	}
-	*/
+	// Url - http://www.w3schools.com/cssref/css3_pr_box-pack.asp
+	// The box-pack property specifies where child elements of a box are placed when the box is larger than the size of the children.
+	// This property specifies the horizontal position in horizontal boxes, and the vertical position in vertical boxes.
+	// Values: start | end | center | justify
+	// Notice: The container element must have display property set to box as in the example above
+	// .container {
+	//     .displayBox();
+	//     .children-1 {
+	//         .box-ordinal-group(2);
+	//     }
+	//     .children-2 {
+	//         .box-ordinal-group(1);
+	//     }
+	// }
 	box-pack: @pack;
 }.box-pack(@pack) when (@use-css-prefix = true) {
 	-webkit-box-pack: @pack;
@@ -497,13 +452,10 @@ http://caniuse.com/
 }
 
 .box-sizing(@sizing:content-box) {
-	/*
-	Url - http://www.w3schools.com/cssref/css3_pr_box-sizing.asp
-	
-	The box-sizing property allows you to define certain elements to fit an area in a certain way.
-	For example, if you want two bordered boxes side by side, it can be achieved through setting box-sizing to "border-box". This forces the browser to render the box with the specified width and height, and place the border and padding inside the box.
-	Values: content-box | border-box | inherit
-	*/
+	// Url - http://www.w3schools.com/cssref/css3_pr_box-sizing.asp
+	// The box-sizing property allows you to define certain elements to fit an area in a certain way.
+	// For example, if you want two bordered boxes side by side, it can be achieved through setting box-sizing to "border-box". This forces the browser to render the box with the specified width and height, and place the border and padding inside the box.
+	// Values: content-box | border-box | inherit
 	box-sizing: @sizing;
 }.box-sizing(@sizing:content-box) when (@use-css-prefix = true) {
 	-webkit-box-sizing: @sizing;
@@ -514,13 +466,10 @@ http://caniuse.com/
 }
 
 .box-shadow(@params:0px 0px 1px rgba(0,0,0,.3)) {
-	// sets the shadow of the element
-	/*
-	Default usage
-	.box-shadow(x y blur [expand] color [inset]);
-	.box-shadow(1px 2px 4px rgba(0,0,0,.3));
-	.box-shadow(0px 2px 4px -1px rgba(0,0,0,.3), inset 0px 1px 4px rgba(255,255,255,.5););
-	*/
+	// Sets the shadow of the element
+	// .box-shadow(x y blur [expand] color [inset]);
+	// .box-shadow(1px 2px 4px rgba(0,0,0,.3));
+	// .box-shadow(0px 2px 4px -1px rgba(0,0,0,.3), inset 0px 1px 4px rgba(255,255,255,.5););
 	box-shadow: @params;
 }.box-shadow(@params) when (@use-css-prefix = true) {
 	-webkit-box-shadow: @params;
@@ -531,11 +480,9 @@ http://caniuse.com/
 }
 
 .transform(@transform:none) {
-	/*
-	The transform property applies a 2D or 3D transformation to an element. This property allows you to rotate, scale, move, skew, etc., elements.
-	Possible values: none|transform-functions
-	Url - http://www.w3schools.com/cssref/css3_pr_transform.asp
-	*/
+	// The transform property applies a 2D or 3D transformation to an element. This property allows you to rotate, scale, move, skew, etc., elements.
+	// Possible values: none|transform-functions
+	// Url - http://www.w3schools.com/cssref/css3_pr_transform.asp
 	transform: @transform;
 }.transform(@transform:none) when (@use-css-prefix = true) {
 	-webkit-transform: @transform;
@@ -622,12 +569,10 @@ http://caniuse.com/
 }
 
 .backface-visibility(@visibility:visible) {
-	/*
-	The backface-visibility property defines whether or not an element should be visible when not facing the screen.
-	This property is useful when an element is rotated, and you do not want to see its backside.
-	Url - http://www.w3schools.com/cssref/css3_pr_backface-visibility.asp
-	Values: visible | hidden
-	*/
+	// The backface-visibility property defines whether or not an element should be visible when not facing the screen.
+	// This property is useful when an element is rotated, and you do not want to see its backside.
+	// Url - http://www.w3schools.com/cssref/css3_pr_backface-visibility.asp
+	// Values: visible | hidden
 	backface-visibility: @visibility;
 }.backface-visibility(@visibility:visible) when (@use-css-prefix = true) {
 	-webkit-backface-visibility: @visibility;
@@ -638,11 +583,9 @@ http://caniuse.com/
 }
 
 .transform-style(@style:flat) {
-	/*
-	The transform-style property specifies how nested elements are rendered in 3D space.
-	Url - http://www.w3schools.com/cssref/css3_pr_transform-style.asp
-	Values: flat | preserve-3d
-	*/
+	// The transform-style property specifies how nested elements are rendered in 3D space.
+	// Url - http://www.w3schools.com/cssref/css3_pr_transform-style.asp
+	// Values: flat | preserve-3d
 	transform-style: @style;
 }.transform-style(@style:flat) when (@use-css-prefix = true) {
 	-webkit-transform-style: @style;
@@ -653,11 +596,9 @@ http://caniuse.com/
 }
 
 .resize(@resize:none) {
-	/*
-	The resize property specifies whether or not an element is resizable by the user.
-	Url - http://www.w3schools.com/cssref/css3_pr_resize.asp
-	Values: none | both | horizontal | vertical
-	*/
+	// The resize property specifies whether or not an element is resizable by the user.
+	// Url - http://www.w3schools.com/cssref/css3_pr_resize.asp
+	// Values: none | both | horizontal | vertical
 	resize: @resize;
 	overflow: auto;
 }.resize(@resize:none) when (@use-css-prefix = true) {
@@ -669,11 +610,9 @@ http://caniuse.com/
 }
 
 .hyphens(@hyphens:none) {
-	/*
-	Sets how to split words to improve the layout of paragraphs
-	Url - http://www.w3schools.com/cssref/css3_pr_resize.asp
-	Values: none | both | horizontal | vertical
-	*/
+	// Sets how to split words to improve the layout of paragraphs
+	// Url - http://www.w3schools.com/cssref/css3_pr_resize.asp
+	// Values: none | both | horizontal | vertical
 	hyphens: @hyphens;
 	word-wrap: break-word;
 }.hyphens(@hyphens:none) when (@use-css-prefix = true) {
@@ -685,10 +624,8 @@ http://caniuse.com/
 }
 
 .image-resolution(@resolution:1dppx) {
-	/*
-	http://www.w3.org/TR/css3-images/#image-resolution
-	Values: from-image | snap | dpi
-	*/
+	// http://www.w3.org/TR/css3-images/#image-resolution
+	// Values: from-image | snap | dpi
 	image-resolution:@resolution;
 }.image-resolution(@resolution:1dppx) when (@use-css-prefix = true) {
 	-webkit-image-resolution: @resolution;
@@ -699,11 +636,9 @@ http://caniuse.com/
 }
 
 .marks(@marks:none) {
-	/*
-	This property specifies what sort of marks should be rendered just outside the rendered page box.
-	The characteristics and position of the marks will be browser dependent.
-	Values: inherit | none | crop | cross | crop cross
-	*/
+	// This property specifies what sort of marks should be rendered just outside the rendered page box.
+	// The characteristics and position of the marks will be browser dependent.
+	// Values: inherit | none | crop | cross | crop cross
 	marks:@marks;
 }.marks(@marks:none) when (@use-css-prefix = true) {
 	-webkit-marks: @marks;
@@ -714,16 +649,12 @@ http://caniuse.com/
 }
 
 .appearance(@appearence:normal) {
-	/*
-	The appearance property allows you to make an element look like a standard user interface element.
-	Url - http://css-tricks.com/almanac/properties/a/appearance/
-
-	Webkit values: checkbox | radio | push-button | square-button | button | button-bevel | listbox | listitem | menulist | menulist-button | menulist-text | menulist-textfield | scrollbarbutton-up | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbartrack-horizontal | scrollbartrack-vertical | scrollbarthumb-horizontal | scrollbarthumb-vertical | scrollbargripper-horizontal | scrollbargripper-vertical | slider-horizontal | slider-vertical | sliderthumb-horizontal | sliderthumb-vertical | caret | searchfield | searchfield-decoration | searchfield-results-decoration | searchfield-results-button | searchfield-cancel-button | textfield | textarea;
-	Mozilla values: none | button | checkbox | checkbox-container | checkbox-small | dialog | listbox | menuitem | menulist | menulist-button | menulist-textfield | menupopup | progressbar | radio | radio-container | radio-small | resizer | scrollbar | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbarbutton-up | scrollbartrack-horizontal | scrollbartrack-vertical | separator | statusbar | tab | tab-left-edge Obsolete | tabpanels | textfield | textfield-multiline | toolbar | toolbarbutton | toolbox | -moz-mac-unified-toolbar | -moz-win-borderless-glass | -moz-win-browsertabbar-toolbox | -moz-win-communications-toolbox | -moz-win-glass | -moz-win-media-toolbox | tooltip | treeheadercell | treeheadersortarrow | treeitem | treetwisty | treetwistyopen | treeview | window;
-	
-	Code snippet:
-	.appearance(button);
-	*/
+	// The appearance property allows you to make an element look like a standard user interface element.
+	// Url - http://css-tricks.com/almanac/properties/a/appearance/
+	// Webkit values: checkbox | radio | push-button | square-button | button | button-bevel | listbox | listitem | menulist | menulist-button | menulist-text | menulist-textfield | scrollbarbutton-up | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbartrack-horizontal | scrollbartrack-vertical | scrollbarthumb-horizontal | scrollbarthumb-vertical | scrollbargripper-horizontal | scrollbargripper-vertical | slider-horizontal | slider-vertical | sliderthumb-horizontal | sliderthumb-vertical | caret | searchfield | searchfield-decoration | searchfield-results-decoration | searchfield-results-button | searchfield-cancel-button | textfield | textarea;
+	// Mozilla values: none | button | checkbox | checkbox-container | checkbox-small | dialog | listbox | menuitem | menulist | menulist-button | menulist-textfield | menupopup | progressbar | radio | radio-container | radio-small | resizer | scrollbar | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbarbutton-up | scrollbartrack-horizontal | scrollbartrack-vertical | separator | statusbar | tab | tab-left-edge Obsolete | tabpanels | textfield | textfield-multiline | toolbar | toolbarbutton | toolbox | -moz-mac-unified-toolbar | -moz-win-borderless-glass | -moz-win-browsertabbar-toolbox | -moz-win-communications-toolbox | -moz-win-glass | -moz-win-media-toolbox | tooltip | treeheadercell | treeheadersortarrow | treeitem | treetwisty | treetwistyopen | treeview | window;
+	// Code snippet:
+	// .appearance(button);
 	appearance: @appearence;
 }.appearance(@appearence:normal) when (@use-css-prefix = true) {
 	-webkit-appearance: @appearence;
@@ -744,13 +675,11 @@ http://caniuse.com/
 }
 
 .background-origin(@origin:padding-box) {
-	/*
-	The background-origin property specifies what the background-position property should be relative to.
-	Url - http://www.w3schools.com/cssref/css3_pr_background-origin.asp
-	Values: padding-box | border-box | content-box;
-	Code snippet:
-	.background-origin(border-box);
-	*/
+	// The background-origin property specifies what the background-position property should be relative to.
+	// Url - http://www.w3schools.com/cssref/css3_pr_background-origin.asp
+	// Values: padding-box | border-box | content-box;
+	// Code snippet:
+	// .background-origin(border-box);
 	background-origin: @origin;
 }.background-origin(@origin:padding-box) when (@use-css-prefix = true) {
 	-webkit-background-origin: @origin;
@@ -761,13 +690,11 @@ http://caniuse.com/
 }
 
 .background-clip(@clip:border-box) {
-	/*
-	The background-clip property specifies the painting area of the background.
-	Url - http://www.w3schools.com/cssref/css3_pr_background-clip.asp
-	Values: border-box | padding-box | content-box;
-	Code snippet:
-	.background-clip(border-box);
-	*/
+	// The background-clip property specifies the painting area of the background.
+	// Url - http://www.w3schools.com/cssref/css3_pr_background-clip.asp
+	// Values: border-box | padding-box | content-box;
+	// Code snippet:
+	// .background-clip(border-box);
 	background-clip: @clip;
 }.background-clip(@clip:border-box) when (@use-css-prefix = true) {
 	-webkit-background-clip: @clip;
@@ -778,10 +705,8 @@ http://caniuse.com/
 }
 
 .user-select(@select:auto) {
-	/*
-	it disables text selection
-	Values: auto | none | text;
-	*/
+	// it disables text selection
+	// Values: auto | none | text;
 	user-select: @select;	       
 }.user-select(@select:auto) when (@use-css-prefix = true) {
 	-webkit-touch-callout: @select;
@@ -793,12 +718,9 @@ http://caniuse.com/
 }
 
 *[unselectable=on] {
-	/*
-	a fix to disable text selections if set
-	
-	Code snippet:
-	<div unselectable="on">This text is not selectable</div>
-	*/
+	// a fix to disable text selections if set
+	// Code snippet:
+	// <div unselectable="on">This text is not selectable</div>
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
