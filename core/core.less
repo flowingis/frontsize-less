@@ -85,7 +85,10 @@
 
 .preventSmartphoneColumnSet(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) {
 	@startIndex: @totalSteps;
-	.loopSmartphoneColumnSet(@prefix, @totalSteps, @startIndex, @viewTotalColumns, @columnsSeparator);
+	@media @till-tablet-portrait {
+		// Smartphone landscape
+		.loopSmartphoneColumnSet(@prefix, @totalSteps, @startIndex, @viewTotalColumns, @columnsSeparator);
+	}
 }
 
 .loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = true) {
@@ -122,19 +125,13 @@
 }
 
 .loopSmartphoneColumnSet(@prefix, @total, @index, @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = true) {
-	@media @till-tablet-portrait {
-		// Smartphone landscape
-		.@{prefix}@{index}@{columnsSeparator}@{total} {
-			.setColumnStep(@index, @total);
-		}
+	.@{prefix}@{index}@{columnsSeparator}@{total} {
+		.setColumnStep(@index, @total);
 	}
 	.loopSmartphoneColumnSet(@prefix, @total, @index - 1, @viewTotalColumns, @columnsSeparator);
 }.loopSmartphoneColumnSet(@prefix, @total, @index, @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = false) {
-	@media @till-tablet-portrait {
-		// Smartphone landscape
-		.@{prefix}@{index} {
-			.setColumnStep(@index, @total);
-		}
+	.@{prefix}@{index} {
+		.setColumnStep(@index, @total);
 	}
 	.loopSmartphoneColumnSet(@prefix, @total, @index - 1, @viewTotalColumns, @columnsSeparator);
 }
