@@ -89,6 +89,10 @@
 	.linear-gradient(top, @lighten 0%, @darken 100%;);
 	filter: progid:dximagetransform.microsoft.gradient(startColorstr='@{lighten}', endColorstr='@{darken}', GradientType=0);
 }
+.verticalGradientColors(@firstColor:#000000, @lastColor:#FFFFFF) {
+	.linear-gradient(top, @firstColor 0%, @lastColor 100%;);
+	filter: progid:dximagetransform.microsoft.gradient(startColorstr='@{firstColor}', endColorstr='@{lastColor}', GradientType=0);
+}
 .glossGradient(@top: rgb(200,200,200), @middle: rgb(100,100,100), @bottom: rgb(150,150,150)) {
 	.linear-gradient(bottom, @top 0%, @middle 50%, @bottom 100%;);
 }
