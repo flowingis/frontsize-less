@@ -47,6 +47,13 @@
 		clear:both !important;
 	}
 
+	.on-print-only {
+		display: block !important;
+		&.inline {
+			display: inline-block !important;
+		}
+	}
+
 	.not-on-print {
 		display: none !important;
 	}
@@ -55,4 +62,7 @@
 		width: 100% !important;
 	}
 }
- 
+
+.on-print-only {
+	display: none;
+}
