@@ -12,7 +12,7 @@
 	.@{selector} {
 		display: block;
 		margin: auto;
-		.wrap;
+		.box-sizing(border-box);
 	}
 	@media @from-tablet-portrait {
 		// Tablet portrait
@@ -138,7 +138,7 @@
 	}
 }
 
-.headingsFont(@hdFullFontSize:1.5em, @hdReadyFontSize:1.25em, @tabletLandscapeFontSize:1.125em, @tabletPortraitFontSize:1.125em, @smartphoneLandscapeFontSize:1em, @smartphonePortraitFontSize:1em) {
+.setHeadingFont(@hdFullFontSize:1.5em, @hdReadyFontSize:1.25em, @tabletLandscapeFontSize:1.125em, @tabletPortraitFontSize:1.125em, @smartphoneLandscapeFontSize:1em, @smartphonePortraitFontSize:1em) {
 	// Media queries for selectors active from a specific resolution or higher
 	@media @from-smartphone-portrait {
 		// Smartphone portrait

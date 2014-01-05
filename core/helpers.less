@@ -159,7 +159,7 @@
 	background-repeat:no-repeat;
 	background-size:@backgroudSize;
 	.size(@width, @height);
-	.wrap;
+	.box-sizing(border-box);
 }
 .spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0px, @height:@width) {
 	background-position: unit(-(@horizontalPosition*@width),px) unit(-(@verticalPosition*@height),px);
@@ -281,7 +281,7 @@
 	width:100%;
 	left:0px;
 	z-index:@zIndex;
-	.wrap;
+	.box-sizing(border-box);
 	
 	.transition(top .3s ease-in-out);
 
