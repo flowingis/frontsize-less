@@ -248,9 +248,9 @@
 	right:@right;
 }
 
-.size(@width:16px, @height:@width) {
-	width: @width;
-	height: @height;
+.size(@width:16px, @height:@width, @scale:1) {
+	width: @width * @scale;
+	height: @height * @scale;
 }
 
 .icon(@backgroundImage, @width, @height:@width) {
