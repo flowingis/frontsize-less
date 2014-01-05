@@ -12,44 +12,33 @@
 @h5: 1.125em;
 @h6: 1em;
 
+// Font sizes
 @font-size: 1em;
 @font-small-size: 0.75em;
 
+// Fonts families global vars 
 @font-sans:			'helvetica neue', helvetica, arial, sans-serif;
 @font-serif:		georgia, 'times new roman', times, serif;
 @font-monospace:	menlo, monaco, 'courier new', monospace;
 @font-small:		'lucida grande', tahoma, verdana, arial, sans-serif;
 
-@font-default-color: #7b8284;
+// Default fonts used inside the core
 @font-default: @font-sans;
 @font-heading: @font-sans;
 @font-line-height:	1.25;
+@font-default-color: #7b8284;
 
-
-// ========================================================================================================================================================================
-// ==                                   ===================================================================================================================================
-// ==              PADDING              ===================================================================================================================================
-// ==               VARS                ===================================================================================================================================
-// ==                                   ===================================================================================================================================
-// ========================================================================================================================================================================
-
+// Global padding configuration
 @horizontal-padding: 1em;
 @vertical-padding: 1em;
 @global-padding: @vertical-padding @horizontal-padding;
 
-// ========================================================================================================================================================================
-// ==                                   ===================================================================================================================================
-// ==              STATE                ===================================================================================================================================
-// ==              COLORS               ===================================================================================================================================
-// ==                                   ===================================================================================================================================
-// ========================================================================================================================================================================
-
+// State selectors configuration
 @state-faded-opacity: 0.5;
 @state-disabled-opacity: 0.5;
 @state-table-padding: 0.5em;
 
-
-// set different width for the smartphones, tablets and hd resolutions
+// Set different width for the smartphones, tablets and hd resolutions
 @smartphone-portrait-step:	320px;	// smartphones portrait		320~380
 @smartphone-landscape-step:	480px;	// smartphones landscape	480~568~685
 @tablet-portrait-step:		768px;	// tablet portrait			768
@@ -60,14 +49,14 @@
 // Sets the theme folder name where all theme code is located
 @theme: 'theme';
 
-// enable or disable browser specific CSS3 prefixes
+// Enable or disable browser specific CSS3 prefixes
 @use-css-prefix: true;
 
-// prepends the @rootpath var before every URL with .backgroundImage mixin
+// Prepends the @rootpath var before every URL with .backgroundImage mixin
 @use-rootpath: true;
 @rootpath: 'frontsize-less/@{theme}/img/';
 
-// this is 30kB more of CSS data, use it only if you need it
+// This is 30kB more of CSS data, use it only if you need it
 .useFrontsizeWidgets();
 
 // Set font scaling to change the font size depending by different resolutions
