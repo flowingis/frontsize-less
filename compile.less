@@ -7,15 +7,21 @@ Date:      2014-01-01
 Author:    Vittorio Vittori
 Website:   http://vittoriovittori.com
 */
+
+// Sets the theme folder name where all theme code is located
+@theme: 'theme';
+
+// External libraries
 @import (less) "core/lib/normalize.css";
-@import "core/base";
-@import "theme/import";
-@import "app";
+
+// Frontsize dependances
 @import "core/core";
-@import "core/prefixes";
-@import "core/state";
-@import "core/retina";
-@import "core/helpers";
-@import "core/widgets";
-@import "core/media_queries";
-@import "core/print";
+@import "core/components/prefixes";
+@import "core/components/retina";
+@import "core/components/helpers";
+@import "core/components/widgets";
+@import "core/components/media_queries";
+@import "core/components/print";
+@import "core/layout/base";
+@import "core/layout/state";
+@import "@{theme}/import";

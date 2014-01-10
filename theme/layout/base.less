@@ -9,12 +9,13 @@
 .base-mark();
 .base-pre();
 .base-p();
+.base-span();
 .base-blockquote(4px solid lighten(@font-default-color, 20%), lighten(@font-default-color, 45%), @global-padding, italic, '«', '»');
 .base-code(0 0.25em, rgba(0,0,0,.075));
 .base-abbr(#FCFCFC);
 .base-kbd(@font-monospace);
 .base-samp(@font-monospace);
-.base-small(@font-small-size);
+.base-small();
 .base-s(@font-default-color, line-through, @state-faded-opacity);
 .base-ul(0, 0);
 .base-li(0, 0 0 0 1.25em);
@@ -348,14 +349,20 @@
 	}
 }
 
-.base-small(@fontSize:0.75em) {
+.base-span() {
+	span {
+		display: inline-block;
+	}
+}
+
+.base-small() {
 	small {
 		// Represents side comments such as small print.
 		// It is not intended to be presentational.
 		// The small element should not be used for extended spans of text such as multiple paragraphs, lists, or sections of text. It is only intended for short runs of text.
 		// 
 		// Url - http://html5doctor.com/element-index/#small
-		font-size: @fontSize;
+		font-size: @font-small-size;
 	}
 }
 
