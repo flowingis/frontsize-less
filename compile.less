@@ -1,6 +1,6 @@
 /*!
 Frontsize: http://frontsize.com
-GitHub:    https://github.com/vitto/frontsize
+GitHub:    https://github.com/vitto/frontsize-less
 License:   MIT Licence
 Version:   1.0.0
 Date:      2014-01-01
@@ -9,7 +9,7 @@ Website:   http://vittoriovittori.com
 */
 
 // Sets the theme folder name where all theme code is located
-@theme: 'theme';
+@theme: 'default';
 
 // External libraries
 @import (less) "core/lib/normalize.css";
@@ -24,4 +24,4 @@ Website:   http://vittoriovittori.com
 @import "core/components/print";
 @import "core/layout/base";
 @import "core/layout/state";
-@import "@{theme}/import";
+@import "themes/@{theme}/import";
