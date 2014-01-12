@@ -704,11 +704,11 @@
     -o-background-clip: @clip;
 }
 
-.user-select(@select:auto) {
+.user-select(@select:text) {
     // it disables text selection
-    // Values: auto | none | text;
+    // Values: text | none | toggle | element | elements | all | inherit;
     user-select: @select;          
-}.user-select(@select:auto) when (@use-css-prefix = true) {
+}.user-select(@select:text) when (@use-css-prefix = true) {
     -webkit-touch-callout: @select;
     -webkit-user-select: @select;
     -khtml-user-select: @select;
