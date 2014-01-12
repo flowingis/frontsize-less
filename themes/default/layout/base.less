@@ -5,32 +5,32 @@
 // Url - http://html5doctor.com/element-index/
 
 .base-body();
-.base-a(@font-default-color, none);
+.base-a();
 .base-mark();
 .base-pre();
 .base-p();
 .base-span();
-.base-blockquote(4px solid lighten(@font-default-color, 20%), lighten(@font-default-color, 45%), @global-padding, italic, '«', '»');
-.base-code(0 0.25em, rgba(0,0,0,.075));
-.base-abbr(#FCFCFC);
-.base-kbd(@font-monospace);
-.base-samp(@font-monospace);
+.base-blockquote();
+.base-code();
+.base-abbr();
+.base-kbd();
+.base-samp();
 .base-small();
-.base-s(@font-default-color, line-through, @state-faded-opacity);
-.base-ul(0, 0);
-.base-li(0, 0 0 0 1.25em);
-.base-ol(0, 0);
-.base-hr(@vertical-padding 0, 1px solid, rgba(0,0,0,0.075), rgba(255,255,255,0.8));
+.base-s();
+.base-ul();
+.base-li();
+.base-ol();
+.base-hr();
 .base-meter();
 .base-img();
 
-.base-form(1em 0 0 0);
+.base-form();
 .base-form-submit();
 .base-form-text();
 .base-form-range();
 .base-form-radio();
 .base-form-checkbox();
-.base-form-textarea(100px, 300px, vertical);
+.base-form-textarea();
 .base-form-label();
 .base-form-file();
 .base-form-select();
@@ -39,13 +39,13 @@
 .base-form-fieldset();
 .base-form-legend();
 
-.base-h(black, @font-heading, bold);
-.base-table(middle, separate);
+.base-h();
+.base-table();
 .base-tr();
-.base-th(center, bold, 0.5em);
-.base-td(left, 0.5em);
-.base-caption(@global-padding);
-.base-figcaption(@vertical-padding 0 0 0);
+.base-th();
+.base-td();
+.base-caption();
+.base-figcaption();
 .base-tfoot();
 
 // ========================================================================================================================================================================
@@ -76,13 +76,16 @@
 }
 
 
-.base-a(@color:@font-default-color, @userSelect:none) {
+.base-a() {
     // If the a element has an href attribute, then it represents a hyperlink (a hypertext anchor).
     // If the a element has no href attribute, then the element represents a placeholder for where a link might otherwise have been placed, if it had been relevant.
     // 
     // The target, rel, media, hreflang, and type attributes must be omitted if the href attribute is not present.
     // 
     // Url - http://html5doctor.com/element-index/#a
+    @color:@font-default-color;
+    @userSelect:none;
+
     a {
         display: inline-block;
         line-height: @font-line-height;
@@ -117,7 +120,13 @@
     }
 }
 
-.base-h(@color:black, @fontFamily:@font-heading, @fontWeight:bold, @lineHeight:1, @margin: 0 0 0.5em 0) {
+.base-h() {
+    @color:black;
+    @fontFamily:@font-heading;
+    @fontWeight:bold;
+    @lineHeight:1;
+    @margin: 0 0 0.5em 0;
+
     h1,
     h2,
     h3,
@@ -133,7 +142,7 @@
     }
 }
 
-.base-code(@padding:0 0.25em, @backgroundColor:rgba(0,0,0,.075), @color:inherit) {
+.base-code() {
     // The code element represents a fragment of computer code.
     // This could be an XML element name, a filename, a computer program, or any other string that a computer would recognize.
     // 
@@ -143,6 +152,11 @@
     // This could be an actual variable in a mathematical expression or programming context, or it could just be a term used as a placeholder in prose.
     // 
     // Url - http://html5doctor.com/element-index/#var
+
+    @padding: 0 0.25em;
+    @backgroundColor: rgba(0,0,0,.075);
+    @color: inherit;
+
     code,
     .code,
     var,
@@ -167,7 +181,10 @@
     }
 }
 
-.base-samp(@fontFamily:@font-monospace, @fontStyle:normal, @color:inherit) {
+.base-samp() {
+    @fontFamily: @font-monospace;
+    @fontStyle: normal;
+    @color: inherit;
     samp {
         font-family: @fontFamily;
         font-style: @fontStyle;
@@ -175,7 +192,11 @@
     }
 }
 
-.base-kbd(@fontFamily:@font-monospace, @fontStyle:normal, @color:inherit) {
+.base-kbd() {
+    @fontFamily: @font-monospace;
+    @fontStyle: normal;
+    @color: inherit;
+
     kbd {
         font-family: @fontFamily;
         font-style: @fontStyle;
@@ -196,7 +217,11 @@
     }
 }
 
-.base-pre(@padding:1em, @backgroundColor:#202020, @color:white) {
+.base-pre() {
+    @padding: 1em;
+    @backgroundColor: #202020;
+    @color: white;
+
     pre {
         font-family: @font-monospace;
         padding:@padding;
@@ -279,7 +304,11 @@
     }
 }
 
-.base-s(@color:@font-default-color, @textDecoration:line-through, @opacity:@state-faded-opacity) {
+.base-s() {
+    @color: @font-default-color;
+    @textDecoration: line-through;
+    @opacity:@state-faded-opacity;
+
     s {
         // The s element represents contents that are no longer accurate or no longer relevant.
         // Url - http://html5doctor.com/element-index/#s
@@ -290,11 +319,13 @@
 }
 
 
-.base-mark(@backgroundColor:rgb(255,255,0)) {
+.base-mark() {
     // Represents a run of text in one document marked or highlighted because of its relevance in another context.
     // When used in a quotation or other block of text referenced in a document, it indicates a highlight that was not present in the original document — e.g., a portion of text in an academic publication that has recently come under additional scrutiny.
     // 
     // Url - http://html5doctor.com/element-index/#mark
+    @backgroundColor: rgb(255,255,0);
+
     mark {
         color:inherit;
         background-color:@backgroundColor;
@@ -302,20 +333,26 @@
     }
 }
 
-.base-ul(@padding:0 0 0 1.25em, @margin:1em 0 1em 0) {
+.base-ul() {
+    @padding: 0;
+    @margin: 0;
     ul {
         padding: @padding;
         margin: @margin;
     }
 }
-.base-li(@padding:0 0 0 1.25em, @margin:1em 0 1em 0) {
+.base-li() {
+    @padding: 0;
+    @margin: 0 0 0 1.25em;
     li {
         padding: @padding;
         margin: @margin;
     }
 }
 
-.base-ol(@padding:0, @margin:1em 0 1em 0) {
+.base-ol() {
+    @padding: 0;
+    @margin: 0;
     ol {
         padding: @padding;
         margin: @margin;
@@ -326,12 +363,13 @@
     }
 }
 
-.base-abbr(@borderColor:@font-default-color) {
+.base-abbr() {
     // Represents an abbreviation or acronym.
     // The optional title attribute may be used to provide an expansion of the abbreviation.
     // If specified, the title attribute must contain an expansion of the abbreviation and nothing else.
     // 
     // Url - http://html5doctor.com/element-index/#abbr
+    @borderColor: #FCFCFC;
     abbr,
     abbr[title] {
         border-bottom: 2px dotted @borderColor;
@@ -366,7 +404,14 @@
     }
 }
 
-.base-blockquote(@borderLeft:4px solid lighten(@font-default-color,20%), @backgroundColor:transparent, @padding:@horizontal-padding, @fontStyle:italic, @beforeText:'" ', @afterText:' "') {
+.base-blockquote() {
+    @borderLeft: 4px solid lighten(@font-default-color, 20%);
+    @backgroundColor: lighten(@font-default-color, 45%);
+    @padding: @global-padding;
+    @fontStyle: italic;
+    @beforeText: '«';
+    @afterText: '»';
+
     blockquote {
         border-left: @borderLeft;
         padding: @padding;
@@ -381,7 +426,15 @@
     }
 }
 
-.base-form-text(@color:@font-default-color, @border:1px solid rgba(0,0,0,.2), @borderFocused:1px solid rgba(0,0,0,0.3), @backgroundColor:rgba(0,0,0,.05), @backgroundColorFocused:white, @padding:0.5em, @placeholderColor:@color) {
+.base-form-text() {
+    @color: @font-default-color;
+    @border: 1px solid rgba(0,0,0,.2);
+    @borderFocused: 1px solid rgba(0,0,0,0.3);
+    @backgroundColor: rgba(0,0,0,.05);
+    @backgroundColorFocused: white;
+    @padding: 0.5em;
+    @placeholderColor: @color;
+
     textarea,
     input[type="text"],
     input[type="email"],
@@ -409,7 +462,7 @@
     }
 }
 
-.base-form-file(@backgroundColor:rgba(0,0,0,.05)) {
+.base-form-file() {
     input[type="file"] {
         .defaultElement();
         .button-dark-metal();
@@ -422,7 +475,12 @@
     }
 }
 
-.base-form-radio(@checkedBackgroundColor:white, @checkedBorderColor:lighten(@font-default-color, 15%), @backgroundColor:@font-default-color, @borderColor:white) {
+.base-form-radio() {
+    @checkedBackgroundColor: white;
+    @checkedBorderColor: lighten(@font-default-color, 15%);
+    @backgroundColor: @font-default-color;
+    @borderColor: white;
+
     input[type="radio"] {
         .user-select(none);
         cursor: pointer;
@@ -443,7 +501,12 @@
         }
     }
 }
-.base-form-checkbox(@checkedBackgroundColor:white, @checkedBorderColor:lighten(@font-default-color, 15%), @backgroundColor:@font-default-color, @borderColor:white) {
+.base-form-checkbox() {
+    @checkedBackgroundColor: white;
+    @checkedBorderColor: lighten(@font-default-color, 15%);
+    @backgroundColor: @font-default-color;
+    @borderColor: white;
+
     input[type="checkbox"] {
         .user-select(none);
         cursor: pointer;
@@ -465,7 +528,12 @@
     }
 }
 
-.base-hr(@margin:@vertical-padding 0, @borderStyle:1px solid, @borderTopColor:rgba(0,0,0,0.075), @borderBottomColor:rgba(255,255,255,0.8)) {
+.base-hr() {
+    @margin: @vertical-padding 0;
+    @borderStyle: 1px solid;
+    @borderTopColor: rgba(0,0,0,0.075);
+    @borderBottomColor: rgba(255,255,255,0.8);
+
     hr {
         display: block;
         width: 100%;
@@ -477,7 +545,10 @@
     }
 }
 
-.base-table(@verticalAlign:middle, @borderCollapse:collapse) {
+.base-table() {
+    @verticalAlign: middle;
+    @borderCollapse: separate;
+
     table {
         // The table element represents data with more than one dimension, in the form of a table.
         // Tables must not be used as layout aids.
@@ -498,12 +569,14 @@
         width: 100%;
     }
 }
-.base-figcaption(@padding:@global-padding) {
+.base-figcaption() {
+    @padding: @vertical-padding 0 0 0;
     figcaption {
         padding: @padding;
     }
 }
-.base-caption(@padding:@global-padding) {
+.base-caption() {
+    @padding: @global-padding;
     caption {
         // The caption element represents the title of the table that is its parent, if it has a parent and that is a table element.
         // 
@@ -532,20 +605,33 @@
     }
 }
 
-.base-th(@textAlign:center, @fontWeight:bold, @padding:0.5em) {
+.base-th() {
+    @textAlign: center;
+    @fontWeight: bold;
+    @padding: 0.5em;
+
     th {
         text-align: @textAlign;
         font-weight: @fontWeight;
         padding: @padding;
     }
 }
-.base-td(@textAlign:left, @padding:0.5em) {
+.base-td() {
+    @textAlign: left;
+    @padding: 0.5em;
+
     td {
         text-align: @textAlign;
         padding: @padding;
     }
 }
-.base-tr(@backgroundColorOdd:rgb(230,230,230), @backgroundColorEven:white, @backgroundColorHover:rgb(220,220,220), @backgroundColorHoverOdd:rgb(240,240,240), @backgroundColorHoverEven:white) {
+.base-tr() {
+    @backgroundColorOdd: rgb(230,230,230);
+    @backgroundColorEven: white;
+    @backgroundColorHover: rgb(220,220,220);
+    @backgroundColorHoverOdd: rgb(240,240,240);
+    @backgroundColorHoverEven: white;
+
     tbody {
         tr {
             &:nth-child(odd) {
@@ -580,7 +666,9 @@
         }
     }
 }
-.base-tfoot(@textAlign:center, @color:lighten(@font-default-color,20%)) {
+.base-tfoot() {
+    @textAlign: center;
+    @color: lighten(@font-default-color,20%);
     tfoot {
         // The tfoot element represents the block of rows that consist of the column summaries (footers) for the parent table element, if the tfoot element has a parent and it is a table.
         // 
@@ -610,7 +698,11 @@
     }
 }
 
-.base-form-textarea(@minHeight:100px, @maxHeight:300px, @resize:vertical) {
+.base-form-textarea() {
+    @minHeight: 100px;
+    @maxHeight: 300px;
+    @resize: vertical;
+
     textarea {
         // The textarea element represents a multiline plain text edit control for the element's raw value.
         // The contents of the control represent the control's default value.
@@ -630,9 +722,10 @@
     }
 }
 
-.base-form(@padding:1em 0 0 0) {
+.base-form() {
+    @padding: 1em 0 0 0;
     form {
-        padding:@padding;
+        padding: @padding;
     }
 }
 
@@ -668,7 +761,13 @@
     }
 }
 
-.base-form-datalist(@color:@font-default-color, @backgroundColorOdd:rgb(230,230,230), @backgroundColorEven:white, @backgroundColorHoverOdd:rgb(240,240,240), @backgroundColorHoverEven:@backgroundColorHoverOdd) {
+.base-form-datalist() {
+    @color: @font-default-color;
+    @backgroundColorOdd: rgb(230,230,230);
+    @backgroundColorEven: white;
+    @backgroundColorHoverOdd: rgb(240,240,240);
+    @backgroundColorHoverEven: @backgroundColorHoverOdd;
+
     datalist *,
     select option {
         // Url - http://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_datalist
@@ -691,7 +790,9 @@
 
 
 
-.base-form-select(@backgroundColor:@font-default-color) {
+.base-form-select() {
+    @backgroundColor: @font-default-color;
+
     select,
     keygen {
         // The select element represents a control for selecting amongst a set of options.
@@ -734,7 +835,9 @@
     }
 }
 
-.base-form-fieldset(@backgroundColor:desaturate(lighten(@font-default-color, 45%), 2%)) {
+.base-form-fieldset() {
+    @backgroundColor: desaturate(lighten(@font-default-color, 45%), 2%);
+
     fieldset {
         // The fieldset element is expected to establish a new block formatting context.
         // 
@@ -771,9 +874,10 @@
     }
 }
 
-.base-form-legend(@backgroundColor:desaturate(lighten(@font-default-color, 45%), 2%)) {
+.base-form-legend() {
+    @backgroundColor: desaturate(lighten(@font-default-color, 45%), 2%);
+
     legend {
-        
         // The legend element represents a caption for the rest of the contents of the legend element's parent fieldset element, if any.
         // 
         // Code snippet:
