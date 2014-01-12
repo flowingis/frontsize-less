@@ -6,7 +6,6 @@ bower.json
 *.bak
 src
 
-
 # Compiled source #
 ###################
 *.com
@@ -15,6 +14,7 @@ src
 *.exe
 *.o
 *.so
+*.css
 
 # Packages #
 ############
