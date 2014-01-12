@@ -96,9 +96,9 @@
 .glossGradient(@top: rgb(200,200,200), @middle: rgb(100,100,100), @bottom: rgb(150,150,150)) {
     .linear-gradient(bottom, @top 0%, @middle 50%, @bottom 100%;);
 }
-.backgroundImage(@backgroundImage, @path:'') when (@use-rootpath = false) {
+.backgroundImage(@backgroundImage, @path:'') when (@use-root-path = false) {
     background-image: url('@{path}@{backgroundImage}');
-}.backgroundImage(@backgroundImage, @path:@rootpath) when (@use-rootpath = true) {
+}.backgroundImage(@backgroundImage, @path:@root-path) when (@use-root-path = true) {
     background-image: url('@{path}@{backgroundImage}');
 }
 
