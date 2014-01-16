@@ -1,0 +1,6 @@
+.important() when (@state-important = true) {
+    @important:~"!important";
+}.important() when not (@state-important = true) {
+    @important:~"";
+}
+.important();
