@@ -43,20 +43,20 @@
     transition-duration: @duration;
 }
 
-.transition-duration(@property:all) when (@use-css-prefix = true) {
+.transition-duration(@property:all) when (@use-css-prefix = true), not (@property = transform) {
     -webkit-transition-property: @property;
     -khtml-transition-property: @property;
     -moz-transition-property: @property;
     -ms-transition-property: @property;
     -o-transition-property: @property;
 }.transition-property(@property:all) when (@use-css-prefix = true), (@property = transform) {
-    -webkit-transition-property:-webkit-transform;
-    -khtml-transition-property:-khtml-transform;
-    -moz-transition-property:-moz-transform;
-    -ms-transition-property:-ms-transform;
-    -o-transition-property:-o-transform;
-    transition-property:transform;
-}.transition-property(@property:all), (@property != transform) {
+    -webkit-transition-property: -webkit-transform;
+    -khtml-transition-property: -khtml-transform;
+    -moz-transition-property: -moz-transform;
+    -ms-transition-property: -ms-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+}.transition-property(@property:all) when not (@property = transform) {
     transition-property: @property;
 }
 
