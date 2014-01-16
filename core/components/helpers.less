@@ -87,10 +87,15 @@
     @lighten: saturate(lighten(@color,@strenght),(-@strenght/2));
     @darken: saturate(darken(@color,@strenght),(@strenght/2));
     .linear-gradient(top, @lighten 0%, @darken 100%;);
-    filter: progid:dximagetransform.microsoft.gradient(startColorstr='@{lighten}', endColorstr='@{darken}', GradientType=0);
+    .ieVerticalGradient(@lighten, @darken);
 }
 .verticalGradientColors(@firstColor:#000000, @lastColor:#FFFFFF) {
     .linear-gradient(top, @firstColor 0%, @lastColor 100%;);
+    .ieVerticalGradient(@firstColor, @lastColor);
+}
+.ieVerticalGradient(@firstColor, @lastColor) when (@use-ie-gradient = true) {
+    @firstColor: fade(@firstColor, 100%);
+    @lastColor: fade(@lastColor, 100%);
     filter: progid:dximagetransform.microsoft.gradient(startColorstr='@{firstColor}', endColorstr='@{lastColor}', GradientType=0);
 }
 .glossGradient(@top: rgb(200,200,200), @middle: rgb(100,100,100), @bottom: rgb(150,150,150)) {
@@ -248,9 +253,18 @@
     right:@right;
 }
 
-.size(@width:16px, @height:@width, @scale:1) {
-    width: @width * @scale;
-    height: @height * @scale;
+.size(@width:16px, @height:@width, @scale:1) when not (isnumber(@width)) and (isnumber(@height)) {
+    width: (@width * @scale);
+    height: (@height * @scale);
+}.size(@width:16px, @height:@width, @scale:1) when not (isnumber(@width)) and not (isnumber(@height)) {
+    width: @width;
+    height: @height;
+}.size(@width:16px, @height:@width, @scale:1) when (isnumber(@width)) and not (isnumber(@height)) {
+    width: @width;
+    height: @height;
+}.size(@width:16px, @height:@width, @scale:1) when not (isnumber(@width)) and (isnumber(@height)) {
+    width: @width;
+    height: @height;
 }
 
 .icon(@backgroundImage, @width, @height:@width) {
