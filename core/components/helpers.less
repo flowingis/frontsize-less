@@ -253,7 +253,7 @@
     right:@right;
 }
 
-.size(@width:16px, @height:@width, @scale:1) when not (isnumber(@width)) and (isnumber(@height)) {
+.size(@width:16px, @height:@width, @scale:1) when (isnumber(@width)) and (isnumber(@height)) {
     width: (@width * @scale);
     height: (@height * @scale);
 }.size(@width:16px, @height:@width, @scale:1) when not (isnumber(@width)) and not (isnumber(@height)) {
