@@ -43,7 +43,7 @@
     transition-duration: @duration;
 }
 
-.transition-property(@property:all) when (@use-css-prefix = true), not (@property = transform) {
+.transition-duration(@property:all) when (@use-css-prefix = true), not (@property = transform) {
     -webkit-transition-property: @property;
     -khtml-transition-property: @property;
     -moz-transition-property: @property;
@@ -509,10 +509,10 @@
 .translateX(@x:0) {
     .transform(translateX(@x));
 }
-.translateY(@x:0) {
+.translateY(@y:0) {
     .transform(translateY(@y));
 }
-.translateZ(@x:0) {
+.translateZ(@z:0) {
     .transform(translateZ(@z));
 }
 .scale(@scale:0) {
