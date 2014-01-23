@@ -9,17 +9,13 @@
 .addViewportsSteps(@selector:use-steps, @hdFullMargin:500px, @hdReadyMargin:100px, @tabletLandscapeMargin:50px, @tabletPortraitMargin:20px) {
     // Media queries for selectors active from a specific resolution or higher
     // smartphone viewports were removed to improve width compatibility with all smartphone models
-    .@{selector} {
-        display: block;
-        margin: auto;
-        .box-sizing(border-box);
-    }
-    .addViewportsStepsTabletPortrait(@tabletPortraitMargin);
-    .addViewportsStepsTabletLandscape(@tabletLandscapeMargin);
-    .addViewportsStepsHdReady(@hdReadyMargin);
-    .addViewportsStepsHdFull(@hdFullMargin);
+    .addStep(@selector);
+    .addViewportsStepsTabletPortrait(@selector, @tabletPortraitMargin);
+    .addViewportsStepsTabletLandscape(@selector, @tabletLandscapeMargin);
+    .addViewportsStepsHdReady(@selector, @hdReadyMargin);
+    .addViewportsStepsHdFull(@selector, @hdFullMargin);
 }
-.addViewportsStepsTabletPortrait(@tabletPortraitMargin) when (@use-tablet-portrait = true) {
+.addViewportsStepsTabletPortrait(@selector, @tabletPortraitMargin) when (@use-tablet-portrait = true) {
     @media @from-tablet-portrait {
         // Tablet portrait
         .@{selector} {
@@ -27,7 +23,7 @@
         }
     }
 }
-.addViewportsStepsTabletLandscape(@tabletLandscapeMargin) when (@use-tablet-landscape = true) {
+.addViewportsStepsTabletLandscape(@selector, @tabletLandscapeMargin) when (@use-tablet-landscape = true) {
     @media @from-tablet-landscape {
         // Tablet landscape
         .@{selector} {
@@ -35,7 +31,7 @@
         }
     }
 }
-.addViewportsStepsHdReady(@hdReadyMargin) when (@use-hd-ready = true) {
+.addViewportsStepsHdReady(@selector, @hdReadyMargin) when (@use-hd-ready = true) {
     @media @from-hd-ready {
         // HD Ready
         .@{selector} {
@@ -43,7 +39,7 @@
         }
     }
 }
-.addViewportsStepsHdFull(@hdFullMargin) when (@use-hd-full = true) {
+.addViewportsStepsHdFull(@selector, @hdFullMargin) when (@use-hd-full = true) {
     @media @from-hd-full {
         // Full HD
         .@{selector} {

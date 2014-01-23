@@ -71,6 +71,21 @@
 // ==                                   ===================================================================================================================================
 // ========================================================================================================================================================================
 
+.addStep(@selector:step, @width:false) when (@width = false) {
+    .@{selector} {
+        display: block;
+        margin: auto;
+        .box-sizing(border-box);
+    }
+}.addStep(@selector:step, @width:false) when not (@width = false) {
+    .@{selector} {
+        display: block;
+        width: @width;
+        margin: auto;
+        .box-sizing(border-box);
+    }
+}
+
 .addColumnSet(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) {
     @startIndex: @totalSteps;
     .loopColumnSet(@totalSteps, @prefix, @startIndex, ~"", @viewTotalColumns, @columnsSeparator);
