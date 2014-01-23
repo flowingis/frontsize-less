@@ -43,7 +43,7 @@
     transition-duration: @duration;
 }
 
-.transition-duration(@property:all) when (@use-css-prefix = true), not (@property = transform) {
+.transition-property(@property:all) when (@use-css-prefix = true), not (@property = transform) {
     -webkit-transition-property: @property;
     -khtml-transition-property: @property;
     -moz-transition-property: @property;

@@ -81,7 +81,7 @@
     .loopColumnSetFill(@prefix, @totalSteps, @fillViewport, @startIndex, @viewTotalColumns, @columnsSeparator);
 }
 
-.preventSmartphoneColumnSet(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) {
+.preventSmartphoneColumnSet(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) when (@use-smartphone-landscape = true) {
     @startIndex: @totalSteps;
     @media @till-tablet-portrait {
         // Smartphone landscape
@@ -148,28 +148,28 @@
     @nextRule:~"@{prevRule}, .@{prefix}@{index}";
     .loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator, @nextRule);
 }
-.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "tablet-landscape") and (@index = 0) {
+.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "tablet-landscape") and (@index = 0) and (@use-tablet-landscape = true) {
     @media @till-hd-ready {
         // Tablet landscape
         @{prevRule} {
             width: 100%;
         }
     }
-}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "tablet-portrait") and (@index = 0) {
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "tablet-portrait") and (@index = 0) and (@use-tablet-portrait = true) {
     @media @till-tablet-landscape {
         // Tablet portrait
         @{prevRule} {
             width: 100%;
         }
     }
-}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "smartphone-landscape") and (@index = 0) {
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "smartphone-landscape") and (@index = 0) and (@use-smartphone-landscape = true) {
     @media @till-tablet-portrait {
         // Smartphone landscape
         @{prevRule} {
             width: 100%;
         }
     }
-}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "smartphone-portrait") and (@index = 0) {
+}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "smartphone-portrait") and (@index = 0) and (@use-smartphone-portrait = true) {
     @media @till-smartphone-landscape {
         // Smartphone portrait
         @{prevRule} {

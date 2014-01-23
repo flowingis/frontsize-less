@@ -126,37 +126,37 @@
     .backgroundSmartphoneLandscape(@smartphoneLandscapeBackground);
     .backgroundSmartphonePortrait(@smartphonePortraitBackground);
 }
-.backgroundHdFull(@hdFullBackground) {
+.backgroundHdFull(@hdFullBackground) when (@use-hd-full = true) {
     @media @from-hd-full {
         // Full HD
         .backgroundImage(@hdFullBackground);
     }
 }
-.backgroundHdReady(@hdReadyBackground) {
+.backgroundHdReady(@hdReadyBackground) when (@use-hd-ready = true) {
     @media @from-hd-ready {
         // HD Ready
         .backgroundImage(@hdReadyBackground);
     }
 }
-.backgroundTabletLandscape(@tabletLandscapeBackground) {
+.backgroundTabletLandscape(@tabletLandscapeBackground) when (@use-tablet-landscape = true) {
     @media @from-tablet-landscape {
         // Tablet landscape
         .backgroundImage(@tabletLandscapeBackground);
     }
 }
-.backgroundTabletPortrait(@tabletPortraitBackground) {
+.backgroundTabletPortrait(@tabletPortraitBackground) when (@use-tablet-portrait = true) {
     @media @from-tablet-portrait {
         // Tablet portrait
         .backgroundImage(@tabletPortraitBackground);
     }
 }
-.backgroundSmartphoneLandscape(@smartphoneLandscapeBackground) {
+.backgroundSmartphoneLandscape(@smartphoneLandscapeBackground) when (@use-smartphone-landscape = true) {
     @media @from-smartphone-landscape {
         // Smartphone landscape
         .backgroundImage(@smartphoneLandscapeBackground);
     }
 }
-.backgroundSmartphonePortrait(@smartphonePortraitBackground) {
+.backgroundSmartphonePortrait(@smartphonePortraitBackground) when (@use-smartphone-portrait = true) {
     @media @from-smartphone-portrait {
         // Smartphone portrait
         .backgroundImage(@smartphonePortraitBackground);
