@@ -1,490 +1,594 @@
 // ========================================================================================================================================================================
 // ==                                   ===================================================================================================================================
-// ==             FRONTSIZE             ===================================================================================================================================
-// ==               STATE               ===================================================================================================================================
-// ==             SELECTORS             ===================================================================================================================================
+// ==               GLOBAL              ===================================================================================================================================
+// ==             RESPONSIVE            ===================================================================================================================================
+// ==               RULES               ===================================================================================================================================
 // ==                                   ===================================================================================================================================
 // ========================================================================================================================================================================
 
-.wrap {
-    // avoid the unwanted width over the 100% of the size of the container
-    .box-sizing(border-box);
+.addViewportsSteps(@selector:use-steps, @hdFullMargin:500px, @hdReadyMargin:100px, @tabletLandscapeMargin:50px, @tabletPortraitMargin:20px) {
+    // Media queries for selectors active from a specific resolution or higher
+    // smartphone viewports were removed to improve width compatibility with all smartphone models
+    .addStep(@selector);
+    .addViewportsStepsTabletPortrait(@selector, @tabletPortraitMargin);
+    .addViewportsStepsTabletLandscape(@selector, @tabletLandscapeMargin);
+    .addViewportsStepsHdReady(@selector, @hdReadyMargin);
+    .addViewportsStepsHdFull(@selector, @hdFullMargin);
 }
-
-.wrap-content {
-    .box-sizing(content-box);
-}
-
-.full {
-    .setColumnBehavior(false);
-    float: none;
-}
-
-.inline {
-    width: auto @important;
-    display: inline-block @important;
-}
-
-.block {
-    display: block @important;
-}
-
-.full,
-.fill {
-    width: 100% @important;
-}
-
-.little {
-    width: 25% @important;
-}
-
-.half {
-    width: 50% @important;
-}
-
-.almost {
-    width: 75% @important;
-}
-
-.auto {
-    width: auto @important;
-}
-
-.box {
-    overflow: auto @important;
-}
-
-.visible {
-    overflow: visible @important;
-}
-
-.cut {
-    overflow: hidden @important;
-}
-
-.pointer {
-    cursor: pointer @important;
-}
-
-.selected {
-    cursor: default @important;
-}
-
-.faded {
-    opacity: @state-faded-opacity @important;
-    .transition(opacity 0.25s ease-out);
-}
-
-.disabled {
-    cursor: default;
-    opacity: @state-disabled-opacity @important;
-    .transition(opacity 0.25s ease-out);
-}
-
-.invisible {
-    opacity: 0 @important;
-}
-
-.hidden {
-    display: none @important;
-}
-
-.text-center {
-    // manually center all the contents inside
-    text-align: center @important;
-}
-
-.text-right {
-    // manually center all the contents inside
-    text-align: right @important;
-}
-
-.text-left {
-    // manually center all the contents inside
-    text-align: left @important;
-}
-
-.text-justify {
-    // manually center all the contents inside
-    text-align: justify @important;
-}
-
-.text-crop {
-    overflow: hidden @important;
-    white-space: nowrap @important;
-    text-overflow: ellipsis @important;
-}
-
-.uppercase {
-    text-transform: uppercase @important;
-}
-
-.lowercase {
-    text-transform: lowercase @important;
-}
-
-.capitalize {
-    text-transform: capitalize @important;
-}
-
-.underline {
-    text-decoration: underline @important;
-}
-
-.line-through {
-    text-decoration: line-through @important;
-}
-
-.first-letter:first-letter {
-    text-transform: uppercase @important;
-}
-
-.italic {
-    font-style: italic @important;
-}
-
-.bold {
-    font-weight: bold @important;
-}
-
-.font-sans {
-    font-family: @font-sans @important;
-}
-
-.font-serif {
-    font-family: @font-serif @important;
-}
-
-.font-monospace {
-    font-family: @font-monospace @important;
-}
-
-.font-heading {
-    font-family: @font-heading @important;
-}
-
-.font-small {
-    font-family: @font-small @important;
-}
-
-.unselectable {
-    .user-select(none);
-}
-
-.no-wrap {
-    white-space: nowrap @important;
-}
-
-.no-line-height {
-    line-height: 0;
-}
-
-.line-height {
-    line-height: @font-line-height;
-}
-
-.gain-margin {
-    width: auto @important;
-    margin-left: -@horizontal-padding @important;
-    margin-right: -@horizontal-padding @important;
-}
-
-.gain-left {
-    margin-left: -@horizontal-padding @important;
-}
-
-.gain-right {
-    margin-right: -@horizontal-padding @important;
-}
-
-.to-center {
-    margin-left: auto @important;
-    margin-right: auto @important;
-}
-
-.to-left {
-    float: left @important;
-}
-
-.to-right {
-    float: right @important;
-}
-
-.to-middle {
-    position: relative;
-    top: 50%;
-    .translateY(-50%);
-}
-
-.clear {
-    // manually go down to the next row
-    clear: both @important;
-}
-
-.relative {
-    position: relative @important;
-}
-
-.absolute {
-    position: absolute @important;
-    float: none;
-    &.to-bottom {
-        bottom: 0px;
-    }
-    &.to-top {
-        top: 0px;
-    }
-    &.to-right {
-        right: 0px;
-    }
-    &.to-left {
-        left: 0px;
+.addViewportsStepsTabletPortrait(@selector, @tabletPortraitMargin) when (@use-tablet-portrait = true) {
+    @media @from-tablet-portrait {
+        // Tablet portrait
+        .@{selector} {
+            max-width: (@tablet-portrait-step - @tabletPortraitMargin);
+        }
     }
 }
-
-.move-bottom-left {
-    position: absolute @important;
-    bottom:0px;
-    left:0px;
-}
-
-.move-bottom-right {
-    position: absolute @important;
-    bottom:0px;
-    right:0px;
-}
-
-.move-top-left {
-    position: absolute @important;
-    top:0px;
-    left:0px;
-}
-
-.move-top-right {
-    position: absolute @important;
-    top:0px;
-    right:0px;
-}
-
-.with-padding {
-    padding: @vertical-padding @horizontal-padding @important;
-}
-
-.horizontal-padding {
-    padding-right: @horizontal-padding @important;
-    padding-left: @horizontal-padding @important;
-}
-
-.vertical-padding {
-    padding-top: @vertical-padding @important;
-    padding-bottom: @vertical-padding @important;
-}
-
-.top-padding {
-    padding-top: @vertical-padding @important;
-}
-
-.bottom-padding {
-    padding-bottom: @vertical-padding @important;
-}
-
-.left-padding {
-    padding-left: @horizontal-padding @important;
-}
-
-.right-padding {
-    padding-right: @horizontal-padding @important;
-}
-
-.no-padding {
-    padding: 0 @important;
-}
-
-.no-top-padding {
-    padding-top: 0 @important;
-}
-
-.no-bottom-padding {
-    padding-bottom: 0 @important;
-}
-
-.no-vertical-padding {
-    padding-top: 0 @important;
-    padding-bottom: 0 @important;
-}
-
-.no-left-padding {
-    padding-left: 0 @important;
-}
-
-.no-right-padding {
-    padding-right: 0 @important;
-}
-
-.no-horizontal-padding {
-    padding-left: 0 @important;
-    padding-right: 0 @important;
-}
-
-.with-margin {
-    margin: @vertical-padding @horizontal-padding @important;
-}
-
-.horizontal-margin {
-    margin-right: @horizontal-padding @important;
-    margin-left: @horizontal-padding @important;
-}
-
-.vertical-margin {
-    margin-top: @vertical-padding @important;
-    margin-bottom: @vertical-padding @important;
-}
-
-.top-margin {
-    margin-top: @vertical-padding @important;
-}
-
-.bottom-margin {
-    margin-bottom: @vertical-padding @important;
-}
-
-.left-margin {
-    margin-left: @horizontal-padding @important;
-}
-
-.right-margin {
-    margin-right: @horizontal-padding @important;
-}
-
-.no-margin {
-    margin: 0 @important;
-}
-
-.no-top-margin {
-    margin-top: 0 @important;
-}
-
-.no-bottom-margin {
-    margin-bottom: 0 @important;
-}
-
-.no-vertical-margin {
-    margin-top: 0 @important;
-    margin-bottom: 0 @important;
-}
-
-.no-left-margin {
-    margin-left: 0 @important;
-}
-
-.no-right-margin {
-    margin-right: 0 @important;
-}
-
-.no-horizontal-margin {
-    margin-left: 0 @important;
-    margin-right: 0 @important;
-}
-
-.no-list-style {
-    list-style-type: none;
-}
-
-.fluid {
-    // make an image responsive
-    height: auto;
-    max-width: 100% @important;
-    .box-sizing(border-box);
-    img {
-        max-width: 100% @important;
-        height: auto @important;
+.addViewportsStepsTabletLandscape(@selector, @tabletLandscapeMargin) when (@use-tablet-landscape = true) {
+    @media @from-tablet-landscape {
+        // Tablet landscape
+        .@{selector} {
+            max-width: (@tablet-landscape-step - @tabletLandscapeMargin);
+        }
     }
-    &.fill {
-        img {
-            width: 100%;
+}
+.addViewportsStepsHdReady(@selector, @hdReadyMargin) when (@use-hd-ready = true) {
+    @media @from-hd-ready {
+        // HD Ready
+        .@{selector} {
+            max-width: (@hd-ready-step - @hdReadyMargin);
+        }
+    }
+}
+.addViewportsStepsHdFull(@selector, @hdFullMargin) when (@use-hd-full = true) {
+    @media @from-hd-full {
+        // Full HD
+        .@{selector} {
+            max-width: (@hd-full-step - @hdFullMargin);
         }
     }
 }
 
-.not-fluid {
-    // set an image with it's default behavior
-    width: auto @important;
-    height: auto @important;
+.setFontScaling(@hdFull:(@font-size + (@font-size/2)), @hdReady:(@font-size + (@font-size/4)), @tabletLandscape:@font-size, @tabletPortrait:@font-size, @smartphoneLandscape:@font-size, @smartphonePortrait:@font-size, @lineHeightMultiplier:@font-line-height) {
+    // Media queries for selectors active from a specific resolution or higher
+    .setFontScalingSmartphonePortrait(@smartphonePortrait, @lineHeightMultiplier);
+    .setFontScalingSmartphoneLandscape(@smartphoneLandscape, @lineHeightMultiplier);
+    .setFontScalingTabletPortrait(@tabletPortrait, @lineHeightMultiplier);
+    .setFontScalingTabletLandscape(@tabletLandscape, @lineHeightMultiplier);
+    .setFontScalingHdReady(@hdReady, @lineHeightMultiplier);
+    .setFontScalingHdFull(@hdFull, @lineHeightMultiplier);
 }
-
-.nav {
-    padding: 0;
-    &.inline {
-        li {
-            display: inline-block;
-            margin-left: (@horizontal-padding / 2);
-            &:first-child {
-                margin-left: 0;
-            }
+.setFontScalingSmartphonePortrait(@smartphonePortrait, @lineHeightMultiplier) when (@use-smartphone-portrait = true) {
+    @media @from-smartphone-portrait {
+        // Smartphone portrait
+        body {
+            font-size: @smartphonePortrait;
+            line-height: @lineHeightMultiplier;
         }
     }
-    &.vertical {
-        ul {
-            padding-left: 0;
-            padding-right: 0;
+}
+.setFontScalingSmartphoneLandscape(@smartphoneLandscape, @lineHeightMultiplier) when (@use-smartphone-landscape = true) {
+    @media @from-smartphone-landscape {
+        // Smartphone landscape
+        body {
+            font-size: @smartphoneLandscape;
+            line-height: @lineHeightMultiplier;
         }
     }
-    li {
-        list-style-type: none;
+}
+.setFontScalingTabletPortrait(@tabletPortrait, @lineHeightMultiplier) when (@use-tablet-portrait = true) {
+    @media @from-tablet-portrait {
+        // Tablet portrait
+        body {
+            font-size:@tabletPortrait;
+            line-height: @lineHeightMultiplier;
+        }
+    }
+}
+.setFontScalingTabletLandscape(@tabletLandscape, @lineHeightMultiplier) when (@use-tablet-landscape = true) {
+    @media @from-tablet-landscape {
+        // Tablet landscape
+        body {
+            font-size:@tabletLandscape;
+            line-height: @lineHeightMultiplier;
+        }
+    }
+}
+.setFontScalingHdReady(@hdReady, @lineHeightMultiplier) when (@use-hd-ready = true) {
+    @media @from-hd-ready {
+        // HD Ready
+        body {
+            font-size:@hdReady;
+            line-height: @lineHeightMultiplier;
+        }
+    }
+}
+.setFontScalingHdFull(@hdFull, @lineHeightMultiplier) when (@use-hd-full = true) {
+    @media @from-hd-full {
+        // Full HD
+        body {
+            font-size:@hdFull;
+            line-height: @lineHeightMultiplier;
+        }
+    }
+}
+
+.addFontsRule(@selector:with-small-fonts, @fontFamilyHd:@font-small, @fontSizeHd:0.75em, @antialiasHd:antialiased, @fontFamilyTablet:@font-small, @fontSizeTablet:0.75em, @antialiasTablet:antialiased, @fontFamilySmartphone:@font-small, @fontSizeSmartphone:0.85em, @antialiasSmartphone:subpixel-antialiased) {
+    // Media queries for selectors active from a specific resolution or higher
+    .addFontsRuleHdReady(@selector, @fontFamilyHd, @fontSizeHd, @antialiasHd);
+    .addFontsRuleHdFull(@selector, @fontFamilyHd, @fontSizeHd, @antialiasHd);
+    .addFontsRuleTabletPortrait(@selector, @fontFamilyTablet, @fontSizeTablet, @antialiasTablet);
+    .addFontsRuleTabletLandscape(@selector, @fontFamilyTablet, @fontSizeTablet, @antialiasTablet);
+    .addFontsRuleSmartphonePortrait(@selector, @fontFamilySmartphone, @fontSizeSmartphone, @antialiasSmartphone);
+    .addFontsRuleSmartphoneLandscape(@selector, @fontFamilySmartphone, @fontSizeSmartphone, @antialiasSmartphone);
+}
+.addFontsRuleHdReady(@selector, @fontFamilyHd, @fontSizeHd, @antialiasHd) when (@use-hd-ready = true) {
+    @media @from-hd-ready {
+        // HD Ready
+        .@{selector} {
+            font-family:@fontFamilyHd;
+            font-size:@fontSizeHd;
+            .font-smoothing(@antialiasHd);
+        }
+    }
+}
+.addFontsRuleHdFull(@selector, @fontFamilyHd, @fontSizeHd, @antialiasHd) when (@use-hd-full = true) {
+    @media @from-hd-full {
+        // Full HD
+        .@{selector} {
+            font-family:@fontFamilyHd;
+            font-size:@fontSizeHd;
+            .font-smoothing(@antialiasHd);
+        }
+    }
+}
+.addFontsRuleTabletPortrait(@selector, @fontFamilyTablet, @fontSizeTablet, @antialiasTablet) when (@use-tablet-portrait = true) {
+    @media @from-tablet-portrait {
+        // Tablet portrait
+        .@{selector} {
+            font-family:@fontFamilyTablet;
+            font-size:@fontSizeTablet;
+            .font-smoothing(@antialiasTablet);
+        }
+    }
+}
+.addFontsRuleTabletLandscape(@selector, @fontFamilyTablet, @fontSizeTablet, @antialiasTablet) when (@use-tablet-landscape = true) {
+    @media @from-tablet-landscape {
+        // Tablet landscape
+        .@{selector} {
+            font-family:@fontFamilyTablet;
+            font-size:@fontSizeTablet;
+            .font-smoothing(@antialiasTablet);
+        }
+    }
+}
+.addFontsRuleSmartphonePortrait(@selector, @fontFamilySmartphone, @fontSizeSmartphone, @antialiasSmartphone) when (@use-smartphone-portrait = true) {
+    @media @from-smartphone-portrait {
+        // Smartphone portrait
+        .@{selector} {
+            font-family:@fontFamilySmartphone;
+            font-size:@fontSizeSmartphone;
+            .font-smoothing(@antialiasSmartphone);
+        }
+    }
+}
+.addFontsRuleSmartphoneLandscape(@selector, @fontFamilySmartphone, @fontSizeSmartphone, @antialiasSmartphone) when (@use-smartphone-landscape = true) {
+    @media @from-smartphone-landscape {
+        // Smartphone landscape
+        .@{selector} {
+            font-family:@fontFamilySmartphone;
+            font-size:@fontSizeSmartphone;
+            .font-smoothing(@antialiasSmartphone);
+        }
+    }
+}
+
+.setHeadingFont(@hdFullFontSize:1.5em, @hdReadyFontSize:1.25em, @tabletLandscapeFontSize:1.125em, @tabletPortraitFontSize:1.125em, @smartphoneLandscapeFontSize:1em, @smartphonePortraitFontSize:1em) {
+    // Media queries for selectors active from a specific resolution or higher
+    .setHeadingFontSmartphonePortrait(@smartphonePortraitFontSize);
+    .setHeadingFontSmartphoneLandscape(@smartphoneLandscapeFontSize);
+    .setHeadingFontTabletPortrait(@tabletPortraitFontSize);
+    .setHeadingFontTabletLandscape(@tabletLandscapeFontSize);
+    .setHeadingFontHdReady(@hdReadyFontSize);
+    .setHeadingFontHdFull(@hdFullFontSize);
+}
+
+.setHeadingFontSmartphonePortrait(@smartphonePortraitFontSize) when (@use-smartphone-portrait = true) {
+    @media @from-smartphone-portrait {
+        // Smartphone portrait
+        h1 {
+            font-size: (@h1 * @smartphonePortraitFontSize);
+        }
+        h2 {
+            font-size: (@h2 * @smartphonePortraitFontSize);
+        }
+        h3 {
+            font-size: (@h3 * @smartphonePortraitFontSize);
+        }
+        h4 {
+            font-size: (@h4 * @smartphonePortraitFontSize);
+        }
+        h5 {
+            font-size: (@h5 * @smartphonePortraitFontSize);
+        }
+        h6 {
+            font-size: (@h6 * @smartphonePortraitFontSize);
+        }
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: (@smartphonePortraitFontSize / 4);
+        }
+    }
+}
+.setHeadingFontSmartphoneLandscape(@smartphoneLandscapeFontSize) when (@use-smartphone-landscape = true) {
+    @media @from-smartphone-landscape {
+        // Smartphone landscape
+        h1 {
+            font-size: (@h1 * @smartphoneLandscapeFontSize);
+        }
+        h2 {
+            font-size: (@h2 * @smartphoneLandscapeFontSize);
+        }
+        h3 {
+            font-size: (@h3 * @smartphoneLandscapeFontSize);
+        }
+        h4 {
+            font-size: (@h4 * @smartphoneLandscapeFontSize);
+        }
+        h5 {
+            font-size: (@h5 * @smartphoneLandscapeFontSize);
+        }
+        h6 {
+            font-size: (@h6 * @smartphoneLandscapeFontSize);
+        }
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: (@smartphoneLandscapeFontSize / 4);
+        }
+    }
+}
+.setHeadingFontTabletPortrait(@tabletPortraitFontSize) when (@use-tablet-portrait = true) {
+    @media @from-tablet-portrait {
+        // Tablet portrait
+        h1 {
+            font-size: (@h1 * @tabletPortraitFontSize);
+        }
+        h2 {
+            font-size: (@h2 * @tabletPortraitFontSize);
+        }
+        h3 {
+            font-size: (@h3 * @tabletPortraitFontSize);
+        }
+        h4 {
+            font-size: (@h4 * @tabletPortraitFontSize);
+        }
+        h5 {
+            font-size: (@h5 * @tabletPortraitFontSize);
+        }
+        h6 {
+            font-size: (@h6 * @tabletPortraitFontSize);
+        }
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: (@tabletPortraitFontSize / 4);
+        }
+    }
+}
+.setHeadingFontTabletLandscape(@tabletLandscapeFontSize) when (@use-tablet-landscape = true) {
+    @media @from-tablet-landscape {
+        // Tablet landscape
+        h1 {
+            font-size: (@h1 * @tabletLandscapeFontSize);
+        }
+        h2 {
+            font-size: (@h2 * @tabletLandscapeFontSize);
+        }
+        h3 {
+            font-size: (@h3 * @tabletLandscapeFontSize);
+        }
+        h4 {
+            font-size: (@h4 * @tabletLandscapeFontSize);
+        }
+        h5 {
+            font-size: (@h5 * @tabletLandscapeFontSize);
+        }
+        h6 {
+            font-size: (@h6 * @tabletLandscapeFontSize);
+        }
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: (@tabletLandscapeFontSize / 4);
+        }
+    }
+}
+.setHeadingFontHdReady(@hdReadyFontSize) when (@use-hd-ready = true) {
+    @media @from-hd-ready {
+        // HD Ready
+        h1 {
+            font-size: (@h1 * @hdReadyFontSize);
+        }
+        h2 {
+            font-size: (@h2 * @hdReadyFontSize);
+        }
+        h3 {
+            font-size: (@h3 * @hdReadyFontSize);
+        }
+        h4 {
+            font-size: (@h4 * @hdReadyFontSize);
+        }
+        h5 {
+            font-size: (@h5 * @hdReadyFontSize);
+        }
+        h6 {
+            font-size: (@h6 * @hdReadyFontSize);
+        }
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: (@hdReadyFontSize / 4);
+        }
+    }
+}
+.setHeadingFontHdFull(@hdFullFontSize) when (@use-hd-full = true) {
+    @media @from-hd-full {
+        // Full HD
+        h1 {
+            font-size: (@h1 * @hdFullFontSize);
+        }
+        h2 {
+            font-size: (@h2 * @hdFullFontSize);
+        }
+        h3 {
+            font-size: (@h3 * @hdFullFontSize);
+        }
+        h4 {
+            font-size: (@h4 * @hdFullFontSize);
+        }
+        h5 {
+            font-size: (@h5 * @hdFullFontSize);
+        }
+        h6 {
+            font-size: (@h6 * @hdFullFontSize);
+        }
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: (@hdFullFontSize / 4);
+        }
+    }
+}
+
+// ========================================================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ==             RESPONSIVE            ===================================================================================================================================
+// ==               RULES               ===================================================================================================================================
+// ==                                   ===================================================================================================================================
+// ========================================================================================================================================================================
+
+.addFontRule(@selector, @fontFamily:@font-default, @hdFullFontSize:1em, @hdReadyFontSize:1em, @tabletLandscapeFontSize:1em, @tabletPortraitFontSize:1em, @smartphoneLandscapeFontSize:1em, @smartphonePortraitFontSize:1em, @antialias:antialiased, @lineHeightMultiplier:1.225) {
+    // Media queries for selectors active from the smaller resolution to a specific one
+    .@{selector} {
+        font-family:@fontFamily;
+        line-height:@lineHeightMultiplier;
+        .font-smoothing(@antialias);
+    }
+    .addFontRuleHdFull(@selector, @hdFullFontSize);
+    .addFontRuleHdReady(@selector, @hdReadyFontSize);
+    .addFontRuleTabletLandscape(@selector, @tabletLandscapeFontSize);
+    .addFontRuleTabletPortrait(@selector, @tabletPortraitFontSize);
+    .addFontRuleSmartphoneLandscape(@selector, @smartphoneLandscapeFontSize);
+    .addFontRuleSmartphonePortrait(@selector, @smartphonePortraitFontSize);
+}
+.addFontRuleHdFull(@selector, @hdFullFontSize) when (@use-hd-full = true) {
+    @media @from-hd-full {
+        // Full HD
+        .@{selector} {
+            font-size:@hdFullFontSize !important;
+        }
+    }
+}
+.addFontRuleHdReady(@selector, @hdReadyFontSize) when (@use-hd-ready = true) {
+    @media @till-hd-full {
+        // HD Ready
+        .@{selector} {
+            font-size:@hdReadyFontSize !important;
+        }
+    }
+}
+.addFontRuleTabletLandscape(@selector, @tabletLandscapeFontSize) when (@use-viewport-step = true) {
+    @media @till-hd-ready {
+        // Tablet landscape
+        .@{selector} {
+            font-size:@tabletLandscapeFontSize !important;
+        }
+    }
+}
+.addFontRuleTabletPortrait(@selector, @tabletPortraitFontSize) when (@use-viewport-step = true) {
+    @media @till-tablet-landscape {
+        // Tablet portrait
+        .@{selector} {
+            font-size:@tabletPortraitFontSize !important;
+        }
+    }
+}
+.addFontRuleSmartphoneLandscape(@selector, @smartphoneLandscapeFontSize) when (@use-viewport-step = true) {
+    @media @till-tablet-portrait {
+        // Smartphone landscape
+        .@{selector} {
+            font-size:@smartphoneLandscapeFontSize !important;
+        }
+    }
+}
+.addFontRuleSmartphonePortrait(@selector, @smartphonePortraitFontSize) when (@use-viewport-step = true) {
+    @media @till-smartphone-landscape {
+        // Smartphone portrait
+        .@{selector} {
+            font-size:@smartphonePortraitFontSize !important;
+        }
     }
 }
 
 
-
-.table {
-    .asTable(@state-table-padding, middle, 100%);
-}
-
-.table-top {
-    .asTable(@state-table-padding, top, 100%);
-}
-
-.inline-table {
-    .asTable(@state-table-padding, middle, auto);
-}
-
-.cell {
-    .asTableCell(0, middle);
-}
-
-.cell-top {
-    .asTableCell(0, top);
-}
-
-.cell-bottom {
-    .asTableCell(0, bottom);
-}
-
-.fixed {
-    position: fixed;
-    &.cover {
-        bottom:0;
-        top:0;
-        right:0;
-        left:0;
+.addContainerRow(@selector:row, @hdFullSteps:0, @hdReadySteps:12, @tabletLandscapeSteps:6, @tabletPortraitSteps:3, @smartphoneLandscapeSteps:1, @smartphonePortraitSteps:1) {
+    .@{selector},
+    .@{selector} *,
+    .@{selector} > * {
+        .box-sizing(border-box);
     }
-    &.to-bottom {
-        bottom:0;
+    .@{selector} {
+        padding-top:@vertical-padding;
+        width:100%;
+        overflow:auto;
+        clear:both;
     }
-    &.to-top {
-        top:0;
+    .checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector);
+}
+
+.checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector) when (@hdFullSteps > 0) {
+    // Media queries for selectors active from a specific resolution or higher
+    .@{selector} > * {
+        min-height: 1px;
+        //padding-bottom:@vertical-padding;
+        .setColumnBehavior();
+        .setColumnStep(1, @hdFullSteps);
     }
-    &.to-right {
-        right:0;
-    }
-    &.to-left {
-        left:0;
+    .checkAutoClearSmartphonePortrait(@selector, @smartphonePortraitSteps);
+    .checkAutoClearSmartphoneLandscape(@selector, @smartphoneLandscapeSteps);
+    .checkAutoClearTabletPortrait(@selector, @tabletPortraitSteps);
+    .checkAutoClearTabletLandscape(@selector, @tabletLandscapeSteps);
+    .checkAutoClearHdReady(@selector, @hdReadySteps);
+    .checkAutoClearHdFull(@selector, @hdFullSteps);
+}
+.checkAutoClearSmartphonePortrait(@selector, @smartphonePortraitSteps) when (@use-smartphone-portrait = true) {
+    @media @only-smartphone-portrait {
+        // Smartphone portrait
+        .@{selector} > * {
+            .setColumns(@smartphonePortraitSteps);
+        }
     }
 }
+.checkAutoClearSmartphoneLandscape(@selector, @smartphoneLandscapeSteps) when (@use-smartphone-landscape = true) {
+    @media @only-smartphone-landscape {
+        // Smartphone landscape
+        .@{selector} > * {
+            .setColumns(@smartphoneLandscapeSteps);
+        }
+    }
+}
+.checkAutoClearTabletPortrait(@selector, @tabletPortraitSteps) when (@use-tablet-portrait = true) {
+    @media @only-tablet-portrait {
+        // Tablet portrait
+        .@{selector} > * {
+            .setColumns(@tabletPortraitSteps);
+        }
+    }
+}
+.checkAutoClearTabletLandscape(@selector, @tabletLandscapeSteps) when (@use-tablet-landscape = true) {
+    @media @only-tablet-landscape {
+        // Tablet landscape
+        .@{selector} > * {
+            .setColumns(@tabletLandscapeSteps);
+        }
+    }
+}
+.checkAutoClearHdReady(@selector, @hdReadySteps) when (@use-hd-ready = true) {
+    @media @only-hd-ready {
+        // HD Ready
+        .@{selector} > * {
+            .setColumns(@hdReadySteps);
+        }
+    }
+}
+.checkAutoClearHdFull(@selector, @hdFullSteps) when (@use-hd-full = true) {
+    @media @only-hd-full {
+        // Full HD
+        .@{selector} > * {
+            .setColumns(@hdFullSteps);
+        }
+    }
+}
 
-.hookable {
-    @transition: 0.3s ease-in-out;
-    .transition(top @transition, right @transition, bottom @transition, left @transition;);
+.addPaddingRule(@selector, @hdFullPadding:6em, @hdReadyPadding:5em, @tabletLandscapePadding:4em, @tabletPortraitPadding:3em, @smartphoneLandscapePadding:2em, @smartphonePortraitPadding:1em) {
+    // Media queries for selectors active from a specific resolution or higher
+    .addPaddingRuleSmartphonePortrait(@selector, @smartphonePortraitPadding);
+    .addPaddingRuleSmartphoneLandscape(@selector, @smartphoneLandscapePadding);
+    .addPaddingRuleTabletPortrait(@selector, @tabletPortraitPadding);
+    .addPaddingRuleTabletLandscape(@selector, @tabletLandscapePadding);
+    .addPaddingRuleHdReady(@selector, @hdReadyPadding);
+    .addPaddingRuleHdFull(@selector, @hdFullPadding);
+}
+.addPaddingRuleSmartphonePortrait(@selector, @smartphonePortraitPadding) when (@use-smartphone-portrait = true) {
+    @media @from-smartphone-portrait {
+        // Smartphone portrait
+        .@{selector} { padding:@smartphonePortraitPadding; }
+    }
+}
+.addPaddingRuleSmartphoneLandscape(@selector, @smartphoneLandscapePadding) when (@use-smartphone-landscape = true) {
+    @media @from-smartphone-landscape {
+        // Smartphone landscape
+        .@{selector} { padding:@smartphoneLandscapePadding; }
+    }
+}
+.addPaddingRuleTabletPortrait(@selector, @tabletPortraitPadding) when (@use-tablet-portrait = true) {
+    @media @from-tablet-portrait {
+        // Tablet portrait
+        .@{selector} { padding:@tabletPortraitPadding; }
+    }
+}
+.addPaddingRuleTabletLandscape(@selector, @tabletLandscapePadding) when (@use-tablet-landscape = true) {
+    @media @from-tablet-landscape {
+        // Tablet landscape
+        .@{selector} { padding:@tabletLandscapePadding; }
+    }
+}
+.addPaddingRuleHdReady(@selector, @hdReadyPadding) when (@use-hd-ready = true) {
+    @media @from-hd-ready {
+        // HD Ready
+        .@{selector} { padding:@hdReadyPadding; }
+    }
+}
+.addPaddingRuleHdFull(@selector, @hdFullPadding) when (@use-hd-full = true) {
+    @media @from-hd-full {
+        // Full HD
+        .@{selector} { padding:@hdFullPadding; }
+    }
+}
+
+.addMarginRule(@selector, @hdFullMargin:6em, @hdReadyMargin:5em, @tabletLandscapeMargin:4em, @tabletPortraitMargin:3em, @smartphoneLandscapeMargin:2em, @smartphonePortraitMargin:1em) {
+    // Media queries for selectors active from a specific resolution or higher
+    .addMarginRuleSmartphonePortrait(@selector, @smartphonePortraitMargin);
+    .addMarginRuleSmartphoneLandscape(@selector, @smartphoneLandscapeMargin);
+    .addMarginRuleTabletPortrait(@selector, @tabletPortraitMargin);
+    .addMarginRuleTabletLandscape(@selector, @tabletLandscapeMargin);
+    .addMarginRuleHdReady(@selector, @hdReadyMargin);
+    .addMarginRuleHdFull(@selector, @hdFullMargin);
+}
+.addMarginRuleSmartphonePortrait(@selector, @smartphonePortraitMargin) when (@use-smartphone-portrait = true) {
+    @media @from-smartphone-portrait {
+        // Smartphone portrait
+        .@{selector} { margin:@smartphonePortraitMargin; }
+    }
+}
+.addMarginRuleSmartphoneLandscape(@selector, @smartphoneLandscapeMargin) when (@use-smartphone-landscape = true) {
+    @media @from-smartphone-landscape {
+        // Smartphone landscape
+        .@{selector} { margin:@smartphoneLandscapeMargin; }
+    }
+}
+.addMarginRuleTabletPortrait(@selector, @tabletPortraitMargin) when (@use-tablet-portrait = true) {
+    @media @from-tablet-portrait {
+        // Tablet portrait
+        .@{selector} { margin:@tabletPortraitMargin; }
+    }
+}
+.addMarginRuleTabletLandscape(@selector, @tabletLandscapeMargin) when (@use-tablet-landscape = true) {
+    @media @from-tablet-landscape {
+        // Tablet landscape
+        .@{selector} { margin:@tabletLandscapeMargin; }
+    }
+}
+.addMarginRuleHdReady(@selector, @hdReadyMargin) when (@use-hd-ready = true) {
+    @media @from-hd-ready {
+        // HD Ready
+        .@{selector} { margin:@hdReadyMargin; }
+    }
+}
+.addMarginRuleHdFull(@selector, @hdFullMargin) when (@use-hd-full = true) {
+    @media @from-hd-full {
+        // Full HD
+        .@{selector} { margin:@hdFullMargin; }
+    }
 }
 
 // ========================================================================================================================================================================
@@ -493,250 +597,179 @@
 // ==          VISIBILITY RULES         ===================================================================================================================================
 // ==                                   ===================================================================================================================================
 // ========================================================================================================================================================================
-// Media queries for strict resolution selectors
 
-.mediaQueryStates() when (@use-media-queries-states = true) {
-    @media @only-hd {
-        //.only-on-hd               { display:none; }
-        .only-on-tablet             { display:none; }
-        .only-on-smartphone         { display:none; }
-        .not-on-hd                  { display: none; }
-    }
-
-    @media @only-hd-full {
-        // Full HD
-        //.only-on-hd-full              { background-color:pink; }
-        .only-on-hd-ready               { display: none; }
-        .only-on-tablet-landscape       { display: none; }
-        .only-on-tablet-portrait        { display: none; }
-        .only-on-smartphone-landscape   { display: none; }
-        .only-on-smartphone-portrait    { display: none; }
-        .not-on-hd-full                 { display: none; }
-    }
-
-    @media @only-hd-ready {
-        // HD Ready
-        .only-on-hd-full                { display: none; }
-        //.only-on-hd-ready             { background-color:aqua; }
-        .only-on-tablet-landscape       { display: none; }
-        .only-on-tablet-portrait        { display: none; }
-        .only-on-smartphone-landscape   { display: none; }
-        .only-on-smartphone-portrait    { display: none; }
-        .not-on-hd-ready                { display: none; }
-    }
-
-    @media @only-tablet {
-        .only-on-hd                 { display:none; }
-        //.only-on-tablet           { display:none; }
-        .only-on-smartphone         { display:none; }
-        .not-on-tablet              { display: none; }
-    }
-
-    @media @only-tablet-landscape {
-        // Tablet landscape
-        .only-on-hd-full                { display: none; }
-        .only-on-hd-ready               { display: none; }
-        //.only-on-tablet-landscape     { background-color:yellow; }
-        .only-on-tablet-portrait        { display: none; }
-        .only-on-smartphone-landscape   { display: none; }
-        .only-on-smartphone-portrait    { display: none; }
-        .not-on-tablet                  { display: none; }
-        .not-on-tablet-landscape        { display: none; }
-    }
-
-    @media  @only-tablet-portrait {
-        // Tablet portrait
-        .only-on-hd-full                { display: none; }
-        .only-on-hd-ready               { display: none; }
-        .only-on-tablet-landscape       { display: none; }
-        //.only-on-tablet-portrait      { background-color: orange; }
-        .only-on-smartphone-landscape   { display: none; }
-        .only-on-smartphone-portrait    { display: none; }
-        .not-on-tablet-portrait         { display: none; }
-    }
-
-    @media @only-smartphone {
-        .only-on-hd                 { display:none; }
-        .only-on-tablet             { display:none; }
-        //.only-on-smartphone       { display:none; }
-        .not-on-smartphone          { display: none; }
-    }
-
-    @media @only-smartphone-landscape {
-        // Smartphone landscape
-        .only-on-hd-full                {display:none;}
-        .only-on-hd-ready               {display:none;}
-        .only-on-tablet-landscape       {display:none;}
-        .only-on-tablet-portrait        {display:none;}
-        //.only-on-smartphone-landscape {background-color:lightgrey; padding:.25em;}
-        .only-on-smartphone-portrait    {display:none;}
-        .not-on-smartphone-landscape    {display:none;}
-    }
-
-    @media @only-smartphone-portrait {
-        // Smartphone portrait
-        .only-on-hd-full                {display:none;}
-        .only-on-hd-ready               {display:none;}
-        .only-on-tablet-landscape       {display:none;}
-        .only-on-tablet-portrait        {display:none;}
-        .only-on-smartphone-landscape   {display:none;}
-        //.only-on-smartphone-portrait  {background-color:lightblue; padding:.25em;}
-        .not-on-smartphone-portrait     {display:none;}
-    }
-
-
-    // Media queries for selectors active from smaller resolution device mobile to a specific one
-
-    @media @till-hd-full {
-        // Full HD
-        .not-till-hd-full           { display: none @important; }
-        .block-till-hd-full         { display: block @important; }
-        .fill-till-hd-full          { width: 100% @important; }
-        .almost-till-hd-full        { width: 75% @important; }
-        .half-till-hd-full          { width: 50% @important; }
-        .little-till-hd-full        { width: 25% @important; }
-        .text-left-till-hd-full     { text-align: left @important; }
-        .text-center-till-hd-full   { text-align: center @important; }
-        .text-right-till-hd-full    { text-align: right @important; }
-        .to-center-till-hd-full     { margin: auto @important; }
-        .to-left-till-hd-full       { float: left @important; }
-        .to-right-till-hd-full      { float: right @important; }
-    }
-
-    @media @till-hd-ready {
-        // HD Ready
-        .not-till-hd-ready                  { display: none @important; }
-        .block-till-hd-ready                { display: block @important; }
-        .fill-till-hd-ready                 { width: 100% @important; }
-        .almost-till-hd-ready               { width: 75% @important; }
-        .half-till-hd-ready                 { width: 50% @important; }
-        .little-till-hd-ready               { width: 25% @important; }
-        .text-left-till-hd-ready            { text-align: left @important; }
-        .text-center-till-hd-ready          { text-align: center @important; }
-        .text-right-till-hd-ready           { text-align: right @important; }
-        .to-center-till-hd-ready            { margin: auto @important; }
-        .to-left-till-hd-ready              { float: left @important; }
-        .to-right-till-hd-ready             { float: right @important; }
-    }
-
-    @media @till-tablet-landscape {
-        // Tablet landscape
-        .not-till-tablet-landscape              { display: none @important; }
-        .block-till-tablet-landscape            { display: block @important; }
-        .fill-till-tablet-landscape             { width: 100% @important; }
-        .almost-till-tablet-landscape           { width: 75% @important; }
-        .half-till-tablet-landscape             { width: 50% @important; }
-        .little-till-tablet-landscape           { width: 25% @important; }
-        .text-left-till-tablet-landscape        { text-align: left @important; }
-        .text-center-till-tablet-landscape      { text-align: center @important; }
-        .text-right-till-tablet-landscape       { text-align: right @important; }
-        .not-fixed-till-tablet-landscape        { position: static @important; }
-        .to-center-till-tablet-landscape        { margin: auto @important; }
-        .to-left-till-tablet-landscape          { float: left @important; }
-        .to-right-till-tablet-landscape         { float: right @important; }
-    }
-
-    @media @till-tablet-portrait {
-        // Tablet portrait
-        .not-till-tablet-portrait               { display: none @important; }
-        .block-till-tablet-portrait             { display: block @important; }
-        .fill-till-tablet-portrait              { width: 100% @important; }
-        .almost-till-tablet-portrait            { width: 75% @important; }
-        .half-till-tablet-portrait              { width: 50% @important; }
-        .little-till-tablet-portrait            { width: 25% @important; }
-        .text-left-till-tablet-portrait         { text-align: left @important; }
-        .text-center-till-tablet-portrait       { text-align: center @important; }
-        .text-right-till-tablet-portrait        { text-align: right @important; }
-        .not-fixed-till-tablet-portrait         { position: static @important; }
-        .to-center-till-tablet-portrait         { margin: auto @important; }
-        .to-left-till-tablet-portrait           { float: left @important; }
-        .to-right-till-tablet-portrait          { float: right @important; }
-    }
-
-    @media @till-smartphone-landscape {
-        // Smartphone landscape
-        .not-till-smartphone-landscape              { display: none @important; }
-        .block-till-smartphone-landscape            { display: block @important; }
-        .fill-till-smartphone-landscape             { width: 100% @important; }
-        .almost-till-smartphone-landscape           { width: 75% @important; }
-        .half-till-smartphone-landscape             { width: 50% @important; }
-        .little-till-smartphone-landscape           { width: 25% @important; }
-        .text-left-till-smartphone-landscape        { text-align: left @important; }
-        .text-center-till-smartphone-landscape      { text-align: center @important; }
-        .text-right-till-smartphone-landscape       { text-align: right @important; }
-        .to-center-till-smartphone-landscape        { margin: auto @important; }
-        .to-left-till-smartphone-landscape          { float: left @important; }
-        .to-right-till-smartphone-landscape         { float: right @important; }
-    }
-
-
+.setViewportsPadding(@hdFullPadding:6em, @hdReadyPadding:5em, @tabletLandscapePadding:4em, @tabletPortraitPadding:3em, @smartphoneLandscapePadding:2em, @smartphonePortraitPadding:1em) {
     // Media queries for selectors active from a specific resolution or higher
-
+    .setViewportsPaddingSmartphonePortrait(@smartphonePortraitPadding);
+    .setViewportsPaddingSmartphoneLandscape(@smartphoneLandscapePadding);
+    .setViewportsPaddingTabletPortrait(@tabletPortraitPadding);
+    .setViewportsPaddingTabletLandscape(@tabletLandscapePadding);
+    .setViewportsPaddingHdReady(@hdReadyPadding);
+    .setViewportsPaddingHdFull(@hdFullPadding);
+}
+.setViewportsPaddingSmartphonePortrait(@smartphonePortraitPadding) when (@use-smartphone-portrait = true) {
     @media @from-smartphone-portrait {
         // Smartphone portrait
-        .not-from-smartphone-portrait           { display:none @important; }
-        .text-center-from-smartphone-portrait   { text-align: center @important; }
-        .text-left-from-smartphone-portrait     { text-align: left @important; }
-        .text-right-from-smartphone-portrait    { text-align: right @important; }
-        .to-center-from-smartphone-portrait     { margin: auto @important; }
-        .to-left-from-smartphone-portrait       { float: left @important; }
-        .to-right-from-smartphone-portrait      { float: right @important; }
+        padding:@smartphonePortraitPadding;
     }
-
+}
+.setViewportsPaddingSmartphoneLandscape(@smartphoneLandscapePadding) when (@use-smartphone-landscape = true) {
     @media @from-smartphone-landscape {
         // Smartphone landscape
-        .not-from-smartphone-landscape              { display:none; position:fixed; }
-        .text-center-from-smartphone-landscape      { text-align: center @important; }
-        .text-left-from-smartphone-landscape        { text-align: left @important; }
-        .text-right-from-smartphone-landscape       { text-align: right @important; }
-        .to-center-from-smartphone-landscape        { margin: auto @important; }
-        .to-left-from-smartphone-landscape          { float: left @important; }
-        .to-right-from-smartphone-landscape         { float: right @important; }
+        padding:@smartphoneLandscapePadding;
     }
-
+}
+.setViewportsPaddingTabletPortrait(@tabletPortraitPadding) when (@use-tablet-portrait = true) {
     @media @from-tablet-portrait {
         // Tablet portrait
-        .not-from-tablet-portrait           { display:none @important; }
-        .text-center-from-tablet-portrait   { text-align: center @important; }
-        .text-left-from-tablet-portrait     { text-align: left @important; }
-        .text-right-from-tablet-portrait    { text-align: right @important; }
-        .to-center-from-tablet-portrait     { margin: auto @important; }
-        .to-left-from-tablet-portrait       { float: left @important; }
-        .to-right-from-tablet-portrait      { float: right @important; }
+        padding:@tabletPortraitPadding;
     }
-
+}
+.setViewportsPaddingTabletLandscape(@tabletLandscapePadding) when (@use-tablet-landscape = true) {
     @media @from-tablet-landscape {
         // Tablet landscape
-        .not-from-tablet-landscape              { display:none @important; }
-        .text-center-from-tablet-landscape      { text-align: center @important; }
-        .text-left-from-tablet-landscape        { text-align: left @important; }
-        .text-right-from-tablet-landscape       { text-align: right @important; }
-        .to-center-from-tablet-landscape        { margin: auto @important; }
-        .to-left-from-tablet-landscape          { float: left @important; }
-        .to-right-from-tablet-landscape         { float: right @important; }
+        padding:@tabletLandscapePadding;
     }
-
+}
+.setViewportsPaddingHdReady(@hdReadyPadding) when (@use-hd-ready = true) {
     @media @from-hd-ready {
         // HD Ready
-        .not-from-hd-ready              { display:none @important; }
-        .text-center-from-hd-ready      { text-align: center @important; }
-        .text-left-from-hd-ready        { text-align: left @important; }
-        .text-right-from-hd-ready       { text-align: right @important; }
-        .to-center-from-hd-ready        { margin: auto @important; }
-        .to-left-from-hd-ready          { float: left @important; }
-        .to-right-from-hd-ready         { float: right @important; }
+        padding:@hdReadyPadding;
     }
-
+}
+.setViewportsPaddingHdFull(@hdFullPadding) when (@use-hd-full = true) {
     @media @from-hd-full {
         // Full HD
-        .not-from-hd-full           { display:none @important; }
-        .text-center-from-hd-full   { text-align: center @important; }
-        .text-left-from-hd-full     { text-align: left @important; }
-        .text-right-from-hd-full    { text-align: right @important; }
-        .to-center-from-hd-full     { margin: auto @important; }
-        .to-left-from-hd-full       { float: left @important; }
-        .to-right-from-hd-full      { float: right @important; }
+        padding:@hdFullPadding;
     }
 }
 
-.mediaQueryStates();
+.setViewportsMargin(@hdFullMargin:6em, @hdReadyMargin:5em, @tabletLandscapeMargin:4em, @tabletPortraitMargin:3em, @smartphoneLandscapeMargin:2em, @smartphonePortraitMargin:1em) {
+    // Media queries for selectors active from a specific resolution or higher
+    .setViewportsMarginSmartphonePortrait(@smartphonePortraitMargin);
+    .setViewportsMarginSmartphoneLandscape(@smartphoneLandscapeMargin);
+    .setViewportsMarginTabletPortrait(@tabletPortraitMargin);
+    .setViewportsMarginTabletLandscape(@tabletLandscapeMargin);
+    .setViewportsMarginHdReady(@hdReadyMargin);
+    .setViewportsMarginHdFull(@hdFullMargin);
+}
+.setViewportsMarginSmartphonePortrait(@smartphonePortraitMargin) when (@use-smartphone-portrait = true) {
+    @media @from-smartphone-portrait {
+        // Smartphone portrait
+        margin:@smartphonePortraitMargin;
+    }
+}
+.setViewportsMarginSmartphoneLandscape(@smartphoneLandscapeMargin) when (@use-smartphone-landscape = true) {
+    @media @from-smartphone-landscape {
+        // Smartphone landscape
+        margin:@smartphoneLandscapeMargin;
+    }
+}
+.setViewportsMarginTabletPortrait(@tabletPortraitMargin) when (@use-tablet-portrait = true) {
+    @media @from-tablet-portrait {
+        // Tablet portrait
+        margin:@tabletPortraitMargin;
+    }
+}
+.setViewportsMarginTabletLandscape(@tabletLandscapeMargin) when (@use-tablet-landscape = true) {
+    @media @from-tablet-landscape {
+        // Tablet landscape
+        margin:@tabletLandscapeMargin;
+    }
+}
+.setViewportsMarginHdReady(@hdReadyMargin) when (@use-hd-ready = true) {
+    @media @from-hd-ready {
+        // HD Ready
+        margin:@hdReadyMargin;
+    }
+}
+.setViewportsMarginHdFull(@hdFullMargin) when (@use-hd-full = true) {
+    @media @from-hd-full {
+        // Full HD
+        margin:@hdFullMargin;
+    }
+}
+
+.setViewportsFontSize(@hdFullFontSize:1em, @hdReadyFontSize:1em, @tabletLandscapeFontSize:1em, @tabletPortraitFontSize:1em, @smartphoneLandscapeFontSize:1em, @smartphonePortraitFontSize:1em, @lineHeightMultiplier:@font-line-height) {
+    // Media queries for selectors active from the smaller resolution to a specific one
+    line-height:@lineHeightMultiplier;
+    .setViewportsFontSizeHdFull(@hdFullFontSize);
+    .setViewportsFontSizeHdReady(@hdReadyFontSize);
+    .setViewportsFontSizeTabletLandscape(@tabletLandscapeFontSize);
+    .setViewportsFontSizeTabletPortrait(@tabletPortraitFontSize);
+    .setViewportsFontSizeSmartphoneLandscape(@smartphoneLandscapeFontSize);
+    .setViewportsFontSizeSmartphonePortrait(@smartphonePortraitFontSize);
+}
+.setViewportsFontSizeHdFull(@hdFullFontSize) when (@use-hd-full = true) {
+    @media @from-hd-full {
+        // Full HD
+        font-size:@hdFullFontSize !important;
+    }
+}
+.setViewportsFontSizeHdReady(@hdReadyFontSize) when (@use-hd-ready = true) {
+    @media @till-hd-full {
+        // HD Ready
+        font-size:@hdReadyFontSize !important;
+    }
+}
+.setViewportsFontSizeTabletLandscape(@tabletLandscapeFontSize) when (@use-tablet-landscape = true) {
+    @media @till-hd-ready {
+        // Tablet landscape
+        font-size:@tabletLandscapeFontSize !important;
+    }
+}
+.setViewportsFontSizeTabletPortrait(@tabletPortraitFontSize) when (@use-tablet-portrait = true) {
+    @media @till-tablet-landscape {
+        // Tablet portrait
+        font-size:@tabletPortraitFontSize !important;
+    }
+}
+.setViewportsFontSizeSmartphoneLandscape(@smartphoneLandscapeFontSize) when (@use-smartphone-landscape = true) {
+    @media @till-tablet-portrait {
+        // Smartphone landscape
+        font-size:@smartphoneLandscapeFontSize !important;
+    }
+}
+.setViewportsFontSizeSmartphonePortrait(@smartphonePortraitFontSize) when (@use-smartphone-portrait = true) {
+    @media @till-smartphone-landscape {
+        // Smartphone portrait
+        font-size:@smartphonePortraitFontSize !important;
+    }
+}
+
+.addColumnsSet(@steps:12, @hdViewportPrefix:hd-, @tabletViewportPrefix:tablet-, @smartphoneViewportPrefix:smartphone-, @fillFromViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-, @useHdRules:true, @useTabletRules:true, @useSmartphoneRules:true) {
+    .addColumnsSetSmartphonePortrait(@steps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useSmartphoneRules);
+    .addColumnsSetTabletPortrait(@steps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useTabletRules);
+    .addColumnsSetHdReady(@steps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useHdRules);
+    .addFillToColumnSet(@tabletViewportPrefix, @steps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
+    .addFillToColumnSet(@hdViewportPrefix, @steps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
+    .preventSmartphoneColumnSet(@smartphoneViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+}
+
+.addColumnsSetSmartphonePortrait(@steps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useSmartphoneRules) when (@useSmartphoneRules = true) {
+    @media @from-smartphone-portrait {
+        // Smartphone portrait
+        .addColumnSet(@hdViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+        .addColumnSet(@tabletViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+        .addColumnSet(@smartphoneViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+    }
+}
+.addColumnsSetTabletPortrait(@steps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useTabletRules) when (@useTabletRules = true) {
+    @media @from-tablet-portrait {
+        // Tablet portrait
+        .addColumnSet(@smartphoneViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+        .addColumnSet(@hdViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+        .addColumnSet(@tabletViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+    }
+}
+.addColumnsSetHdReady(@steps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useHdRules) when (@useHdRules = true) {
+    @media @from-hd-ready {
+        // HD Ready
+        .addColumnSet(@smartphoneViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+        .addColumnSet(@tabletViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+        .addColumnSet(@hdViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+    }
+}
+
+
+

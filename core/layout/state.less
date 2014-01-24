@@ -50,7 +50,7 @@
     width: auto @important;
 }
 
-.box {
+.overflow-auto {
     overflow: auto @important;
 }
 
@@ -495,15 +495,14 @@
 // ========================================================================================================================================================================
 // Media queries for strict resolution selectors
 
-.stateOnlyHd() when (@use-hd-full = true) and (@use-hd-ready = true) {
+.mediaQueryStates() when (@use-viewport-states = true) {
     @media @only-hd {
         //.only-on-hd               { display:none; }
         .only-on-tablet             { display:none; }
         .only-on-smartphone         { display:none; }
         .not-on-hd                  { display: none; }
     }
-}
-.stateOnlyHdFull() when (@use-hd-full = true) {
+
     @media @only-hd-full {
         // Full HD
         //.only-on-hd-full              { background-color:pink; }
@@ -514,8 +513,7 @@
         .only-on-smartphone-portrait    { display: none; }
         .not-on-hd-full                 { display: none; }
     }
-}
-.stateOnlyHdReady() when (@use-hd-ready = true) {
+
     @media @only-hd-ready {
         // HD Ready
         .only-on-hd-full                { display: none; }
@@ -526,16 +524,14 @@
         .only-on-smartphone-portrait    { display: none; }
         .not-on-hd-ready                { display: none; }
     }
-}
-.stateOnlyTablet() when (@use-tablet-landscape = true) and (@use-tablet-portrait = true) {
+
     @media @only-tablet {
         .only-on-hd                 { display:none; }
         //.only-on-tablet           { display:none; }
         .only-on-smartphone         { display:none; }
         .not-on-tablet              { display: none; }
     }
-}
-.stateOnlyTabletLandscape() when (@use-tablet-landscape = true) {
+
     @media @only-tablet-landscape {
         // Tablet landscape
         .only-on-hd-full                { display: none; }
@@ -547,8 +543,7 @@
         .not-on-tablet                  { display: none; }
         .not-on-tablet-landscape        { display: none; }
     }
-}
-.stateOnlyTabletPortrait() when (@use-tablet-portrait = true) {
+
     @media  @only-tablet-portrait {
         // Tablet portrait
         .only-on-hd-full                { display: none; }
@@ -559,16 +554,14 @@
         .only-on-smartphone-portrait    { display: none; }
         .not-on-tablet-portrait         { display: none; }
     }
-}
-.stateOnlySmartphone() when (@use-smartphone-landscape = true) and (@use-smartphone-portrait = true) {
+
     @media @only-smartphone {
         .only-on-hd                 { display:none; }
         .only-on-tablet             { display:none; }
         //.only-on-smartphone       { display:none; }
         .not-on-smartphone          { display: none; }
     }
-}
-.stateOnlySmartphoneLandscape() when (@use-smartphone-landscape = true) {
+
     @media @only-smartphone-landscape {
         // Smartphone landscape
         .only-on-hd-full                {display:none;}
@@ -579,8 +572,7 @@
         .only-on-smartphone-portrait    {display:none;}
         .not-on-smartphone-landscape    {display:none;}
     }
-}
-.stateOnlySmartphonePortrait() when (@use-smartphone-portrait = true) {
+
     @media @only-smartphone-portrait {
         // Smartphone portrait
         .only-on-hd-full                {display:none;}
@@ -591,18 +583,9 @@
         //.only-on-smartphone-portrait  {background-color:lightblue; padding:.25em;}
         .not-on-smartphone-portrait     {display:none;}
     }
-}
 
-// ========================================================================================================================================================================
-// ==                                   ===================================================================================================================================
-// ==             FRONTSIZE             ===================================================================================================================================
-// ==        MOBILE FIRST RULES         ===================================================================================================================================
-// ==                                   ===================================================================================================================================
-// ========================================================================================================================================================================
+    // Media queries for selectors active from smaller resolution device mobile to a specific one
 
-// Media queries for selectors active from smaller resolution device mobile to a specific one
-
-.stateTillHdFull() when (@use-hd-full = true) {
     @media @till-hd-full {
         // Full HD
         .not-till-hd-full           { display: none @important; }
@@ -618,8 +601,7 @@
         .to-left-till-hd-full       { float: left @important; }
         .to-right-till-hd-full      { float: right @important; }
     }
-}
-.stateTillHdReady() when (@use-hd-ready = true) {
+
     @media @till-hd-ready {
         // HD Ready
         .not-till-hd-ready                  { display: none @important; }
@@ -635,8 +617,7 @@
         .to-left-till-hd-ready              { float: left @important; }
         .to-right-till-hd-ready             { float: right @important; }
     }
-}
-.stateTillTabletLandscape() when (@use-tablet-landscape = true) {
+
     @media @till-tablet-landscape {
         // Tablet landscape
         .not-till-tablet-landscape              { display: none @important; }
@@ -653,8 +634,7 @@
         .to-left-till-tablet-landscape          { float: left @important; }
         .to-right-till-tablet-landscape         { float: right @important; }
     }
-}
-.stateTillTabletPortrait() when (@use-tablet-portrait = true) {
+
     @media @till-tablet-portrait {
         // Tablet portrait
         .not-till-tablet-portrait               { display: none @important; }
@@ -671,8 +651,7 @@
         .to-left-till-tablet-portrait           { float: left @important; }
         .to-right-till-tablet-portrait          { float: right @important; }
     }
-}
-.stateTillSmartphoneLandscape() when (@use-smartphone-landscape = true) {
+
     @media @till-smartphone-landscape {
         // Smartphone landscape
         .not-till-smartphone-landscape              { display: none @important; }
@@ -688,10 +667,9 @@
         .to-left-till-smartphone-landscape          { float: left @important; }
         .to-right-till-smartphone-landscape         { float: right @important; }
     }
-}
 
-// Media queries for selectors active from a specific resolution or higher
-.stateFromSmartphonePortrait() when (@use-smartphone-portrait = true) {
+    // Media queries for selectors active from a specific resolution or higher
+
     @media @from-smartphone-portrait {
         // Smartphone portrait
         .not-from-smartphone-portrait           { display:none @important; }
@@ -702,8 +680,7 @@
         .to-left-from-smartphone-portrait       { float: left @important; }
         .to-right-from-smartphone-portrait      { float: right @important; }
     }
-}
-.stateFromSmartphoneLandscape() when (@use-smartphone-landscape = true) {
+
     @media @from-smartphone-landscape {
         // Smartphone landscape
         .not-from-smartphone-landscape              { display:none; position:fixed; }
@@ -714,8 +691,7 @@
         .to-left-from-smartphone-landscape          { float: left @important; }
         .to-right-from-smartphone-landscape         { float: right @important; }
     }
-}
-.stateFromTabletPortrait() when (@use-tablet-portrait = true) {
+
     @media @from-tablet-portrait {
         // Tablet portrait
         .not-from-tablet-portrait           { display:none @important; }
@@ -726,8 +702,7 @@
         .to-left-from-tablet-portrait       { float: left @important; }
         .to-right-from-tablet-portrait      { float: right @important; }
     }
-}
-.stateFromTabletLandscape() when (@use-tablet-landscape = true) {
+
     @media @from-tablet-landscape {
         // Tablet landscape
         .not-from-tablet-landscape              { display:none @important; }
@@ -738,8 +713,7 @@
         .to-left-from-tablet-landscape          { float: left @important; }
         .to-right-from-tablet-landscape         { float: right @important; }
     }
-}
-.stateFromHdReady() when (@use-hd-ready = true) {
+
     @media @from-hd-ready {
         // HD Ready
         .not-from-hd-ready              { display:none @important; }
@@ -750,8 +724,7 @@
         .to-left-from-hd-ready          { float: left @important; }
         .to-right-from-hd-ready         { float: right @important; }
     }
-}
-.stateFromHdFull() when (@use-hd-full = true) {
+
     @media @from-hd-full {
         // Full HD
         .not-from-hd-full           { display:none @important; }
@@ -764,26 +737,4 @@
     }
 }
 
-
-.stateOnlyHd();
-.stateOnlyHdFull();
-.stateOnlyHdReady();
-.stateOnlyTablet();
-.stateOnlyTabletLandscape();
-.stateOnlyTabletPortrait();
-.stateOnlySmartphone();
-.stateOnlySmartphoneLandscape();
-.stateOnlySmartphonePortrait();
-
-.stateTillHdFull();
-.stateTillHdReady();
-.stateTillTabletLandscape();
-.stateTillTabletPortrait();
-.stateTillSmartphoneLandscape();
-
-.stateFromSmartphonePortrait();
-.stateFromSmartphoneLandscape();
-.stateFromTabletPortrait();
-.stateFromTabletLandscape();
-.stateFromHdReady();
-.stateFromHdFull();
+.mediaQueryStates();
