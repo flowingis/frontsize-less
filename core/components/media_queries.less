@@ -386,7 +386,7 @@
         }
     }
 }
-.addFontRuleTabletLandscape(@selector, @tabletLandscapeFontSize) when (@use-viewport-step = true) {
+.addFontRuleTabletLandscape(@selector, @tabletLandscapeFontSize) when (@use-tablet-landscape = true) {
     @media @till-hd-ready {
         // Tablet landscape
         .@{selector} {
@@ -394,7 +394,7 @@
         }
     }
 }
-.addFontRuleTabletPortrait(@selector, @tabletPortraitFontSize) when (@use-viewport-step = true) {
+.addFontRuleTabletPortrait(@selector, @tabletPortraitFontSize) when (@use-tablet-portrait = true) {
     @media @till-tablet-landscape {
         // Tablet portrait
         .@{selector} {
@@ -402,7 +402,7 @@
         }
     }
 }
-.addFontRuleSmartphoneLandscape(@selector, @smartphoneLandscapeFontSize) when (@use-viewport-step = true) {
+.addFontRuleSmartphoneLandscape(@selector, @smartphoneLandscapeFontSize) when (@use-smartphone-landscape = true) {
     @media @till-tablet-portrait {
         // Smartphone landscape
         .@{selector} {
@@ -410,7 +410,7 @@
         }
     }
 }
-.addFontRuleSmartphonePortrait(@selector, @smartphonePortraitFontSize) when (@use-viewport-step = true) {
+.addFontRuleSmartphonePortrait(@selector, @smartphonePortraitFontSize) when (@use-smartphone-portrait = true) {
     @media @till-smartphone-landscape {
         // Smartphone portrait
         .@{selector} {
