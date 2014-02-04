@@ -98,11 +98,11 @@
     @lastColor: fade(@lastColor, 100%);
     filter: progid:dximagetransform.microsoft.gradient(startColorstr='@{firstColor}', endColorstr='@{lastColor}', GradientType=0);
 }
-.glossGradient(@color: #0A75Bf, @stength: 10%, @borderSize: 0) when not (@borderSize = 0) {
+.glossGradient(@color: #0A75Bf, @strength: 10%, @borderSize: 0) when not (@borderSize = 0) {
     border: @borderSize solid @color;
-    .linear-gradient(bottom, lighten(@color, @stength/2) 0%, @color 50%, lighten(@color, @stength) 51%, lighten(@color, @stength/2) 100%;);
-}.glossGradient(@color: #0A75Bf, @stength: 10%, @borderSize: 0) when (@borderSize = 0) {
-    .linear-gradient(bottom, lighten(@color, @stength/2) 0%, @color 50%, lighten(@color, @stength) 51%, lighten(@color, @stength/2) 100%;);
+    .linear-gradient(bottom, lighten(@color, @strength/2) 0%, @color 50%, lighten(@color, @strength) 51%, lighten(@color, @strength/2) 100%;);
+}.glossGradient(@color: #0A75Bf, @strength: 10%, @borderSize: 0) when (@borderSize = 0) {
+    .linear-gradient(bottom, lighten(@color, @strength/2) 0%, @color 50%, lighten(@color, @strength) 51%, lighten(@color, @strength/2) 100%;);
 }
 .backgroundImage(@backgroundImage, @path:'') when (@use-root-path = false) {
     background-image: url('@{path}@{backgroundImage}');
