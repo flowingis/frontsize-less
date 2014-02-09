@@ -733,9 +733,10 @@
 .opacity(@opacity:1) when (@use-css-prefix = true) {
     -khtml-opacity: @opacity;
     -moz-opacity: @opacity;
-    //@msOpacity:(@opacity * 100);
-    //-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=@{msOpacity})";
-    //filter:~"alpha(opacity=@{msOpacity})";
+}.opacity(@opacity:1) when (@use-css-prefix = true) and (@use-ie-filters = true) {
+    @msOpacity:(@opacity * 100);
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=@{msOpacity})";
+    filter:~"alpha(opacity=@{msOpacity})";
 }.opacity(@opacity:1) {
     opacity:@opacity;
 }

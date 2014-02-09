@@ -93,7 +93,7 @@
     .linear-gradient(top, @firstColor 0%, @lastColor 100%;);
     .ieVerticalGradient(@firstColor, @lastColor);
 }
-.ieVerticalGradient(@firstColor, @lastColor) when (@use-ie-gradient = true) {
+.ieVerticalGradient(@firstColor, @lastColor) when (@use-ie-filters = true) {
     @firstColor: fade(@firstColor, 100%);
     @lastColor: fade(@lastColor, 100%);
     filter: progid:dximagetransform.microsoft.gradient(startColorstr='@{firstColor}', endColorstr='@{lastColor}', GradientType=0);
