@@ -162,13 +162,20 @@
         .backgroundImage(@smartphonePortraitBackground);
     }
 }
-.sprite(@image, @width, @height:@width, @backgroudSize:auto) {
-    .backgroundImage(@image);
+.sprite(@image, @width, @height:@width, @backgroudSize:auto, @rootPath:'') when (@use-root-path = false) {
+    .backgroundImage(@image, @rootPath);
+    background-repeat:no-repeat;
+    background-size:@backgroudSize;
+    .size(@width, @height);
+    .box-sizing(border-box);
+}.sprite(@image, @width, @height:@width, @backgroudSize:auto, @rootPath:@rootPath) when (@use-root-path = true) {
+    .backgroundImage(@image, @rootPath);
     background-repeat:no-repeat;
     background-size:@backgroudSize;
     .size(@width, @height);
     .box-sizing(border-box);
 }
+
 .spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0px, @height:@width) {
     background-position: unit(-(@horizontalPosition*@width),px) unit(-(@verticalPosition*@height),px);
 }
