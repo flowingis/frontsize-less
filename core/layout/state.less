@@ -506,7 +506,7 @@
 // ========================================================================================================================================================================
 // Media queries for strict resolution selectors
 
-.mediaQueryStates() when (@use-viewport-states = true) {
+.useMediaQueryStates() when (@use-viewport-states = true) {
     @media @only-hd {
         //.only-on-hd               { display:none; }
         .only-on-tablet             { display:none; }
@@ -748,4 +748,4 @@
     }
 }
 
-.mediaQueryStates();
+.useMediaQueryStates();
