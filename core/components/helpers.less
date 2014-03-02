@@ -83,27 +83,39 @@
 }
 
 // backgrounds
-.verticalGradient(@color:#cbcbcb, @strenght:5%) {
+.verticalGradient(@color:#cbcbcb, @strenght:5%) when (@use-css-prefix = true) {
+    @lighten: saturate(lighten(@color,@strenght),(-@strenght/2));
+    @darken: saturate(darken(@color,@strenght),(@strenght/2));
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@lighten), color-stop(100%,@darken));
+}.verticalGradient(@color:#cbcbcb, @strenght:5%) {
     @lighten: saturate(lighten(@color,@strenght),(-@strenght/2));
     @darken: saturate(darken(@color,@strenght),(@strenght/2));
     .linear-gradient(top, @lighten 0%, @darken 100%;);
     .ieVerticalGradient(@lighten, @darken);
 }
-.verticalGradientColors(@firstColor:#000000, @lastColor:#FFFFFF) {
+
+.verticalGradientColors(@firstColor:#000000, @lastColor:#FFFFFF) when (@use-css-prefix = true) {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@firstColor), color-stop(100%,@lastColor));
+}.verticalGradientColors(@firstColor:#000000, @lastColor:#FFFFFF) {
     .linear-gradient(top, @firstColor 0%, @lastColor 100%;);
     .ieVerticalGradient(@firstColor, @lastColor);
 }
+
 .ieVerticalGradient(@firstColor, @lastColor) when (@use-ie-filters = true) {
     @firstColor: fade(@firstColor, 100%);
     @lastColor: fade(@lastColor, 100%);
     filter: progid:dximagetransform.microsoft.gradient(startColorstr='@{firstColor}', endColorstr='@{lastColor}', GradientType=0);
 }
-.glossGradient(@color: #0A75Bf, @strength: 10%, @borderSize: 0) when not (@borderSize = 0) {
+
+.glossGradient(@color: #0A75Bf, @strength: 10%, @borderSize: 0) when (@use-css-prefix = true) {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,lighten(@color, @strength/2)), color-stop(50%,@color), color-stop(51%,lighten(@color, @strength)), color-stop(100%,lighten(@color, @strength/2))); /* Chrome,Safari4+ */
+}.glossGradient(@color: #0A75Bf, @strength: 10%, @borderSize: 0) when not (@borderSize = 0) {
     border: @borderSize solid @color;
     .linear-gradient(bottom, lighten(@color, @strength/2) 0%, @color 50%, lighten(@color, @strength) 51%, lighten(@color, @strength/2) 100%;);
 }.glossGradient(@color: #0A75Bf, @strength: 10%, @borderSize: 0) when (@borderSize = 0) {
     .linear-gradient(bottom, lighten(@color, @strength/2) 0%, @color 50%, lighten(@color, @strength) 51%, lighten(@color, @strength/2) 100%;);
 }
+
 .backgroundImage(@backgroundImage, @path:'') when (@use-root-path = false) {
     background-image: url('@{path}@{backgroundImage}');
 }.backgroundImage(@backgroundImage, @path:@root-path) when (@use-root-path = true) {
@@ -176,10 +188,17 @@
     .box-sizing(border-box);
 }
 
-.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0px, @height:@width) {
+.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width) when (@horizontalPosition = 0) {
+    background-position: 0 unit(-(@verticalPosition*@height),px);
+}.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width) when (@verticalPosition = 0) {
+    background-position: unit(-(@horizontalPosition*@width),px) 0;
+}.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width) when (@horizontalPosition = 0) and (@verticalPosition = 0) {
+    background-position: 0;
+}.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width) when not (@horizontalPosition = 0) and not (@verticalPosition = 0) {
     background-position: unit(-(@horizontalPosition*@width),px) unit(-(@verticalPosition*@height),px);
 }
-.spriteCoordinates(@positionX:0px, @positionY:0px) {
+
+.spriteCoordinates(@positionX:0, @positionY:0) {
     background-position: -@positionX -@positionY;
 }
 .cropText(@overflow:ellipsis, @whiteSpace:nowrap) {
@@ -189,36 +208,30 @@
 }
 
 .disableOutline() {
-    outline:0;
-    outline:none;
+    &:focus {
+        outline: transparent;
+    }
 }.disableOutline() when (@use-css-prefix = true) {
     &::-moz-focus-inner {
         border: 0;
     }
 }
-.defaultElement() {
-    .appearance(none);
-    outline:0;
-    display: inline-block;
-    border: none;
-    background-color: transparent;
-}
 
 .roundTop(@radius:6px) {
     // sets the top radius of the element
-    .border-radius(@radius @radius 0px 0px);
+    .border-radius(@radius @radius 0 0);
 }
 .roundBottom(@radius:6px) {
     // sets the bottom radius of the element
-    .border-radius(0px 0px @radius @radius);
+    .border-radius(0 0 @radius @radius);
 }
 .roundLeft(@radius:6px) {
     // sets the left radius of the element
-    .border-radius(@radius 0px 0px @radius);
+    .border-radius(@radius 0 0 @radius);
 }
 .roundRight(@radius:6px) {
     // sets the right radius of the element
-    .border-radius(0px @radius @radius 0px);
+    .border-radius(0 @radius @radius 0);
 }
 
 
@@ -243,22 +256,22 @@
     vertical-align: @verticalAlign;
 }
 
-.moveTop(@top:0px, @position:relative) {
+.moveTop(@top:0, @position:relative) {
     position: @position;
     top:@top;
 }
 
-.moveBottom(@bottom:0px, @position:relative) {
+.moveBottom(@bottom:0, @position:relative) {
     position: @position;
     bottom:@bottom;
 }
 
-.moveLeft(@left:0px, @position:relative) {
+.moveLeft(@left:0, @position:relative) {
     position: @position;
     left:@left;
 }
 
-.moveRight(@right:0px, @position:relative) {
+.moveRight(@right:0, @position:relative) {
     position: @position;
     right:@right;
 }
@@ -284,35 +297,6 @@
     background-position: center;
 }
 
-.arrowLeft(@size:1em, @color:#FFFFFF, @top:0px, @right:0px) {
-    position: relative;
-    font-size: 0;
-    line-height: 0;
-    width: 0px;
-    border-top: @size solid transparent;
-    border-right: @size solid @color;
-    border-bottom: @size solid transparent;
-    right: @right;
-    top: @top;
-}
-
-.outlineBoxShadow(@outlineOpacity:0.2, @boxShadow:0px 0px 0px transparent) {
-    .box-shadow(0px 0px 1px rgba(0,0,0,@outlineOpacity), @boxShadow;);
-}
-
-.hooked(@zIndex:100) {
-    position:fixed;
-    width:100%;
-    left:0px;
-    z-index:@zIndex;
-    .box-sizing(border-box);
-    
-    .transition(top .3s ease-in-out);
-
-    &.to-top {
-        top:0px;
-    }
-    &.to-bottom {
-        bottom:0px;
-    }
+.outlineBoxShadow(@outlineOpacity:0.2, @boxShadow:0 0 0 transparent) {
+    .box-shadow(0 0 1px rgba(0,0,0,@outlineOpacity), @boxShadow;);
 }

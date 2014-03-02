@@ -1,10 +1,16 @@
+# package.json
+# Gruntfile.js
 bower.json
+# .csslintrc
+.csslintrc.comments.json
 
 # temp files to be ignored #
 *.html
 *.ai
 *.bak
 src
+# css
+node_modules
 
 # Compiled source #
 ###################
@@ -14,7 +20,7 @@ src
 *.exe
 *.o
 *.so
-*.css
+# *.css
 
 # Packages #
 ############

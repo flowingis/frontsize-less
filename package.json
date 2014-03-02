@@ -1,0 +1,20 @@
+{
+    "name": "frontsize-less",
+    "version": "1.0.0",
+    "dependencies": {},
+    "devDependencies": {
+        "less": "*",
+        "csslint": "*",
+        "grunt": "~0.4.1",
+        "grunt-contrib-watch": "*",
+        "grunt-contrib-less": "*",
+        "grunt-contrib-csslint": "*",
+        "grunt-csso": "*"
+    },
+    "engines": {
+        "node": ">=0.8.0"
+    },
+    "scripts": {
+        "test": "grunt test"
+    }
+}

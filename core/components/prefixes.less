@@ -206,7 +206,8 @@
 }.font-smoothing(@antialias:antialiased) {
     // Sets the antialias text for the whole page
     // Values: antialiased | subpixel-antialiased | none
-    font-smoothing: @antialias;
+    // this property is not listed in CSS3 specification
+    // font-smooth: @antialias;
 }
 
 .column-count(@count:auto) when (@use-css-prefix = true) {
@@ -328,6 +329,13 @@
     display:-khtml-box;
     display:-moz-box;
     display:-o-box;
+}
+
+.interpolation-mode(@interpolation:bicubic) when (@use-css-prefix = true) {
+    -ms-interpolation-mode: @interpolation;
+}.interpolation-mode(@interpolation:bicubic) {
+    // this property is not listed in CSS3 specification
+    // interpolation-mode: @interpolation;
 }
 
 .box-align(@align:stretch) when (@use-css-prefix = true) {
@@ -715,19 +723,6 @@
     // it disables text selection
     // Values: text | none | toggle | element | elements | all | inherit;
     user-select: @select;          
-}
-
-*[unselectable=on] {
-    // a fix to disable text selections if set
-    // Code snippet:
-    // <div unselectable="on">This text is not selectable</div>
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
-    user-select: none;
 }
 
 .opacity(@opacity:1) when (@use-css-prefix = true) {

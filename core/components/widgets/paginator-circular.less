@@ -2,8 +2,7 @@
     display:inline-block;
     padding:0;
     > * {
-        padding:@containerLinkPadding;
-        .cell;
+        .asTableCell(@containerLinkPadding);
         > * {
             padding:@linkPadding;
             color:@color;
@@ -20,7 +19,7 @@
                 color:lighten(@color,5%);
                 border-color:darken(@borderColor,12%);
                 background-color: lighten(@backgroundColor,5%);
-                .box-shadow(0px 1px 6px rgba(0,0,0,.2), 0px 0px 0px rgba(0,0,0,0) inset;);
+                .box-shadow(0 1px 6px rgba(0,0,0,.2), 0 0 0 rgba(0,0,0,0) inset;);
                 &.paginator-text {
                     color:lighten(@color,20%);
                     background-color:transparent;
@@ -34,7 +33,7 @@
                 color:lighten(@color,5%);
                 border-color:darken(@borderColor,12%);
                 background-color: darken(@backgroundColor,5%);
-                .box-shadow(0px 0px 6px rgba(0,0,0,.2) inset, 0px 0px 0px rgba(0,0,0,0););
+                .box-shadow(0 0 6px rgba(0,0,0,.2) inset, 0 0 0 rgba(0,0,0,0););
             }
         }
     }

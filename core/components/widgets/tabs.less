@@ -2,12 +2,13 @@
     overflow:auto;
     padding:@vertical-padding @horizontal-padding 0 @horizontal-padding;
     .bottom-line {
-        position:relative;
-        z-index:0;
-        top:-@borderSize;
-        width:100%;
-        height:@borderSize;
-        border-top:@borderSize solid @borderColor;
+        position: relative;
+        z-index: 0;
+        top: -@borderSize;
+        width: 100%;
+        height: @borderSize;
+        .box-sizing(border-box);
+        border-top: @borderSize solid @borderColor;
     }
     .tab {
         display:inline-block;
