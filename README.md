@@ -7,7 +7,7 @@ Documentation is [in progress](https://github.com/ideatosrl/frontsize-doc/blob/m
 
 Version 1.1.0
 -------------
-Frontsize **is now tested** with [CSSlint](https://github.com/stubbornella/csslint/) with [.csslintrc](https://github.com/ideatosrl/frontsize-less/blob/master/.csslintrc) configuration.
+Frontsize **is now tested** through [CSSlint](https://github.com/stubbornella/csslint/) with this [.csslintrc](https://github.com/ideatosrl/frontsize-less/blob/master/.csslintrc) configuration.
 For the whole list of features, changes, optimizations and fixes read the [1.1.0 release details](https://github.com/ideatosrl/frontsize-less/releases/tag/v1.1.0).
 
 For developers
