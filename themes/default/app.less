@@ -4,7 +4,7 @@
 // ==                ===================================================================================================================================
 // =====================================================================================================================================================
 
-// font sizes for h# elements 
+// font sizes for h# elements
 @h1: 2em;
 @h2: 1.75em;
 @h3: 1.5em;
@@ -16,7 +16,7 @@
 @font-size: 1em;
 @font-small-size: 0.75em;
 
-// Fonts families global vars 
+// Fonts families global vars
 @font-sans:      'helvetica neue', helvetica, arial, sans-serif;
 @font-serif:     georgia, 'times new roman', times, serif;
 @font-monospace: menlo, monaco, 'courier new', monospace;
@@ -56,8 +56,11 @@
 @use-hd-full:              true;
 @use-viewport-states:      true;
 
-// Enables the mixin .ieVerticalGradien automatically included in .verticalGardient, not working with grunt csso
+// Enables the mixin .ieVerticalGradient automatically included in .verticalGardient, not working with grunt csso
 @use-ie-filters: false;
+
+// Enables the mixin .fallbackColors to prevent IE skips rgba, hsl and hsla color formats
+@use-fallback-colors: true;
 
 // Enable or disable browser specific CSS3 prefixes
 @use-css-prefix: true;

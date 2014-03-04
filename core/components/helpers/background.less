@@ -17,9 +17,9 @@
 }
 
 .ieVerticalGradient(@firstColor, @lastColor) when (@use-ie-filters = true) {
-    @firstColor: fade(@firstColor, 100%);
-    @lastColor: fade(@lastColor, 100%);
-    filter: progid:dximagetransform.microsoft.gradient(startColorstr='@{firstColor}', endColorstr='@{lastColor}', GradientType=0);
+    @first: fade(@firstColor, 100%);
+    @last: fade(@lastColor, 100%);
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='@{first}', endColorstr='@{last}', GradientType=0);
 }
 
 .glossGradient(@color: #0A75Bf, @strength: 10%, @borderSize: 0) when (@use-css-prefix = true) {

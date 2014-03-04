@@ -14,18 +14,20 @@ Next release:
 -------------
 
 **Features**
-- **all** CSSlint tests successfully pass
+- **all** [CSSlint](https://github.com/stubbornella/csslint/) tests based on [.csslintrc](https://github.com/ideatosrl/frontsize-less/blob/master/.csslintrc) configuration successfully pass
 - **added** `fallbackColor` mixin to help compatibility
+- **added** app configuration var `@use-fallback-colors` to enable or disable mixin `fallbackColor`
 - helpers are now **better organized** on core and themes like widgets
 
 **Optimization**
 - **enabled** `fallback-colors` test with [CSSlint](https://github.com/stubbornella/csslint/)
-- **changed** all passed transparent colors to properties now using `fallbackColor` mixin to add compatibility to older browsers (ie)
+- **changed** all passed `rgba` colors to properties now using `fallbackColor` mixin to add compatibility to older browsers (ie)
 
-**Fix**
+**Bug fixes**
 - **code indentation** on core prefixes
-- **changed** `css` folder to `test` to avoid css usage misunderstanding
-- **removed** normalize.css from tests
+- **changed** `css` folder to `test` to avoid *css* usage misunderstanding
+- **removed** `normalize.css` from tests
+- **fixed** mixin `ieVerticalGradient` from a recursive variable definition
 
 For developers
 --------------
