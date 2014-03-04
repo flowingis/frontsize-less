@@ -53,10 +53,7 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.loadNpmTasks("grunt-contrib-less");
-    grunt.loadNpmTasks("grunt-contrib-watch");
-    grunt.loadNpmTasks("grunt-contrib-csslint");
-    grunt.loadNpmTasks("grunt-csso");
+    require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
     grunt.registerTask("test", [
         "less:development",
