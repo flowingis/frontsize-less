@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "dependencies": {},
     "devDependencies": {
+        "matchdep": "*",
         "less": "*",
         "csslint": "*",
         "grunt": "~0.4.1",
