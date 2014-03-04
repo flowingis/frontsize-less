@@ -5,12 +5,7 @@ It's a CSS front end framework written to make websites easy to read on every de
 
 Documentation is [in progress](https://github.com/ideatosrl/frontsize-doc/blob/master/wiki/README.md) and *far to be completed* but the best doc is the code itself, isn't it?
 
-Version 1.1.0
--------------
-Frontsize **is now tested** through [CSSlint](https://github.com/stubbornella/csslint/) with this [.csslintrc](https://github.com/ideatosrl/frontsize-less/blob/master/.csslintrc) configuration.
-For the whole list of features, changes, optimizations and fixes read the [1.1.0 release details](https://github.com/ideatosrl/frontsize-less/releases/tag/v1.1.0).
-
-Next release:
+Version 1.2.4
 -------------
 
 **Features**
