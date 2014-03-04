@@ -2,23 +2,28 @@
     display: inline-block;
     padding:0.5em 1em;
     cursor:pointer;
-    color:@color;
+
+    .fallbackColor(color, @color);
     text-shadow:1px -1px 1px rgba(0, 0, 0, 0.3);
     font-weight:normal;
-    border:1px solid saturate(darken(@backgroundColor, 10%),2%);
-    border-top-color:@backgroundColor;
-    border-bottom-color:saturate(darken(@backgroundColor, 30%),4%);
+
+    border:1px solid;
+    .fallbackColor(border-color, saturate(darken(@backgroundColor, 10%),2%));
+    .fallbackColor(border-top-color, @backgroundColor);
+    .fallbackColor(border-bottom-color, saturate(darken(@backgroundColor, 30%),4%));
+
     .border-radius(@radius);
     .verticalGradient(@backgroundColor, 5%);
     .box-shadow(0 2px 4px -1px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.3););
     .transition(color .25s ease-out, text-shadow .25s ease-out, box-shadow .25s ease-out;);
+
     &:hover {
-        color:lighten(@color,5%);
+        .fallbackColor(color, lighten(@color,5%));
         .verticalGradient(lighten(@backgroundColor,2%), 5%);
         .box-shadow(0 2px 4px -1px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.3););
     }
     &:active {
-        color:lighten(@color,2%);
+        .fallbackColor(color, lighten(@color,2%));
         text-shadow:0 1px 2px rgba(0, 0, 0, 0.4);
         .verticalGradient(@backgroundColor, -5%);
         .box-shadow(0 1px 0 rgba(255, 255, 255, 0.4), inset 0 2px 8px rgba(0, 0, 0, 0.5););
@@ -27,7 +32,7 @@
     &:disabled {
         opacity: @state-disabled-opacity;
         &:hover {
-            color:@color;
+            .fallbackColor(color, @color);
             .verticalGradient(@backgroundColor, 5%);
             .box-shadow(0 2px 4px -1px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.3););
         }

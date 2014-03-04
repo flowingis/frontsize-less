@@ -1,6 +1,6 @@
 // SMACSS - Base Rules
 // Url - http://smacss.com/book/type-base
-// 
+//
 // HTML5 elements
 // Url - http://html5doctor.com/element-index/
 
@@ -68,9 +68,9 @@
         color:@font-default-color;
         text-shadow:1px 1px 0 rgba(255,255,255,.61);
         font-family: @font-default;
-        
+
         background-color: #FCFCFC;
-        
+
         .font-smoothing(); // if you want to enable font smoothing (will be applied to webkit only)
     }
 }
@@ -79,9 +79,9 @@
 .base-a() {
     // If the a element has an href attribute, then it represents a hyperlink (a hypertext anchor).
     // If the a element has no href attribute, then the element represents a placeholder for where a link might otherwise have been placed, if it had been relevant.
-    // 
+    //
     // The target, rel, media, hreflang, and type attributes must be omitted if the href attribute is not present.
-    // 
+    //
     // Url - http://html5doctor.com/element-index/#a
     @color:@font-default-color;
     @userSelect:none;
@@ -92,12 +92,13 @@
         text-decoration: none;
         color:@color;
 
-        border-bottom:2px solid fade(@color, 30%);
-    
+        border-bottom:2px solid;
+        .fallbackColor(border-bottom-color, fade(@color, 30%));
+
         @animation:0.3s ease-in-out;
         .transition(border-bottom @animation, color @animation;);
         .user-select(@userSelect);
-        
+
         &[title]:hover {
             text-decoration: none;
         }
@@ -109,7 +110,7 @@
             color:saturate(darken(@color, 10%), 7%);
             border-bottom-color: @color;
         }
-        
+
         &.selected {
             cursor: default;
         }
@@ -145,12 +146,12 @@
 .base-code() {
     // The code element represents a fragment of computer code.
     // This could be an XML element name, a filename, a computer program, or any other string that a computer would recognize.
-    // 
+    //
     // Url - http://html5doctor.com/element-index/#code
-    // 
+    //
     // The var element represents a variable.
     // This could be an actual variable in a mathematical expression or programming context, or it could just be a term used as a placeholder in prose.
-    // 
+    //
     // Url - http://html5doctor.com/element-index/#var
 
     @padding: 0 0.25em;
@@ -168,16 +169,17 @@
     .var {
         font-family: @font-monospace;
         padding:@padding;
-    
+
         color:@color;
-        
-        border:1px solid rgba(0,0,0,.03);
-        border-top-color: rgba(0,0,0,.075);
-        background-color: @backgroundColor;
-    
+
+        border:1px solid;
+        .fallbackColor(border-color, rgba(0,0,0,.03));
+        .fallbackColor(border-top-color, rgba(0,0,0,.075));
+        .fallbackColor(background-color, @backgroundColor);
+
         .border-radius(4px);
         .box-shadow(0 1px 0 rgba(255,255,255,0.2));
-    
+
         &.code-black {
             background-color: #202020;
             text-shadow: none;
@@ -235,8 +237,9 @@
         color:@color;
         text-shadow: none;
 
-        border:1px solid rgba(0,0,0,.03);
-        border-top-color: rgba(0,0,0,.075);
+        border:1px solid;
+        .fallbackColor(border-color, rgba(0,0,0,.03));
+        .fallbackColor(border-top-color, rgba(0,0,0,.075));
         background-color: @backgroundColor;
 
         .border-radius(4px);
@@ -273,13 +276,13 @@
 
 .base-meter() {
     // When the meter binding applies to a meter element, the element is expected to render as an 'inline-block' box with a 'height' of '1em' and a 'width' of '5em', a 'vertical-align' of '-0.2em', and with its contents depicting a gauge.
-    // 
+    //
     // When the element is wider than it is tall(or square), the depiction is expected to be of a horizontal gauge, with the minimum value on the right if the 'direction' property on this element has a computed value of 'rtl', and on the left otherwise.
     // When the element is taller than it is wide, it is expected to depict a vertical gauge, with the minimum value on the bottom.
-    // 
+    //
     // Code snippet:
     // Your score is: <meter> 2 out of 10 </meter>
-    // 
+    //
     // Url - http://html5doctor.com/element-index/#meter
     meter {
         // meter | progress
@@ -291,11 +294,11 @@
     progress {
         // Represents the completion progress of a task.
         // Progress may be either indeterminate — meaning it is unclear how much work remains before the task is complete (e.g., the task is waiting for a response from a remote host) — or a numeric value between 0 and a given maximum, explicitly specifying the fraction of work that has so far been completed.
-        // 
+        //
         // Code snippet:
         // <section>
         //  <p>Progress: <progress> <span id="p">0</span>% </progress> </p>
-        //  
+        //
         //  <script>
         //  var progressBar = document.getElementById('p');
         //  function updateProgress(newValue) {
@@ -303,7 +306,7 @@
         //  }
         //  </script>
         // </section>
-        // 
+        //
         // Url - http://html5doctor.com/element-index/#progress
     }
 }
@@ -326,7 +329,7 @@
 .base-mark() {
     // Represents a run of text in one document marked or highlighted because of its relevance in another context.
     // When used in a quotation or other block of text referenced in a document, it indicates a highlight that was not present in the original document — e.g., a portion of text in an academic publication that has recently come under additional scrutiny.
-    // 
+    //
     // Url - http://html5doctor.com/element-index/#mark
     @backgroundColor: rgb(255,255,0);
 
@@ -361,7 +364,7 @@
         padding: @padding;
         margin: @margin;
     }
-    
+
     dt {
         font-weight: bold;
     }
@@ -371,7 +374,7 @@
     // Represents an abbreviation or acronym.
     // The optional title attribute may be used to provide an expansion of the abbreviation.
     // If specified, the title attribute must contain an expansion of the abbreviation and nothing else.
-    // 
+    //
     // Url - http://html5doctor.com/element-index/#abbr
     @borderColor: #FCFCFC;
     abbr,
@@ -402,7 +405,7 @@
         // Represents side comments such as small print.
         // It is not intended to be presentational.
         // The small element should not be used for extended spans of text such as multiple paragraphs, lists, or sections of text. It is only intended for short runs of text.
-        // 
+        //
         // Url - http://html5doctor.com/element-index/#small
         font-size: @font-small-size;
     }
@@ -432,8 +435,10 @@
 
 .base-form-text() {
     @color: @font-default-color;
-    @border: 1px solid rgba(0,0,0,.2);
-    @borderFocused: 1px solid rgba(0,0,0,0.3);
+    @borderStyle: 1px solid;
+    @borderColor: rgba(0,0,0,.2);
+    @borderFocusedStyle: 1px solid;
+    @borderFocusedColor: rgba(0,0,0,0.3);
     @backgroundColor: rgba(0,0,0,.05);
     @backgroundColorFocused: white;
     @padding: 0.5em;
@@ -452,24 +457,26 @@
         .disableOutline();
         .box-sizing(border-box);
 
-        color: @color;
+        .fallbackColor(color, @color);
 
-        border: @border;
-        background-color: @backgroundColor;
+        border: @borderStyle;
+        .fallbackColor(border-color, @borderColor);
+        .fallbackColor(background-color, @backgroundColor);
 
         .input-placeholder(@placeholderColor, lighten(@placeholderColor, 20%));
         .box-shadow(inset 0 1px 4px rgba(0,0,0,.15), 0 0 0 rgba(0,0,0,0););
         .transition(border-color .25s ease-in-out, background-color .25s ease-in-out, box-shadow .25s ease-in-out;);
 
         &:focus {
-            border: @borderFocused;
-            background-color: @backgroundColorFocused;
+            border: @borderFocusedStyle;
+            .fallbackColor(border-color, @borderFocusedColor);
+            .fallbackColor(background-color, @backgroundColorFocused);
             .box-shadow(inset 0 0 0 rgba(0,0,0,0), 0 1px 4px rgba(0,0,0,0.15););
         }
 
         &:disabled {
             cursor: default;
-            opacity: @state-disabled-opacity;
+            .opacity(@state-disabled-opacity);
         }
     }
 }
@@ -483,7 +490,7 @@
 
 .base-form-range() {
     input[type="range"] {
-        
+
     }
 }
 
@@ -498,7 +505,7 @@
         cursor: pointer;
 
         .appearance(none);
-        -moz-appearance: radio;
+        // -moz-appearance: radio;
 
         @size:24px;
         .size(@size);
@@ -524,7 +531,7 @@
         cursor: pointer;
 
         .appearance(none);
-        -moz-appearance: checkbox;
+        // -moz-appearance: checkbox;
 
         @size:32px;
         .size(@size);
@@ -549,11 +556,14 @@
     hr {
         display: block;
         width: 100%;
-        border: none;
-        border-top: @borderStyle @borderTopColor;
-        border-bottom: @borderStyle @borderBottomColor;
         padding: 0;
         margin: @margin;
+
+        border: none;
+        border-top: @borderStyle;
+        border-bottom: @borderStyle;
+        .fallbackColor(border-top-color, @borderTopColor);
+        .fallbackColor(border-bottom-color, @borderBottomColor);
     }
 }
 
@@ -564,7 +574,7 @@
     table {
         // The table element represents data with more than one dimension, in the form of a table.
         // Tables must not be used as layout aids.
-        // 
+        //
         // Code snippet:
         // <table>
         //  <tr>
@@ -574,7 +584,7 @@
         //      <td>iguana</td>
         //  </tr>
         // </table>
-        // 
+        //
         // Url - http://html5doctor.com/element-index/#table
         border-collapse: @borderCollapse;
         vertical-align: @verticalAlign;
@@ -591,9 +601,9 @@
     @padding: @global-padding;
     caption {
         // The caption element represents the title of the table that is its parent, if it has a parent and that is a table element.
-        // 
+        //
         // When a table element is the only content in a figure element other than the figcaption, the caption element should be omitted in favor of the figcaption.
-        // 
+        //
         // Code snippet:
         // <table>
         //  <caption>Monthly savings</caption>
@@ -611,7 +621,7 @@
         //      ...
         //  </tbody>
         // </table>
-        // 
+        //
         // Url - http://html5doctor.com/element-index/#caption
         padding: @padding;
     }
@@ -683,7 +693,7 @@
     @color: lighten(@font-default-color,20%);
     tfoot {
         // The tfoot element represents the block of rows that consist of the column summaries (footers) for the parent table element, if the tfoot element has a parent and it is a table.
-        // 
+        //
         // Code snippet:
         // <table>
         //  <thead>
@@ -700,13 +710,13 @@
         //      ...
         //  </tbody>
         // </table>
-        // 
+        //
         // Url - http://html5doctor.com/element-index/#tfoot
         td {
             text-align: @textAlign;
             color: @color;
         }
-        
+
     }
 }
 
@@ -718,12 +728,12 @@
     textarea {
         // The textarea element represents a multiline plain text edit control for the element's raw value.
         // The contents of the control represent the control's default value.
-        // 
+        //
         // Code snippet:
         // <form action="/action-name.php" method="post" enctype="multipart/form-data">
-        //  <textarea cols="50" rows="10"></textarea> 
+        //  <textarea cols="50" rows="10"></textarea>
         // </form>
-        // 
+        //
         // Url - http://html5doctor.com/element-index/#textarea
         width:100%;
         .box-sizing(border-box);
@@ -746,13 +756,13 @@
     label {
         // The label represents a caption in a user interface.
         // The caption can be associated with a specific form control, known as the label element's labeled control, either using for attribute, or by putting the form control inside the label element itself.
-        // 
+        //
         // Code snippet:
         // <label for="un">Username:</label>
         // <input name="user-name" id="un" type="email" placeholder="Your username is your email address" required autofocus>
-        // 
+        //
         // Url - http://html5doctor.com/element-index/#label
-        
+
         display: inline-block;
         .box-sizing(border-box);
         .user-select(none);
@@ -808,7 +818,7 @@
     select,
     keygen {
         // The select element represents a control for selecting amongst a set of options.
-        // 
+        //
         // Code snippet:
         // <select id="title" name="title">
         //  <option value="" selected>Please choose</option>
@@ -819,7 +829,7 @@
         //  <option value="Dr">Dr</option>
         //  <option value="Other">Other</option>
         // </select>
-        // 
+        //
         // Url - http://html5doctor.com/element-index/#select
 
         .appearance(none);
@@ -840,7 +850,7 @@
 
         .transition(background-color 0.25s ease-in-out);
         .border-radius(10px);
-        
+
         &:hover {
             background-color: white;
         }
@@ -852,12 +862,12 @@
 
     fieldset {
         // The fieldset element is expected to establish a new block formatting context.
-        // 
+        //
         // If the fieldset element has a child that matches the conditions in the list below, then the first such child is the fieldset element's rendered legend:
         // The child is a legend element.
         // The child is not out-of-flow (e.g. not absolutely positioned or floated).
         // The child is generating a box (e.g. it is not 'display:none').
-        // 
+        //
         // Code snippet:
         // <form id="app-login" action="process.php">
         //  <fieldset>
@@ -875,7 +885,7 @@
         //      </div>
         //  </fieldset>
         // </form>
-        // 
+        //
         // Url - http://html5doctor.com/element-index/#fieldset
 
         background-color: @backgroundColor;
@@ -891,7 +901,7 @@
 
     legend {
         // The legend element represents a caption for the rest of the contents of the legend element's parent fieldset element, if any.
-        // 
+        //
         // Code snippet:
         // <form id="app-login" action="process.php">
         //  <fieldset>
@@ -909,7 +919,7 @@
         //      </div>
         //  </fieldset>
         // </form>
-        // 
+        //
         // Url - http://html5doctor.com/element-index/#legend
 
         @round: 20px;
@@ -935,12 +945,12 @@
     img {
         // An img element represents an image.
         // The image given by the src attribute is the embedded content, and the value of the alt attribute is the img element's fallback content.
-        // 
+        //
         // The src attribute must be present, and must contain a valid non-empty URL potentially surrounded by spaces referencing a non-interactive, optionally animated, image resource that is neither paged nor scripted.
-        // 
+        //
         // The img element must not be used as a layout tool.
         // In particular, img elements should not be used to display transparent images, as they rarely convey meaning and rarely add anything useful to the document.
-        // 
+        //
         // Url - http://html5doctor.com/element-index/#img
         .interpolation-mode(bicubic);
     }

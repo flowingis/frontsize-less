@@ -8,7 +8,16 @@ module.exports = function(grunt) {
                     cleancss: false
                 },
                 files: {
-                    "css/frontsize.css" : "compile.less"
+                    "test/frontsize.css" : "compile.less"
+                }
+            },
+            test: {
+                options: {
+                    compress: false,
+                    cleancss: false
+                },
+                files: {
+                    "test/frontsize.css" : "test.less"
                 }
             }
         },
@@ -18,7 +27,7 @@ module.exports = function(grunt) {
             },
             production: {
                 files: {
-                    "css/frontsize.min.css": ["css/frontsize.css"]
+                    "test/frontsize.min.css": ["test/frontsize.css"]
                 }
             }
         },
@@ -42,13 +51,13 @@ module.exports = function(grunt) {
                 options: {
                   csslintrc: '.csslintrc'
                 },
-                src: ['css/frontsize.production.css']
+                src: ['test/frontsize.css']
             },
             test_min: {
                 options: {
                   csslintrc: '.csslintrc'
                 },
-                src: ['css/frontsize.min.css']
+                src: ['test/frontsize.min.css']
             }
         }
     });
@@ -59,12 +68,12 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-csso");
 
     grunt.registerTask("test", [
-        "less:development",
+        "less:test",
         "csslint:test"
     ]);
 
     grunt.registerTask("test_min", [
-        "less:development",
+        "less:test",
         "csso:production",
         "csslint:test_min"
     ]);

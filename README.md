@@ -10,6 +10,23 @@ Version 1.1.0
 Frontsize **is now tested** through [CSSlint](https://github.com/stubbornella/csslint/) with this [.csslintrc](https://github.com/ideatosrl/frontsize-less/blob/master/.csslintrc) configuration.
 For the whole list of features, changes, optimizations and fixes read the [1.1.0 release details](https://github.com/ideatosrl/frontsize-less/releases/tag/v1.1.0).
 
+Next release:
+-------------
+
+**Features**
+- **all** CSSlint tests successfully pass
+- **added** `fallbackColor` mixin to help compatibility
+- helpers are now **better organized** on core and themes like widgets
+
+**Optimization**
+- **enabled** `fallback-colors` test with [CSSlint](https://github.com/stubbornella/csslint/)
+- **changed** all passed transparent colors to properties now using `fallbackColor` mixin to add compatibility to older browsers (ie)
+
+**Fix**
+- **code indentation** on core prefixes
+- **changed** `css` folder to `test` to avoid css usage misunderstanding
+- **removed** normalize.css from tests
+
 For developers
 --------------
 There's a lot of css selectors to let the developer work without loosing time on responsive development, with simple rules built to create smooth applications easy to be extended.
@@ -44,4 +61,4 @@ Community based
 The project could be mantained by you too. You can create tons of useful widgets and helpers inside the community, then, everyone can choose to use them inside their Frontsize app with a click.
 
 
-created by [Vittorio Vittori](https://twitter.com/vttrx) and [Alessandro Minoccheri](https://twitter.com/minompi), sponsored by [ideato](http://www.ideato.it) 
+created by [Vittorio Vittori](https://twitter.com/vttrx) and [Alessandro Minoccheri](https://twitter.com/minompi), sponsored by [ideato](http://www.ideato.it)

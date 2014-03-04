@@ -1,0 +1,22 @@
+/*
+
+    THIS FILE IS ONLY USED FOR TESTS AND IS NOT INSIDE FRONTSIZE
+
+*/
+
+@theme: 'default';
+
+// test compile skips normalize to keep it untouched
+// @import (less) "core/lib/normalize.css";
+
+@import "core/core";
+@import "core/components/functions";
+@import "core/components/prefixes";
+@import "core/components/retina";
+@import "core/components/helpers";
+@import "core/components/widgets";
+@import "core/components/media_queries";
+@import "core/components/print";
+@import "core/layout/base";
+@import "core/layout/state";
+@import "themes/@{theme}/import";

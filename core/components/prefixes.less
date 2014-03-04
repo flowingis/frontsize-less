@@ -192,7 +192,7 @@
 }.selection(@text-color:inherit, @background-color:inherit) {
     // Sets the color of the text selection area and the color of the text selected
     &::selection {
-        background: @background-color; 
+        background: @background-color;
         color: @text-color;
     }
 }
@@ -322,13 +322,13 @@
 }
 
 .displayBox() {
-    display:box;
+    display: box;
 }.displayBox() when (@use-css-prefix = true) {
-    display:-webkit-box;
-    display:-ms-flexbox;
-    display:-khtml-box;
-    display:-moz-box;
-    display:-o-box;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -khtml-box;
+    display: -moz-box;
+    display: -o-box;
 }
 
 .interpolation-mode(@interpolation:bicubic) when (@use-css-prefix = true) {
@@ -722,7 +722,7 @@
 }.user-select(@select:text) {
     // it disables text selection
     // Values: text | none | toggle | element | elements | all | inherit;
-    user-select: @select;          
+    user-select: @select;
 }
 
 .opacity(@opacity:1) when (@use-css-prefix = true) {
