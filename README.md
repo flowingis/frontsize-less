@@ -5,7 +5,7 @@ It's a CSS front end framework written to make websites easy to read on every de
 
 Documentation is [in progress](https://github.com/ideatosrl/frontsize-doc/blob/master/wiki/README.md) and *far to be completed* but the best doc is the code itself, isn't it?
 
-Version 1.2.4
+Version 1.3.3
 -------------
 
 **Features**
