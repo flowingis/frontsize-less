@@ -1,21 +1,22 @@
 {
-    "name": "frontsize-less",
-    "version": "1.0.0",
-    "dependencies": {},
-    "devDependencies": {
-        "matchdep": "*",
-        "less": "*",
-        "csslint": "*",
-        "grunt": "~0.4.1",
-        "grunt-contrib-watch": "*",
-        "grunt-contrib-less": "*",
-        "grunt-contrib-csslint": "*",
-        "grunt-csso": "*"
-    },
-    "engines": {
-        "node": ">=0.8.0"
-    },
-    "scripts": {
-        "test": "grunt test"
-    }
+  "name": "frontsize-less",
+  "version": "1.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "matchdep": "*",
+    "less": "*",
+    "csslint": "*",
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-less": "*",
+    "grunt-contrib-csslint": "*",
+    "grunt-csso": "*",
+    "grunt-autoprefixer": "~0.7.2"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  }
 }

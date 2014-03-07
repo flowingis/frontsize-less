@@ -21,6 +21,16 @@ module.exports = function(grunt) {
                 }
             }
         },
+        autoprefixer: {
+              options: {
+                    // browsers: ['> 1%', 'Firefox > 3.6', 'last 10 versions', 'ie 8', 'ie 7', 'Firefox ESR', 'Opera > 10.1'],
+                    diff: true
+              },
+              default: {
+                    src: "test/frontsize.css",
+                    dest: "test/frontsize.prefixed.css"
+              }   
+        },
         csso: {
             options: {
                 restructure: true
@@ -58,11 +68,26 @@ module.exports = function(grunt) {
                   csslintrc: '.csslintrc'
                 },
                 src: ['test/frontsize.min.css']
+            },
+            test_prefixed: {
+                options: {
+                  csslintrc: '.csslintrc'
+                },
+                src: ['test/frontsize.prefixed.css']
+
             }
         }
     });
 
     require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
+
+    grunt.loadNpmTasks('grunt-autoprefixer');
+    
+    grunt.registerTask("prefix", [ 
+        "less:test", 
+        "autoprefixer:default",
+        "csslint:test_prefixed" 
+    ]);
 
     grunt.registerTask("test", [
         "less:test",
@@ -74,4 +99,5 @@ module.exports = function(grunt) {
         "csso:production",
         "csslint:test_min"
     ]);
+
 };
