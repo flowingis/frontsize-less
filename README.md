@@ -5,18 +5,18 @@ It's a CSS front end framework written to make websites easy to read on every de
 
 Documentation is [in progress](https://github.com/ideatosrl/frontsize-doc/blob/master/wiki/README.md) and *far to be completed* but the best doc is the code itself, isn't it?
 
-Next release preview
+Next release
 ---
 
 **Optimization**
-- **moved** out adjoining classes for .fixed and .absolute
+- **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
 
 **Fix**
-- **added** z-index fix to .fixed and .absolute
+- **added** `z-index` fix to `.fixed` and `.absolute` to ensure the element to be over it's siblings
 
 
 Version 1.3.3
--------------
+---
 
 **Features**
 - **all** [CSSlint](https://github.com/stubbornella/csslint/) tests based on [.csslintrc](https://github.com/ideatosrl/frontsize-less/blob/master/.csslintrc) configuration successfully pass
