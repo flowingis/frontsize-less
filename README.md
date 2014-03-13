@@ -5,6 +5,16 @@ It's a CSS front end framework written to make websites easy to read on every de
 
 Documentation is [in progress](https://github.com/ideatosrl/frontsize-doc/blob/master/wiki/README.md) and *far to be completed* but the best doc is the code itself, isn't it?
 
+Next release preview
+---
+
+**Optimization**
+- **moved** out adjoining classes for .fixed and .absolute
+
+**Fix**
+- **added** z-index fix to .fixed and .absolute
+
+
 Version 1.3.3
 -------------
 
