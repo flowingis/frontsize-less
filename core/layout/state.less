@@ -231,19 +231,26 @@
 
 .absolute {
     position: absolute @important;
+    z-index: 1;
     float: none;
-    &.to-bottom {
-        bottom: 0;
-    }
-    &.to-top {
-        top: 0;
-    }
-    &.to-right {
-        right: 0;
-    }
-    &.to-left {
-        left: 0;
-    }
+}
+
+.fixed {
+    position: fixed;
+    z-index: 1;
+}
+
+.to-bottom {
+    bottom: 0;
+}
+.to-top {
+    top: 0;
+}
+.to-right {
+    right: 0;
+}
+.to-left {
+    left: 0;
 }
 
 .move-bottom-left {
@@ -469,28 +476,6 @@
 
 .cell-bottom {
     .asTableCell(0, bottom);
-}
-
-.fixed {
-    position: fixed;
-    &.cover {
-        bottom:0;
-        top:0;
-        right:0;
-        left:0;
-    }
-    &.to-bottom {
-        bottom:0;
-    }
-    &.to-top {
-        top:0;
-    }
-    &.to-right {
-        right:0;
-    }
-    &.to-left {
-        left:0;
-    }
 }
 
 .hookable {
