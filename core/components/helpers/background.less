@@ -117,12 +117,12 @@
     .box-sizing(border-box);
 }
 
-.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width) when (@horizontalPosition = 0) {
+.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width) when (@horizontalPosition = 0) and not (@verticalPosition = 0) {
     background-position: 0 unit(-(@verticalPosition*@height),px);
-}.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width) when (@verticalPosition = 0) {
+}.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width) when (@verticalPosition = 0) and not (@horizontalPosition = 0) {
     background-position: unit(-(@horizontalPosition*@width),px) 0;
 }.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width) when (@horizontalPosition = 0) and (@verticalPosition = 0) {
-    background-position: 0;
+    background-position: 0 0;
 }.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width) when not (@horizontalPosition = 0) and not (@verticalPosition = 0) {
     background-position: unit(-(@horizontalPosition*@width),px) unit(-(@verticalPosition*@height),px);
 }
