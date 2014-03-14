@@ -8,6 +8,9 @@ Documentation is [in progress](https://github.com/ideatosrl/frontsize-doc/blob/m
 Next release
 ---
 
+**Features**
+- **added** fallback color support to background gradient helpers
+
 **Optimization**
 - **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
 
