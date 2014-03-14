@@ -6,7 +6,7 @@
 // ==                                   ===================================================================================================================================
 // ========================================================================================================================================================================
 
-.addViewportsSteps(@selector:use-steps, @hdFullMargin:500px, @hdReadyMargin:100px, @tabletLandscapeMargin:50px, @tabletPortraitMargin:20px, @minWidth:false) {
+.addViewportsSteps(@selector:use-steps, @hdFullMargin:500px, @hdReadyMargin:100px, @tabletLandscapeMargin:50px, @tabletPortraitMargin:20px, @width:false) when (@width = false) {
     // Media queries for selectors active from a specific resolution or higher
     // smartphone viewports were removed to improve width compatibility with all smartphone models
     .addStep(@selector);
@@ -14,10 +14,10 @@
     .addViewportsStepsTabletLandscape(@selector, @tabletLandscapeMargin);
     .addViewportsStepsHdReady(@selector, @hdReadyMargin);
     .addViewportsStepsHdFull(@selector, @hdFullMargin);
-}.addViewportsSteps(@selector:use-steps, @hdFullMargin:500px, @hdReadyMargin:100px, @tabletLandscapeMargin:50px, @tabletPortraitMargin:20px, @minWidth:false) when not (@minWidth = false) {
-    .@{selector} {
-        min-width: @minWidth;
-    }
+}.addViewportsSteps(@selector:use-steps, @hdFullMargin:500px, @hdReadyMargin:100px, @tabletLandscapeMargin:50px, @tabletPortraitMargin:20px, @width:false) when not (@width = false) {
+    // Media queries for selectors active from a specific resolution or higher
+    // smartphone viewports were removed to improve width compatibility with all smartphone models
+    .addStep(@selector, @width);
 }
 .addViewportsStepsTabletPortrait(@selector, @tabletPortraitMargin) when (@use-tablet-portrait = true) {
     @media @from-tablet-portrait {
