@@ -17,6 +17,7 @@ Next release
 **Fix**
 - **added** `z-index` fix to `.fixed` and `.absolute` to ensure the element to be over it's siblings
 - **renamed** an undefined var if `@root-path` is set to `true`
+- **fixed** `spritePosition` helper with right number of values on `background-position` property
 
 
 Version 1.3.3
