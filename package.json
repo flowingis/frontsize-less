@@ -4,8 +4,13 @@
     "dependencies": {},
     "devDependencies": {
         "matchdep": "*",
-        "less": "*",
+
+        "phantomjs": "*",
+        "resemblejs": "*",
+        "casperjs": "*",
         "csslint": "*",
+
+        "less": "*",
         "grunt": "~0.4.1",
         "grunt-contrib-watch": "*",
         "grunt-contrib-less": "*",
