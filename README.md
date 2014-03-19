@@ -11,6 +11,7 @@ Next release
 **Features**
 - **added** fallback color support to background gradient helpers
 - **added** `min-width` param to `addViewportsSteps` mixin to let disabled media queries works better
+- **added** the possibility to set `font-family` on input placeholder attributes with `globalPlaceholder` and `input-placeholder` mixins
 
 **Optimization**
 - **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
