@@ -1,4 +1,6 @@
-.verticalGradient(@color:#cbcbcb, @strenght:5%) when (@use-css-prefix = true) {
+.verticalGradient(@color:#cbcbcb, @strenght:5%) when (@use-fallback-colors = true) {
+    background-color: rgb(red(@color), green(@color), blue(@color));
+}.verticalGradient(@color:#cbcbcb, @strenght:5%) when (@use-css-prefix = true) {
     @lighten: saturate(lighten(@color,@strenght),(-@strenght/2));
     @darken: saturate(darken(@color,@strenght),(@strenght/2));
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@lighten), color-stop(100%,@darken));
@@ -7,17 +9,16 @@
     @darken: saturate(darken(@color,@strenght),(@strenght/2));
     .linear-gradient(top, @lighten 0%, @darken 100%;);
     .ieVerticalGradient(@lighten, @darken);
-}.verticalGradient(@color:#cbcbcb, @strenght:5%) when (@use-fallback-colors = true) {
-    background-color: @color;
 }
 
-.verticalGradientColors(@firstColor:#000000, @lastColor:#FFFFFF) when (@use-css-prefix = true) {
+.verticalGradientColors(@firstColor:#000000, @lastColor:#FFFFFF) when (@use-fallback-colors = true) {
+    @color: mix(@firstColor, @lastColor, 100%);
+    background-color: rgb(red(@color), green(@color), blue(@color));
+}.verticalGradientColors(@firstColor:#000000, @lastColor:#FFFFFF) when (@use-css-prefix = true) {
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@firstColor), color-stop(100%,@lastColor));
 }.verticalGradientColors(@firstColor:#000000, @lastColor:#FFFFFF) {
     .linear-gradient(top, @firstColor 0%, @lastColor 100%;);
     .ieVerticalGradient(@firstColor, @lastColor);
-}.verticalGradientColors(@firstColor:#000000, @lastColor:#FFFFFF) when (@use-fallback-colors = true) {
-    background-color: mix(@firstColor, @lastColor, 100%);
 }
 
 .ieVerticalGradient(@firstColor, @lastColor) when (@use-ie-filters = true) {
@@ -26,15 +27,18 @@
     filter: progid:dximagetransform.microsoft.gradient(startColorstr='@{first}', endColorstr='@{last}', GradientType=0);
 }
 
-.glossGradient(@color: #0A75Bf, @strength: 10%, @borderSize: 0) when (@use-css-prefix = true) {
+.glossGradient(@color:#000000, @strength:10%) when (@use-fallback-colors = true) {
+    background-color: rgb(red(@color), green(@color), blue(@color));
+}.glossGradient(@color: #0A75Bf, @strength: 10%, @borderSize: 0) when (@use-css-prefix = true) {
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,lighten(@color, @strength/2)), color-stop(50%,@color), color-stop(51%,lighten(@color, @strength)), color-stop(100%,lighten(@color, @strength/2))); /* Chrome,Safari4+ */
 }.glossGradient(@color: #0A75Bf, @strength: 10%, @borderSize: 0) when not (@borderSize = 0) {
     border: @borderSize solid @color;
-    .linear-gradient(bottom, lighten(@color, @strength/2) 0%, @color 50%, lighten(@color, @strength) 51%, lighten(@color, @strength/2) 100%;);
-}.glossGradient(@color: #0A75Bf, @strength: 10%, @borderSize: 0) when (@borderSize = 0) {
-    .linear-gradient(bottom, lighten(@color, @strength/2) 0%, @color 50%, lighten(@color, @strength) 51%, lighten(@color, @strength/2) 100%;);
-}.glossGradient(@color:#000000, @strength:10%) when (@use-fallback-colors = true) {
-    background-color: @color;
+}.glossGradient(@color: #0A75Bf, @strength: 10%, @borderSize: 0) {
+    @bottom: lighten(@color,@strenght/2);
+    @middle: lighten(@color, @strength);
+    @top: @bottom;
+    .linear-gradient(bottom, @bottom 0%, @color 50%, @middle 51%, @top 100%;);
+    .ieVerticalGradient(@bottom, @middle);
 }
 
 .backgroundImage(@backgroundImage, @path:'') when (@use-root-path = false) {

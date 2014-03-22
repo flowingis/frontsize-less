@@ -16,11 +16,14 @@ Next release
 
 **Optimization**
 - **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
+- **semplified** `glossGradient` colors not properly applied
 
 **Fix**
 - **added** `z-index` fix to `.fixed` and `.absolute` to ensure the element to be over it's siblings
 - **renamed** an undefined var if `@root-path` is set to `true`
 - **fixed** `spritePosition` helper with right number of values on `background-position` property
+- **fixed** fallback colors for `verticalGradient`, `verticalGradientColors` and `glossGradient` mixins
+- **added** missing `ieVerticalGradient` mixin inside `glossGradient` mixin
 
 
 Version 1.3.3

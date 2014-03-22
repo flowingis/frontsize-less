@@ -21,6 +21,7 @@ module.exports = function(grunt) {
                 }
             }
         },
+
         csso: {
             options: {
                 restructure: true
@@ -31,6 +32,7 @@ module.exports = function(grunt) {
                 }
             }
         },
+
         watch: {
             development : {
                 files: [
@@ -43,6 +45,7 @@ module.exports = function(grunt) {
                 ]
             }
         },
+
         csslint: {
             options: {
                 csslintrc: '.csslintrc'
@@ -58,6 +61,19 @@ module.exports = function(grunt) {
                   csslintrc: '.csslintrc'
                 },
                 src: ['test/frontsize.min.css']
+            }
+        },
+
+        phantomcss: {
+            options: {},
+            your_target: {
+                options: {
+                    screenshots: 'test/screenshots/',
+                    results: 'results/'
+                },
+                src: [
+                    'test/**/*.js'
+                ]
             }
         }
     });

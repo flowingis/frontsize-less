@@ -12,6 +12,7 @@
 
         "less": "*",
         "grunt": "~0.4.1",
+        "grunt-phantomcss": "*",
         "grunt-contrib-watch": "*",
         "grunt-contrib-less": "*",
         "grunt-contrib-csslint": "*",

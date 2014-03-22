@@ -11,6 +11,7 @@ bower.json
 src
 # css
 node_modules
+test
 
 # Compiled source #
 ###################
