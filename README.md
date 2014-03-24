@@ -17,6 +17,7 @@ Next release
 **Optimization**
 - **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
 - **semplified** `glossGradient` colors not properly applied
+- **disabled** text selection to `.disabled` selector
 
 **Fix**
 - **added** `z-index` fix to `.fixed` and `.absolute` to ensure the element to be over it's siblings
