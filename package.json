@@ -1,4 +1,5 @@
 {
+
     "name": "frontsize-less",
     "version": "1.0.0",
     "dependencies": {},
@@ -13,6 +14,7 @@
         "less": "*",
         "grunt": "~0.4.1",
         "grunt-phantomcss": "*",
+        "grunt-autoprefixer": "*",
         "grunt-contrib-watch": "*",
         "grunt-contrib-less": "*",
         "grunt-contrib-csslint": "*",
