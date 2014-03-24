@@ -78,8 +78,11 @@
 .disabled {
     cursor: default;
     opacity: @state-disabled-opacity @important;
-    .user-select(none);
     .transition(opacity 0.25s ease-out);
+    .user-select(none);
+    * {
+        .user-select(none);
+    }
 }
 
 .invisible {
