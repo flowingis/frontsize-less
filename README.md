@@ -26,7 +26,7 @@ Next release
 - **fixed** fallback colors for `verticalGradient`, `verticalGradientColors` and `glossGradient` mixins
 - **added** missing `ieVerticalGradient` mixin inside `glossGradient` mixin
 - **added** `relative` position to `body` to work better with children absolute positioning
-
+- **added** missing `@important` to `.no-line-height`
 
 Version 1.3.3
 ---
