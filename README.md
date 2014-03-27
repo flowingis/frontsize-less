@@ -18,7 +18,8 @@ Next release
 - **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
 - **semplified** `glossGradient` colors not properly applied
 - **disabled** text selection to `.disabled` selector
-- **added** `@forcePrefixes` to prevent `font-smooth` to be skipped when `@use-css-prefix` is `false`, this is for Chrome only for now
+- **added** `@forcePrefixes` to `font-smoothing` to prevent the property to be skipped from `autoprefixer`
+- **added** `@forcePrefixes` to `appearance` to prevent the property to be skipped from `autoprefixer`
 
 **Fix**
 - **added** `z-index` fix to `.fixed` and `.absolute` to ensure the element to be over it's siblings
