@@ -681,13 +681,19 @@
     marks:@marks;
 }
 
-.appearance(@appearence:normal) when (@use-css-prefix = true) {
+.appearance(@appearence:normal, @forcePrefixes:true) when (@use-css-prefix = false) and (@forcePrefixes = true) {
+    -webkit-appearance: @appearence;
+    -khtml-appearance: @appearence;
+    // -moz-appearance: @appearence;   // For now is not working for form elements radio and checkbox
+    -ms-appearance: @appearence;
+    // -o-appearance: @appearence;     // not working for elements radio and checkbox
+}.appearance(@appearence:normal, @forcePrefixes:true) when (@use-css-prefix = true) and (@forcePrefixes = false) {
     -webkit-appearance: @appearence;
     -khtml-appearance: @appearence;
     -moz-appearance: @appearence;   // For now is not working for form elements radio and checkbox
     -ms-appearance: @appearence;
     -o-appearance: @appearence;
-}.appearance(@appearence:normal) {
+}.appearance(@appearence:normal, @forcePrefixes:true) {
     // The appearance property allows you to make an element look like a standard user interface element.
     // Url - http://css-tricks.com/almanac/properties/a/appearance/
     // Webkit values: checkbox | radio | push-button | square-button | button | button-bevel | listbox | listitem | menulist | menulist-button | menulist-text | menulist-textfield | scrollbarbutton-up | scrollbarbutton-down | scrollbarbutton-left | scrollbarbutton-right | scrollbartrack-horizontal | scrollbartrack-vertical | scrollbarthumb-horizontal | scrollbarthumb-vertical | scrollbargripper-horizontal | scrollbargripper-vertical | slider-horizontal | slider-vertical | sliderthumb-horizontal | sliderthumb-vertical | caret | searchfield | searchfield-decoration | searchfield-results-decoration | searchfield-results-button | searchfield-cancel-button | textfield | textarea;
