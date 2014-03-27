@@ -30,6 +30,7 @@ Next release
 - **added** missing `ieVerticalGradient` mixin inside `glossGradient` mixin
 - **added** `relative` position to `body` to work better with children absolute positioning
 - **added** missing `@important` to `.no-line-height`
+- **fixed** selector `table-inline` to be more consistent
 
 Version 1.3.3
 ---
