@@ -20,6 +20,7 @@ Next release
 - **disabled** text selection to `.disabled` selector
 - **added** `@forcePrefixes` to `font-smoothing` to prevent the property to be skipped from `autoprefixer`
 - **added** `@forcePrefixes` to `appearance` to prevent the property to be skipped from `autoprefixer`
+- **semplified** nav list state selectors
 
 **Fix**
 - **added** `z-index` fix to `.fixed` and `.absolute` to ensure the element to be over it's siblings
