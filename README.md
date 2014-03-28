@@ -21,6 +21,7 @@ Next release
 - **added** `@forcePrefixes` to `font-smoothing` to prevent the property to be skipped from `autoprefixer`
 - **added** `@forcePrefixes` to `appearance` to prevent the property to be skipped from `autoprefixer`
 - **semplified** nav list state selectors
+- **added** `border-box` to `.size` mixin ensure a more precise sizing
 
 **Fix**
 - **added** `z-index` fix to `.fixed` and `.absolute` to ensure the element to be over it's siblings
