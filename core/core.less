@@ -74,14 +74,16 @@
 .addStep(@selector:step, @width:false) when (@width = false) {
     .@{selector} {
         display: block;
-        margin: auto;
+        margin-left: auto;
+        margin-right: auto;
         .box-sizing(border-box);
     }
 }.addStep(@selector:step, @width:false) when not (@width = false) {
     .@{selector} {
         display: block;
         width: @width;
-        margin: auto;
+        margin-left: auto;
+        margin-right: auto;
         .box-sizing(border-box);
     }
 }
