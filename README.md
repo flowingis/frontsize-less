@@ -35,6 +35,7 @@ Next release
 - **fixed** selector `table-inline` to be more consistent
 - **fixed** horizontal `margin` to `auto` to avoid `margin-top` and `margin-bottom` to be overridden
 - **fixed** `ul` on core base now has it's default `display` property value
+- **fixed** cursors to `pointer` to `a` element children
 
 Version 1.3.3
 ---
