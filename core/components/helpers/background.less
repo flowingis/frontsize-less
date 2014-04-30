@@ -134,3 +134,7 @@
 .spriteCoordinates(@positionX:0, @positionY:0) {
     background-position: -@positionX -@positionY;
 }
+
+.scaleBackgroundSize(@scale, @width, @height:@width) {
+    background-size: (@width*@scale) (@height*@scale);
+}
