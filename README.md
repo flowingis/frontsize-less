@@ -14,6 +14,7 @@ Next release
 - **added** the possibility to set `font-family` on input placeholder attributes with `globalPlaceholder` and `input-placeholder` mixins
 - **added** `UTF8` charset encoding declaration
 - **added** `fit` and `fit-window` state selectors for popups and other stuff
+- **added** `scaleBackgroundSize` mixin to scale *svg* sprites easily
 
 **Optimization**
 - **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
