@@ -139,7 +139,7 @@
     background-size: (@width*@scale) (@height*@scale);
 }
 
-.setSprite(@selector, @xStep:0, @yStep:0, @width:0, @height:@width) {
+.setSprite(@selector, @horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width) {
     &.@{selector} {
         .spritePosition(@horizontalPosition, @verticalPosition, @width, @height);
     }
