@@ -15,6 +15,7 @@ Next release
 - **added** `UTF8` charset encoding declaration
 - **added** `fit` and `fit-window` state selectors for popups and other stuff
 - **added** `scaleBackgroundSize` mixin to scale *svg* sprites easily
+- **added** `setSprite` mixin to make sprite names more readable
 
 **Optimization**
 - **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
