@@ -4,49 +4,49 @@
 // HTML5 elements
 // Url - http://html5doctor.com/element-index/
 
-.base-body();
-.base-a();
-.base-mark();
-.base-pre();
-.base-p();
-.base-span();
-.base-blockquote();
-.base-code();
-.base-abbr();
-.base-kbd();
-.base-samp();
-.base-small();
-.base-s();
-.base-ul();
-.base-li();
-.base-ol();
-.base-hr();
-.base-meter();
-.base-img();
 
+.base-abbr();
+.base-blockquote();
+.base-body();
+.base-caption();
+.base-code();
+.base-figcaption();
 .base-form();
+.base-form-checkbox();
+.base-form-datalist();
+.base-form-fieldset();
+.base-form-file();
+.base-form-label();
+.base-form-legend();
+.base-form-output();
+.base-form-radio();
+.base-form-range();
+.base-form-select();
 .base-form-submit();
 .base-form-text();
-.base-form-range();
-.base-form-radio();
-.base-form-checkbox();
 .base-form-textarea();
-.base-form-label();
-.base-form-file();
-.base-form-select();
-.base-form-datalist();
-.base-form-output();
-.base-form-fieldset();
-.base-form-legend();
-
 .base-h();
+.base-hr();
+.base-img();
+.base-kbd();
+.base-li();
+.base-mark();
+.base-meter();
+.base-ol();
+.base-p();
+.base-pre();
+.base-s();
+.base-samp();
+.base-small();
+.base-span();
 .base-table();
-.base-tr();
-.base-th();
 .base-td();
-.base-caption();
-.base-figcaption();
 .base-tfoot();
+.base-th();
+.base-tr();
+.base-ul();
+
+
 
 // ========================================================================================================================================================================
 // ==                                   ===================================================================================================================================
@@ -73,53 +73,10 @@
 
         .font-smoothing(); // if you want to enable font smoothing (will be applied to webkit only)
     }
+
 }
 
 
-.base-a() {
-    // If the a element has an href attribute, then it represents a hyperlink (a hypertext anchor).
-    // If the a element has no href attribute, then the element represents a placeholder for where a link might otherwise have been placed, if it had been relevant.
-    //
-    // The target, rel, media, hreflang, and type attributes must be omitted if the href attribute is not present.
-    //
-    // Url - http://html5doctor.com/element-index/#a
-    @color:@font-default-color;
-    @userSelect:none;
-
-    a {
-        display: inline-block;
-        line-height: @font-line-height;
-        text-decoration: none;
-        color:@color;
-
-        border-bottom:2px solid;
-        .fallbackColor(border-bottom-color, fade(@color, 30%));
-
-        @animation:0.3s ease-in-out;
-        .transition(border-bottom @animation, color @animation;);
-        .user-select(@userSelect);
-
-        &[title]:hover {
-            text-decoration: none;
-        }
-
-        &:hover,
-        &.hover,
-        &.selected,
-        &.active {
-            color:saturate(darken(@color, 10%), 7%);
-            border-bottom-color: @color;
-        }
-
-        &.selected {
-            cursor: default;
-        }
-
-        img {
-            border: none;
-        }
-    }
-}
 
 .base-h() {
     @color:black;

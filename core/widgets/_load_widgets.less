@@ -1,10 +1,4 @@
-// Place your own widgets here!
-// or publish them on http://frontsize.com/widgets/add
-
-// Use your widgets on theme/components/widgets folder
-// @import "widgets/your-widget";
-
-.useFrontsizeWidgets() {
+.useFrontsizeWidgets() when (@use-core-widgets = true) {
     // hifi
     .area-hifi {
         .area-hifi();
@@ -69,3 +63,5 @@
         .pic();
     }
 }
+
+.useFrontsizeWidgets();

@@ -8,6 +8,11 @@ Documentation is [in progress](https://github.com/ideatosrl/frontsize-doc/blob/m
 Next release
 ---
 
+**Changes**
+- **changed** lot of core file locations and names to split big less files into smaller ones
+- **moved** theme `helpers` folder outside theme `components` folder which is removed
+- **moved** theme `widgets` folder outside theme `components` folder which is removed
+
 **Features**
 - **added** fallback color support to background gradient helpers
 - **added** `min-width` param to `addViewportsSteps` mixin to let disabled media queries works better
@@ -17,6 +22,7 @@ Next release
 - **added** `scaleBackgroundSize` mixin to scale *svg* sprites easily
 - **added** `setSprite` mixin to make sprite names more readable
 - **added** `addMarginOffset` mixin to enable columns left margin positioning
+- **added** comment `/* private */` comment before every mixin recommended as private method
 
 **Optimization**
 - **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
@@ -26,6 +32,7 @@ Next release
 - **added** `@forcePrefixes` to `appearance` to prevent the property to be skipped from `autoprefixer`
 - **semplified** nav list state selectors
 - **added** `border-box` to `.size` mixin ensure a more precise sizing
+- **chaged** `useFrontsizeWidgets` mixin to `@use-core-widgets` as the other parts of the app configuration
 
 **Fix**
 - **added** `z-index` fix to `.fixed` and `.absolute` to ensure the element to be over it's siblings
