@@ -16,6 +16,7 @@ Next release
 - **added** `fit` and `fit-window` state selectors for popups and other stuff
 - **added** `scaleBackgroundSize` mixin to scale *svg* sprites easily
 - **added** `setSprite` mixin to make sprite names more readable
+- **added** `addMarginOffset` mixin to enable columns left margin positioning
 
 **Optimization**
 - **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
@@ -38,6 +39,7 @@ Next release
 - **fixed** horizontal `margin` to `auto` to avoid `margin-top` and `margin-bottom` to be overridden
 - **fixed** `ul` on core base now has it's default `display` property value
 - **fixed** cursors to `pointer` to `a` element children
+- **fixed** `moz-appearance` to default value to pass **csslint** test
 
 Version 1.3.3
 ---
