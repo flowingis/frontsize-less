@@ -139,6 +139,116 @@
     }
 }
 
+.addColumnMarginOffset(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) {
+    @startIndex: @totalSteps;
+    .loopColumnMarginOffset(@totalSteps, @prefix, @startIndex, ~"", @viewTotalColumns, @columnsSeparator);
+}
+
+.addFillToMarginOffset(@prefix, @totalSteps, @fillViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-) {
+    @startIndex: @totalSteps;
+    .loopMarginOffsetFill(@prefix, @totalSteps, @fillViewport, @startIndex, @viewTotalColumns, @columnsSeparator);
+}
+
+.preventSmartphoneMarginOffset(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) when (@use-smartphone-landscape = true) {
+    @startIndex: @totalSteps;
+    @media @till-tablet-portrait {
+        // Smartphone landscape
+        .loopSmartphoneColumnSet(@prefix, @totalSteps, @startIndex, @viewTotalColumns, @columnsSeparator);
+    }
+}
+
+.loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = true) {
+    @nextRule:~".@{prefix}@{index}@{columnsSeparator}@{total}";
+    .loopColumnMarginOffset(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}.loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = true) {
+    @nextRule:~"@{prevRule}, .@{prefix}@{index}@{columnsSeparator}@{total}";
+    .loopColumnMarginOffset(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}.loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = true) {
+    .@{prefix}@{index}@{columnsSeparator}@{total} {
+        .setColumnMarginOffsetStep(@index, @total);
+    }
+}.loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = true) {
+    //@{prevRule} {
+    //    .setColumnBehavior();
+    //    .box-sizing(border-box);
+    //}
+}
+.loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = false) {
+    @nextRule:~".@{prefix}@{index}";
+    .loopColumnMarginOffset(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}.loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = false) {
+    @nextRule:~"@{prevRule}, .@{prefix}@{index}";
+    .loopColumnMarginOffset(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}.loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = false) {
+    .@{prefix}@{index} {
+        .setColumnMarginOffsetStep(@index, @total);
+    }
+}.loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = false) {
+    //@{prevRule} {
+    //    .setColumnBehavior();
+    //    .box-sizing(border-box);
+    //}
+}
+
+.loopSmartphoneMarginOffset(@prefix, @total, @index, @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = true) {
+    .@{prefix}@{index}@{columnsSeparator}@{total} {
+        .setColumnMarginOffsetStep(@index, @total);
+    }
+    .loopSmartphoneMarginOffset(@prefix, @total, @index - 1, @viewTotalColumns, @columnsSeparator);
+}.loopSmartphoneMarginOffset(@prefix, @total, @index, @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = false) {
+    .@{prefix}@{index} {
+        .setColumnMarginOffsetStep(@index, @total);
+    }
+    .loopSmartphoneMarginOffset(@prefix, @total, @index - 1, @viewTotalColumns, @columnsSeparator);
+}
+
+.loopMarginOffsetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@index = @total) and (@viewTotalColumns = true) {
+    @nextRule:~".@{prefix}@{index}@{columnsSeparator}@{total}";
+    .loopMarginOffsetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator, @nextRule);
+}.loopMarginOffsetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@index = @total) and (@viewTotalColumns = false) {
+    @nextRule:~".@{prefix}@{index}";
+    .loopMarginOffsetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator, @nextRule);
+}.loopMarginOffsetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@index > 0) and (@index < @total) and (@viewTotalColumns = true) {
+    @nextRule:~"@{prevRule}, .@{prefix}@{index}@{columnsSeparator}@{total}";
+    .loopMarginOffsetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator, @nextRule);
+}.loopMarginOffsetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@index > 0) and (@index < @total) and (@viewTotalColumns = false) {
+    @nextRule:~"@{prevRule}, .@{prefix}@{index}";
+    .loopMarginOffsetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator, @nextRule);
+}
+.loopMarginOffsetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "tablet-landscape") and (@index = 0) and (@use-tablet-landscape = true) {
+    @media @till-hd-ready {
+        // Tablet landscape
+        @{prevRule} {
+            margin-left: 0;
+        }
+    }
+}.loopMarginOffsetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "tablet-portrait") and (@index = 0) and (@use-tablet-portrait = true) {
+    @media @till-tablet-landscape {
+        // Tablet portrait
+        @{prevRule} {
+            margin-left: 0;
+        }
+    }
+}.loopMarginOffsetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "smartphone-landscape") and (@index = 0) and (@use-smartphone-landscape = true) {
+    @media @till-tablet-portrait {
+        // Smartphone landscape
+        @{prevRule} {
+            margin-left: 0;
+        }
+    }
+}.loopMarginOffsetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "smartphone-portrait") and (@index = 0) and (@use-smartphone-portrait = true) {
+    @media @till-smartphone-landscape {
+        // Smartphone portrait
+        @{prevRule} {
+            margin-left: 0;
+        }
+    }
+}
+
+.setColumnMarginOffsetStep(@step, @columns) {
+    margin-left:((100% * @step)/@columns);
+}
+
 .loopSmartphoneColumnSet(@prefix, @total, @index, @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = true) {
     .@{prefix}@{index}@{columnsSeparator}@{total} {
         .setColumnStep(@index, @total);

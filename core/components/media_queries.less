@@ -774,3 +774,37 @@
         .addColumnSet(@hdViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
     }
 }
+
+.addMarginOffset(@steps:12, @hdViewportPrefix:hd-offset-, @tabletViewportPrefix:tablet-offset-, @smartphoneViewportPrefix:smartphone-offset-, @fillFromViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-, @useHdRules:true, @useTabletRules:true, @useSmartphoneRules:true) {
+    .addMarginOffsetSmartphonePortrait(@steps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useSmartphoneRules);
+    .addMarginOffsetTabletPortrait(@steps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useTabletRules);
+    .addMarginOffsetHdReady(@steps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useHdRules);
+    .addFillToMarginOffset(@tabletViewportPrefix, @steps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
+    .addFillToMarginOffset(@hdViewportPrefix, @steps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
+    .preventSmartphoneMarginOffset(@smartphoneViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+}
+
+.addMarginOffsetSmartphonePortrait(@steps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useSmartphoneRules) when (@useSmartphoneRules = true) {
+    @media @from-smartphone-portrait {
+        // Smartphone portrait
+        .addColumnMarginOffset(@hdViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+        .addColumnMarginOffset(@tabletViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+        .addColumnMarginOffset(@smartphoneViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+    }
+}
+.addMarginOffsetTabletPortrait(@steps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useTabletRules) when (@useTabletRules = true) {
+    @media @from-tablet-portrait {
+        // Tablet portrait
+        .addColumnMarginOffset(@smartphoneViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+        .addColumnMarginOffset(@hdViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+        .addColumnMarginOffset(@tabletViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+    }
+}
+.addMarginOffsetHdReady(@steps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useHdRules) when (@useHdRules = true) {
+    @media @from-hd-ready {
+        // HD Ready
+        .addColumnMarginOffset(@smartphoneViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+        .addColumnMarginOffset(@tabletViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+        .addColumnMarginOffset(@hdViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+    }
+}
