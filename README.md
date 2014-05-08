@@ -25,6 +25,8 @@ Next release
 - **added** `setSprite` mixin to make sprite names more readable
 - **added** `addMarginOffset` mixin to enable columns left margin positioning
 - **added** comment `/* private */` comment before every mixin recommended as private method
+- **added** scale to `setSprite` mixin
+- **added** `scaleSprite` mixin to scale svg sprites easily
 
 **Optimization**
 - **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
