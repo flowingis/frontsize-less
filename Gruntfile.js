@@ -17,7 +17,7 @@ module.exports = function(grunt) {
                     cleancss: false
                 },
                 files: {
-                    "test/frontsize.css" : "test.less"
+                    "test/frontsize.test.css" : "test.less"
                 }
             }
         },
@@ -40,6 +40,11 @@ module.exports = function(grunt) {
             production: {
                 files: {
                     "test/frontsize.min.css": ["test/frontsize.css"]
+                }
+            },
+            test: {
+                files: {
+                    "test/frontsize.test.min.css": ["test/frontsize.test.css"]
                 }
             }
         },
@@ -65,13 +70,13 @@ module.exports = function(grunt) {
                 options: {
                   csslintrc: '.csslintrc'
                 },
-                src: ['test/frontsize.css']
+                src: ['test/frontsize.test.css']
             },
             test_min: {
                 options: {
                   csslintrc: '.csslintrc'
                 },
-                src: ['test/frontsize.min.css']
+                src: ['test/frontsize.test.min.css']
             },
             test_prefixed: {
                 options: {
@@ -98,22 +103,33 @@ module.exports = function(grunt) {
 
     require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
-
     grunt.registerTask("prefix", [ 
         "less:test", 
         "autoprefixer:default",
         "csslint:test_prefixed" 
     ]);
 
+    grunt.registerTask("test_all", [
+        "test",
+        "test_min",
+        "production"
+    ]);
+
     grunt.registerTask("test", [
         "less:test",
+        "csso:test",
         "csslint:test"
     ]);
 
     grunt.registerTask("test_min", [
         "less:test",
-        "csso:production",
+        "csso:test",
         "csslint:test_min"
+    ]);
+
+    grunt.registerTask("production", [
+        "less:development",
+        "csso:production"
     ]);
 
 };

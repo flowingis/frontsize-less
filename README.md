@@ -12,6 +12,8 @@ Next release
 - **changed** lot of core file locations and names to split big less files into smaller ones
 - **moved** theme `helpers` folder outside theme `components` folder which is removed
 - **moved** theme `widgets` folder outside theme `components` folder which is removed
+- **moved** `core/widgets` to `themes/default/widgets` folder, now the core don't own widgets anymore
+- **changed** theme `base.less` file to a list of base elements sorted by type, this will make code more readable easy to be loaded or unloaded
 
 **Features**
 - **added** fallback color support to background gradient helpers
