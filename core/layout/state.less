@@ -327,35 +327,7 @@
     padding-right: 0 @important;
 }
 
-.with-padding {
-    padding: @vertical-padding @horizontal-padding @important;
-}
-
-.horizontal-padding {
-    padding-right: @horizontal-padding @important;
-    padding-left: @horizontal-padding @important;
-}
-
-.vertical-padding {
-    padding-top: @vertical-padding @important;
-    padding-bottom: @vertical-padding @important;
-}
-
-.top-padding {
-    padding-top: @vertical-padding @important;
-}
-
-.bottom-padding {
-    padding-bottom: @vertical-padding @important;
-}
-
-.left-padding {
-    padding-left: @horizontal-padding @important;
-}
-
-.right-padding {
-    padding-right: @horizontal-padding @important;
-}
+.addPaddingSelector(false, @vertical-padding, @horizontal-padding);
 
 .no-margin {
     margin: 0 @important;
@@ -387,35 +359,7 @@
     margin-right: 0 @important;
 }
 
-.with-margin {
-    margin: @vertical-padding @horizontal-padding @important;
-}
-
-.horizontal-margin {
-    margin-right: @horizontal-padding @important;
-    margin-left: @horizontal-padding @important;
-}
-
-.vertical-margin {
-    margin-top: @vertical-padding @important;
-    margin-bottom: @vertical-padding @important;
-}
-
-.top-margin {
-    margin-top: @vertical-padding @important;
-}
-
-.bottom-margin {
-    margin-bottom: @vertical-padding @important;
-}
-
-.left-margin {
-    margin-left: @horizontal-padding @important;
-}
-
-.right-margin {
-    margin-right: @horizontal-padding @important;
-}
+.addMarginSelector(false, @vertical-padding, @horizontal-padding);
 
 .no-list-style {
     list-style-type: none;

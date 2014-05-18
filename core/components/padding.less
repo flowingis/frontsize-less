@@ -89,3 +89,53 @@
         padding:@hdFullPadding;
     }
 }
+
+.addPaddingSelector(@selector:false, @verticalPadding:@vertical-padding, @horizontalPadding:@horizontal-padding) when not (@selector = false) {
+    .@{selector}-padding {
+        padding: @verticalPadding @horizontalPadding @important;
+    }
+    .@{selector}-vertical-padding {
+        padding-bottom: @verticalPadding @important;
+        padding-top: @verticalPadding @important;
+    }
+    .@{selector}-bottom-padding {
+        padding-bottom: @verticalPadding @important;
+    }
+    .@{selector}-top-padding {
+        padding-top: @verticalPadding @important;
+    }
+    .@{selector}-horizontal-padding {
+        padding-left: @horizontalPadding @important;
+        padding-right: @horizontalPadding @important;
+    }
+    .@{selector}-left-padding {
+        padding-left: @horizontalPadding @important;
+    }
+    .@{selector}-right-padding {
+        padding-right: @horizontalPadding @important;
+    }
+}.addPaddingSelector(@selector:false, @verticalPadding:@vertical-padding, @horizontalPadding:@horizontal-padding) when (@selector = false) {
+    .with-padding {
+        padding: @verticalPadding @horizontalPadding @important;
+    }
+    .vertical-padding {
+        padding-bottom: @verticalPadding @important;
+        padding-top: @verticalPadding @important;
+    }
+    .bottom-padding {
+        padding-bottom: @verticalPadding @important;
+    }
+    .top-padding {
+        padding-top: @verticalPadding @important;
+    }
+    .horizontal-padding {
+        padding-left: @horizontalPadding @important;
+        padding-right: @horizontalPadding @important;
+    }
+    .left-padding {
+        padding-left: @horizontalPadding @important;
+    }
+    .right-padding {
+        padding-right: @horizontalPadding @important;
+    }
+}
