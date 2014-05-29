@@ -143,15 +143,13 @@
     }
 }
 
-
-
-.addColumnsSet(@steps:12, @hdViewportPrefix:hd-, @tabletViewportPrefix:tablet-, @smartphoneViewportPrefix:smartphone-, @fillFromViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-, @useHdRules:true, @useTabletRules:true, @useSmartphoneRules:true) {
-    .addColumnsSetSmartphonePortrait(@steps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useSmartphoneRules);
-    .addColumnsSetTabletPortrait(@steps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useTabletRules);
-    .addColumnsSetHdReady(@steps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useHdRules);
-    .addFillToColumnSet(@tabletViewportPrefix, @steps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
-    .addFillToColumnSet(@hdViewportPrefix, @steps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
-    .preventSmartphoneColumnSet(@smartphoneViewportPrefix, @steps, @viewTotalColumns, @columnsSeparator);
+.addColumnsSet(@hdSteps:12, @tableSteps:@hdSteps, @smartphoneSteps:@hdSteps, @hdViewportPrefix:hd-, @tabletViewportPrefix:tablet-, @smartphoneViewportPrefix:smartphone-, @fillFromViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-, @useHdRules:true, @useTabletRules:true, @useSmartphoneRules:true) {
+    .addColumnsSetSmartphonePortrait(@smartphoneSteps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useSmartphoneRules);
+    .addColumnsSetTabletPortrait(@tableSteps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useTabletRules);
+    .addColumnsSetHdReady(@hdSteps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useHdRules);
+    .addFillToColumnSet(@tabletViewportPrefix, @tableSteps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
+    .addFillToColumnSet(@hdViewportPrefix, @hdSteps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
+    .preventSmartphoneColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
 }
 
 /* private */.addColumnsSetSmartphonePortrait(@steps, @hdViewportPrefix, @tabletViewportPrefix, @smartphoneViewportPrefix, @viewTotalColumns, @columnsSeparator, @useSmartphoneRules) when (@useSmartphoneRules = true) {
