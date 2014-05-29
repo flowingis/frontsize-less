@@ -14,6 +14,7 @@ Next release
 - **moved** theme `widgets` folder outside theme `components` folder which is removed
 - **moved** `core/widgets` to `themes/default/widgets` folder, now the core don't own widgets anymore
 - **changed** theme `base.less` file to a list of base elements sorted by type, this will make code more readable easy to be loaded or unloaded
+- **changed** `addColumnsSet` mixin now can handle different grids per viewport set, for example now you can generate `hd-6-of-12` and `tablet-2-of-4` at once.
 
 **Features**
 - **added** fallback color support to background gradient helpers
