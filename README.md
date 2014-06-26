@@ -40,6 +40,7 @@ Next release
 - **semplified** nav list state selectors
 - **added** `border-box` to `.size` mixin ensure a more precise sizing
 - **chaged** `useFrontsizeWidgets` mixin to `@use-core-widgets` as the other parts of the app configuration
+- **added** `float:none` to `asTableRow` and `asTableCell` to prevent size problems in some case
 
 **Fix**
 - **added** `z-index` fix to `.fixed` and `.absolute` to ensure the element to be over it's siblings
