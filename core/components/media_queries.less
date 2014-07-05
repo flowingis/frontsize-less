@@ -43,8 +43,7 @@
 
 .addContainerRow(@selector:row, @hdFullSteps:0, @hdReadySteps:12, @tabletLandscapeSteps:6, @tabletPortraitSteps:3, @smartphoneLandscapeSteps:1, @smartphonePortraitSteps:1) {
     .@{selector},
-    .@{selector} *,
-    .@{selector} > * {
+    .@{selector} * {
         .box-sizing(border-box);
     }
     .@{selector} {
@@ -60,7 +59,7 @@
     // Media queries for selectors active from a specific resolution or higher
     .@{selector} > * {
         min-height: 1px;
-        //padding-bottom:@vertical-padding;
+        .box-sizing(border-box);
         .setColumnBehavior();
         .setColumnStep(1, @hdFullSteps);
     }
