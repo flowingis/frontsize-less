@@ -31,6 +31,7 @@ Next release
 - **added** scale to `setSprite` mixin
 - **added** `scaleSprite` mixin to scale svg sprites easily
 - **added** `addPaddingSelector` and `addMarginSelector` mixins to make padding state rules dynamic and modular
+- **added** `setLineHeightScaling` mixin
 
 **Optimization**
 - **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
