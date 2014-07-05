@@ -1,43 +1,42 @@
-// =====================================================================================================================================================
-// ==                ===================================================================================================================================
-// ==      APP       ===================================================================================================================================
-// ==                ===================================================================================================================================
-// =====================================================================================================================================================
 
-// font sizes for h# elements
-@h1: 2em;
-@h2: 1.75em;
-@h3: 1.5em;
-@h4: 1.25em;
-@h5: 1.125em;
-@h6: 1em;
+// font sizes for h# elements 
+@h1: 32px;
+@h2: 28px;
+@h3: 24px;
+@h4: 20px;
+@h5: 18px;
+@h6: 16px;
 
 // Font sizes
-@font-size: 1em;
-@font-small-size: 0.75em;
+@font-size: 16px;
+@font-small-size: 13px;
 
 // Fonts families global vars
-@font-sans:      'helvetica neue', helvetica, arial, sans-serif;
-@font-serif:     georgia, 'times new roman', times, serif;
+@font-sans: 'helvetica neue', helvetica, arial, sans-serif;
+@font-serif: georgia, 'times new roman', times, serif;
 @font-monospace: menlo, monaco, 'courier new', monospace;
-@font-small:     'lucida grande', tahoma, verdana, arial, sans-serif;
+@font-small: 'lucida grande', tahoma, verdana, arial, sans-serif;
 
 // Default fonts used inside the core
 @font-default: @font-sans;
 @font-heading: @font-sans;
-@font-line-height:  1.25;
-@font-default-color: #7b8284;
+
+@global-step: 24px;
+
+@font-line-height: @global-step;
+@font-weight: 300;
+@font-color: #898989;
 
 // Global padding configuration
-@horizontal-padding: 1em;
-@vertical-padding: 1em;
+@horizontal-padding: @global-step;
+@vertical-padding: @global-step;
 @global-padding: @vertical-padding @horizontal-padding;
 
 // State selectors configuration
 @state-important: true;
 @state-faded-opacity: 0.5;
 @state-disabled-opacity: 0.5;
-@state-table-padding: 0.5em;
+@state-table-padding: 12px;
 
 // Set different width for the smartphones, tablets and hd resolutions
 @smartphone-portrait-step:  320px;  // smartphones portrait     320~380
@@ -48,13 +47,13 @@
 @hd-full-step:              1800px; // Full HD                  1920 (1080p)
 
 // Granular setting for which Media Query rules are enabled
-@use-viewport-states:      true;
 @use-smartphone-portrait:  true;
 @use-smartphone-landscape: true;
 @use-tablet-portrait:      true;
 @use-tablet-landscape:     true;
 @use-hd-ready:             true;
 @use-hd-full:              true;
+@use-viewport-states:      true;
 
 // Enables the mixin .ieVerticalGradient automatically included in .verticalGardient, not working with grunt csso
 @use-ie-filters: false;
@@ -63,27 +62,27 @@
 @use-fallback-colors: true;
 
 // Enable or disable browser specific CSS3 prefixes
-@use-css-prefix: false;
+@use-css-prefix: true;
 
 // Prepends the @root-path var before every URL with .backgroundImage mixin
 @use-root-path: true;
-@root-path: 'frontsize-less/themes/@{theme}/img/';
+@root-path: '/css/frontsize-less/themes/@{theme}/img/';
 
-// Set font scaling to change the font size depending by different resolutions
-.setFontScaling();
+// set font scaling to change the font size depending by different resolutions
+.setFontScaling(body, 20px, 20px, 16px, 16px, 16px, 16px);
+.setLineHeightScaling(body, @global-step);
 
-// Sets the Heading fonts scaling
-.setHeadingFont();
+.addFontsRule(small-fonts, @font-default, 14px, antialiased, @font-default, 14px, antialiased, @font-default, 14px, antialiased);
+.addFontRule(mini-font, @font-small, 16px, 11px, 11px, 11px, 11px, 11px, antialiased, 1);
 
-// Creates a single CSS class with a font-family, font-size and font-smoothing properties for every viewport
-.addFontsRule(with-small-fonts, @font-default, @font-small-size, antialiased, @font-default, 14px, antialiased, @font-default, 14px, antialiased);
-
-// This mixin creates a container row to let the columns works best with a set of solid default behaviors
 .addContainerRow(row);
-
-// This mixin creates a complete set of rules based on three Frontsize media query viewports, starting from smartphone, to tablet and to hd viewports
 .addColumnsSet(12);
 .addMarginOffset(12);
 
-// This mixin set a max-width to an HTML element depending by the current viewport and move it to the center of the page
-.addViewportsSteps(use-steps, 500px, 100px, 50px, 0px);
+// set the margins
+// put .global-steps & .global-steps-padding always at the bottom of the configuration
+.addViewportsSteps(use-steps, 500px, 100px, 50px, 0);
+
+// used for the nav top spacing, set it after global-steps-padding
+// .addPaddingSelector(tiny, 8px, 8px);
+// .addMarginSelector (tiny, 8px, 8px);
