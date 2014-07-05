@@ -1,3 +1,60 @@
+.setLineHeightScaling(@hdFull:(@font-line-height + (@font-line-height/2)), @hdReady:(@font-line-height + (@font-line-height/4)), @tabletLandscape:@font-line-height, @tabletPortrait:@font-line-height, @smartphoneLandscape:@font-line-height, @smartphonePortrait:@font-line-height) {
+    .setLineHeightScalingSmartphonePortrait(@smartphonePortrait);
+    .setLineHeightScalingSmartphoneLandscape(@smartphoneLandscape);
+    .setLineHeightScalingTabletPortrait(@tabletPortrait);
+    .setLineHeightScalingTabletLandscape(@tabletLandscape);
+    .setLineHeightScalingHdReady(@hdReady);
+    .setLineHeightScalingHdFull(@hdFull);
+}
+.setLineHeightScalingSmartphonePortrait(@smartphonePortrait) when (@use-smartphone-portrait = true) {
+    @media @from-smartphone-portrait {
+        // Smartphone portrait
+        body {
+            line-height: @smartphonePortrait;
+        }
+    }
+}
+.setLineHeightScalingSmartphoneLandscape(@smartphoneLandscape) when (@use-smartphone-landscape = true) {
+    @media @from-smartphone-landscape {
+        // Smartphone landscape
+        body {
+            line-height: @smartphoneLandscape;
+        }
+    }
+}
+.setLineHeightScalingTabletPortrait(@tabletPortrait) when (@use-tablet-portrait = true) {
+    @media @from-tablet-portrait {
+        // Tablet portrait
+        body {
+            line-height: @tabletPortrait;
+        }
+    }
+}
+.setLineHeightScalingTabletLandscape(@tabletLandscape) when (@use-tablet-landscape = true) {
+    @media @from-tablet-landscape {
+        // Tablet landscape
+        body {
+            line-height: @tabletLandscape;
+        }
+    }
+}
+.setLineHeightScalingHdReady(@hdReady) when (@use-hd-ready = true) {
+    @media @from-hd-ready {
+        // HD Ready
+        body {
+            line-height: @hdReady;
+        }
+    }
+}
+.setLineHeightScalingHdFull(@hdFull) when (@use-hd-full = true) {
+    @media @from-hd-full {
+        // Full HD
+        body {
+            line-height: @hdFull;
+        }
+    }
+}
+
 .setFontScaling(@hdFull:(@font-size + (@font-size/2)), @hdReady:(@font-size + (@font-size/4)), @tabletLandscape:@font-size, @tabletPortrait:@font-size, @smartphoneLandscape:@font-size, @smartphonePortrait:@font-size, @lineHeightMultiplier:@font-line-height) {
     // Media queries for selectors active from a specific resolution or higher
     .setFontScalingSmartphonePortrait(@smartphonePortrait, @lineHeightMultiplier);
