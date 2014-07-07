@@ -172,6 +172,15 @@
     font-family: @font-small @important;
 }
 
+.comma-separated {
+    > *:after {
+        content: ", ";
+        &:last-child {
+            content: "";
+        }
+    }
+}
+
 .unselectable,
 .unselectable * {
     .user-select(none);
