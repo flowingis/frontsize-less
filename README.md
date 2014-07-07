@@ -57,6 +57,7 @@ Next release
 - **fixed** `ul` on core base now has it's default `display` property value
 - **fixed** cursors to `pointer` to `a` element children
 - **fixed** `moz-appearance` to default value to pass **csslint** test
+- **fixed** `.unselectable` now sets text unselectable for it's children too
 
 Version 1.3.3
 ---
