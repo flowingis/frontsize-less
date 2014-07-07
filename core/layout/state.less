@@ -173,10 +173,12 @@
 }
 
 .comma-separated {
-    > *:after {
-        content: ", ";
-        &:last-child {
-            content: "";
+    > * {
+        &:after {
+            content : ",\00a0";
+        }
+        &:last-child:after {
+            content : "";
         }
     }
 }
