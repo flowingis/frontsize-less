@@ -33,6 +33,7 @@ Next release
 - **added** `addPaddingSelector` and `addMarginSelector` mixins to make padding state rules dynamic and modular
 - **added** `setLineHeightScaling` mixin
 - **added** `comma-separated` selector to layout state selectors
+- **added** `borderImage` helper mixin
 
 **Optimization**
 - **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
