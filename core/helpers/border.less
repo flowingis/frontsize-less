@@ -28,3 +28,9 @@
 .outlineBoxShadow(@outlineOpacity:0.2, @boxShadow:0 0 0 transparent) {
     .box-shadow(0 0 1px rgba(0,0,0,@outlineOpacity), @boxShadow;);
 }
+
+.borderImage(@borderImage, @path:'') when (@use-root-path = false) {
+    .border-image(url('@{path}@{borderImage}'));
+}.borderImage(@backgroundImage, @path:@root-path) when (@use-root-path = true) {
+    .border-image(url('@{path}@{borderImage}'));
+}
