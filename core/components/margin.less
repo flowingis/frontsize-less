@@ -7,37 +7,37 @@
     .addMarginRuleHdReady(@selector, @hdReadyMargin);
     .addMarginRuleHdFull(@selector, @hdFullMargin);
 }
-.addMarginRuleSmartphonePortrait(@selector, @smartphonePortraitMargin) when (@use-smartphone-portrait = true) {
+/* private */.addMarginRuleSmartphonePortrait(@selector, @smartphonePortraitMargin) when (@use-smartphone-portrait = true) {
     @media @from-smartphone-portrait {
         // Smartphone portrait
         .@{selector} { margin:@smartphonePortraitMargin; }
     }
 }
-.addMarginRuleSmartphoneLandscape(@selector, @smartphoneLandscapeMargin) when (@use-smartphone-landscape = true) {
+/* private */.addMarginRuleSmartphoneLandscape(@selector, @smartphoneLandscapeMargin) when (@use-smartphone-landscape = true) {
     @media @from-smartphone-landscape {
         // Smartphone landscape
         .@{selector} { margin:@smartphoneLandscapeMargin; }
     }
 }
-.addMarginRuleTabletPortrait(@selector, @tabletPortraitMargin) when (@use-tablet-portrait = true) {
+/* private */.addMarginRuleTabletPortrait(@selector, @tabletPortraitMargin) when (@use-tablet-portrait = true) {
     @media @from-tablet-portrait {
         // Tablet portrait
         .@{selector} { margin:@tabletPortraitMargin; }
     }
 }
-.addMarginRuleTabletLandscape(@selector, @tabletLandscapeMargin) when (@use-tablet-landscape = true) {
+/* private */.addMarginRuleTabletLandscape(@selector, @tabletLandscapeMargin) when (@use-tablet-landscape = true) {
     @media @from-tablet-landscape {
         // Tablet landscape
         .@{selector} { margin:@tabletLandscapeMargin; }
     }
 }
-.addMarginRuleHdReady(@selector, @hdReadyMargin) when (@use-hd-ready = true) {
+/* private */.addMarginRuleHdReady(@selector, @hdReadyMargin) when (@use-hd-ready = true) {
     @media @from-hd-ready {
         // HD Ready
         .@{selector} { margin:@hdReadyMargin; }
     }
 }
-.addMarginRuleHdFull(@selector, @hdFullMargin) when (@use-hd-full = true) {
+/* private */.addMarginRuleHdFull(@selector, @hdFullMargin) when (@use-hd-full = true) {
     @media @from-hd-full {
         // Full HD
         .@{selector} { margin:@hdFullMargin; }
@@ -53,37 +53,37 @@
     .setViewportsMarginHdReady(@hdReadyMargin);
     .setViewportsMarginHdFull(@hdFullMargin);
 }
-.setViewportsMarginSmartphonePortrait(@smartphonePortraitMargin) when (@use-smartphone-portrait = true) {
+/* private */.setViewportsMarginSmartphonePortrait(@smartphonePortraitMargin) when (@use-smartphone-portrait = true) {
     @media @from-smartphone-portrait {
         // Smartphone portrait
         margin:@smartphonePortraitMargin;
     }
 }
-.setViewportsMarginSmartphoneLandscape(@smartphoneLandscapeMargin) when (@use-smartphone-landscape = true) {
+/* private */.setViewportsMarginSmartphoneLandscape(@smartphoneLandscapeMargin) when (@use-smartphone-landscape = true) {
     @media @from-smartphone-landscape {
         // Smartphone landscape
         margin:@smartphoneLandscapeMargin;
     }
 }
-.setViewportsMarginTabletPortrait(@tabletPortraitMargin) when (@use-tablet-portrait = true) {
+/* private */.setViewportsMarginTabletPortrait(@tabletPortraitMargin) when (@use-tablet-portrait = true) {
     @media @from-tablet-portrait {
         // Tablet portrait
         margin:@tabletPortraitMargin;
     }
 }
-.setViewportsMarginTabletLandscape(@tabletLandscapeMargin) when (@use-tablet-landscape = true) {
+/* private */.setViewportsMarginTabletLandscape(@tabletLandscapeMargin) when (@use-tablet-landscape = true) {
     @media @from-tablet-landscape {
         // Tablet landscape
         margin:@tabletLandscapeMargin;
     }
 }
-.setViewportsMarginHdReady(@hdReadyMargin) when (@use-hd-ready = true) {
+/* private */.setViewportsMarginHdReady(@hdReadyMargin) when (@use-hd-ready = true) {
     @media @from-hd-ready {
         // HD Ready
         margin:@hdReadyMargin;
     }
 }
-.setViewportsMarginHdFull(@hdFullMargin) when (@use-hd-full = true) {
+/* private */.setViewportsMarginHdFull(@hdFullMargin) when (@use-hd-full = true) {
     @media @from-hd-full {
         // Full HD
         margin:@hdFullMargin;
