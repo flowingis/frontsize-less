@@ -3,7 +3,7 @@ frontsize
 
 It's a CSS front end framework written to make websites easy to read on every device and faster to be coded. It gives to the developer a solid base which can be used to build responsive layouts for websites or web apps.
 
-Documentation is [in progress](https://github.com/ideatosrl/frontsize-doc/blob/master/wiki/README.md) and *far to be completed* but the best doc is the code itself, isn't it?
+Documentation is [in progress](https://github.com/ideatosrl/frontsize-less/wiki) and *far to be completed* but the best doc is the code itself, isn't it?
 
 Next release
 ---
@@ -17,6 +17,7 @@ Next release
 - **changed** `addColumnsSet` mixin now can handle different grids per viewport set, for example now you can generate `hd-6-of-12` and `tablet-2-of-4` at once
 - **changed** `first-letter` selector to `up-first-letter` and added `up-first-letter-only` selector which `uppercase` the first letter and `lowecase` others
 - **splitted** `setFontScaling` mixin with `setLineHeightScaling`
+- **changed** `backgroundRetina` mixin, now you must set the `background-size` property to avoid unwanted background size behaviors
 
 **Features**
 - **added** fallback color support to background gradient helpers
