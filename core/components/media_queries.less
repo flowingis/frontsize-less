@@ -8,7 +8,7 @@
     .addViewportsStepsHdReady(@selector, @hdReadyMargin);
     .addViewportsStepsHdFull(@selector, @hdFullMargin);
 }
-.addViewportsStepsTabletPortrait(@selector, @tabletPortraitMargin) when (@use-tablet-portrait = true) {
+/* private */.addViewportsStepsTabletPortrait(@selector, @tabletPortraitMargin) when (@use-tablet-portrait = true) {
     @media @from-tablet-portrait {
         // Tablet portrait
         .@{selector} {
@@ -16,7 +16,7 @@
         }
     }
 }
-.addViewportsStepsTabletLandscape(@selector, @tabletLandscapeMargin) when (@use-tablet-landscape = true) {
+/* private */.addViewportsStepsTabletLandscape(@selector, @tabletLandscapeMargin) when (@use-tablet-landscape = true) {
     @media @from-tablet-landscape {
         // Tablet landscape
         .@{selector} {
@@ -24,7 +24,7 @@
         }
     }
 }
-.addViewportsStepsHdReady(@selector, @hdReadyMargin) when (@use-hd-ready = true) {
+/* private */.addViewportsStepsHdReady(@selector, @hdReadyMargin) when (@use-hd-ready = true) {
     @media @from-hd-ready {
         // HD Ready
         .@{selector} {
@@ -32,7 +32,7 @@
         }
     }
 }
-.addViewportsStepsHdFull(@selector, @hdFullMargin) when (@use-hd-full = true) {
+/* private */.addViewportsStepsHdFull(@selector, @hdFullMargin) when (@use-hd-full = true) {
     @media @from-hd-full {
         // Full HD
         .@{selector} {
@@ -55,7 +55,7 @@
     .checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector);
 }
 
-.checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector) when (@hdFullSteps > 0) {
+/* private */.checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector) when (@hdFullSteps > 0) {
     // Media queries for selectors active from a specific resolution or higher
     .@{selector} > * {
         min-height: 1px;
@@ -70,7 +70,7 @@
     .checkAutoClearHdReady(@selector, @hdReadySteps);
     .checkAutoClearHdFull(@selector, @hdFullSteps);
 }
-.checkAutoClearSmartphonePortrait(@selector, @smartphonePortraitSteps) when (@use-smartphone-portrait = true) {
+/* private */.checkAutoClearSmartphonePortrait(@selector, @smartphonePortraitSteps) when (@use-smartphone-portrait = true) {
     @media @only-smartphone-portrait {
         // Smartphone portrait
         .@{selector} > * {
@@ -78,7 +78,7 @@
         }
     }
 }
-.checkAutoClearSmartphoneLandscape(@selector, @smartphoneLandscapeSteps) when (@use-smartphone-landscape = true) {
+/* private */.checkAutoClearSmartphoneLandscape(@selector, @smartphoneLandscapeSteps) when (@use-smartphone-landscape = true) {
     @media @only-smartphone-landscape {
         // Smartphone landscape
         .@{selector} > * {
@@ -86,7 +86,7 @@
         }
     }
 }
-.checkAutoClearTabletPortrait(@selector, @tabletPortraitSteps) when (@use-tablet-portrait = true) {
+/* private */.checkAutoClearTabletPortrait(@selector, @tabletPortraitSteps) when (@use-tablet-portrait = true) {
     @media @only-tablet-portrait {
         // Tablet portrait
         .@{selector} > * {
@@ -94,7 +94,7 @@
         }
     }
 }
-.checkAutoClearTabletLandscape(@selector, @tabletLandscapeSteps) when (@use-tablet-landscape = true) {
+/* private */.checkAutoClearTabletLandscape(@selector, @tabletLandscapeSteps) when (@use-tablet-landscape = true) {
     @media @only-tablet-landscape {
         // Tablet landscape
         .@{selector} > * {
@@ -102,7 +102,7 @@
         }
     }
 }
-.checkAutoClearHdReady(@selector, @hdReadySteps) when (@use-hd-ready = true) {
+/* private */.checkAutoClearHdReady(@selector, @hdReadySteps) when (@use-hd-ready = true) {
     @media @only-hd-ready {
         // HD Ready
         .@{selector} > * {
@@ -110,7 +110,7 @@
         }
     }
 }
-.checkAutoClearHdFull(@selector, @hdFullSteps) when (@use-hd-full = true) {
+/* private */.checkAutoClearHdFull(@selector, @hdFullSteps) when (@use-hd-full = true) {
     @media @only-hd-full {
         // Full HD
         .@{selector} > * {
