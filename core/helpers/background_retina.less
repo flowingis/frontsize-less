@@ -214,3 +214,17 @@
         .backgroundImage(@retinaImage, @rootPath);
     }
 }
+
+.fillRetinaImage(@standardImage, @retinaImage:@standardImage, @backgroundSize, @rootPath:'') when (@use-root-path = false) {
+    .fillImage(@standardImage, @rootPath);
+    background-size:@backgroundSize;
+    @media @display-retina {
+        .fillImage(@retinaImage, @rootPath);
+    }
+}.fillRetinaImage(@standardImage, @retinaImage:@standardImage, @backgroundSize, @rootPath:@root-path) when (@use-root-path = true) {
+    .fillImage(@standardImage, @rootPath);
+    background-size:@backgroundSize;
+    @media @display-retina {
+        .fillImage(@retinaImage, @rootPath);
+    }
+}

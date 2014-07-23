@@ -34,6 +34,8 @@ Next release
 - **added** `setLineHeightScaling` mixin
 - **added** `comma-separated` selector to layout state selectors
 - **added** `borderImage` helper mixin
+- **added** `fillImage` mixin to set `fill` property to the background images for SVG generated HTML elements
+- **added** `fillRetinaImage` mixin to set `fill` property to the background images for SVG generated HTML elements on standard and retina resolutions
 
 **Optimization**
 - **moved** out adjoining classes for `.fixed` and `.absolute` state selectors

@@ -112,3 +112,9 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.fillImage(@backgroundImage, @path:'') when (@use-root-path = false) {
+    fill: url('@{path}@{backgroundImage}');
+}.fillImage(@backgroundImage, @path:@root-path) when (@use-root-path = true) {
+    fill: url('@{path}@{backgroundImage}');
+}
