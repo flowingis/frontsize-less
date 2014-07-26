@@ -94,48 +94,48 @@
     .@{selector}-padding {
         padding: @verticalPadding @horizontalPadding @important;
     }
-    .@{selector}-vertical-padding {
+    .@{selector}-padding-vertical {
         padding-bottom: @verticalPadding @important;
         padding-top: @verticalPadding @important;
     }
-    .@{selector}-bottom-padding {
+    .@{selector}-padding-bottom {
         padding-bottom: @verticalPadding @important;
     }
-    .@{selector}-top-padding {
+    .@{selector}-padding-top {
         padding-top: @verticalPadding @important;
     }
-    .@{selector}-horizontal-padding {
+    .@{selector}-padding-horizontal {
         padding-left: @horizontalPadding @important;
         padding-right: @horizontalPadding @important;
     }
-    .@{selector}-left-padding {
+    .@{selector}-padding-left {
         padding-left: @horizontalPadding @important;
     }
-    .@{selector}-right-padding {
+    .@{selector}-padding-right {
         padding-right: @horizontalPadding @important;
     }
 }.addPaddingSelector(@selector:false, @verticalPadding:@vertical-padding, @horizontalPadding:@horizontal-padding) when (@selector = false) {
     .with-padding {
         padding: @verticalPadding @horizontalPadding @important;
     }
-    .vertical-padding {
+    .padding-vertical {
         padding-bottom: @verticalPadding @important;
         padding-top: @verticalPadding @important;
     }
-    .bottom-padding {
+    .padding-bottom {
         padding-bottom: @verticalPadding @important;
     }
-    .top-padding {
+    .padding-top {
         padding-top: @verticalPadding @important;
     }
-    .horizontal-padding {
+    .padding-horizontal {
         padding-left: @horizontalPadding @important;
         padding-right: @horizontalPadding @important;
     }
-    .left-padding {
+    .padding-left {
         padding-left: @horizontalPadding @important;
     }
-    .right-padding {
+    .padding-right {
         padding-right: @horizontalPadding @important;
     }
 }

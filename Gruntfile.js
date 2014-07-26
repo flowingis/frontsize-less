@@ -4,8 +4,13 @@ module.exports = function(grunt) {
         less: {
             development: {
                 options: {
-                    compress: false,
-                    cleancss: false
+                    compress          : false,
+                    cleancss          : false,
+                    strictMath        : true,
+                    strictUnits       : true,
+                    dumpLineNumbers   : "comments",
+                    sourceMap         : true,
+                    sourceMapFilename : "test/frontsize.map.css"
                 },
                 files: {
                     "test/frontsize.css" : "compile.less"
@@ -13,11 +18,30 @@ module.exports = function(grunt) {
             },
             test: {
                 options: {
-                    compress: false,
-                    cleancss: false
+                    compress          : false,
+                    cleancss          : false,
+                    strictMath        : true,
+                    strictUnits       : true,
+                    dumpLineNumbers   : "comments",
+                    sourceMap         : true,
+                    sourceMapFilename : "test/frontsize.test.map.css"
                 },
                 files: {
                     "test/frontsize.test.css" : "test.less"
+                }
+            },
+            test_autoprefixer: {
+                options: {
+                    compress          : false,
+                    cleancss          : false,
+                    strictMath        : true,
+                    strictUnits       : true,
+                    dumpLineNumbers   : "comments",
+                    sourceMap         : true,
+                    sourceMapFilename : "test/frontsize.autoprefixed.map.css"
+                },
+                files: {
+                    "test/frontsize.test.autoprefixed.css" : "test_autoprefixed.less"
                 }
             }
         },
@@ -27,9 +51,9 @@ module.exports = function(grunt) {
                     // browsers: ['> 1%', 'Firefox > 3.6', 'last 10 versions', 'ie 8', 'ie 7', 'Firefox ESR', 'Opera > 10.1'],
                     diff: true
               },
-              default: {
-                    src: "test/frontsize.css",
-                    dest: "test/frontsize.prefixed.css"
+              test: {
+                    src: "test/frontsize.test.autoprefixed.css",
+                    dest: "test/frontsize.autoprefixed.css"
               }   
         },
 
@@ -111,6 +135,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask("test_all", [
         "test",
+        "test_autoprefixer",
         "test_min",
         "production"
     ]);
@@ -118,6 +143,12 @@ module.exports = function(grunt) {
     grunt.registerTask("test", [
         "less:test",
         "csso:test",
+        "csslint:test"
+    ]);
+
+    grunt.registerTask("test_autoprefixer", [
+        "less:test_autoprefixer",
+        "autoprefixer",
         "csslint:test"
     ]);
 

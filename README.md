@@ -18,6 +18,7 @@ Next release
 - **changed** `first-letter` selector to `up-first-letter` and added `up-first-letter-only` selector which `uppercase` the first letter and `lowecase` others
 - **splitted** `setFontScaling` mixin with `setLineHeightScaling`
 - **changed** `backgroundRetina` mixin, now you must set the `background-size` property to avoid unwanted background size behaviors
+- **splitted** all state selectors to be more easy to be loaded
 
 **Features**
 - **added** fallback color support to background gradient helpers
