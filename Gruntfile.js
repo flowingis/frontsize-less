@@ -6,7 +6,6 @@ module.exports = function(grunt) {
                 options: {
                     compress          : false,
                     cleancss          : false,
-                    strictMath        : true,
                     strictUnits       : true,
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
@@ -20,7 +19,6 @@ module.exports = function(grunt) {
                 options: {
                     compress          : false,
                     cleancss          : false,
-                    strictMath        : true,
                     strictUnits       : true,
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
@@ -30,18 +28,20 @@ module.exports = function(grunt) {
                     "test/frontsize.test.css" : "test.less"
                 }
             },
-            test_autoprefixer: {
+            testAutoprefixer: {
                 options: {
                     compress          : false,
                     cleancss          : false,
-                    strictMath        : true,
                     strictUnits       : true,
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
-                    sourceMapFilename : "test/frontsize.autoprefixed.map.css"
+                    sourceMapFilename : "test/frontsize.autoprefixer.map.css",
+                    modifyVars: {
+                        "use-css-prefix": false
+                    }
                 },
                 files: {
-                    "test/frontsize.test.autoprefixed.css" : "test_autoprefixed.less"
+                    "test/frontsize.test.autoprefixer.css" : "test_autoprefixer.less"
                 }
             }
         },
@@ -52,8 +52,8 @@ module.exports = function(grunt) {
                     diff: true
               },
               test: {
-                    src: "test/frontsize.test.autoprefixed.css",
-                    dest: "test/frontsize.autoprefixed.css"
+                    src: "test/frontsize.test.autoprefixer.css",
+                    dest: "test/frontsize.autoprefixer.css"
               }   
         },
 
@@ -69,6 +69,16 @@ module.exports = function(grunt) {
             test: {
                 files: {
                     "test/frontsize.test.min.css": ["test/frontsize.test.css"]
+                }
+            },
+            testAutoprefixer: {
+                files: {
+                    "test/frontsize.test.min.css": ["test/frontsize.test.autoprefixer.css"]
+                }
+            },
+            autoprefixer: {
+                files: {
+                    "test/frontsize.autoprefixer.min.css": ["test/frontsize.autoprefixer.css"]
                 }
             }
         },
@@ -96,13 +106,13 @@ module.exports = function(grunt) {
                 },
                 src: ['test/frontsize.test.css']
             },
-            test_min: {
+            testMin: {
                 options: {
                   csslintrc: '.csslintrc'
                 },
                 src: ['test/frontsize.test.min.css']
             },
-            test_prefixed: {
+            testPrefixed: {
                 options: {
                   csslintrc: '.csslintrc'
                 },
@@ -130,12 +140,12 @@ module.exports = function(grunt) {
     grunt.registerTask("prefix", [ 
         "less:test", 
         "autoprefixer:default",
-        "csslint:test_prefixed" 
+        "csslint:testPrefixed" 
     ]);
 
     grunt.registerTask("test_all", [
         "test",
-        "test_autoprefixer",
+        "testAutoprefixer",
         "test_min",
         "production"
     ]);
@@ -146,16 +156,18 @@ module.exports = function(grunt) {
         "csslint:test"
     ]);
 
-    grunt.registerTask("test_autoprefixer", [
-        "less:test_autoprefixer",
+    grunt.registerTask("testAutoprefixer", [
+        "less:testAutoprefixer",
         "autoprefixer",
+        "csso:testAutoprefixer",
+        "csso:autoprefixer",
         "csslint:test"
     ]);
 
     grunt.registerTask("test_min", [
         "less:test",
         "csso:test",
-        "csslint:test_min"
+        "csslint:testMin"
     ]);
 
     grunt.registerTask("production", [

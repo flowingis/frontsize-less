@@ -19,6 +19,7 @@ Next release
 - **splitted** `setFontScaling` mixin with `setLineHeightScaling`
 - **changed** `backgroundRetina` mixin, now you must set the `background-size` property to avoid unwanted background size behaviors
 - **splitted** all state selectors to be more easy to be loaded
+- **changed** `padding` and `margin` state selector names with more intuitive ones
 
 **Features**
 - **added** fallback color support to background gradient helpers
@@ -49,6 +50,7 @@ Next release
 - **added** `border-box` to `.size` mixin ensure a more precise sizing
 - **chaged** `useFrontsizeWidgets` mixin to `@use-core-widgets` as the other parts of the app configuration
 - **added** `float:none` to `asTableRow` and `asTableCell` to prevent size problems in some case
+- **disabled** default widgets by default, they need to be uncommented from theme imports to be enabled
 
 **Fix**
 - **added** `z-index` fix to `.fixed` and `.absolute` to ensure the element to be over it's siblings
