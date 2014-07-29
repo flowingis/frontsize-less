@@ -51,6 +51,7 @@ Next release
 - **chaged** `useFrontsizeWidgets` mixin to `@use-core-widgets` as the other parts of the app configuration
 - **added** `float:none` to `asTableRow` and `asTableCell` to prevent size problems in some case
 - **disabled** default widgets by default, they need to be uncommented from theme imports to be enabled
+- **disabled** some `@imports` not always important to a base template
 
 **Fix**
 - **added** `z-index` fix to `.fixed` and `.absolute` to ensure the element to be over it's siblings
