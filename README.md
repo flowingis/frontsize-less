@@ -66,6 +66,7 @@ Next release
 - **fixed** cursors to `pointer` to `a` element children
 - **fixed** `moz-appearance` to default value to pass **csslint** test
 - **fixed** `.unselectable` now sets text unselectable for it's children too
+- **fixed** `.appearance` prefix which wasn't working properly in some cases
 
 Version 1.3.3
 ---
