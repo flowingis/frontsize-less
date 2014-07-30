@@ -77,7 +77,16 @@
         width: auto @important;
         height: auto @important;
     }
+    
+    .same-same {
+        //make more floating divs equal height
+	    overflow: hidden @important;
 
+	    > * {
+		    padding-bottom: 1000px @important;
+		    margin-bottom: -1000px @important;
+	    }
+    }
 
     // Media queries for selectors active from smaller resolution device mobile to a specific one
 
