@@ -52,6 +52,7 @@ Next release
 - **added** `float:none` to `asTableRow` and `asTableCell` to prevent size problems in some case
 - **disabled** default widgets by default, they need to be uncommented from theme imports to be enabled
 - **disabled** some `@imports` not always important to a base template
+- **split** print state selectors from media query print reset styles
 
 **Fix**
 - **added** `z-index` fix to `.fixed` and `.absolute` to ensure the element to be over it's siblings
