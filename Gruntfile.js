@@ -9,7 +9,7 @@ module.exports = function(grunt) {
                     strictUnits       : true,
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
-                    sourceMapFilename : "test/frontsize.map.css"
+                    sourceMapFilename : "test/frontsize.css.map"
                 },
                 files: {
                     "test/frontsize.css" : "compile.less"
@@ -22,7 +22,7 @@ module.exports = function(grunt) {
                     strictUnits       : true,
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
-                    sourceMapFilename : "test/frontsize.test.map.css"
+                    sourceMapFilename : "test/frontsize.test.css.map"
                 },
                 files: {
                     "test/frontsize.test.css" : "test.less"
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
                     strictUnits       : true,
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
-                    sourceMapFilename : "test/frontsize.autoprefixer.map.css",
+                    sourceMapFilename : "test/frontsize.autoprefixer.css.map",
                     modifyVars: {
                         "use-css-prefix": false
                     }
