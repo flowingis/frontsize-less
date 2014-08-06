@@ -105,7 +105,7 @@ Frontsize is designed to create modular and flexible themes easy to be changed, 
 
 Make love, not war
 ------------------
-Frontsize supports both LESS and SASS, because they are nice, and you'll choose the best preprocessor.
+Frontsize supports both LESS and [SASS][sass], because they are nice, and you'll choose the best preprocessor.
 Take a closer look to the repos on GitHub where you can report issues and pull requests.
 
 Mobile first
@@ -126,3 +126,5 @@ The project could be mantained by you too. You can create tons of useful widgets
 
 
 created by [Vittorio Vittori](https://twitter.com/vttrx) and [Alessandro Minoccheri](https://twitter.com/minompi), sponsored by [ideato](http://www.ideato.it)
+
+[sass]: https://github.com/ideatosrl/frontsize-sass
