@@ -9,7 +9,7 @@ module.exports = function(grunt) {
                     strictUnits       : true,
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
-                    sourceMapFilename : "test/frontsize.map.css"
+                    sourceMapFilename : "test/frontsize.css.map"
                 },
                 files: {
                     "test/frontsize.css" : "compile.less"
@@ -22,7 +22,7 @@ module.exports = function(grunt) {
                     strictUnits       : true,
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
-                    sourceMapFilename : "test/frontsize.test.map.css"
+                    sourceMapFilename : "test/frontsize.test.css.map"
                 },
                 files: {
                     "test/frontsize.test.css" : "test.less"
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
                     strictUnits       : true,
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
-                    sourceMapFilename : "test/frontsize.autoprefixer.map.css",
+                    sourceMapFilename : "test/frontsize.autoprefixer.css.map",
                     modifyVars: {
                         "use-css-prefix": false
                     }
@@ -48,13 +48,13 @@ module.exports = function(grunt) {
 
         autoprefixer: {
               options: {
-                    // browsers: ['> 1%', 'Firefox > 3.6', 'last 10 versions', 'ie 8', 'ie 7', 'Firefox ESR', 'Opera > 10.1'],
+                    // browsers: ["> 1%", "Firefox > 3.6", "last 10 versions", "ie 8", "ie 7", "Firefox ESR", "Opera > 10.1"],
                     diff: true
               },
               test: {
                     src: "test/frontsize.test.autoprefixer.css",
                     dest: "test/frontsize.autoprefixer.css"
-              }   
+              }
         },
 
         csso: {
@@ -98,25 +98,25 @@ module.exports = function(grunt) {
 
         csslint: {
             options: {
-                csslintrc: '.csslintrc'
+                csslintrc: ".csslintrc"
             },
             test: {
                 options: {
-                  csslintrc: '.csslintrc'
+                  csslintrc: ".csslintrc"
                 },
-                src: ['test/frontsize.test.css']
+                src: ["test/frontsize.test.css"]
             },
             testMin: {
                 options: {
-                  csslintrc: '.csslintrc'
+                  csslintrc: ".csslintrc"
                 },
-                src: ['test/frontsize.test.min.css']
+                src: ["test/frontsize.test.min.css"]
             },
             testPrefixed: {
                 options: {
-                  csslintrc: '.csslintrc'
+                  csslintrc: ".csslintrc"
                 },
-                src: ['test/frontsize.prefixed.css']
+                src: ["test/frontsize.prefixed.css"]
 
             }
         },
@@ -125,23 +125,17 @@ module.exports = function(grunt) {
             options: {},
             your_target: {
                 options: {
-                    screenshots: 'test/screenshots/',
-                    results: 'results/'
+                    screenshots: "test/screenshots/",
+                    results: "results/"
                 },
                 src: [
-                    'test/**/*.js'
+                    "test/**/*.js"
                 ]
             }
         }
     });
 
     require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
-
-    grunt.registerTask("prefix", [ 
-        "less:test", 
-        "autoprefixer:default",
-        "csslint:testPrefixed" 
-    ]);
 
     grunt.registerTask("test_all", [
         "test",
