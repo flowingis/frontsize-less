@@ -3,6 +3,8 @@ frontsize
 
 It's a CSS front end framework written to make websites easy to read on every device and faster to be coded. It gives to the developer a solid base which can be used to build responsive layouts for websites or web apps.
 
+Do you prefer a [SASS][sass] version?
+
 Documentation is [in progress](https://github.com/ideatosrl/frontsize-less/wiki) and *far to be completed* but the best doc is the code itself, isn't it?
 
 Next release
@@ -39,6 +41,8 @@ Next release
 - **added** `borderImage` helper mixin
 - **added** `fillImage` mixin to set `fill` property to the background images for SVG generated HTML elements
 - **added** `fillRetinaImage` mixin to set `fill` property to the background images for SVG generated HTML elements on standard and retina resolutions
+- **added** Filters and Transforms helpers for CSS3
+- **added** `.map` files to grunt less exporter
 
 **Optimization**
 - **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
@@ -51,6 +55,8 @@ Next release
 - **chaged** `useFrontsizeWidgets` mixin to `@use-core-widgets` as the other parts of the app configuration
 - **added** `float:none` to `asTableRow` and `asTableCell` to prevent size problems in some case
 - **disabled** default widgets by default, they need to be uncommented from theme imports to be enabled
+- **disabled** some `@imports` not always important to a base template
+- **split** print state selectors from media query print reset styles
 
 **Fix**
 - **added** `z-index` fix to `.fixed` and `.absolute` to ensure the element to be over it's siblings
@@ -66,6 +72,7 @@ Next release
 - **fixed** cursors to `pointer` to `a` element children
 - **fixed** `moz-appearance` to default value to pass **csslint** test
 - **fixed** `.unselectable` now sets text unselectable for it's children too
+- **fixed** `.appearance` prefix which wasn't working properly in some cases
 
 Version 1.3.3
 ---
@@ -100,7 +107,7 @@ Frontsize is designed to create modular and flexible themes easy to be changed, 
 
 Make love, not war
 ------------------
-Frontsize supports both LESS and SASS, because they are nice, and you'll choose the best preprocessor.
+Frontsize supports both LESS and [SASS][sass], because they are nice, and you'll choose the best preprocessor.
 Take a closer look to the repos on GitHub where you can report issues and pull requests.
 
 Mobile first
@@ -121,3 +128,5 @@ The project could be mantained by you too. You can create tons of useful widgets
 
 
 created by [Vittorio Vittori](https://twitter.com/vttrx) and [Alessandro Minoccheri](https://twitter.com/minompi), sponsored by [ideato](http://www.ideato.it)
+
+[sass]: https://github.com/ideatosrl/frontsize-sass
