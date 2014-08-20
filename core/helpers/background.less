@@ -106,11 +106,11 @@
     }
 }
 
-.icon(@backgroundImage, @width, @height:@width) {
+.icon(@backgroundImage, @width, @height:@width, @backgroundPosition:50% 50%) {
     .size(@width, @height);
     .backgroundImage(@backgroundImage);
-    background-repeat: no-repeat;
-    background-position: center;
+    background-repeat   : no-repeat;
+    background-position : @backgroundPosition;
 }
 
 .fillImage(@backgroundImage, @path:'') when (@use-root-path = false) {
