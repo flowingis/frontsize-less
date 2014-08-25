@@ -43,6 +43,7 @@ Next release
 - **added** `fillRetinaImage` mixin to set `fill` property to the background images for SVG generated HTML elements on standard and retina resolutions
 - **added** Filters and Transforms helpers for CSS3
 - **added** `.map` files to grunt less exporter
+- **added** `font-feature-settings` CSS3 property to prefixes mixins
 
 **Optimization**
 - **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
