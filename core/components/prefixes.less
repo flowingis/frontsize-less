@@ -63,6 +63,16 @@
     transition-timing-function: @easing;
 }
 
+.font-feature-settings(@params:normal) when (@use-css-prefix = true) {
+    -webkit-font-feature-settings: @params;
+    -khtml-font-feature-settings: @params;
+    -moz-font-feature-settings: @params;
+    -ms-font-feature-settings: @params;
+    -o-font-feature-settings: @params;
+}.font-feature-settings(@params:normal) {
+    font-feature-settings: @params;
+}
+
 .globalPlaceholder(@color:#999999, @focused:#CCCCCC, @fontFamily:@font-default) when (@use-css-prefix = true) {
     ::-webkit-input-placeholder {
         color: @color;
