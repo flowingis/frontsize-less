@@ -44,6 +44,7 @@ Next release
 - **added** Filters and Transforms helpers for CSS3
 - **added** `.map` files to grunt less exporter
 - **added** `font-feature-settings` CSS3 property to prefixes mixins
+- **added** `animation` CSS3 property to prefixes mixins
 
 **Optimization**
 - **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
