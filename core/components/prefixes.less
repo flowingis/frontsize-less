@@ -2,6 +2,18 @@
 // For more compatibility details:
 // http://caniuse.com/
 
+.animation(@animation:animation-name 1s) when (@use-css-prefix = true) {
+    -webkit-animation: @animation;
+    -khtml-animation: @animation;
+    -moz-animation: @animation;
+    -ms-animation: @animation;
+    -o-animation: @animation;
+}.animation(@animation:animation-name 1s) {
+    // classic css animation style
+    // .animation(animation-name 1s);
+    animation: @animation;
+}
+
 .transition(@transition:0.3s ease-in-out initial) when (@use-css-prefix = true) {
     -webkit-transition: @transition;
     -khtml-transition: @transition;
