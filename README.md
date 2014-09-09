@@ -7,7 +7,7 @@ Do you prefer a [SASS][sass] version?
 
 Documentation is [in progress](https://github.com/ideatosrl/frontsize-less/wiki) and *far to be completed* but the best doc is the code itself, isn't it?
 
-Next release
+Version 2.0.0
 ---
 
 **Changes**
@@ -129,6 +129,7 @@ Community based
 ---------------
 The project could be mantained by you too. You can create tons of useful widgets and helpers inside the community, then, everyone can choose to use them inside their Frontsize app with a click.
 
+---
 
 created by [Vittorio Vittori](https://twitter.com/vttrx) and [Alessandro Minoccheri](https://twitter.com/minompi), sponsored by [ideato](http://www.ideato.it)
 
