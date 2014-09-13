@@ -47,21 +47,6 @@ Release details
 - **added** `font-feature-settings` CSS3 property to prefixes mixins
 - **added** `animation` CSS3 property to prefixes mixins
 
-**Optimization**
-- **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
-- **semplified** `glossGradient` colors not properly applied
-- **disabled** text selection to `.disabled` selector
-- **added** `@forcePrefixes` to `font-smoothing` to prevent the property to be skipped from `autoprefixer`
-- **added** `@forcePrefixes` to `appearance` to prevent the property to be skipped from `autoprefixer`
-- **semplified** nav list state selectors
-- **added** `border-box` to `.size` mixin ensure a more precise sizing
-- **chaged** `useFrontsizeWidgets` mixin to `@use-core-widgets` as the other parts of the app configuration
-- **added** `float:none` to `asTableRow` and `asTableCell` to prevent size problems in some case
-- **disabled** default widgets by default, they need to be uncommented from theme imports to be enabled
-- **disabled** some `@imports` not always important to a base template
-- **split** print state selectors from media query print reset styles
-- **moved** original Frontsize widgets to `theme-name/widgets/frontsize` subfolder to split them from customized widgets
-
 **Fix**
 - **added** `z-index` fix to `.fixed` and `.absolute` to ensure the element to be over it's siblings
 - **renamed** an undefined var if `@root-path` is set to `true`
@@ -77,6 +62,21 @@ Release details
 - **fixed** `moz-appearance` to default value to pass **csslint** test
 - **fixed** `.unselectable` now sets text unselectable for it's children too
 - **fixed** `.appearance` prefix which wasn't working properly in some cases
+
+**Optimization**
+- **moved** out adjoining classes for `.fixed` and `.absolute` state selectors
+- **semplified** `glossGradient` colors not properly applied
+- **disabled** text selection to `.disabled` selector
+- **added** `@forcePrefixes` to `font-smoothing` to prevent the property to be skipped from `autoprefixer`
+- **added** `@forcePrefixes` to `appearance` to prevent the property to be skipped from `autoprefixer`
+- **semplified** nav list state selectors
+- **added** `border-box` to `.size` mixin ensure a more precise sizing
+- **chaged** `useFrontsizeWidgets` mixin to `@use-core-widgets` as the other parts of the app configuration
+- **added** `float:none` to `asTableRow` and `asTableCell` to prevent size problems in some case
+- **disabled** default widgets by default, they need to be uncommented from theme imports to be enabled
+- **disabled** some `@imports` not always important to a base template
+- **split** print state selectors from media query print reset styles
+- **moved** original Frontsize widgets to `theme-name/widgets/frontsize` subfolder to split them from customized widgets
 
 ---
 
