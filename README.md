@@ -60,6 +60,7 @@ Version 2.0.0
 - **disabled** default widgets by default, they need to be uncommented from theme imports to be enabled
 - **disabled** some `@imports` not always important to a base template
 - **split** print state selectors from media query print reset styles
+- **moved** original Frontsize widgets to `theme-name/widgets/frontsize` subfolder to split them from customized widgets
 
 **Fix**
 - **added** `z-index` fix to `.fixed` and `.absolute` to ensure the element to be over it's siblings
