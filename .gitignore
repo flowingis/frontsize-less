@@ -5,7 +5,6 @@ bower.json
 .csslintrc.comments.json
 
 # temp files to be ignored #
-*.html
 *.ai
 *.bak
 src
