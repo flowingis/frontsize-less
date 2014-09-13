@@ -1,6 +1,5 @@
 module.exports = function(grunt) {
     grunt.initConfig({
-        // running `grunt less` will compile once
         less: {
             development: {
                 options: {
@@ -13,6 +12,19 @@ module.exports = function(grunt) {
                 },
                 files: {
                     "test/frontsize.css" : "compile.less"
+                }
+            },
+            production: {
+                options: {
+                    compress          : true,
+                    cleancss          : true,
+                    strictUnits       : true,
+                    dumpLineNumbers   : "comments",
+                    sourceMap         : true,
+                    sourceMapFilename : "test/frontsize.min.css.map"
+                },
+                files: {
+                    "test/frontsize.min.css" : "compile.less"
                 }
             },
             test: {
@@ -47,39 +59,13 @@ module.exports = function(grunt) {
         },
 
         autoprefixer: {
-              options: {
-                    // browsers: ["> 1%", "Firefox > 3.6", "last 10 versions", "ie 8", "ie 7", "Firefox ESR", "Opera > 10.1"],
-                    diff: true
-              },
-              test: {
-                    src: "test/frontsize.test.autoprefixer.css",
-                    dest: "test/frontsize.autoprefixer.css"
-              }
-        },
-
-        csso: {
             options: {
-                restructure: true
-            },
-            production: {
-                files: {
-                    "test/frontsize.min.css": ["test/frontsize.css"]
-                }
+                // browsers: ["> 1%", "Firefox > 3.6", "last 10 versions", "ie 8", "ie 7", "Firefox ESR", "Opera > 10.1"],
+                diff: true
             },
             test: {
-                files: {
-                    "test/frontsize.test.min.css": ["test/frontsize.test.css"]
-                }
-            },
-            testAutoprefixer: {
-                files: {
-                    "test/frontsize.test.min.css": ["test/frontsize.test.autoprefixer.css"]
-                }
-            },
-            autoprefixer: {
-                files: {
-                    "test/frontsize.autoprefixer.min.css": ["test/frontsize.autoprefixer.css"]
-                }
+                src: "test/frontsize.test.autoprefixer.css",
+                dest: "test/frontsize.autoprefixer.css"
             }
         },
 
@@ -102,22 +88,21 @@ module.exports = function(grunt) {
             },
             test: {
                 options: {
-                  csslintrc: ".csslintrc"
+                    csslintrc: ".csslintrc"
                 },
                 src: ["test/frontsize.test.css"]
             },
             testMin: {
                 options: {
-                  csslintrc: ".csslintrc"
+                    csslintrc: ".csslintrc"
                 },
                 src: ["test/frontsize.test.min.css"]
             },
             testPrefixed: {
                 options: {
-                  csslintrc: ".csslintrc"
+                    csslintrc: ".csslintrc"
                 },
                 src: ["test/frontsize.prefixed.css"]
-
             }
         },
 
@@ -137,7 +122,7 @@ module.exports = function(grunt) {
 
     require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
-    grunt.registerTask("test_all", [
+    grunt.registerTask("production", [
         "test",
         "testAutoprefixer",
         "test_min",
@@ -146,27 +131,17 @@ module.exports = function(grunt) {
 
     grunt.registerTask("test", [
         "less:test",
-        "csso:test",
         "csslint:test"
     ]);
 
     grunt.registerTask("testAutoprefixer", [
         "less:testAutoprefixer",
         "autoprefixer",
-        "csso:testAutoprefixer",
-        "csso:autoprefixer",
         "csslint:test"
     ]);
 
     grunt.registerTask("test_min", [
         "less:test",
-        "csso:test",
         "csslint:testMin"
     ]);
-
-    grunt.registerTask("production", [
-        "less:development",
-        "csso:production"
-    ]);
-
 };

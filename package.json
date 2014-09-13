@@ -1,26 +1,40 @@
 {
+    "name"            : "frontsize-less",
+    "version"         : "2.0.0",
+    "description"     : "A CSS front-end framework built to build and ease your life.",
+    "author"          : "Vittorio Vittori",
+    "license"         : "MIT",
+    "keywords": [
+        "css",
+        "front-end",
+        "less",
+        "framework",
+        "responsive",
+        "theme"
+    ],
+    "main" : "compile.less",
+    "devDependencies" : {
 
-    "name": "frontsize-less",
-    "version": "1.0.0",
-    "dependencies": {},
-    "devDependencies": {
-        "matchdep": "*",
+        "matchdep"   : "*",
 
-        "casperjs": "*",
-        "phantomjs": "*",
-        "resemblejs": "*",
-        "grunt-phantomcss": "*",
+        "casperjs"   : "*",
+        "phantomjs"  : "*",
+        "resemblejs" : "*",
+        "phantomcss" : "*",
 
-        "csslint": "*",
-        "less": "*",
-        "grunt": "~0.4.1",
-        "grunt-autoprefixer": "*",
-        "grunt-contrib-watch": "*",
-        "grunt-contrib-less": "*",
-        "grunt-contrib-csslint": "*",
-        "grunt-csso": "*"
+        "csslint" : "*",
+        "less"    : "*",
+
+        "grunt"                 : "~0.4.1",
+        "grunt-autoprefixer"    : "*",
+        "grunt-contrib-watch"   : "*",
+        "grunt-contrib-less"    : "*",
+        "grunt-contrib-csslint" : "*"
     },
-    "engines": {
-        "node": ">=0.8.0"
+    "engines" : {
+        "node" : ">=0.8.0"
+    },
+    "bugs" : {
+        "url" : "https://github.com/ideatosrl/frontsize-less/issues"
     }
 }
