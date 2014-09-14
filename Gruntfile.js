@@ -74,14 +74,15 @@ module.exports = function(grunt) {
                 atBegin : true,
                 event: ["added", "changed"],
             },
-            development : {
+            develop : {
                 files: [
                     "*.less",
                     "**/*.less"
                 ],
                 tasks: [
-                    "less:development",
-                    "csso:production"
+                    "less:develop",
+                    "test",
+                    "assets"
                 ]
             }
         },
@@ -144,8 +145,7 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask("develop", [
-        "less:develop",
-        "test"
+        "watch:develop"
     ]);
 
     grunt.registerTask("assets", [
