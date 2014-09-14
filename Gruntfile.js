@@ -81,7 +81,7 @@ module.exports = function(grunt) {
                 ],
                 tasks: [
                     "less:develop",
-                    "test",
+                    "production",
                     "assets"
                 ]
             }
