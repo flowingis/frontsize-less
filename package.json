@@ -2,16 +2,42 @@
     "name"            : "frontsize-less",
     "version"         : "2.0.0",
     "description"     : "A CSS front-end framework built to build and ease your life.",
-    "author"          : "Vittorio Vittori",
+    "author"          : {
+        "name"  : "Vittorio Vittori",
+        "email" : "me@vittoriovittori.com"
+    },
     "license"         : "MIT",
+    "homepage"        : "http://frontsize.com",
     "keywords": [
         "css",
         "front-end",
-        "less",
         "framework",
         "responsive",
-        "theme"
+        "theme",
+        "compile less",
+        "css nesting",
+        "css variable",
+        "gradients css",
+        "gradients css3",
+        "less",
+        "less compiler",
+        "less css",
+        "less mixins",
+        "lesscss",
+        "mixins",
+        "nested css",
+        "parser",
+        "preprocessor",
+        "style",
+        "styles",
+        "stylesheet",
+        "variables in css",
+        "css less"
     ],
+    "repository": {
+        "type" : "git",
+        "url"  : "https://github.com/ideatosrl/frontsize-less.git"
+    },
     "main" : "compile.less",
     "devDependencies" : {
 
@@ -29,7 +55,9 @@
         "grunt-autoprefixer"    : "*",
         "grunt-contrib-watch"   : "*",
         "grunt-contrib-less"    : "*",
-        "grunt-contrib-csslint" : "*"
+        "grunt-contrib-csslint" : "*",
+        "grunt-contrib-clean"   : "*",
+        "grunt-contrib-copy"    : "*"
     },
     "engines" : {
         "node" : ">=0.8.0"
