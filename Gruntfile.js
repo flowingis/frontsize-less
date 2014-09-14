@@ -1,7 +1,7 @@
 module.exports = function(grunt) {
     grunt.initConfig({
         less: {
-            development: {
+            develop: {
                 options: {
                     compress          : false,
                     cleancss          : false,
@@ -70,6 +70,10 @@ module.exports = function(grunt) {
         },
 
         watch: {
+            options: {
+                atBegin : true,
+                event: ["added", "changed"],
+            },
             development : {
                 files: [
                     "*.less",
@@ -84,40 +88,50 @@ module.exports = function(grunt) {
 
         csslint: {
             options: {
-                csslintrc: ".csslintrc"
+                csslintrc : ".csslintrc"
             },
             test: {
                 options: {
-                    csslintrc: ".csslintrc"
+                    csslintrc : ".csslintrc"
                 },
                 src: ["test/frontsize.test.css"]
             },
             testMin: {
                 options: {
-                    csslintrc: ".csslintrc"
+                    csslintrc : ".csslintrc"
                 },
                 src: ["test/frontsize.test.min.css"]
             },
             testPrefixed: {
                 options: {
-                    csslintrc: ".csslintrc"
+                    csslintrc : ".csslintrc"
                 },
                 src: ["test/frontsize.prefixed.css"]
             }
         },
 
-        phantomcss: {
-            options: {},
-            your_target: {
-                options: {
-                    screenshots: "test/screenshots/",
-                    results: "results/"
-                },
+        clean: {
+            assets: {
                 src: [
-                    "test/**/*.js"
+                    "../img/theme"
+                ]
+            }
+        },
+
+        copy: {
+            assets: {
+                files: [
+                    {
+                        expand  : true,
+                        flatten : true,
+                        src     : ["themes/default/img/*"],
+                        dest    : "../img/theme/",
+                        filter  : "isFile"
+                    }
                 ]
             }
         }
+
     });
 
     require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
@@ -127,6 +141,16 @@ module.exports = function(grunt) {
         "testAutoprefixer",
         "test_min",
         "production"
+    ]);
+
+    grunt.registerTask("develop", [
+        "less:develop",
+        "test"
+    ]);
+
+    grunt.registerTask("assets", [
+        "clean:assets",
+        "copy:assets"
     ]);
 
     grunt.registerTask("test", [
