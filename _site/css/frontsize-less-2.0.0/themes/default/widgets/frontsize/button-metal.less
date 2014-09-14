@@ -1,0 +1,42 @@
+.button-metal(@backgroundColor:#E2E4E3, @color:#535353) {
+    display: inline-block;
+    padding:0.5em 1em;
+    cursor:pointer;
+
+    .fallbackColor(color, @color);
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.3);
+    font-weight:bold;
+
+    border:1px solid;
+    .fallbackColor(border-color, saturate(darken(@backgroundColor, 20%),2%));
+    .fallbackColor(border-bottom-color, saturate(darken(@backgroundColor, 30%),4%));
+    .border-radius(100px);
+
+    .verticalGradient(@backgroundColor, 10%);
+    .box-shadow(0 2px 4px -2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.7););
+    .transition(text-shadow .25s ease-out);
+
+    &:hover {
+        .box-shadow(0 2px 4px -2px rgba(0, 0, 0, 0.4), inset 0 2px 8px rgba(255, 255, 255, 0.7););
+    }
+
+    &:active {
+        .fallbackColor(color, @backgroundColor);
+        text-shadow:0 1px 2px rgba(0, 0, 0, 0.4);
+        .fallbackColor(border-color, darken(@color,10%));
+        .verticalGradient(@color, -10%);
+        .box-shadow(0 1px 0 rgba(255, 255, 255, 0.4), inset 0 2px 8px rgba(0, 0, 0, 0.5););
+    }
+
+    &.disabled,
+    &:disabled {
+        .opacity(@state-disabled-opacity);
+        &:hover {
+            .box-shadow(0 2px 4px -2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.7););
+        }
+    }
+}
+
+.button-metal {
+    .button-metal();
+}

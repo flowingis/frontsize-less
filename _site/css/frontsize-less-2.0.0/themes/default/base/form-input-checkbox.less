@@ -1,0 +1,25 @@
+
+// The input element represents a typed data field,
+// usually with a form control to allow the user to edit the data.
+//
+// Url - http://html5doctor.com/element-index/#input
+
+input[type="checkbox"] {
+
+    @size:32px;
+
+    cursor: pointer;
+    .user-select(none);
+    .appearance(none);
+    .moveTop((@size / 4));
+
+    .spriteRetina("input-checkbox-1x.png", "input-checkbox-2x.png", @size, @size, 64px, 32px);
+
+    &:checked {
+        .spritePosition(1, 0, @size);
+    }
+
+    & + * {
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,22 @@
+.asTable(@cellPadding:@global-padding, @verticalAlign:middle, @tableWidth:100%) {
+    display: table;
+    width: @tableWidth;
+    > * {
+        .asTableRow(@cellPadding, @verticalAlign);
+    }
+}
+
+.asTableRow(@cellPadding:@global-padding, @verticalAlign:middle) {
+    float: none;
+    display: table-row;
+    > * {
+        .asTableCell(@cellPadding, @verticalAlign);
+    }
+}
+
+.asTableCell(@cellPadding:@global-padding, @verticalAlign:middle) {
+    float: none;
+    display: table-cell;
+    padding: @cellPadding;
+    vertical-align: @verticalAlign;
+}

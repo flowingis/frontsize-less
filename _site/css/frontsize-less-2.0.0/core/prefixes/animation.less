@@ -1,0 +1,81 @@
+.animation(@animation:animation-name 1s) when (@use-css-prefix = true) {
+    -webkit-animation: @animation;
+    -khtml-animation: @animation;
+    -moz-animation: @animation;
+    -ms-animation: @animation;
+    -o-animation: @animation;
+}.animation(@animation:animation-name 1s) {
+    // classic css animation style
+    // .animation(animation-name 1s);
+    animation: @animation;
+}
+
+.animation-name(@animation:animation-name) when (@use-css-prefix = true) {
+    -webkit-animation-name: @animation;
+    -khtml-animation-name: @animation;
+    -moz-animation-name: @animation;
+    -ms-animation-name: @animation;
+    -o-animation-name: @animation;
+}.animation-name(@animation:animation-name) {
+    animation-name: @animation;
+}
+
+.animation-duration(@animation:2s) when (@use-css-prefix = true) {
+    -webkit-animation-duration: @animation;
+    -khtml-animation-duration: @animation;
+    -moz-animation-duration: @animation;
+    -ms-animation-duration: @animation;
+    -o-animation-duration: @animation;
+}.animation-duration(@animation:2s) {
+    animation-duration: @animation;
+}
+
+.animation-timing-function(@animation:linear) when (@use-css-prefix = true) {
+    -webkit-animation-timing-function: @animation;
+    -khtml-animation-timing-function: @animation;
+    -moz-animation-timing-function: @animation;
+    -ms-animation-timing-function: @animation;
+    -o-animation-timing-function: @animation;
+}.animation-timing-function(@animation:linear) {
+    animation-timing-function: @animation;
+}
+
+.animation-delay(@animation:2s) when (@use-css-prefix = true) {
+    -webkit-animation-delay: @animation;
+    -khtml-animation-delay: @animation;
+    -moz-animation-delay: @animation;
+    -ms-animation-delay: @animation;
+    -o-animation-delay: @animation;
+}.animation-delay(@animation:2s) {
+    animation-delay: @animation;
+}
+
+.animation-iteration-count(@animation:infinite) when (@use-css-prefix = true) {
+    -webkit-animation-iteration-count: @animation;
+    -khtml-animation-iteration-count: @animation;
+    -moz-animation-iteration-count: @animation;
+    -ms-animation-iteration-count: @animation;
+    -o-animation-iteration-count: @animation;
+}.animation-iteration-count(@animation:infinite) {
+    animation-iteration-count: @animation;
+}
+
+.animation-direction(@animation:alternate) when (@use-css-prefix = true) {
+    -webkit-animation-direction: @animation;
+    -khtml-animation-direction: @animation;
+    -moz-animation-direction: @animation;
+    -ms-animation-direction: @animation;
+    -o-animation-direction: @animation;
+}.animation-direction(@animation:alternate) {
+    animation-direction: @animation;
+}
+
+.animation-play-state(@animation:running) when (@use-css-prefix = true) {
+    -webkit-animation-play-state: @animation;
+    -khtml-animation-play-state: @animation;
+    -moz-animation-play-state: @animation;
+    -ms-animation-play-state: @animation;
+    -o-animation-play-state: @animation;
+}.animation-play-state(@animation:running) {
+    animation-play-state: @animation;
+}

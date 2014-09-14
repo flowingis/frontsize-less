@@ -1,0 +1,188 @@
+
+.addViewportsSteps(@selector:use-steps, @hdFullMargin:500px, @hdReadyMargin:100px, @tabletLandscapeMargin:50px, @tabletPortraitMargin:20px) {
+    // Media queries for selectors active from a specific resolution or higher
+    // smartphone viewports were removed to improve width compatibility with all smartphone models
+    .addStep(@selector);
+    .addViewportsStepsTabletPortrait(@selector, @tabletPortraitMargin);
+    .addViewportsStepsTabletLandscape(@selector, @tabletLandscapeMargin);
+    .addViewportsStepsHdReady(@selector, @hdReadyMargin);
+    .addViewportsStepsHdFull(@selector, @hdFullMargin);
+}
+/* private */.addViewportsStepsTabletPortrait(@selector, @tabletPortraitMargin) when (@use-tablet-portrait = true) {
+    @media @from-tablet-portrait {
+        // Tablet portrait
+        .@{selector} {
+            max-width: (@tablet-portrait-step - @tabletPortraitMargin);
+        }
+    }
+}
+/* private */.addViewportsStepsTabletLandscape(@selector, @tabletLandscapeMargin) when (@use-tablet-landscape = true) {
+    @media @from-tablet-landscape {
+        // Tablet landscape
+        .@{selector} {
+            max-width: (@tablet-landscape-step - @tabletLandscapeMargin);
+        }
+    }
+}
+/* private */.addViewportsStepsHdReady(@selector, @hdReadyMargin) when (@use-hd-ready = true) {
+    @media @from-hd-ready {
+        // HD Ready
+        .@{selector} {
+            max-width: (@hd-ready-step - @hdReadyMargin);
+        }
+    }
+}
+/* private */.addViewportsStepsHdFull(@selector, @hdFullMargin) when (@use-hd-full = true) {
+    @media @from-hd-full {
+        // Full HD
+        .@{selector} {
+            max-width: (@hd-full-step - @hdFullMargin);
+        }
+    }
+}
+
+.addContainerRow(@selector:row, @hdFullSteps:0, @hdReadySteps:12, @tabletLandscapeSteps:6, @tabletPortraitSteps:3, @smartphoneLandscapeSteps:1, @smartphonePortraitSteps:1) {
+    .@{selector},
+    .@{selector} * {
+        .box-sizing(border-box);
+    }
+    .@{selector} {
+        padding-top:@vertical-padding;
+        width:100%;
+        overflow:auto;
+        clear:both;
+    }
+    .checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector);
+}
+
+/* private */.checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector) when (@hdFullSteps > 0) {
+    // Media queries for selectors active from a specific resolution or higher
+    .@{selector} > * {
+        min-height: 1px;
+        .box-sizing(border-box);
+        .setColumnBehavior();
+        .setColumnStep(1, @hdFullSteps);
+    }
+    .checkAutoClearSmartphonePortrait(@selector, @smartphonePortraitSteps);
+    .checkAutoClearSmartphoneLandscape(@selector, @smartphoneLandscapeSteps);
+    .checkAutoClearTabletPortrait(@selector, @tabletPortraitSteps);
+    .checkAutoClearTabletLandscape(@selector, @tabletLandscapeSteps);
+    .checkAutoClearHdReady(@selector, @hdReadySteps);
+    .checkAutoClearHdFull(@selector, @hdFullSteps);
+}
+/* private */.checkAutoClearSmartphonePortrait(@selector, @smartphonePortraitSteps) when (@use-smartphone-portrait = true) {
+    @media @only-smartphone-portrait {
+        // Smartphone portrait
+        .@{selector} > * {
+            .setColumns(@smartphonePortraitSteps);
+        }
+    }
+}
+/* private */.checkAutoClearSmartphoneLandscape(@selector, @smartphoneLandscapeSteps) when (@use-smartphone-landscape = true) {
+    @media @only-smartphone-landscape {
+        // Smartphone landscape
+        .@{selector} > * {
+            .setColumns(@smartphoneLandscapeSteps);
+        }
+    }
+}
+/* private */.checkAutoClearTabletPortrait(@selector, @tabletPortraitSteps) when (@use-tablet-portrait = true) {
+    @media @only-tablet-portrait {
+        // Tablet portrait
+        .@{selector} > * {
+            .setColumns(@tabletPortraitSteps);
+        }
+    }
+}
+/* private */.checkAutoClearTabletLandscape(@selector, @tabletLandscapeSteps) when (@use-tablet-landscape = true) {
+    @media @only-tablet-landscape {
+        // Tablet landscape
+        .@{selector} > * {
+            .setColumns(@tabletLandscapeSteps);
+        }
+    }
+}
+/* private */.checkAutoClearHdReady(@selector, @hdReadySteps) when (@use-hd-ready = true) {
+    @media @only-hd-ready {
+        // HD Ready
+        .@{selector} > * {
+            .setColumns(@hdReadySteps);
+        }
+    }
+}
+/* private */.checkAutoClearHdFull(@selector, @hdFullSteps) when (@use-hd-full = true) {
+    @media @only-hd-full {
+        // Full HD
+        .@{selector} > * {
+            .setColumns(@hdFullSteps);
+        }
+    }
+}
+
+.addColumnsSet(@hdSteps:12, @tabletSteps:@hdSteps, @smartphoneSteps:@tabletSteps, @hdViewportPrefix:hd-, @tabletViewportPrefix:tablet-, @smartphoneViewportPrefix:smartphone-, @fillFromViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-, @useHdRules:true, @useTabletRules:true, @useSmartphoneRules:true) {
+
+    @media @from-smartphone-portrait {
+        // Smartphone portrait
+        .addColumnSet(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
+        .addColumnSet(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
+        .addColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+    }
+
+    @media @from-tablet-portrait {
+        // Tablet portrait
+        .addColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+        .addColumnSet(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
+        .addColumnSet(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
+    }
+
+    @media @from-hd-ready {
+        // HD Ready
+        .addColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+        .addColumnSet(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
+        .addColumnSet(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
+    }
+
+    .addFillToColumnSet(@tabletViewportPrefix, @tabletSteps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
+    .addFillToColumnSet(@hdViewportPrefix, @hdSteps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
+    .preventSmartphoneColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+}
+
+.addMarginOffset(@hdSteps:12, @tabletSteps:@hdSteps, @smartphoneSteps:@tabletSteps, @hdViewportPrefix:hd-offset-, @tabletViewportPrefix:tablet-offset-, @smartphoneViewportPrefix:smartphone-offset-, @fillFromViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-, @useHdRules:true, @useTabletRules:true, @useSmartphoneRules:true) {
+
+    @media @from-smartphone-portrait {
+        // Smartphone portrait
+        .addColumnMarginOffset(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
+        .addColumnMarginOffset(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
+        .addColumnMarginOffset(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+
+        .@{smartphoneViewportPrefix}disabled {
+            margin-left: 0;
+        }
+    }
+
+    @media @from-tablet-portrait {
+        // Tablet portrait
+        .addColumnMarginOffset(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+        .addColumnMarginOffset(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
+        .addColumnMarginOffset(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
+    }
+
+    @media @from-hd-ready {
+        // HD Ready
+        .addColumnMarginOffset(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+        .addColumnMarginOffset(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
+        .addColumnMarginOffset(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
+    }
+
+    @media @only-hd {
+        .@{hdViewportPrefix}disabled {
+            margin-left: 0;
+        }
+    }
+
+    @media @only-tablet {
+        .@{tabletViewportPrefix}disabled {
+            margin-left: 0;
+        }
+    }
+}

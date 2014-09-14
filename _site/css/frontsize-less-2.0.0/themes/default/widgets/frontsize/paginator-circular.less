@@ -1,0 +1,52 @@
+.paginator-circular(@containerLinkPadding:0 0.5em, @linkPadding:0.5em 0.875em, @backgroundColor:white, @color:#7b8284, @border:1px solid, @borderColor:#e2e2e2, @borderRadius:200px) {
+    display:inline-block;
+    padding:0;
+
+    > * {
+
+        .asTableCell(@containerLinkPadding);
+
+        > * {
+            padding:@linkPadding;
+            .fallbackColor(color, @color);
+            .fallbackColor(background-color, @backgroundColor);
+
+            border:@border;
+            .fallbackColor(border-color, @borderColor);
+            .border-radius(@borderRadius);
+
+            .transition(box-shadow 0.25s ease-out, border-color 0.25s ease-out, background-color 0.25s ease-out, color 0.25s ease-out;);
+
+            &.paginator-text {
+                .fallbackColor(background-color, transparent);
+                .fallbackColor(border-color, transparent);
+            }
+
+            &:hover {
+                .fallbackColor(color, lighten(@color,5%));
+                .fallbackColor(border-color, darken(@borderColor,12%));
+                .fallbackColor(background-color, lighten(@backgroundColor,5%));
+                .box-shadow(0 1px 6px rgba(0,0,0,.2), 0 0 0 rgba(0,0,0,0) inset;);
+                &.paginator-text {
+                    .fallbackColor(color, lighten(@color,20%));
+                    .fallbackColor(background-color, transparent);
+                    .fallbackColor(border-color, transparent);
+                    .box-shadow(none);
+                }
+            }
+
+            &:active,
+            &.selected {
+                cursor:default;
+                .fallbackColor(color, lighten(@color,5%));
+                .fallbackColor(border-color, darken(@borderColor,12%));
+                .fallbackColor(background-color, darken(@backgroundColor,5%));
+                .box-shadow(0 0 6px rgba(0,0,0,.2) inset, 0 0 0 rgba(0,0,0,0););
+            }
+        }
+    }
+}
+
+.paginator-circular {
+    .paginator-circular();
+}

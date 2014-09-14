@@ -1,0 +1,45 @@
+.button-account(@backgroundColor:#C3C3C3, @color:white, @textShadowColor:0 -1px 0 rgba(255, 0, 0, 0.3)) {
+    // Code snippet:
+    // <a class="twitter-account with-small-fonts" href="#">Connect to <b>Twitter</b></a>
+    // <a class="google-account" href="#">Connect to <span>Google+</span></a>
+    display: inline-block;
+    padding: 0.25em 0.5em;
+
+    cursor:pointer;
+    .fallbackColor(color, desaturate(lighten(@backgroundColor,25%),12%));
+    text-shadow:0 -1px 0 rgba(0, 0, 0, 0.3);
+
+    border:1px solid;
+    .fallbackColor(border-color, saturate(darken(@backgroundColor, 8%),8%));
+    .fallbackColor(border-bottom-color, saturate(darken(@backgroundColor, 20%),20%));
+    background-color: @backgroundColor;
+
+    .border-radius(4px);
+    .verticalGradient(@backgroundColor, 10%);
+    .box-shadow(0 2px 3px -2px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.35););
+    .transition(color 0.1s ease-out, box-shadow 0.25s ease-out;);
+
+    > * {
+        text-shadow:0 -1px 0 @textShadowColor;
+        .fallbackColor(color, @color);
+    }
+
+    &:hover {
+        text-shadow:0 -1px 0 @textShadowColor;
+        .fallbackColor(color, @color);
+        .verticalGradient(@backgroundColor, 0%);
+    }
+}
+
+.facebook-account {
+    .button-account(#5670a6);
+}
+.google-account {
+    .button-account(#d55a4a);
+}
+.twitter-account {
+    .button-account(#53bbef);
+}
+.github-account {
+    .button-account(#cdcdcd, darken(grey,15%), rgba(255,255,255,.3));
+}

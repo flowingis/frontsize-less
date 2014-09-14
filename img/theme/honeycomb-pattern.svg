@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="86px"
+	 height="148px" viewBox="0 0 86 148" enable-background="new 0 0 86 148" xml:space="preserve">
+<g id="Layer_4">
+	<rect fill="#D2A339" width="86" height="148"/>
+</g>
+<g id="Layer_3">
+	<g>
+		<radialGradient id="SVGID_1_" cx="43" cy="24.5" r="46.364" gradientUnits="userSpaceOnUse">
+			<stop  offset="0.6178" style="stop-color:#CE9932"/>
+			<stop  offset="1" style="stop-color:#CE942D"/>
+		</radialGradient>
+		<polygon fill="url(#SVGID_1_)" points="86,49 43,74 0,49 0,0 43,-25 86,0 		"/>
+	</g>
+	<g>
+		<radialGradient id="SVGID_2_" cx="0" cy="98.5" r="46.364" gradientUnits="userSpaceOnUse">
+			<stop  offset="0.6178" style="stop-color:#CE9932"/>
+			<stop  offset="1" style="stop-color:#CE942D"/>
+		</radialGradient>
+		<polygon fill="url(#SVGID_2_)" points="43,123 0,148 -43,123 -43,74 0,49 43,74 		"/>
+	</g>
+	<g>
+		<radialGradient id="SVGID_3_" cx="86" cy="98.5" r="46.364" gradientUnits="userSpaceOnUse">
+			<stop  offset="0.6178" style="stop-color:#CE9932"/>
+			<stop  offset="1" style="stop-color:#CE942D"/>
+		</radialGradient>
+		<polygon fill="url(#SVGID_3_)" points="129,123 86,148 43,123 43,74 86,49 129,74 		"/>
+	</g>
+	<g>
+		<radialGradient id="SVGID_4_" cx="43" cy="172.5" r="46.364" gradientUnits="userSpaceOnUse">
+			<stop  offset="0.6178" style="stop-color:#CE9932"/>
+			<stop  offset="1" style="stop-color:#CE942D"/>
+		</radialGradient>
+		<polygon fill="url(#SVGID_4_)" points="86,197 43,222 0,197 0,148 43,123 86,148 		"/>
+	</g>
+</g>
+<g id="Layer_6" display="none">
+	<polyline display="inline" opacity="0.5" fill="none" stroke="#CC8C2F" stroke-width="10" stroke-miterlimit="10" points="49,68 
+		8,44.442 8,4.558 43,-15.791 82,7 	"/>
+	<polyline display="inline" opacity="0.5" fill="none" stroke="#CC8C2F" stroke-width="10" stroke-miterlimit="10" points="6,142 
+		-35,118.442 -35,78.558 0,58.209 39,81 	"/>
+	<polyline display="inline" opacity="0.5" fill="none" stroke="#CC8C2F" stroke-width="10" stroke-miterlimit="10" points="92,142 
+		51,118.442 51,78.558 86,58.209 125,81 	"/>
+	<polyline display="inline" opacity="0.5" fill="none" stroke="#CC8C2F" stroke-width="10" stroke-miterlimit="10" points="49,216 
+		8,192.442 8,152.558 43,132.209 82,155 	"/>
+</g>
+<g id="Layer_5">
+	<path fill="#D2A339" d="M86,49V0L43-25L0,0v49l-43,25v49l43,25v49l43,25l43-25v-49l43-25V74L86,49z M8,4.603l35-20.349L78,4.603
+		v39.795L43,64.746L8,44.397V4.603z M-35,118.397V78.603L0,58.254l35,20.349v39.795L0,138.746L-35,118.397z M78,192.397l-35,20.349
+		L8,192.397v-39.795l35-20.349l35,20.349V192.397z M121,118.397l-35,20.349l-35-20.349V78.603l35-20.349l35,20.349V118.397z"/>
+</g>
+</svg>

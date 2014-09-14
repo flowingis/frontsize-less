@@ -1,0 +1,54 @@
+.sprite(@image, @width, @height:@width, @backgroudSize:auto, @rootPath:'') when (@use-root-path = false) {
+    .backgroundImage(@image, @rootPath);
+    background-repeat:no-repeat;
+    background-size:@backgroudSize;
+    .size(@width, @height);
+    .box-sizing(border-box);
+}.sprite(@image, @width, @height:@width, @backgroudSize:auto, @rootPath:@root-path) when (@use-root-path = true) {
+    .backgroundImage(@image, @rootPath);
+    background-repeat:no-repeat;
+    background-size:@backgroudSize;
+    .size(@width, @height);
+    .box-sizing(border-box);
+}
+
+.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width) when (@horizontalPosition = 0) and not (@verticalPosition = 0) {
+    background-position: 0 unit(-(@verticalPosition*@height),px);
+}.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width) when (@verticalPosition = 0) and not (@horizontalPosition = 0) {
+    background-position: unit(-(@horizontalPosition*@width),px) 0;
+}.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width) when (@horizontalPosition = 0) and (@verticalPosition = 0) {
+    background-position: 0 0;
+}.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width) when not (@horizontalPosition = 0) and not (@verticalPosition = 0) {
+    background-position: unit(-(@horizontalPosition*@width),px) unit(-(@verticalPosition*@height),px);
+}
+
+.spriteCoordinates(@positionX:0, @positionY:0) {
+    background-position: -@positionX -@positionY;
+}
+
+.scaleBackgroundSize(@scale, @width, @height:@width) {
+    background-size: (@width*@scale) (@height*@scale);
+}
+
+.setSprite(@selector, @horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width, @scale:1) {
+    &.@{selector} {
+        .spritePosition(@horizontalPosition, @verticalPosition, @width*@scale, @height*@scale);
+    }
+}
+
+.spriteRetina(@defaultImage, @retinaImage, @width, @height:@width, @imageWidth, @imageHeight, @rootPath:'') when (@use-root-path = false) {
+    .sprite(@defaultImage, @width, @height, @imageWidth @imageHeight, @rootPath);
+    @media @display-retina {
+        .sprite(@retinaImage, @width, @height, @imageWidth @imageHeight, @rootPath);
+    }
+}.spriteRetina(@defaultImage, @retinaImage, @width, @height:@width, @imageWidth, @imageHeight, @rootPath:@root-path) when (@use-root-path = true) {
+    .sprite(@defaultImage, @width, @height, @imageWidth @imageHeight, @rootPath);
+    @media @display-retina {
+        .sprite(@retinaImage, @width, @height, @imageWidth @imageHeight, @rootPath);
+    }
+}
+
+.scaleSprite(@scale, @spriteWidth, @spriteHeight, @backgroundWidth, @backgroundHeight) {
+    .size(@spriteWidth, @spriteHeight, @scale);
+    .scaleBackgroundSize(@scale, @backgroundWidth, @backgroundHeight);
+}
