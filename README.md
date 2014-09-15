@@ -11,7 +11,7 @@ Documentation is [in progress][docs] and *far to be completed* but the best doc 
 
 **Next release details**
 
-- **fixed** missing default font-size for headings
+- **fixed** missing default `font-size` for headings
 
 
 ---
