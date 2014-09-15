@@ -25,11 +25,8 @@ module.exports = function(grunt) {
         themeName       : "default",
         themeImg        : "themes/default/img/",
         testCss         : "test/frontsize.test.css",
-        testMap         : "test/frontsize.test.css.map",
         autoprefixerCss : "test/frontsize.autoprefixer.css",
-        autoprefixerMap : "test/frontsize.autoprefixer.css.map",
         productionCss   : "test/frontsize.min.css",
-        productionMap   : "test/frontsize.min.css.map",
         productionImg   : "img/theme/",
 
         less: {
@@ -40,7 +37,7 @@ module.exports = function(grunt) {
                     strictUnits       : true,
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
-                    sourceMapFilename : "<%= productionMap %>",
+                    sourceMapFilename : "<%= productionCss %>.map",
                     modifyVars        : {
                         "theme" : "<%= themeName %>"
                     }
@@ -56,7 +53,7 @@ module.exports = function(grunt) {
                     strictUnits       : true,
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
-                    sourceMapFilename : "<%= autoprefixerMap %>",
+                    sourceMapFilename : "<%= autoprefixerCss %>.map",
                     modifyVars        : {
                         "theme"          : "<%= themeName %>",
                         "use-css-prefix" : false
@@ -73,7 +70,7 @@ module.exports = function(grunt) {
                     strictUnits       : true,
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
-                    sourceMapFilename : "<%= testMap %>",
+                    sourceMapFilename : "<%= testCss %>.map",
                     modifyVars        : {
                         "theme" : "<%= themeName %>"
                     }
