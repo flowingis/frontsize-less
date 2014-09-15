@@ -12,6 +12,7 @@ Documentation is [in progress][docs] and *far to be completed* but the best doc 
 **Next release details**
 
 - **fixed** missing default `font-size` for headings
+- **fixed** padding rule names with new naming convention
 - **changed** `.map` files now are based on CSS names automatically
 - **optimized** `asTable` mixin now can skip `width` property
 
