@@ -7,7 +7,18 @@ Do you prefer a [SASS][sass] version?
 
 Documentation is [in progress][docs] and *far to be completed* but the best doc is the code itself, isn't it?
 
-Release details
+---
+
+**Next release details**
+---
+
+- **fixed** missing default font-size for headings
+
+
+---
+
+
+Release 2.0.0 details
 ---
 
 **Changes**
