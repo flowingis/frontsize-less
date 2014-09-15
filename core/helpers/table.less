@@ -1,10 +1,6 @@
 .asTable(@cellPadding:@global-padding, @verticalAlign:middle, @tableWidth:100%) when not (@tableWidth = false) {
-    display : table;
-    width   : @tableWidth;
-    > * {
-        .asTableRow(@cellPadding, @verticalAlign);
-    }
-}.asTable(@cellPadding:@global-padding, @verticalAlign:middle, @tableWidth:100%) when (@tableWidth = false) {
+    width : @tableWidth;
+}.asTable(@cellPadding:@global-padding, @verticalAlign:middle, @tableWidth:100%) {
     display : table;
     > * {
         .asTableRow(@cellPadding, @verticalAlign);
