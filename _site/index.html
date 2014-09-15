@@ -3,6 +3,13 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="frontsize.com">
+    <meta property="og:title" content="Frontsize">
+    <meta property="og:description" content="A CSS front-end framework built to build and ease your life.">
+    <meta property="og:image" content="img/frontsize-social.jpg">
+
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="css/frontsize.min.css" media="screen" />
     <!--[if lt IE 9]>
@@ -22,151 +29,169 @@
             </ul>
         </nav>
 
-        <header class="use-steps">
-    <div class="row">
+        <header class="large-steps">
+    <div class="row home-header">
         <div class="hd-6-of-12 text-center">
             <img class="half fluid" src="../img/theme/frontsize-bee.svg">
         </div>
-        <div class="hd-6-of-12 home-header">
+        <div class="hd-6-of-12">
             <h1 class="title margin-bottom"><a href="#">Frontsize <span>2.0.0</span></a></h1>
             <h2 class="sub-title">A CSS front-end framework built to build<br>and ease your life.</h2>
+            <div class="margin-top addthis_native_toolbox"></div>
         </div>
     </div>
 </header>
 
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52da689a6902ce0a"></script>
+
+
 <main class="use-steps">
-    <section class="row text-center">
+    <section id="download" class="row text-center">
     <div class="hd-6-of-12 vertical-line">
         <a class="less-logo" href="http://lesscss.org" target="blank"></a>
         <div class="dotto margin-vertical"></div>
-        <a class="download-button less" href="#">Download</a>
+        <a class="download-button less" href="https://github.com/ideatosrl/frontsize-less/archive/2.0.0.zip">Download</a>
         <br>
-        <a href="#">Documentation</a>
+        <a href="https://github.com/ideatosrl/frontsize-less/wiki">Documentation</a>
         <div class="dotto margin-vertical"></div>
-        <div id="less-repo"></div>
+        <a href="https://github.com/ideatosrl/frontsize-less" class="github less">
+            <strong class="block-title margin-bottom">GitHub</strong>
+            <div><b>commit</b> 96d6013472</div>
+            <div><b>when</b> 13 september 2014</div>
+            <div><b>who</b> Vittorio Vittori</div>
+            <div><b>what</b> Release 2.0.0</div>
+        </a>
     </div>
     <div class="hd-6-of-12">
-        <a class="sass-logo" href="http://lesscss.org" target="blank"></a>
+        <a class="sass-logo" href="http://sass-lang.com" target="blank"></a>
         <div class="dotto margin-vertical"></div>
-        <a class="download-button sass" href="#">Download</a>
+        <a class="download-button sass" href="https://github.com/ideatosrl/frontsize-sass/archive/2.0.0.zip">Download</a>
         <br>
         <span class="disabled">Documentation</span>
         <div class="dotto margin-vertical"></div>
-        <div id="sass-repo"></div>
+        <div href="https://github.com/ideatosrl/frontsize-sass" class="github sass">
+            <strong class="block-title margin-bottom">GitHub</strong>
+            <div><b>commit</b> 161e6b7371</div>
+            <div><b>when</b> 13 september 2014</div>
+            <div><b>who</b> Alessandro Minoccheri</div>
+            <div><b>what</b> Release 2.0.0</div>
+        </div>
     </div>
 </section>
 
-    <script type="text/javascript" src="js/lib/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="js/lib/handlebars-2.0.0.js"></script>
+    <section id="features">
+    <h4 class="block-title padded text-center">Main features</h4>
+    <ul class="main-features">
+        <li>
+            <div>
+                <strong class="block">Migration capable</strong>
+                <p>You can totally <b>custom your grid rules</b> and override other frameworks to unleash<br>the extreme Frontsize flexibility.</p>
+            </div>
+            <div>
+                <div class="feature-icon"></div>
+            </div>
+        </li>
+        <li>
+            <div>
+                <strong class="block">CSS lint test proof</strong>
+                <p>At the moment the only one front-end framework which passes <b>CSS lint tests</b>, to<br>let you do the best quality work.</p>
+            </div>
+            <div>
+                <div class="feature-icon"></div>
+            </div>
+        </li>
+        <li>
+            <div>
+                <strong class="block">Fallbacks</strong>
+                <p>Do you need fallback compatibility? You can enable Frontsize features for IE,<br>
+                    activate / deactivate browser prefixes, or use fallback compatibility mixins.</p>
+            </div>
+            <div>
+                <div class="feature-icon"></div>
+            </div>
+        </li>
+    </ul>
+</section>
 
-<script type="text/template" id="github-template">
-<div class="github ">
-    <strong class="margin-bottom">GitHub</strong>
-    <div><b>commit</b> </div>
-    <div><b>when</b> </div>
-    <div><b>who</b> </div>
-    <div><b>what</b> </div>
-</div>
-</script>
+    <section>
+    <h4 class="block-title padded text-center">Would you like to know more?</h4>
+    <div class="row gain-margin">
+        <ul class="features hd-6-of-12 vertical-line">
+            <li>
+                <div>
+                    <strong class="block">HDTV readability</strong>
+                    <p>There are mixins written to make text readable for TV distance.</p>
+                </div>
+                <div>
+                    <div class="feature-icon"></div>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <strong class="block">Just CSS</strong>
+                    <p>This is a pure totally flexible CSS framework, you choose the JS.</p>
+                </div>
+                <div>
+                    <div class="feature-icon"></div>
+                </div>
+            </li>
+        </ul>
+        <ul class="features hd-6-of-12">
+            <li>
+                <div>
+                    <strong class="block">Widget modularity</strong>
+                    <p>No more rule conflicts and best optimization on loading selection.</p>
+                </div>
+                <div>
+                    <div class="feature-icon"></div>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <strong class="block">Theme ready</strong>
+                    <p>Create beautiful themes with all the variants you need.</p>
+                </div>
+                <div>
+                    <div class="feature-icon"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
 
-<script type="text/javascript">
-$(function () {
-    var gitTmpl = $("#github-template").html();
-
-    function retrieveMaster ($selector, apiKey) {
-        var repoUrl, apiUrl;
-        repoUrl = "https://github.com/" + apiKey;
-        apiUrl  = "https://api.github.com/repos/" + apiKey + "/git/refs/heads/master";
-        $.ajax({
-            type : "GET",
-            url : apiUrl,
-            contentType : "application/x-www-form-urlencoded",
-            success : function (data) {
-                retrieveLastRelease($selector, data, repoUrl, apiKey);
-            },
-            error : function () {
-                console.log("error");
-            }
-        });
-    }
-
-    function retrieveLastRelease ($selector, data, repoUrl, apiKey) {
-        var versionUrl, publishedAt, downloadUrl, tagName;
-        versionUrl = "https://api.github.com/repos/" + apiKey + "/releases";
-        $.ajax({
-            type : "GET",
-            url : versionUrl,
-            contentType : "application/x-www-form-urlencoded",
-            success : function (dataVersion) {
-                publishedAt = dataVersion[0].published_at;
-                downloadUrl = dataVersion[0].zipball_url;
-                tagName = dataVersion[0].tag_name
-                retrieveLastCommit($selector, data, repoUrl, apiKey, publishedAt, downloadUrl, tagName);
-            },
-            error : function () {
-                console.log("error");
-            }
-        });
-    }
-
-    function retrieveLastCommit ($selector, masterData, repoUrl, repoUrlName, publishedAt, downloadUrl, tagName) {
-        $.ajax({
-            type : "GET",
-            url : masterData.object.url,
-            contentType : "application/x-www-form-urlencoded",
-            success : function (data) {
-                date = new Date(Date.parse(data.committer.date));
-                data.timeAgo = relativeTime(data.committer.date);
-                data.datetime = (date.getFullYear().toString() + "-" + ('0' + (date.getMonth()+1)).slice(-2).toString() + "-" + date.getDate().toString());
-                data.hash = data.sha.substring(0,10);
-                data.repoUrl = repoUrl;
-                var template = Handlebars.compile(gitTmpl);
-                console.log(data);
-                $selector.html(template(data));
-            },
-            error : function () {
-                console.log("error");
-            }
-        });
-    }
-
-    function relativeTime(date_str) {
-        if (!date_str) {return;}
-        date_str = $.trim(date_str);
-        date_str = date_str.replace(/\.\d\d\d+/,""); // remove the milliseconds
-        date_str = date_str.replace(/-/,"/").replace(/-/,"/"); //substitute - with /
-        date_str = date_str.replace(/T/," ").replace(/Z/," UTC"); //remove T and substitute Z with UTC
-        date_str = date_str.replace(/([\+\-]\d\d)\:?(\d\d)/," $1$2"); // +08:00 -> +0800
-        var parsed_date = new Date(date_str);
-        var relative_to = (arguments.length > 1) ? arguments[1] : new Date(); //defines relative to what ..default is now
-        var delta = parseInt((relative_to.getTime()-parsed_date)/1000);
-        delta=(delta<2)?2:delta;
-        var r = '';
-        if (delta < 60) {
-            r = delta + ' seconds ago';
-        } else if (delta < 120) {
-            r = 'a minute ago';
-        } else if (delta < (45*60)) {
-            r = (parseInt(delta / 60, 10)).toString() + ' minutes ago';
-        } else if (delta < (2*60*60)) {
-            r = 'an hour ago';
-        } else if (delta < (24*60*60)) {
-            r = '' + (parseInt(delta / 3600, 10)).toString() + ' hours ago';
-        } else if (delta < (48*60*60)) {
-            r = 'a day ago';
-        } else {
-            r = (parseInt(delta / 86400, 10)).toString() + ' days ago';
-        }
-        return 'about ' + r;
-    }
-
-    retrieveMaster($("#less-repo"), "ideatosrl/frontsize-less");
-    retrieveMaster($("#sass-repo"), "ideatosrl/frontsize-sass");
-});
-</script>
-
-
-
+    <section id="about" class="text-center">
+    <h4 class="block-title padded">About</h4>
+    <div class="row">
+        <div class="hd-4-of-12 vertical-line">
+            <div class="avatar"
+                 data-retina="https://avatars1.githubusercontent.com/u/461484?v=2&s=144"
+                 style="background-image:url(https://avatars1.githubusercontent.com/u/461484?v=2&s=72);"></div>
+            <p class="margin-top">
+                Frontsize is written in LESS<br>
+                by <a class="link capitalize" href="http://vittoriovittori.com">Vittorio Vittori</a>
+            </p>
+        </div>
+        <div class="hd-4-of-12 vertical-line">
+            <a class="ideato-logo" href="http://ideato.it" target="blank">
+                <img class="margin-top" src="img/theme/ideato-logo.svg">
+            </a>
+            <p class="margin-top">
+                Frontsize is sponsored<br>
+                by <a class="link lowercase" href="http://ideato.it">Ideato Srl</a>
+            </p>
+        </div>
+        <div class="hd-4-of-12">
+            <div class="avatar"
+                 data-retina="https://avatars2.githubusercontent.com/u/3356506?v=2&s=144"
+                 style="background-image:url(https://avatars2.githubusercontent.com/u/3356506?v=2&s=72);"></div>
+            <p class="margin-top">
+                SASS conversion is written<br>
+                by <a class="link capitalize" href="http://alessandrominoccheri.com">Alessandro Minoccheri</a>
+            </p>
+        </div>
+    </div>
+</section>
 
 </main>
 

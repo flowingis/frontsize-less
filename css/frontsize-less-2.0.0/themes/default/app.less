@@ -78,7 +78,7 @@
 
 // set font scaling to change the font size depending by different resolutions
 .setFontScaling(body, 20px, @font-size, @font-size, @font-size, @font-size, @font-size);
-.setLineHeightScaling(body, @global-step);
+.setLineHeightScaling(body, 32px, @global-step);
 
 .addFontsRule(small-fonts, @font-default, 14px, antialiased, @font-default, 14px, antialiased, @font-default, 14px, antialiased);
 .addFontRule(mini-font, @font-small, 16px, 11px, 11px, 11px, 11px, 11px, antialiased, 1);
@@ -87,9 +87,8 @@
 .addColumnsSet(12);
 .addMarginOffset(12);
 
-// set the margins
-// put .global-steps & .global-steps-padding always at the bottom of the configuration
-.addViewportsSteps(use-steps, 500px, 100px, 50px, 0);
+.addViewportsSteps(use-steps, 700px, 500px, 50px, 0);
+.addViewportsSteps(large-steps, 400px, 200px, 50px, 0);
 
 // used for the nav top spacing, set it after global-steps-padding
 // .addPaddingSelector(tiny, 8px, 8px);

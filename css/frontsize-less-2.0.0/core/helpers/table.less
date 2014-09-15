@@ -1,22 +1,23 @@
-.asTable(@cellPadding:@global-padding, @verticalAlign:middle, @tableWidth:100%) {
-    display: table;
-    width: @tableWidth;
+.asTable(@cellPadding:@global-padding, @verticalAlign:middle, @tableWidth:100%) when not (@tableWidth = false) {
+    width : @tableWidth;
+}.asTable(@cellPadding:@global-padding, @verticalAlign:middle, @tableWidth:100%) {
+    display : table;
     > * {
         .asTableRow(@cellPadding, @verticalAlign);
     }
 }
 
 .asTableRow(@cellPadding:@global-padding, @verticalAlign:middle) {
-    float: none;
-    display: table-row;
+    display : table-row;
+    float   : none;
     > * {
         .asTableCell(@cellPadding, @verticalAlign);
     }
 }
 
 .asTableCell(@cellPadding:@global-padding, @verticalAlign:middle) {
-    float: none;
-    display: table-cell;
-    padding: @cellPadding;
-    vertical-align: @verticalAlign;
+    display        : table-cell;
+    float          : none;
+    padding        : @cellPadding;
+    vertical-align : @verticalAlign;
 }

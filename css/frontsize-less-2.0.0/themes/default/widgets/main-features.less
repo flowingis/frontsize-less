@@ -1,0 +1,16 @@
+.main-features {
+    .asTable((@global-step * 2) @global-step);
+
+    strong, b, a {
+        color       : @colorGrey;
+        font-weight : 800;
+    }
+
+    > * > * {
+        border-bottom: @border;
+    }
+
+    > *:first-child > * {
+        padding-top : 0;
+    }
+}
