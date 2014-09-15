@@ -1,19 +1,38 @@
+/*
+
+Available grunt commands
+
+$ grunt watch:develop
+$ grunt watch:fullDev
+$ grunt watch:autoprefix
+$ grunt watch:fullAutoprefix
+$ grunt watch:all
+
+$ grunt develop
+$ grunt fullDev
+$ grunt autoprefix
+$ grunt fullAutoprefix
+$ grunt all
+
+*/
+
+
 module.exports = function(grunt) {
     grunt.initConfig({
+
+        compileFile     : "compile.less",
+        compileFileTest : "compile_test.less",
+        themeName       : "default",
+        themeImg        : "themes/default/img/",
+        testCss         : "test/frontsize.test.css",
+        testMap         : "test/frontsize.test.css.map",
+        autoprefixerCss : "test/frontsize.autoprefixer.css",
+        autoprefixerMap : "test/frontsize.autoprefixer.css.map",
+        productionCss   : "test/frontsize.min.css",
+        productionMap   : "test/frontsize.min.css.map",
+        productionImg   : "img/theme/",
+
         less: {
-            develop: {
-                options: {
-                    compress          : false,
-                    cleancss          : false,
-                    strictUnits       : true,
-                    dumpLineNumbers   : "comments",
-                    sourceMap         : true,
-                    sourceMapFilename : "test/frontsize.css.map"
-                },
-                files: {
-                    "test/frontsize.css" : "compile.less"
-                }
-            },
             production: {
                 options: {
                     compress          : true,
@@ -21,10 +40,30 @@ module.exports = function(grunt) {
                     strictUnits       : true,
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
-                    sourceMapFilename : "test/frontsize.min.css.map"
+                    sourceMapFilename : "<%= productionMap %>",
+                    modifyVars        : {
+                        "theme" : "<%= themeName %>"
+                    }
                 },
                 files: {
-                    "test/frontsize.min.css" : "compile.less"
+                    "<%= productionCss %>" : "<%= compileFile %>"
+                }
+            },
+            autoprefixer: {
+                options: {
+                    compress          : true,
+                    cleancss          : true,
+                    strictUnits       : true,
+                    dumpLineNumbers   : "comments",
+                    sourceMap         : true,
+                    sourceMapFilename : "<%= autoprefixerMap %>",
+                    modifyVars        : {
+                        "theme"          : "<%= themeName %>",
+                        "use-css-prefix" : false
+                    }
+                },
+                files: {
+                    "<%= autoprefixerCss %>" : "<%= compileFile %>"
                 }
             },
             test: {
@@ -34,26 +73,13 @@ module.exports = function(grunt) {
                     strictUnits       : true,
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
-                    sourceMapFilename : "test/frontsize.test.css.map"
-                },
-                files: {
-                    "test/frontsize.test.css" : "test.less"
-                }
-            },
-            testAutoprefixer: {
-                options: {
-                    compress          : false,
-                    cleancss          : false,
-                    strictUnits       : true,
-                    dumpLineNumbers   : "comments",
-                    sourceMap         : true,
-                    sourceMapFilename : "test/frontsize.autoprefixer.css.map",
-                    modifyVars: {
-                        "use-css-prefix": false
+                    sourceMapFilename : "<%= testMap %>",
+                    modifyVars        : {
+                        "theme" : "<%= themeName %>"
                     }
                 },
                 files: {
-                    "test/frontsize.test.autoprefixer.css" : "test_autoprefixer.less"
+                    "<%= testCss %>" : "<%= compileFileTest %>"
                 }
             }
         },
@@ -61,60 +87,57 @@ module.exports = function(grunt) {
         autoprefixer: {
             options: {
                 // browsers: ["> 1%", "Firefox > 3.6", "last 10 versions", "ie 8", "ie 7", "Firefox ESR", "Opera > 10.1"],
-                diff: true
+                diff : true
             },
             test: {
-                src: "test/frontsize.test.autoprefixer.css",
-                dest: "test/frontsize.autoprefixer.css"
+                src  : "<%= autoprefixerCss %>",
+                dest : "<%= autoprefixerCss %>"
             }
         },
 
         watch: {
             options: {
                 atBegin : true,
-                event: ["added", "changed"],
+                event: [
+                    "added",
+                    "changed"
+                ]
             },
             develop : {
-                files: [
-                    "*.less",
-                    "**/*.less"
-                ],
-                tasks: [
-                    "less:develop",
-                    "production",
-                    "assets"
-                ]
+                files: [ "*.less", "**/*.less" ],
+                tasks: [ "develop" ]
+            },
+            fullDev : {
+                files: [ "*.less", "**/*.less" ],
+                tasks: [ "fullDev" ]
+            },
+            autoprefix : {
+                files: [ "*.less", "**/*.less" ],
+                tasks: [ "autoprefix" ]
+            },
+            fullAutoprefix : {
+                files: [ "*.less", "**/*.less" ],
+                tasks: [ "fullAutoprefix" ]
+            },
+            all : {
+                files: [ "*.less", "**/*.less" ],
+                tasks: [ "all" ]
             }
         },
 
         csslint: {
-            options: {
-                csslintrc : ".csslintrc"
-            },
             test: {
                 options: {
                     csslintrc : ".csslintrc"
                 },
-                src: ["test/frontsize.test.css"]
-            },
-            testMin: {
-                options: {
-                    csslintrc : ".csslintrc"
-                },
-                src: ["test/frontsize.test.min.css"]
-            },
-            testPrefixed: {
-                options: {
-                    csslintrc : ".csslintrc"
-                },
-                src: ["test/frontsize.prefixed.css"]
+                src: ["<%= testCss %>"]
             }
         },
 
         clean: {
             assets: {
                 src: [
-                    "../img/theme"
+                    "<%= productionImg %>*"
                 ]
             }
         },
@@ -125,8 +148,8 @@ module.exports = function(grunt) {
                     {
                         expand  : true,
                         flatten : true,
-                        src     : ["themes/default/img/*"],
-                        dest    : "../img/theme/",
+                        src     : [ "<%= themeImg %>*" ],
+                        dest    : "<%= productionImg %>",
                         filter  : "isFile"
                     }
                 ]
@@ -137,15 +160,36 @@ module.exports = function(grunt) {
 
     require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
-    grunt.registerTask("production", [
-        "test",
-        "testAutoprefixer",
-        "test_min",
-        "production"
+    grunt.registerTask("develop", [
+        "less:production",
+        "test"
     ]);
 
-    grunt.registerTask("develop", [
-        "watch:develop"
+    grunt.registerTask("fullDev", [
+        "less:production",
+        "test",
+        "assets"
+    ]);
+
+    grunt.registerTask("autoprefix", [
+        "less:autoprefixer",
+        "test",
+        "autoprefixer"
+    ]);
+
+    grunt.registerTask("fullAutoprefix", [
+        "less:autoprefixer",
+        "test",
+        "autoprefixer",
+        "assets"
+    ]);
+
+    grunt.registerTask("all", [
+        "less:production",
+        "less:autoprefixer",
+        "test",
+        "autoprefixer",
+        "assets"
     ]);
 
     grunt.registerTask("assets", [
@@ -156,16 +200,5 @@ module.exports = function(grunt) {
     grunt.registerTask("test", [
         "less:test",
         "csslint:test"
-    ]);
-
-    grunt.registerTask("testAutoprefixer", [
-        "less:testAutoprefixer",
-        "autoprefixer",
-        "csslint:test"
-    ]);
-
-    grunt.registerTask("test_min", [
-        "less:test",
-        "csslint:testMin"
     ]);
 };
