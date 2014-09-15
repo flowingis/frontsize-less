@@ -1,7 +1,0 @@
-.fallbackColor(@property, @color, @fallbackColor:fade(@color,100%)) when (iscolor(@color)) and (alpha(@fallbackColor) = 0) and (@use-fallback-colors = true) {
-    @{property}: transparent;
-}.fallbackColor(@property, @color, @fallbackColor:fade(@color,100%)) when (iscolor(@color)) and (alpha(@fallbackColor) > 0) and (@use-fallback-colors = true) {
-    @{property}: rgb(red(@fallbackColor), green(@fallbackColor), blue(@fallbackColor));
-}.fallbackColor(@property, @color, @fallbackColor:fade(@color,100%)) when (iscolor(@color)) {
-    @{property}: @color;
-}

@@ -1,0 +1,23 @@
+.github {
+
+    .setColor(@language, @color) {
+        &.@{language} {
+            b {
+                color : @color;
+            }
+        }
+    }
+
+    strong {
+        font-weight : 800;
+        font-size   : 18px;
+    }
+
+    b {
+        margin-right : (@global-step / 4);
+    }
+
+    .setColor(less, @colorLess);
+    .setColor(sass, @colorSass);
+
+}

@@ -52,3 +52,9 @@ test/*.css
 Icon?
 ehthumbs.db
 Thumbs.db
+
+_site/css/frontsize-less-2.0.0
+_site/node_modules
+_site/test
+_site/Gruntfile.js
+_site/package.json

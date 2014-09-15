@@ -1,0 +1,40 @@
+.download-button {
+
+    padding     : 8px 16px;
+
+    .setButton(@color, @animation) {
+        @startFade : 5%;
+        @stopFade  : 20%;
+
+        color  : @color;
+        border : 1px solid transparent;
+        .fallbackColor(background-color, fade(@color, @startFade), mix(@color, @colorIvory, @startFade));
+
+        .transition(border 0.25s ease-out);
+
+        @-webkit-keyframes ~"pulse-background-@{animation}" {
+            0%   { .fallbackColor(background-color, fade(@color, @startFade), mix(@color, @colorIvory, @startFade)); }
+            50%  { .fallbackColor(background-color, fade(@color, @stopFade),  mix(@color, @colorIvory, @stopFade)); }
+            100% { .fallbackColor(background-color, fade(@color, @startFade), mix(@color, @colorIvory, @startFade)); }
+        }
+
+        @keyframes ~"pulse-background-@{animation}" {
+            0%   { .fallbackColor(background-color, fade(@color, @startFade), mix(@color, @colorIvory, @startFade)); }
+            50%  { .fallbackColor(background-color, fade(@color, @stopFade),  mix(@color, @colorIvory, @stopFade)); }
+            100% { .fallbackColor(background-color, fade(@color, @startFade), mix(@color, @colorIvory, @startFade)); }
+        }
+
+        .animation(~"pulse-background-@{animation}" 5s infinite);
+
+        &:hover {
+            .fallbackColor(border-color, fade(@color, @stopFade), mix(@color, @colorIvory, @stopFade));
+        }
+    }
+
+    &.less {
+        .setButton(@colorLess, less);
+    }
+    &.sass {
+        .setButton(@colorSass, sass);
+    }
+}

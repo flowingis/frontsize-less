@@ -1,0 +1,13 @@
+.main-nav {
+    li {
+        display : inline-block;
+        padding : @global-step;
+        a {
+            display: inline-block;
+        }
+    }
+    @media @till-smartphone-landscape {
+        // Smartphone landscape
+        padding : (@global-step / 2);
+    }
+}

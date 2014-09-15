@@ -1,6 +1,6 @@
 
 // font sizes for h# elements
-@h1 : 32px;
+@h1 : 48px;
 @h2 : 28px;
 @h3 : 24px;
 @h4 : 20px;
@@ -74,10 +74,10 @@
 
 // Prepends the @root-path var before every URL with .backgroundImage mixin
 @use-root-path : true;
-@root-path : "/css/frontsize-less/themes/@{theme}/img/";
+@root-path : "/img/theme/";
 
 // set font scaling to change the font size depending by different resolutions
-.setFontScaling(body, 20px, 18px, @font-size, @font-size, @font-size, @font-size);
+.setFontScaling(body, 20px, @font-size, @font-size, @font-size, @font-size, @font-size);
 .setLineHeightScaling(body, @global-step);
 
 .addFontsRule(small-fonts, @font-default, 14px, antialiased, @font-default, 14px, antialiased, @font-default, 14px, antialiased);
