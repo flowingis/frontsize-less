@@ -9,6 +9,16 @@
     column-count: @count;
 }
 
+.column-fill(@columnFill:auto) when (@use-css-prefix = true) {
+    -webkit-column-fill : @columnFill;
+    -khtml-column-fill : @columnFill;
+    -moz-column-fill : @columnFill;
+    -ms-column-fill : @columnFill;
+    -o-column-fill : @columnFill;
+}.column-fill(@columnFill:auto) {
+    column-fill : @columnFill;
+}
+
 .column-gap(@gap:normal) when (@use-css-prefix = true) {
     -webkit-column-gap: @gap;
     -khtml-column-gap: @gap;
