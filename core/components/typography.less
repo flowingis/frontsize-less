@@ -350,11 +350,21 @@
     }
 }
 
-.addFontRule(@selector, @fontFamily:@font-default, @hdFullFontSize:1em, @hdReadyFontSize:1em, @tabletLandscapeFontSize:1em, @tabletPortraitFontSize:1em, @smartphoneLandscapeFontSize:1em, @smartphonePortraitFontSize:1em, @antialias:antialiased, @lineHeightMultiplier:1.225) {
+.addFontRule(
+    @selector,
+    @fontFamily:@font-default,
+    @hdFullFontSize:@font-size,
+    @hdReadyFontSize:@hdFullFontSize,
+    @tabletLandscapeFontSize:@hdReadyFontSize,
+    @tabletPortraitFontSize:@tabletLandscapeFontSize,
+    @smartphoneLandscapeFontSize:@tabletPortraitFontSize,
+    @smartphonePortraitFontSize:@smartphoneLandscapeFontSize,
+    @lineHeightMultiplier:@global-step,
+    @antialias:subpixel-antialiased) {
     // Media queries for selectors active from the smaller resolution to a specific one
     .@{selector} {
-        font-family:@fontFamily;
-        line-height:@lineHeightMultiplier;
+        font-family : @fontFamily;
+        line-height : @lineHeightMultiplier;
         .font-smoothing(@antialias);
     }
     .addFontRuleHdFull(@selector, @hdFullFontSize);

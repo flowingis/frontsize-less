@@ -1,5 +1,5 @@
 
-// font sizes for h# elements 
+// font sizes for h# elements
 @h1 : 32px;
 @h2 : 28px;
 @h3 : 24px;
@@ -80,8 +80,8 @@
 .setFontScaling(body, 20px, 18px, 16px, 16px, 16px, 16px);
 .setLineHeightScaling(body, @global-step);
 
-.addFontsRule(small-fonts, @font-default, 14px, antialiased, @font-default, 14px, antialiased, @font-default, 14px, antialiased);
-.addFontRule(mini-font, @font-small, 16px, 11px, 11px, 11px, 11px, 11px, antialiased, 1);
+//.addFontsRule(small-fonts, @font-default, 14px, antialiased, @font-default, 14px, antialiased, @font-default, 14px, antialiased);
+.addFontRule(small-font, @font-small, @font-small-size);
 
 .addContainerRow(row);
 .addColumnsSet(12);

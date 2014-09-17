@@ -16,6 +16,7 @@ Documentation is [in progress][docs] and *far to be completed* but the best doc 
 - **fixed** missing default `font-weight` and `font-size` on base body
 - **moved** `spriteRetina` mixin to a new file `sprite-retina.less` like with `background-retina.less` and background retina mixins
 - **changed** `.map` files now are based on CSS names automatically
+- **changed** `addFontRule` mixin now is more easy to use
 - **replaced** filenames `_` with `-` for more file naming consistance
 - **optimized** `asTable` mixin now can skip `width` property
 - **optimized** `font-smoothing` mixin now can skip apply `font-smoothing` property when is the default value
