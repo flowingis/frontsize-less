@@ -11,6 +11,7 @@ Documentation is [in progress][docs] and *far to be completed* but the best doc 
 
 **Next release details**
 
+- **added** `column-fill` prefix mixin
 - **fixed** missing default `font-size` for headings
 - **fixed** padding rule names with new naming convention
 - **fixed** missing default `font-weight` and `font-size` on base body
