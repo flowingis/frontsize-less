@@ -3,3 +3,5 @@ highlighter: pygments
 permalink: /blog/:title
 rdiscount:
 extensions: [smart]
+exclude: ["node_modules", "css/frontsize-less-2.0.0"]
+encoding: utf-8
