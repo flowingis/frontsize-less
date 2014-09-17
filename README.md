@@ -13,7 +13,9 @@ Documentation is [in progress][docs] and *far to be completed* but the best doc 
 
 - **fixed** missing default `font-size` for headings
 - **fixed** padding rule names with new naming convention
+- **moved** `spriteRetina` mixin to a new file `sprite-retina.less` like with `background-retina.less` and background retina mixins
 - **changed** `.map` files now are based on CSS names automatically
+- **replaced** filenames `_` with `-` for more file naming consistance
 - **optimized** `asTable` mixin now can skip `width` property
 
 ---
