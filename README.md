@@ -15,9 +15,9 @@ Do you prefer a [SASS][sass] version?
 
 Documentation is [in progress][docs] and *far to be completed* but the best doc is the code itself, isn't it?
 
-===
 
-**Next release details**
+Next release details
+---
 
 **Features**
 - **added** `column-fill` prefix mixin
@@ -38,9 +38,6 @@ Documentation is [in progress][docs] and *far to be completed* but the best doc 
 - **changed** `addFontRule` mixin now is more easy to use
 - **optimized** `font-smoothing` mixin now can skip apply `font-smoothing` property when is the default value
 - **optimized** mixins `spriteRetina` and `size` now skips `box-sizing` duplicates inside retina media query
-
-
-===
 
 
 Release 2.0.0 details
