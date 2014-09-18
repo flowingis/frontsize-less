@@ -83,12 +83,11 @@
 //.addFontsRule(small-fonts, @font-default, 14px, antialiased, @font-default, 14px, antialiased, @font-default, 14px, antialiased);
 .addFontRule(small-font, @font-small, @font-small-size);
 
-.addContainerRow(row);
-.addColumnsSet(12);
-.addMarginOffset(12);
+.addFloatGridContainer(row);
+.addFloatGridColumns(12);
+.addFloatGridOffset(12);
 
-// set the margins
-// put .global-steps & .global-steps-padding always at the bottom of the configuration
+// put .addViewportsSteps at the bottom of the configuration
 .addViewportsSteps(use-steps, 500px, 100px, 50px, 0);
 
 // used for the nav top spacing, set it after global-steps-padding
