@@ -16,7 +16,6 @@ If you'd like to see more features, visit [frontsize.com][site] website.
 Do you prefer a [SASS][sass] version?
 
 Documentation is [in progress][docs] and *far to be completed* but the best doc is the code itself, isn't it?
-
 ===
 
 **Next release details**
