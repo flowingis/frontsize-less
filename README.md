@@ -17,7 +17,7 @@ Do you prefer a [SASS][sass] version?
 
 Documentation is [in progress][docs] and *far to be completed* but the best doc is the code itself, isn't it?
 
----
+===
 
 **Next release details**
 
@@ -42,7 +42,7 @@ Documentation is [in progress][docs] and *far to be completed* but the best doc 
 - **optimized** mixins `spriteRetina` and `size` now skips `box-sizing` duplicates inside retina media query
 
 
----
+===
 
 
 Release 2.0.0 details
