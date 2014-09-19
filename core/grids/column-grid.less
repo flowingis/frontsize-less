@@ -1,0 +1,72 @@
+.addColumnGrid(@selector, @hdFullCount:4, @hdReadyCount:3, @tabletLandscapeCount:3, @tabletPortraitCount:2, @smartphoneLandscapeCount:1, @smartphonePortraitCount:1, @columnGap:0) {
+
+    .@{selector} {
+        .column-gap(@columnGap);
+        .column-fill(auto);
+    }
+
+    .@{selector} > * {
+        display : inline-block;
+    }
+
+    .addColumnGridSmartphonePortrait(@selector, @smartphonePortraitCount);
+    .addColumnGridSmartphoneLandscape(@selector, @smartphoneLandscapeCount);
+    .addColumnGridTabletPortrait(@selector, @tabletPortraitCount);
+    .addColumnGridTabletLandscape(@selector, @tabletLandscapeCount);
+    .addColumnGridHdReady(@selector, @hdReadyCount);
+    .addColumnGridHdFull(@selector, @hdFullCount);
+}
+
+/* private */.addColumnGridSmartphonePortrait(@selector, @count) when (@use-tablet-portrait = true) {
+    @media @from-smartphone-portrait {
+        // Smartphone portrait
+        .@{selector} {
+            .column-count(@count);
+        }
+    }
+}
+
+/* private */.addColumnGridSmartphoneLandscape(@selector, @count) when (@use-tablet-portrait = true) {
+    @media @from-smartphone-landscape {
+        // Smartphone landscape
+        .@{selector} {
+            .column-count(@count);
+        }
+    }
+}
+
+/* private */.addColumnGridTabletPortrait(@selector, @count) when (@use-tablet-portrait = true) {
+    @media @from-tablet-portrait {
+        // Tablet portrait
+        .@{selector} {
+            .column-count(@count);
+        }
+    }
+}
+
+/* private */.addColumnGridTabletLandscape(@selector, @count) when (@use-tablet-landscape = true) {
+    @media @from-tablet-landscape {
+        // Tablet landscape
+        .@{selector} {
+            .column-count(@count);
+        }
+    }
+}
+
+/* private */.addColumnGridHdReady(@selector, @count) when (@use-hd-ready = true) {
+    @media @from-hd-ready {
+        // HD Ready
+        .@{selector} {
+            .column-count(@count);
+        }
+    }
+}
+
+/* private */.addColumnGridHdFull(@selector, @count) when (@use-hd-full = true) {
+    @media @from-hd-full {
+        // Full HD
+        .@{selector} {
+            .column-count(@count);
+        }
+    }
+}
