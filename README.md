@@ -1,7 +1,7 @@
 Frontsize 2.0.0
 =========
 
-It's a CSS front-end framework written to make websites easy to read on every device and faster to be coded. It gives to the developer a solid base which can be used to build responsive layouts for websites or web apps.
+It's a CSS generator front-end framework written to make websites easy to read on every device and faster to be coded. It gives to the developer a solid base which can be used to build responsive layouts for websites or web apps.
 
 ###Why frontsize?
 
@@ -20,8 +20,10 @@ Next release details
 ---
 
 **Features**
-- **added** `column-fill` prefix mixin
-- **added** *notice board* grid system in [Pinterest](http://pinterest.com) style
+- **added** `column-grid` system to reproduce behavior like [Pinterest](http://pinterest.com)
+- **added** missing `column-fill` CSS3 prefixes
+- **added** `flex` CSS3 prefixes
+- **added** `grid` CSS3 prefixes
 
 **Fixes**
 - **fixed** missing default `font-size` for headings
