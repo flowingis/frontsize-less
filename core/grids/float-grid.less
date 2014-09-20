@@ -1,5 +1,14 @@
 
-.addFloatGridContainer(@selector:row, @hdFullSteps:0, @hdReadySteps:12, @tabletLandscapeSteps:6, @tabletPortraitSteps:3, @smartphoneLandscapeSteps:1, @smartphonePortraitSteps:1) {
+.addFloatGridContainer(
+    @selector                 : row,
+    @hdFullSteps              : 0,
+    @hdReadySteps             : @hdFullSteps,
+    @tabletLandscapeSteps     : @hdReadySteps,
+    @tabletPortraitSteps      : @tabletLandscapeSteps,
+    @smartphoneLandscapeSteps : 1,
+    @smartphonePortraitSteps  : 1
+    ) {
+
     .@{selector},
     .@{selector} * {
         .box-sizing(border-box);
@@ -10,44 +19,70 @@
         overflow:auto;
         clear:both;
     }
-    .checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector);
+    ._checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector);
 }
 
-.addFloatGridColumns(@hdSteps:12, @tabletSteps:@hdSteps, @smartphoneSteps:@tabletSteps, @hdViewportPrefix:hd-, @tabletViewportPrefix:tablet-, @smartphoneViewportPrefix:smartphone-, @fillFromViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-, @useHdRules:true, @useTabletRules:true, @useSmartphoneRules:true) {
+.addFloatGridColumns(
+    @hdSteps                  : 12,
+    @tabletSteps              : @hdSteps,
+    @smartphoneSteps          : @tabletSteps,
+    @hdViewportPrefix         : hd-,
+    @tabletViewportPrefix     : tablet-,
+    @smartphoneViewportPrefix : smartphone-,
+    @fillFromViewport         : "smartphone-landscape",
+    @viewTotalColumns         : true,
+    @columnsSeparator         : -of-,
+    @useHdRules               : true,
+    @useTabletRules           : true,
+    @useSmartphoneRules       : true
+    ) {
 
     @media @from-smartphone-portrait {
         // Smartphone portrait
-        .addColumnSet(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
-        .addColumnSet(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
-        .addColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+        ._addFloatGridColumnSet(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
+        ._addFloatGridColumnSet(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
+        ._addFloatGridColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
     }
 
     @media @from-tablet-portrait {
         // Tablet portrait
-        .addColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
-        .addColumnSet(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
-        .addColumnSet(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
+        ._addFloatGridColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+        ._addFloatGridColumnSet(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
+        ._addFloatGridColumnSet(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
     }
 
     @media @from-hd-ready {
         // HD Ready
-        .addColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
-        .addColumnSet(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
-        .addColumnSet(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
+        ._addFloatGridColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+        ._addFloatGridColumnSet(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
+        ._addFloatGridColumnSet(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
     }
 
-    .addFillToColumnSet(@tabletViewportPrefix, @tabletSteps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
-    .addFillToColumnSet(@hdViewportPrefix, @hdSteps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
-    .preventSmartphoneColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+    ._addFillToColumnSet(@tabletViewportPrefix, @tabletSteps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
+    ._addFillToColumnSet(@hdViewportPrefix, @hdSteps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
+    ._preventSmartphoneColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
 }
 
-.addFloatGridOffset(@hdSteps:12, @tabletSteps:@hdSteps, @smartphoneSteps:@tabletSteps, @hdViewportPrefix:hd-offset-, @tabletViewportPrefix:tablet-offset-, @smartphoneViewportPrefix:smartphone-offset-, @fillFromViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-, @useHdRules:true, @useTabletRules:true, @useSmartphoneRules:true) {
+.addFloatGridOffset(
+    @hdSteps                  : 12,
+    @tabletSteps              : @hdSteps,
+    @smartphoneSteps          : @tabletSteps,
+    @hdViewportPrefix         : hd-offset-,
+    @tabletViewportPrefix     : tablet-offset-,
+    @smartphoneViewportPrefix : smartphone-offset-,
+    @fillFromViewport         : "smartphone-landscape",
+    @viewTotalColumns         : true,
+    @columnsSeparator         : -of-,
+    @useHdRules               : true,
+    @useTabletRules           : true,
+    @useSmartphoneRules       : true
+    ) {
 
     @media @from-smartphone-portrait {
         // Smartphone portrait
-        .addColumnMarginOffset(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
-        .addColumnMarginOffset(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
-        .addColumnMarginOffset(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+        ._addColumnMarginOffset(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
+        ._addColumnMarginOffset(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
+        ._addColumnMarginOffset(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
 
         .@{smartphoneViewportPrefix}disabled {
             margin-left: 0;
@@ -56,16 +91,16 @@
 
     @media @from-tablet-portrait {
         // Tablet portrait
-        .addColumnMarginOffset(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
-        .addColumnMarginOffset(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
-        .addColumnMarginOffset(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
+        ._addColumnMarginOffset(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+        ._addColumnMarginOffset(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
+        ._addColumnMarginOffset(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
     }
 
     @media @from-hd-ready {
         // HD Ready
-        .addColumnMarginOffset(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
-        .addColumnMarginOffset(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
-        .addColumnMarginOffset(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
+        ._addColumnMarginOffset(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+        ._addColumnMarginOffset(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
+        ._addColumnMarginOffset(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
     }
 
     @media @only-hd {
@@ -83,72 +118,41 @@
 
 /* private mixins */
 
-/* private */.checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector) when (@hdFullSteps > 0) {
+._checkAutoClear(
+    @hdFullSteps,
+    @hdReadySteps,
+    @tabletLandscapeSteps,
+    @tabletPortraitSteps,
+    @smartphoneLandscapeSteps,
+    @smartphonePortraitSteps,
+    @selector
+    ) when (@hdFullSteps > 0) {
     // Media queries for selectors active from a specific resolution or higher
     .@{selector} > * {
         min-height: 1px;
         .box-sizing(border-box);
-        .setColumnBehavior();
-        .setColumnStep(1, @hdFullSteps);
+        ._setColumnBehavior();
+        ._setFloatGridColumnStep(1, @hdFullSteps);
     }
-    .checkAutoClearSmartphonePortrait(@selector, @smartphonePortraitSteps);
-    .checkAutoClearSmartphoneLandscape(@selector, @smartphoneLandscapeSteps);
-    .checkAutoClearTabletPortrait(@selector, @tabletPortraitSteps);
-    .checkAutoClearTabletLandscape(@selector, @tabletLandscapeSteps);
-    .checkAutoClearHdReady(@selector, @hdReadySteps);
-    .checkAutoClearHdFull(@selector, @hdFullSteps);
+
+    ._checkAutoClearViewport(@only-smartphone-portrait,  @smartphonePortraitSteps,  @selector);
+    ._checkAutoClearViewport(@only-smartphone-landscape, @smartphoneLandscapeSteps, @selector);
+    ._checkAutoClearViewport(@only-tablet-portrait,      @tabletPortraitSteps,      @selector);
+    ._checkAutoClearViewport(@only-tablet-landscape,     @tabletLandscapeSteps,     @selector);
+    ._checkAutoClearViewport(@only-hd-ready,             @hdReadySteps,             @selector);
+    ._checkAutoClearViewport(@only-hd-full,              @hdFullSteps,              @selector);
+
 }
-/* private */.checkAutoClearSmartphonePortrait(@selector, @smartphonePortraitSteps) when (@use-smartphone-portrait = true) {
-    @media @only-smartphone-portrait {
-        // Smartphone portrait
+
+._checkAutoClearViewport(@viewport, @steps, @selector) {
+    @media @viewport {
         .@{selector} > * {
-            .setColumns(@smartphonePortraitSteps);
-        }
-    }
-}
-/* private */.checkAutoClearSmartphoneLandscape(@selector, @smartphoneLandscapeSteps) when (@use-smartphone-landscape = true) {
-    @media @only-smartphone-landscape {
-        // Smartphone landscape
-        .@{selector} > * {
-            .setColumns(@smartphoneLandscapeSteps);
-        }
-    }
-}
-/* private */.checkAutoClearTabletPortrait(@selector, @tabletPortraitSteps) when (@use-tablet-portrait = true) {
-    @media @only-tablet-portrait {
-        // Tablet portrait
-        .@{selector} > * {
-            .setColumns(@tabletPortraitSteps);
-        }
-    }
-}
-/* private */.checkAutoClearTabletLandscape(@selector, @tabletLandscapeSteps) when (@use-tablet-landscape = true) {
-    @media @only-tablet-landscape {
-        // Tablet landscape
-        .@{selector} > * {
-            .setColumns(@tabletLandscapeSteps);
-        }
-    }
-}
-/* private */.checkAutoClearHdReady(@selector, @hdReadySteps) when (@use-hd-ready = true) {
-    @media @only-hd-ready {
-        // HD Ready
-        .@{selector} > * {
-            .setColumns(@hdReadySteps);
-        }
-    }
-}
-/* private */.checkAutoClearHdFull(@selector, @hdFullSteps) when (@use-hd-full = true) {
-    @media @only-hd-full {
-        // Full HD
-        .@{selector} > * {
-            .setColumns(@hdFullSteps);
+            ._setFloatGridColumns(@steps);
         }
     }
 }
 
-
-/* private */.addStep(@selector:step, @width:false) when (@width = false) {
+.addStep(@selector:step, @width:false) when (@width = false) {
     .@{selector} {
         display: block;
         margin-left: auto;
@@ -165,146 +169,146 @@
     }
 }
 
-.addColumnSet(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) {
+._addFloatGridColumnSet(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) {
     @startIndex: @totalSteps;
-    .loopColumnSet(@totalSteps, @prefix, @startIndex, ~"", @viewTotalColumns, @columnsSeparator);
+    ._loopFloatGridColumnSet(@totalSteps, @prefix, @startIndex, ~"", @viewTotalColumns, @columnsSeparator);
 }
 
-/* private */.addFillToColumnSet(@prefix, @totalSteps, @fillViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-) {
+._addFillToColumnSet(@prefix, @totalSteps, @fillViewport:"smartphone-landscape", @viewTotalColumns:true, @columnsSeparator:-of-) {
     @startIndex: @totalSteps;
-    .loopColumnSetFill(@prefix, @totalSteps, @fillViewport, @startIndex, @viewTotalColumns, @columnsSeparator);
+    ._loopFloatGridColumnSetFill(@prefix, @totalSteps, @fillViewport, @startIndex, @viewTotalColumns, @columnsSeparator);
 }
 
-/* private */.preventSmartphoneColumnSet(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) when (@use-smartphone-landscape = true) {
+._preventSmartphoneColumnSet(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) when (@use-smartphone-landscape = true) {
     @startIndex: @totalSteps;
     @media @till-tablet-portrait {
         // Smartphone landscape
-        .loopSmartphoneColumnSet(@prefix, @totalSteps, @startIndex, @viewTotalColumns, @columnsSeparator);
+        ._loopSmartphoneColumnSet(@prefix, @totalSteps, @startIndex, @viewTotalColumns, @columnsSeparator);
     }
 }
 
-/* private */.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = true) {
+._loopFloatGridColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = true) {
     @nextRule:~".@{prefix}@{index}@{columnsSeparator}@{total}";
-    .loopColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
-}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = true) {
+    ._loopFloatGridColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}._loopFloatGridColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = true) {
     @nextRule:~"@{prevRule}, .@{prefix}@{index}@{columnsSeparator}@{total}";
-    .loopColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
-}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = true) {
+    ._loopFloatGridColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}._loopFloatGridColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = true) {
     .@{prefix}@{index}@{columnsSeparator}@{total} {
-        .setColumnStep(@index, @total);
+        ._setFloatGridColumnStep(@index, @total);
     }
-}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = true) {
+}._loopFloatGridColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = true) {
     @{prevRule} {
-        .setColumnBehavior();
+        ._setColumnBehavior();
         .box-sizing(border-box);
     }
 }
-/* private */.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = false) {
+._loopFloatGridColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = false) {
     @nextRule:~".@{prefix}@{index}";
-    .loopColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
-}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = false) {
+    ._loopFloatGridColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}._loopFloatGridColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = false) {
     @nextRule:~"@{prevRule}, .@{prefix}@{index}";
-    .loopColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
-}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = false) {
+    ._loopFloatGridColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}._loopFloatGridColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = false) {
     .@{prefix}@{index} {
-        .setColumnStep(@index, @total);
+        ._setFloatGridColumnStep(@index, @total);
     }
-}.loopColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = false) {
+}._loopFloatGridColumnSet (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = false) {
     @{prevRule} {
-        .setColumnBehavior();
+        ._setColumnBehavior();
         .box-sizing(border-box);
     }
 }
 
-/* private */.addColumnMarginOffset(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) {
+._addColumnMarginOffset(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) {
     @startIndex: @totalSteps;
-    .loopColumnMarginOffset(@totalSteps, @prefix, @startIndex, ~"", @viewTotalColumns, @columnsSeparator);
+    ._loopColumnMarginOffset(@totalSteps, @prefix, @startIndex, ~"", @viewTotalColumns, @columnsSeparator);
 }
 
-/* private */.loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = true) {
+._loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = true) {
     @nextRule:~".@{prefix}@{index}@{columnsSeparator}@{total}";
-    .loopColumnMarginOffset(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
-}.loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = true) {
+    ._loopColumnMarginOffset(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}._loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = true) {
     @nextRule:~"@{prevRule}, .@{prefix}@{index}@{columnsSeparator}@{total}";
-    .loopColumnMarginOffset(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
-}.loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = true) {
+    ._loopColumnMarginOffset(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}._loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = true) {
     .@{prefix}@{index}@{columnsSeparator}@{total} {
-        .setColumnMarginOffsetStep(@index, @total);
+        ._setColumnMarginOffsetStep(@index, @total);
     }
-}.loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = true) {
+}._loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = true) {
     //@{prevRule} {
-    //    .setColumnBehavior();
+    //    ._setColumnBehavior();
     //    .box-sizing(border-box);
     //}
 }
-/* private */.loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = false) {
+._loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = false) {
     @nextRule:~".@{prefix}@{index}";
-    .loopColumnMarginOffset(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
-}.loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = false) {
+    ._loopColumnMarginOffset(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}._loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = false) {
     @nextRule:~"@{prevRule}, .@{prefix}@{index}";
-    .loopColumnMarginOffset(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
-}.loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = false) {
+    ._loopColumnMarginOffset(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}._loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = false) {
     .@{prefix}@{index} {
-        .setColumnMarginOffsetStep(@index, @total);
+        ._setColumnMarginOffsetStep(@index, @total);
     }
-}.loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = false) {
+}._loopColumnMarginOffset (@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = false) {
     //@{prevRule} {
-    //    .setColumnBehavior();
+    //    ._setColumnBehavior();
     //    .box-sizing(border-box);
     //}
 }
 
-/* private */.setColumnMarginOffsetStep(@step, @columns) {
+._setColumnMarginOffsetStep(@step, @columns) {
     margin-left:((100% * @step)/@columns);
 }
 
-/* private */.loopSmartphoneColumnSet(@prefix, @total, @index, @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = true) {
+._loopSmartphoneColumnSet(@prefix, @total, @index, @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = true) {
     .@{prefix}@{index}@{columnsSeparator}@{total} {
-        .setColumnStep(@index, @total);
+        ._setFloatGridColumnStep(@index, @total);
     }
-    .loopSmartphoneColumnSet(@prefix, @total, @index - 1, @viewTotalColumns, @columnsSeparator);
-}.loopSmartphoneColumnSet(@prefix, @total, @index, @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = false) {
+    ._loopSmartphoneColumnSet(@prefix, @total, @index - 1, @viewTotalColumns, @columnsSeparator);
+}._loopSmartphoneColumnSet(@prefix, @total, @index, @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = false) {
     .@{prefix}@{index} {
-        .setColumnStep(@index, @total);
+        ._setFloatGridColumnStep(@index, @total);
     }
-    .loopSmartphoneColumnSet(@prefix, @total, @index - 1, @viewTotalColumns, @columnsSeparator);
+    ._loopSmartphoneColumnSet(@prefix, @total, @index - 1, @viewTotalColumns, @columnsSeparator);
 }
 
-/* private */.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@index = @total) and (@viewTotalColumns = true) {
+._loopFloatGridColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@index = @total) and (@viewTotalColumns = true) {
     @nextRule:~".@{prefix}@{index}@{columnsSeparator}@{total}";
-    .loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator, @nextRule);
-}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@index = @total) and (@viewTotalColumns = false) {
+    ._loopFloatGridColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator, @nextRule);
+}._loopFloatGridColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@index = @total) and (@viewTotalColumns = false) {
     @nextRule:~".@{prefix}@{index}";
-    .loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator, @nextRule);
-}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@index > 0) and (@index < @total) and (@viewTotalColumns = true) {
+    ._loopFloatGridColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator, @nextRule);
+}._loopFloatGridColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@index > 0) and (@index < @total) and (@viewTotalColumns = true) {
     @nextRule:~"@{prevRule}, .@{prefix}@{index}@{columnsSeparator}@{total}";
-    .loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator, @nextRule);
-}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@index > 0) and (@index < @total) and (@viewTotalColumns = false) {
+    ._loopFloatGridColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator, @nextRule);
+}._loopFloatGridColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@index > 0) and (@index < @total) and (@viewTotalColumns = false) {
     @nextRule:~"@{prevRule}, .@{prefix}@{index}";
-    .loopColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator, @nextRule);
+    ._loopFloatGridColumnSetFill(@prefix, @total, @fill, @index - 1, @viewTotalColumns, @columnsSeparator, @nextRule);
 }
-/* private */.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "tablet-landscape") and (@index = 0) and (@use-tablet-landscape = true) {
+._loopFloatGridColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "tablet-landscape") and (@index = 0) and (@use-tablet-landscape = true) {
     @media @till-hd-ready {
         // Tablet landscape
         @{prevRule} {
             width: 100%;
         }
     }
-}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "tablet-portrait") and (@index = 0) and (@use-tablet-portrait = true) {
+}._loopFloatGridColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "tablet-portrait") and (@index = 0) and (@use-tablet-portrait = true) {
     @media @till-tablet-landscape {
         // Tablet portrait
         @{prevRule} {
             width: 100%;
         }
     }
-}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "smartphone-landscape") and (@index = 0) and (@use-smartphone-landscape = true) {
+}._loopFloatGridColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "smartphone-landscape") and (@index = 0) and (@use-smartphone-landscape = true) {
     @media @till-tablet-portrait {
         // Smartphone landscape
         @{prevRule} {
             width: 100%;
         }
     }
-}.loopColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "smartphone-portrait") and (@index = 0) and (@use-smartphone-portrait = true) {
+}._loopFloatGridColumnSetFill(@prefix, @total, @fill, @index, @viewTotalColumns, @columnsSeparator, @prevRule:~"") when (@fill = "smartphone-portrait") and (@index = 0) and (@use-smartphone-portrait = true) {
     @media @till-smartphone-landscape {
         // Smartphone portrait
         @{prevRule} {
@@ -313,20 +317,22 @@
     }
 }
 
-/* private */.setColumns(@columns) {
-    width:(100%/@columns);
-    &:nth-child(@{columns}n+1) {clear:both;}
+._setFloatGridColumns(@columns) {
+    width : (100%/@columns);
+    &:nth-child(@{columns}n+1) {
+        clear : both;
+    }
 }
 
-/* private */.setColumnStep(@step, @columns) {
-    width:((100% * @step)/@columns);
+._setFloatGridColumnStep(@step, @columns) {
+    width : ((100% * @step)/@columns);
 }
 
-/* private */.setColumnBehavior(@usePosition:true) {
-    padding-left: @horizontal-padding;
-    padding-right: @horizontal-padding;
-    padding-bottom: @vertical-padding;
-    float: left;
-}.setColumnBehavior(@usePosition:true) when (@usePosition = true) {
-    position: relative;
+._setColumnBehavior(@usePosition:true, @float:left) {
+    float          : @float;
+    padding-left   : @horizontal-padding;
+    padding-right  : @horizontal-padding;
+    padding-bottom : @vertical-padding;
+}._setColumnBehavior(@usePosition:true) when (@usePosition = true) {
+    position : relative;
 }

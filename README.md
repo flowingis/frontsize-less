@@ -38,6 +38,7 @@ Next release details
 - **moved** grid mixins to `grids` core folder
 - **changed** `.map` files now are based on CSS names automatically
 - **changed** `addFontRule` mixin now is more easy to use
+- **changed** float grid private mixins naming convention to be more easy to be recognized
 - **optimized** background retina mixins, removed useless duplicate code now works smarter
 - **optimized** `font-smoothing` mixin now can skip apply `font-smoothing` property when is the default value
 - **optimized** mixins `spriteRetina` and `size` now skips `box-sizing` duplicates inside retina media query
