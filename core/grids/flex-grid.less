@@ -4,9 +4,94 @@
 
 // http://css-tricks.com/snippets/css/a-guide-to-flexbox/
 
-.addFlexGrid(@selector) {
+.addFlexGridContainer(
+    @selector                  ,
+    @hdFullColums              : 4,
+    @hdReadyColums             : 4,
+    @tabletLandscapeColums     : 3,
+    @tabletPortraitColums      : 2,
+    @smartphoneLandscapeColums : 1,
+    @smartphonePortraitColums  : 1
+    ) {
+
     .@{selector} {
         .display(flex);
-        // code ere
+        .flex-wrap(wrap);
+    }
+
+    .@{selector} > * {
+        .flex-grow(1);
+    }
+
+    ._setFlexGridViewprtColumns(@from-smartphone-portrait,  @smartphonePortraitColums,  @selector);
+    ._setFlexGridViewprtColumns(@from-smartphone-landscape, @smartphoneLandscapeColums, @selector);
+    ._setFlexGridViewprtColumns(@from-tablet-portrait,      @tabletPortraitColums,      @selector);
+    ._setFlexGridViewprtColumns(@from-tablet-landscape,     @tabletLandscapeColums,     @selector);
+    ._setFlexGridViewprtColumns(@from-hd-ready,             @hdReadyColums,             @selector);
+    ._setFlexGridViewprtColumns(@from-hd-full,              @hdFullColums,              @selector);
+
+}
+
+._setFlexGridViewprtColumns(@mediaQueryRule, @columns, @selector) {
+    @media @mediaQueryRule {
+        .@{selector} > * {
+            .flex-basis(unit((100 / @columns), %));
+        }
     }
 }
+
+
+// @hdFullColumns : 4 > @hdFullSteps > 4
+// flex-hd-3-of-4       // addFlexGridColumns
+// flex-hd-ready-3-of-4 // addFlexGridAllColumns
+
+.addFlexGridContainer(flex, 5, 4, 3);
+.flex > * {
+    padding : @global-step;
+}
+
+.addFlexGridColumns(
+    @hdSteps                  : 12,
+    @tabletSteps              : @hdSteps,
+    @smartphoneSteps          : @tabletSteps,
+    @hdViewportPrefix         : hd-flex-,
+    @tabletViewportPrefix     : tablet-flex-,
+    @smartphoneViewportPrefix : smartphone-flex-,
+    @fillFromViewport         : "smartphone-landscape",
+    @viewTotalColumns         : true,
+    @columnsSeparator         : -of-,
+    @useHdRules               : true,
+    @useTabletRules           : true,
+    @useSmartphoneRules       : true
+    ) {
+
+    @media @from-smartphone-portrait {
+        // Smartphone portrait
+        ._addFlexGridColumnSet(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
+        ._addFlexGridColumnSet(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
+        ._addFlexGridColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+    }
+
+    @media @from-tablet-portrait {
+        // Tablet portrait
+        ._addFlexGridColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+        ._addFlexGridColumnSet(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
+        ._addFlexGridColumnSet(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
+    }
+
+    @media @from-hd-ready {
+        // HD Ready
+        ._addFlexGridColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+        ._addFlexGridColumnSet(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
+        ._addFlexGridColumnSet(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
+    }
+
+}
+
+/* private mixins */
+
+._addFlexGridColumnSet(@prefix, @steps, @viewTotalColumns, @columnsSeparator) {
+
+}
+
+
