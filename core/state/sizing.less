@@ -1,4 +1,4 @@
-.initSizingSelectors() when (@use-state-sizing = true) {
+._initSizingSelectors() when (@use-state-sizing = true) {
 
     .wrap {
         // avoid the unwanted width over the 100% of the size of the container
@@ -10,8 +10,7 @@
     }
 
     .full {
-        .setColumnBehavior(false);
-        float: none;
+        ._setColumnBehavior(false, none);
     }
 
     .inline {
@@ -77,7 +76,7 @@
         width: auto @important;
         height: auto @important;
     }
-    
+
     .same-same {
         //make more floating divs equal height
 	    overflow: hidden @important;
@@ -131,4 +130,4 @@
     }
 }
 
-.initSizingSelectors();
+._initSizingSelectors();
