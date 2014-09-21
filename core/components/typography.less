@@ -1,473 +1,180 @@
-.setLineHeightScaling(@selector:body, @hdFull:@font-line-height, @hdReady:@font-line-height, @tabletLandscape:@font-line-height, @tabletPortrait:@font-line-height, @smartphoneLandscape:@font-line-height, @smartphonePortrait:@font-line-height) {
-    .setLineHeightScalingSmartphonePortrait(@selector, @smartphonePortrait);
-    .setLineHeightScalingSmartphoneLandscape(@selector, @smartphoneLandscape);
-    .setLineHeightScalingTabletPortrait(@selector, @tabletPortrait);
-    .setLineHeightScalingTabletLandscape(@selector, @tabletLandscape);
-    .setLineHeightScalingHdReady(@selector, @hdReady);
-    .setLineHeightScalingHdFull(@selector, @hdFull);
+.setLineHeightScaling(
+    @selector            : body,
+    @hdFull              : @font-line-height,
+    @hdReady             : @font-line-height,
+    @tabletLandscape     : @font-line-height,
+    @tabletPortrait      : @font-line-height,
+    @smartphoneLandscape : @font-line-height,
+    @smartphonePortrait  : @font-line-height
+    ) {
+
+    ._setLineHeightScaling(@from-smartphone-portrait,  @selector, @smartphonePortrait,  @use-smartphone-portrait);
+    ._setLineHeightScaling(@from-smartphone-landscape, @selector, @smartphoneLandscape, @use-smartphone-landscape);
+    ._setLineHeightScaling(@from-tablet-portrait,      @selector, @tabletPortrait,      @use-tablet-portrait);
+    ._setLineHeightScaling(@from-tablet-landscape,     @selector, @tabletLandscape,     @use-tablet-landscape);
+    ._setLineHeightScaling(@from-hd-ready,             @selector, @hdReady,             @use-hd-ready);
+    ._setLineHeightScaling(@from-hd-full,              @selector, @hdFull,              @use-hd-full);
 }
-.setLineHeightScalingSmartphonePortrait(@selector, @smartphonePortrait) when (@use-smartphone-portrait = true) {
-    @media @from-smartphone-portrait {
-        // Smartphone portrait
+
+._setLineHeightScaling(@viewport, @selector, @lineHeight, @viewportEnabled) when (@viewportEnabled = true) {
+    @media @viewport {
         @{selector} {
-            line-height: @smartphonePortrait;
-        }
-    }
-}
-.setLineHeightScalingSmartphoneLandscape(@selector, @smartphoneLandscape) when (@use-smartphone-landscape = true) {
-    @media @from-smartphone-landscape {
-        // Smartphone landscape
-        @{selector} {
-            line-height: @smartphoneLandscape;
-        }
-    }
-}
-.setLineHeightScalingTabletPortrait(@selector, @tabletPortrait) when (@use-tablet-portrait = true) {
-    @media @from-tablet-portrait {
-        // Tablet portrait
-        @{selector} {
-            line-height: @tabletPortrait;
-        }
-    }
-}
-.setLineHeightScalingTabletLandscape(@selector, @tabletLandscape) when (@use-tablet-landscape = true) {
-    @media @from-tablet-landscape {
-        // Tablet landscape
-        @{selector} {
-            line-height: @tabletLandscape;
-        }
-    }
-}
-.setLineHeightScalingHdReady(@selector, @hdReady) when (@use-hd-ready = true) {
-    @media @from-hd-ready {
-        // HD Ready
-        @{selector} {
-            line-height: @hdReady;
-        }
-    }
-}
-.setLineHeightScalingHdFull(@selector, @hdFull) when (@use-hd-full = true) {
-    @media @from-hd-full {
-        // Full HD
-        @{selector} {
-            line-height: @hdFull;
+            line-height : @lineHeight;
         }
     }
 }
 
 .setFontScaling(@selector, @hdFull:(@font-size + (@font-size/2)), @hdReady:(@font-size + (@font-size/4)), @tabletLandscape:@font-size, @tabletPortrait:@font-size, @smartphoneLandscape:@font-size, @smartphonePortrait:@font-size) {
-    // Media queries for selectors active from a specific resolution or higher
-    .setFontScalingSmartphonePortrait(@selector, @smartphonePortrait);
-    .setFontScalingSmartphoneLandscape(@selector, @smartphoneLandscape);
-    .setFontScalingTabletPortrait(@selector, @tabletPortrait);
-    .setFontScalingTabletLandscape(@selector, @tabletLandscape);
-    .setFontScalingHdReady(@selector, @hdReady);
-    .setFontScalingHdFull(@selector, @hdFull);
+    ._setFontScaling(@from-smartphone-portrait,  @selector, @smartphonePortrait,  @use-smartphone-portrait);
+    ._setFontScaling(@from-smartphone-landscape, @selector, @smartphoneLandscape, @use-smartphone-landscape);
+    ._setFontScaling(@from-tablet-portrait,      @selector, @tabletPortrait,      @use-tablet-portrait);
+    ._setFontScaling(@from-tablet-landscape,     @selector, @tabletLandscape,     @use-tablet-landscape);
+    ._setFontScaling(@from-hd-ready,             @selector, @hdReady,             @use-hd-ready);
+    ._setFontScaling(@from-hd-full,              @selector, @hdFull,              @use-hd-full);
 }
-/* private */.setFontScalingSmartphonePortrait(@selector, @smartphonePortrait) when (@use-smartphone-portrait = true) {
-    @media @from-smartphone-portrait {
-        // Smartphone portrait
+
+._setFontScaling(@viewport, @selector, @fontSize, @viewportEnabled) when (@viewportEnabled = true) {
+    @media @viewport {
         @{selector} {
-            font-size: @smartphonePortrait;
-        }
-    }
-}
-/* private */.setFontScalingSmartphoneLandscape(@selector, @smartphoneLandscape) when (@use-smartphone-landscape = true) {
-    @media @from-smartphone-landscape {
-        // Smartphone landscape
-        @{selector} {
-            font-size: @smartphoneLandscape;
-        }
-    }
-}
-/* private */.setFontScalingTabletPortrait(@selector, @tabletPortrait) when (@use-tablet-portrait = true) {
-    @media @from-tablet-portrait {
-        // Tablet portrait
-        @{selector} {
-            font-size:@tabletPortrait;
-        }
-    }
-}
-/* private */.setFontScalingTabletLandscape(@selector, @tabletLandscape) when (@use-tablet-landscape = true) {
-    @media @from-tablet-landscape {
-        // Tablet landscape
-        @{selector} {
-            font-size:@tabletLandscape;
-        }
-    }
-}
-/* private */.setFontScalingHdReady(@selector, @hdReady) when (@use-hd-ready = true) {
-    @media @from-hd-ready {
-        // HD Ready
-        @{selector} {
-            font-size:@hdReady;
-        }
-    }
-}
-/* private */.setFontScalingHdFull(@selector, @hdFull) when (@use-hd-full = true) {
-    @media @from-hd-full {
-        // Full HD
-        @{selector} {
-            font-size:@hdFull;
+            font-size : @fontSize;
         }
     }
 }
 
-.addFontsRule(@selector:with-small-fonts, @fontFamilyHd:@font-small, @fontSizeHd:0.75em, @antialiasHd:antialiased, @fontFamilyTablet:@font-small, @fontSizeTablet:0.75em, @antialiasTablet:antialiased, @fontFamilySmartphone:@font-small, @fontSizeSmartphone:0.85em, @antialiasSmartphone:subpixel-antialiased) {
-    // Media queries for selectors active from a specific resolution or higher
-    .addFontsRuleHdReady(@selector, @fontFamilyHd, @fontSizeHd, @antialiasHd);
-    .addFontsRuleHdFull(@selector, @fontFamilyHd, @fontSizeHd, @antialiasHd);
-    .addFontsRuleTabletPortrait(@selector, @fontFamilyTablet, @fontSizeTablet, @antialiasTablet);
-    .addFontsRuleTabletLandscape(@selector, @fontFamilyTablet, @fontSizeTablet, @antialiasTablet);
-    .addFontsRuleSmartphonePortrait(@selector, @fontFamilySmartphone, @fontSizeSmartphone, @antialiasSmartphone);
-    .addFontsRuleSmartphoneLandscape(@selector, @fontFamilySmartphone, @fontSizeSmartphone, @antialiasSmartphone);
+.addMultipleFontsRule(
+    @selector             : with-small-fonts,
+    @fontFamilyHd         : @font-small,
+    @fontSizeHd           : 14px,
+    @fontFamilyTablet     : @font-small,
+    @fontSizeTablet       : 14px,
+    @fontFamilySmartphone : @font-small,
+    @fontSizeSmartphone   : 12px,
+    @antialias            : subpixel-antialiased
+    ) {
+
+    ._addMultipleFontsRule(@from-smartphone-portrait, @selector, @fontFamilySmartphone, @fontSizeSmartphone, @use-smartphone-portrait);
+    ._addMultipleFontsRule(@from-tablet-portrait,     @selector, @fontFamilyTablet,     @fontSizeTablet,     @use-tablet-portrait);
+    ._addMultipleFontsRule(@from-hd-ready,            @selector, @fontFamilyHd,         @fontSizeHd,         @use-hd-ready);
+    .font-smoothing(@antialias);
 }
-/* private */.addFontsRuleHdReady(@selector, @fontFamilyHd, @fontSizeHd, @antialiasHd) when (@use-hd-ready = true) {
-    @media @from-hd-ready {
-        // HD Ready
+
+._addMultipleFontsRule(@viewport, @selector, @fontFamily, @fontSize, @viewportEnabled) when (@viewportEnabled = true) {
+    @media @viewport {
         .@{selector} {
-            font-family:@fontFamilyHd;
-            font-size:@fontSizeHd;
-            .font-smoothing(@antialiasHd);
-        }
-    }
-}
-/* private */.addFontsRuleHdFull(@selector, @fontFamilyHd, @fontSizeHd, @antialiasHd) when (@use-hd-full = true) {
-    @media @from-hd-full {
-        // Full HD
-        .@{selector} {
-            font-family:@fontFamilyHd;
-            font-size:@fontSizeHd;
-            .font-smoothing(@antialiasHd);
-        }
-    }
-}
-/* private */.addFontsRuleTabletPortrait(@selector, @fontFamilyTablet, @fontSizeTablet, @antialiasTablet) when (@use-tablet-portrait = true) {
-    @media @from-tablet-portrait {
-        // Tablet portrait
-        .@{selector} {
-            font-family:@fontFamilyTablet;
-            font-size:@fontSizeTablet;
-            .font-smoothing(@antialiasTablet);
-        }
-    }
-}
-/* private */.addFontsRuleTabletLandscape(@selector, @fontFamilyTablet, @fontSizeTablet, @antialiasTablet) when (@use-tablet-landscape = true) {
-    @media @from-tablet-landscape {
-        // Tablet landscape
-        .@{selector} {
-            font-family:@fontFamilyTablet;
-            font-size:@fontSizeTablet;
-            .font-smoothing(@antialiasTablet);
-        }
-    }
-}
-/* private */.addFontsRuleSmartphonePortrait(@selector, @fontFamilySmartphone, @fontSizeSmartphone, @antialiasSmartphone) when (@use-smartphone-portrait = true) {
-    @media @from-smartphone-portrait {
-        // Smartphone portrait
-        .@{selector} {
-            font-family:@fontFamilySmartphone;
-            font-size:@fontSizeSmartphone;
-            .font-smoothing(@antialiasSmartphone);
-        }
-    }
-}
-/* private */.addFontsRuleSmartphoneLandscape(@selector, @fontFamilySmartphone, @fontSizeSmartphone, @antialiasSmartphone) when (@use-smartphone-landscape = true) {
-    @media @from-smartphone-landscape {
-        // Smartphone landscape
-        .@{selector} {
-            font-family:@fontFamilySmartphone;
-            font-size:@fontSizeSmartphone;
-            .font-smoothing(@antialiasSmartphone);
+            font-family : @fontFamily;
+            font-size   : @fontSize;
         }
     }
 }
 
-.setHeadingFont(@hdFullFontSize:1.5em, @hdReadyFontSize:1.25em, @tabletLandscapeFontSize:1.125em, @tabletPortraitFontSize:1.125em, @smartphoneLandscapeFontSize:1em, @smartphonePortraitFontSize:1em) {
-    // Media queries for selectors active from a specific resolution or higher
-    .setHeadingFontSmartphonePortrait(@smartphonePortraitFontSize);
-    .setHeadingFontSmartphoneLandscape(@smartphoneLandscapeFontSize);
-    .setHeadingFontTabletPortrait(@tabletPortraitFontSize);
-    .setHeadingFontTabletLandscape(@tabletLandscapeFontSize);
-    .setHeadingFontHdReady(@hdReadyFontSize);
-    .setHeadingFontHdFull(@hdFullFontSize);
+
+.setHeadingFont(
+    @hdFullMultiplier              : 1.5,
+    @hdReadyMultiplier             : 1.25,
+    @tabletLandscapeMultiplier     : 1,
+    @tabletPortraitMultiplier      : 1,
+    @smartphoneLandscapeMultiplier : 1,
+    @smartphonePortraitMultiplier  : 1,
+    @marginBottom                  : unit((@global-step / 4), px)
+    ) {
+
+    ._setHeadingFont(@from-smartphone-portrait,  @smartphonePortraitMultiplier,  @marginBottom, @use-smartphone-portrait);
+    ._setHeadingFont(@from-smartphone-landscape, @smartphoneLandscapeMultiplier, @marginBottom, @use-smartphone-landscape);
+    ._setHeadingFont(@from-tablet-portrait,      @tabletPortraitMultiplier,      @marginBottom, @use-tablet-portrait);
+    ._setHeadingFont(@from-tablet-landscape,     @tabletLandscapeMultiplier,     @marginBottom, @use-tablet-landscape);
+    ._setHeadingFont(@from-hd-ready,             @hdReadyMultiplier,             @marginBottom, @use-hd-ready);
+    ._setHeadingFont(@from-hd-full,              @hdFullMultiplier,              @marginBottom, @use-hd-full);
 }
 
-/* private */.setHeadingFontSmartphonePortrait(@smartphonePortraitFontSize) when (@use-smartphone-portrait = true) {
-    @media @from-smartphone-portrait {
-        // Smartphone portrait
+._setHeadingFont(@viewport, @multiplier, @margin, @viewportEnabled) when (@viewportEnabled = true) {
+    @media @viewport {
         h1 {
-            font-size: (@h1 * @smartphonePortraitFontSize);
+            font-size : round(unit((@h1 * @multiplier), px));
         }
         h2 {
-            font-size: (@h2 * @smartphonePortraitFontSize);
+            font-size : round(unit((@h2 * @multiplier), px));
         }
         h3 {
-            font-size: (@h3 * @smartphonePortraitFontSize);
+            font-size : round(unit((@h3 * @multiplier), px));
         }
         h4 {
-            font-size: (@h4 * @smartphonePortraitFontSize);
+            font-size : round(unit((@h4 * @multiplier), px));
         }
         h5 {
-            font-size: (@h5 * @smartphonePortraitFontSize);
+            font-size : round(unit((@h5 * @multiplier), px));
         }
         h6 {
-            font-size: (@h6 * @smartphonePortraitFontSize);
+            font-size : round(unit((@h6 * @multiplier), px));
         }
         h1, h2, h3, h4, h5, h6 {
-            margin-bottom: (@smartphonePortraitFontSize / 4);
-        }
-    }
-}
-/* private */.setHeadingFontSmartphoneLandscape(@smartphoneLandscapeFontSize) when (@use-smartphone-landscape = true) {
-    @media @from-smartphone-landscape {
-        // Smartphone landscape
-        h1 {
-            font-size: (@h1 * @smartphoneLandscapeFontSize);
-        }
-        h2 {
-            font-size: (@h2 * @smartphoneLandscapeFontSize);
-        }
-        h3 {
-            font-size: (@h3 * @smartphoneLandscapeFontSize);
-        }
-        h4 {
-            font-size: (@h4 * @smartphoneLandscapeFontSize);
-        }
-        h5 {
-            font-size: (@h5 * @smartphoneLandscapeFontSize);
-        }
-        h6 {
-            font-size: (@h6 * @smartphoneLandscapeFontSize);
-        }
-        h1, h2, h3, h4, h5, h6 {
-            margin-bottom: (@smartphoneLandscapeFontSize / 4);
-        }
-    }
-}
-/* private */.setHeadingFontTabletPortrait(@tabletPortraitFontSize) when (@use-tablet-portrait = true) {
-    @media @from-tablet-portrait {
-        // Tablet portrait
-        h1 {
-            font-size: (@h1 * @tabletPortraitFontSize);
-        }
-        h2 {
-            font-size: (@h2 * @tabletPortraitFontSize);
-        }
-        h3 {
-            font-size: (@h3 * @tabletPortraitFontSize);
-        }
-        h4 {
-            font-size: (@h4 * @tabletPortraitFontSize);
-        }
-        h5 {
-            font-size: (@h5 * @tabletPortraitFontSize);
-        }
-        h6 {
-            font-size: (@h6 * @tabletPortraitFontSize);
-        }
-        h1, h2, h3, h4, h5, h6 {
-            margin-bottom: (@tabletPortraitFontSize / 4);
-        }
-    }
-}
-/* private */.setHeadingFontTabletLandscape(@tabletLandscapeFontSize) when (@use-tablet-landscape = true) {
-    @media @from-tablet-landscape {
-        // Tablet landscape
-        h1 {
-            font-size: (@h1 * @tabletLandscapeFontSize);
-        }
-        h2 {
-            font-size: (@h2 * @tabletLandscapeFontSize);
-        }
-        h3 {
-            font-size: (@h3 * @tabletLandscapeFontSize);
-        }
-        h4 {
-            font-size: (@h4 * @tabletLandscapeFontSize);
-        }
-        h5 {
-            font-size: (@h5 * @tabletLandscapeFontSize);
-        }
-        h6 {
-            font-size: (@h6 * @tabletLandscapeFontSize);
-        }
-        h1, h2, h3, h4, h5, h6 {
-            margin-bottom: (@tabletLandscapeFontSize / 4);
-        }
-    }
-}
-/* private */.setHeadingFontHdReady(@hdReadyFontSize) when (@use-hd-ready = true) {
-    @media @from-hd-ready {
-        // HD Ready
-        h1 {
-            font-size: (@h1 * @hdReadyFontSize);
-        }
-        h2 {
-            font-size: (@h2 * @hdReadyFontSize);
-        }
-        h3 {
-            font-size: (@h3 * @hdReadyFontSize);
-        }
-        h4 {
-            font-size: (@h4 * @hdReadyFontSize);
-        }
-        h5 {
-            font-size: (@h5 * @hdReadyFontSize);
-        }
-        h6 {
-            font-size: (@h6 * @hdReadyFontSize);
-        }
-        h1, h2, h3, h4, h5, h6 {
-            margin-bottom: (@hdReadyFontSize / 4);
-        }
-    }
-}
-/* private */.setHeadingFontHdFull(@hdFullFontSize) when (@use-hd-full = true) {
-    @media @from-hd-full {
-        // Full HD
-        h1 {
-            font-size: (@h1 * @hdFullFontSize);
-        }
-        h2 {
-            font-size: (@h2 * @hdFullFontSize);
-        }
-        h3 {
-            font-size: (@h3 * @hdFullFontSize);
-        }
-        h4 {
-            font-size: (@h4 * @hdFullFontSize);
-        }
-        h5 {
-            font-size: (@h5 * @hdFullFontSize);
-        }
-        h6 {
-            font-size: (@h6 * @hdFullFontSize);
-        }
-        h1, h2, h3, h4, h5, h6 {
-            margin-bottom: (@hdFullFontSize / 4);
+            margin-bottom : round(unit((@margin * @multiplier), px));
         }
     }
 }
 
 .addFontRule(
-    @selector,
-    @fontFamily:@font-default,
-    @hdFullFontSize:@font-size,
-    @hdReadyFontSize:@hdFullFontSize,
-    @tabletLandscapeFontSize:@hdReadyFontSize,
-    @tabletPortraitFontSize:@tabletLandscapeFontSize,
-    @smartphoneLandscapeFontSize:@tabletPortraitFontSize,
-    @smartphonePortraitFontSize:@smartphoneLandscapeFontSize,
-    @lineHeightMultiplier:@global-step,
-    @antialias:subpixel-antialiased) {
+    @selector                    ,
+    @fontFamily                  : @font-default,
+    @hdFullFontSize              : @font-size,
+    @hdReadyFontSize             : @hdFullFontSize,
+    @tabletLandscapeFontSize     : @hdReadyFontSize,
+    @tabletPortraitFontSize      : @tabletLandscapeFontSize,
+    @smartphoneLandscapeFontSize : @tabletPortraitFontSize,
+    @smartphonePortraitFontSize  : @smartphoneLandscapeFontSize,
+    @lineHeightMultiplier        : @global-step,
+    @antialias                   : subpixel-antialiased
+    ) {
     // Media queries for selectors active from the smaller resolution to a specific one
     .@{selector} {
         font-family : @fontFamily;
         line-height : @lineHeightMultiplier;
         .font-smoothing(@antialias);
     }
-    .addFontRuleHdFull(@selector, @hdFullFontSize);
-    .addFontRuleHdReady(@selector, @hdReadyFontSize);
-    .addFontRuleTabletLandscape(@selector, @tabletLandscapeFontSize);
-    .addFontRuleTabletPortrait(@selector, @tabletPortraitFontSize);
-    .addFontRuleSmartphoneLandscape(@selector, @smartphoneLandscapeFontSize);
-    .addFontRuleSmartphonePortrait(@selector, @smartphonePortraitFontSize);
+
+    ._addFontRule(@from-hd-full,              @selector, @hdFullFontSize,              @use-hd-full);
+    ._addFontRule(@till-hd-full,              @selector, @hdReadyFontSize,             @use-hd-ready);
+    ._addFontRule(@till-hd-ready,             @selector, @tabletLandscapeFontSize,     @use-tablet-landscape);
+    ._addFontRule(@till-tablet-landscape,     @selector, @tabletPortraitFontSize,      @use-tablet-portrait);
+    ._addFontRule(@till-tablet-portrait,      @selector, @smartphoneLandscapeFontSize, @use-smartphone-landscape);
+    ._addFontRule(@till-smartphone-landscape, @selector, @smartphonePortraitFontSize,  @use-smartphone-portrait);
 }
-/* private */.addFontRuleHdFull(@selector, @hdFullFontSize) when (@use-hd-full = true) {
-    @media @from-hd-full {
-        // Full HD
+
+._addFontRule(@viewport, @selector, @fontSize, @viewportEnabled) when (@viewportEnabled = true) {
+    @media @viewport {
         .@{selector} {
-            font-size:@hdFullFontSize !important;
-        }
-    }
-}
-/* private */.addFontRuleHdReady(@selector, @hdReadyFontSize) when (@use-hd-ready = true) {
-    @media @till-hd-full {
-        // HD Ready
-        .@{selector} {
-            font-size:@hdReadyFontSize !important;
-        }
-    }
-}
-/* private */.addFontRuleTabletLandscape(@selector, @tabletLandscapeFontSize) when (@use-tablet-landscape = true) {
-    @media @till-hd-ready {
-        // Tablet landscape
-        .@{selector} {
-            font-size:@tabletLandscapeFontSize !important;
-        }
-    }
-}
-/* private */.addFontRuleTabletPortrait(@selector, @tabletPortraitFontSize) when (@use-tablet-portrait = true) {
-    @media @till-tablet-landscape {
-        // Tablet portrait
-        .@{selector} {
-            font-size:@tabletPortraitFontSize !important;
-        }
-    }
-}
-/* private */.addFontRuleSmartphoneLandscape(@selector, @smartphoneLandscapeFontSize) when (@use-smartphone-landscape = true) {
-    @media @till-tablet-portrait {
-        // Smartphone landscape
-        .@{selector} {
-            font-size:@smartphoneLandscapeFontSize !important;
-        }
-    }
-}
-/* private */.addFontRuleSmartphonePortrait(@selector, @smartphonePortraitFontSize) when (@use-smartphone-portrait = true) {
-    @media @till-smartphone-landscape {
-        // Smartphone portrait
-        .@{selector} {
-            font-size:@smartphonePortraitFontSize !important;
+            font-size : @fontSize !important;
         }
     }
 }
 
-.setViewportsFontSize(@hdFullFontSize:1em, @hdReadyFontSize:1em, @tabletLandscapeFontSize:1em, @tabletPortraitFontSize:1em, @smartphoneLandscapeFontSize:1em, @smartphonePortraitFontSize:1em, @lineHeightMultiplier:@font-line-height) {
-    // Media queries for selectors active from the smaller resolution to a specific one
-    line-height: @lineHeightMultiplier;
-    .setViewportsFontSizeHdFull(@hdFullFontSize);
-    .setViewportsFontSizeHdReady(@hdReadyFontSize);
-    .setViewportsFontSizeTabletLandscape(@tabletLandscapeFontSize);
-    .setViewportsFontSizeTabletPortrait(@tabletPortraitFontSize);
-    .setViewportsFontSizeSmartphoneLandscape(@smartphoneLandscapeFontSize);
-    .setViewportsFontSizeSmartphonePortrait(@smartphonePortraitFontSize);
-}
-/* private */.setViewportsFontSizeHdFull(@hdFullFontSize) when (@use-hd-full = true) {
-    @media @from-hd-full {
-        // Full HD
-        font-size:@hdFullFontSize !important;
-    }
-}
-/* private */.setViewportsFontSizeHdReady(@hdReadyFontSize) when (@use-hd-ready = true) {
-    @media @till-hd-full {
-        // HD Ready
-        font-size:@hdReadyFontSize !important;
-    }
-}
-/* private */.setViewportsFontSizeTabletLandscape(@tabletLandscapeFontSize) when (@use-tablet-landscape = true) {
-    @media @till-hd-ready {
-        // Tablet landscape
-        font-size:@tabletLandscapeFontSize !important;
-    }
-}
-/* private */.setViewportsFontSizeTabletPortrait(@tabletPortraitFontSize) when (@use-tablet-portrait = true) {
-    @media @till-tablet-landscape {
-        // Tablet portrait
-        font-size:@tabletPortraitFontSize !important;
-    }
-}
-/* private */.setViewportsFontSizeSmartphoneLandscape(@smartphoneLandscapeFontSize) when (@use-smartphone-landscape = true) {
-    @media @till-tablet-portrait {
-        // Smartphone landscape
-        font-size:@smartphoneLandscapeFontSize !important;
-    }
-}
-/* private */.setViewportsFontSizeSmartphonePortrait(@smartphonePortraitFontSize) when (@use-smartphone-portrait = true) {
-    @media @till-smartphone-landscape {
-        // Smartphone portrait
-        font-size:@smartphonePortraitFontSize !important;
-    }
+.setViewportsFontSize(
+    @hdFullFontSize              : 16px,
+    @hdReadyFontSize             : 16px,
+    @tabletLandscapeFontSize     : 16px,
+    @tabletPortraitFontSize      : 16px,
+    @smartphoneLandscapeFontSize : 16px,
+    @smartphonePortraitFontSize  : 16px,
+    @lineHeightMultiplier        : @font-line-height,
+    @useImportant                : true
+    ) {
+
+    line-height : @lineHeightMultiplier;
+
+    ._setViewportsFontSize(@from-hd-full,              @hdFullFontSize,              @useImportant, @use-hd-full);
+    ._setViewportsFontSize(@till-hd-full,              @hdReadyFontSize,             @useImportant, @use-hd-ready);
+    ._setViewportsFontSize(@till-hd-ready,             @tabletLandscapeFontSize,     @useImportant, @use-tablet-landscape);
+    ._setViewportsFontSize(@till-tablet-landscape,     @tabletPortraitFontSize,      @useImportant, @use-tablet-portrait);
+    ._setViewportsFontSize(@till-tablet-portrait,      @smartphoneLandscapeFontSize, @useImportant, @use-smartphone-landscape);
+    ._setViewportsFontSize(@till-smartphone-landscape, @smartphonePortraitFontSize,  @useImportant, @use-smartphone-portrait);
+
 }
 
-
+._setViewportsFontSize(@viewport, @fontSize, @useImportant, @viewportEnabled) when (@viewportEnabled = true) and (@useImportant = true) {
+    @media @viewport {
+        font-size : @fontSize !important;
+    }
+}._setViewportsFontSize(@viewport, @fontSize, @useImportant, @viewportEnabled) when (@viewportEnabled = true) and not (@useImportant = true) {
+    @media @viewport {
+        font-size : @fontSize;
+    }
+}
