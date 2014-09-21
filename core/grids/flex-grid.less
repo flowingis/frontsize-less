@@ -1,7 +1,3 @@
-
-    /* NOT TESTED YET */
-    /* NOT FINISHED */
-
 // http://css-tricks.com/snippets/css/a-guide-to-flexbox/
 
 .addFlexGridContainer(
@@ -14,40 +10,25 @@
     @smartphonePortraitColums  : 1
     ) {
 
+    // set @hdColumns to [false] instead an [integer] to disable automatic columns
+    @enableColumns : @hdFullColums;
+
     .@{selector} {
         .display(flex);
         .flex-wrap(wrap);
     }
 
     .@{selector} > * {
-        .flex-grow(1);
+        ._setFlexGridColumnBehavior();
     }
 
-    ._setFlexGridViewprtColumns(@from-smartphone-portrait,  @smartphonePortraitColums,  @selector);
-    ._setFlexGridViewprtColumns(@from-smartphone-landscape, @smartphoneLandscapeColums, @selector);
-    ._setFlexGridViewprtColumns(@from-tablet-portrait,      @tabletPortraitColums,      @selector);
-    ._setFlexGridViewprtColumns(@from-tablet-landscape,     @tabletLandscapeColums,     @selector);
-    ._setFlexGridViewprtColumns(@from-hd-ready,             @hdReadyColums,             @selector);
-    ._setFlexGridViewprtColumns(@from-hd-full,              @hdFullColums,              @selector);
+    ._setFlexGridViewprtColumns(@from-smartphone-portrait,  @smartphonePortraitColums,  @selector, @enableColumns);
+    ._setFlexGridViewprtColumns(@from-smartphone-landscape, @smartphoneLandscapeColums, @selector, @enableColumns);
+    ._setFlexGridViewprtColumns(@from-tablet-portrait,      @tabletPortraitColums,      @selector, @enableColumns);
+    ._setFlexGridViewprtColumns(@from-tablet-landscape,     @tabletLandscapeColums,     @selector, @enableColumns);
+    ._setFlexGridViewprtColumns(@from-hd-ready,             @hdReadyColums,             @selector, @enableColumns);
+    ._setFlexGridViewprtColumns(@from-hd-full,              @hdFullColums,              @selector, @enableColumns);
 
-}
-
-._setFlexGridViewprtColumns(@mediaQueryRule, @columns, @selector) {
-    @media @mediaQueryRule {
-        .@{selector} > * {
-            .flex-basis(unit((100 / @columns), %));
-        }
-    }
-}
-
-
-// @hdFullColumns : 4 > @hdFullSteps > 4
-// flex-hd-3-of-4       // addFlexGridColumns
-// flex-hd-ready-3-of-4 // addFlexGridAllColumns
-
-.addFlexGridContainer(flex, 5, 4, 3);
-.flex > * {
-    padding : @global-step;
 }
 
 .addFlexGridColumns(
@@ -65,33 +46,104 @@
     @useSmartphoneRules       : true
     ) {
 
-    @media @from-smartphone-portrait {
-        // Smartphone portrait
-        ._addFlexGridColumnSet(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
-        ._addFlexGridColumnSet(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
-        ._addFlexGridColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
-    }
+    ._addFlexGridColumnSetRule(
+        @from-smartphone-portrait,
+        @smartphoneViewportPrefix, @smartphoneSteps,
+        @tabletViewportPrefix, @tabletSteps,
+        @hdViewportPrefix, @hdSteps,
+        @viewTotalColumns, @columnsSeparator,
+        @useSmartphoneRules
+    );
 
-    @media @from-tablet-portrait {
-        // Tablet portrait
-        ._addFlexGridColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
-        ._addFlexGridColumnSet(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
-        ._addFlexGridColumnSet(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
-    }
+    ._addFlexGridColumnSetRule(
+        @from-tablet-portrait,
+        @tabletViewportPrefix, @tabletSteps,
+        @hdViewportPrefix, @hdSteps,
+        @smartphoneViewportPrefix, @smartphoneSteps,
+        @viewTotalColumns, @columnsSeparator,
+        @useTabletRules
+    );
 
-    @media @from-hd-ready {
-        // HD Ready
-        ._addFlexGridColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
-        ._addFlexGridColumnSet(@tabletViewportPrefix, @tabletSteps, @viewTotalColumns, @columnsSeparator);
-        ._addFlexGridColumnSet(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
-    }
+    ._addFlexGridColumnSetRule(
+        @from-hd-ready,
+        @hdViewportPrefix, @hdSteps,
+        @tabletViewportPrefix, @tabletSteps,
+        @smartphoneViewportPrefix, @smartphoneSteps,
+        @viewTotalColumns, @columnsSeparator,
+        @useHdRules
+    );
 
 }
 
 /* private mixins */
 
-._addFlexGridColumnSet(@prefix, @steps, @viewTotalColumns, @columnsSeparator) {
 
+
+._setFlexGridViewprtColumns(@mediaQueryRule, @columns, @selector, @enableColumns) when not (@enableColumns = false) {
+    @media @mediaQueryRule {
+        .@{selector} > * {
+            .flex-basis(unit((100 / @columns), %));
+        }
+    }
 }
 
+._addFlexGridColumnSetRule(
+    @viewport,
+    @firstChoiceViewportPrefix, @firstChoiceSteps,
+    @secondChoiceViewportPrefix, @secondChoiceSteps,
+    @thirdChoiceViewportPrefix, @thirdChoiceSteps,
+    @viewTotalColumns, @columnsSeparator,
+    @useRules
+    ) {
+    @media @viewport {
+        // Smartphone portrait
+        ._addFlexGridColumnSet(@thirdChoiceViewportPrefix,  @thirdChoiceSteps,  @viewTotalColumns, @columnsSeparator);
+        ._addFlexGridColumnSet(@secondChoiceViewportPrefix, @secondChoiceSteps, @viewTotalColumns, @columnsSeparator);
+        ._addFlexGridColumnSet(@firstChoiceViewportPrefix,  @firstChoiceSteps,  @viewTotalColumns, @columnsSeparator);
+    }
+}
 
+._addFlexGridColumnSet(@prefix, @totalSteps, @viewTotalColumns, @columnsSeparator) {
+    @startIndex : @totalSteps;
+    ._loopFlexGridColumnSet(@totalSteps, @prefix, @startIndex, ~"", @viewTotalColumns, @columnsSeparator);
+}
+
+._loopFlexGridColumnSet(@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = true) {
+    @nextRule : ~".@{prefix}@{index}@{columnsSeparator}@{total}";
+    ._loopFlexGridColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}._loopFlexGridColumnSet(@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = true) {
+    @nextRule : ~"@{prevRule}, .@{prefix}@{index}@{columnsSeparator}@{total}";
+    ._loopFlexGridColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}._loopFlexGridColumnSet(@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = true) {
+    .@{prefix}@{index}@{columnsSeparator}@{total} {
+        ._setFlexGridColumnStep(@index, @total);
+    }
+}._loopFlexGridColumnSet(@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = true) {
+    @{prevRule} {
+        ._setFlexGridColumnBehavior();
+    }
+}
+._loopFlexGridColumnSet(@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = @total) and (@viewTotalColumns = false) {
+    @nextRule : ~".@{prefix}@{index}";
+    ._loopFlexGridColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}._loopFlexGridColumnSet(@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@index < @total) and (@viewTotalColumns = false) {
+    @nextRule : ~"@{prevRule}, .@{prefix}@{index}";
+    ._loopFlexGridColumnSet(@total, @prefix, @index - 1, @nextRule, @viewTotalColumns, @columnsSeparator);
+}._loopFlexGridColumnSet(@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index > 0) and (@viewTotalColumns = false) {
+    .@{prefix}@{index} {
+        ._setFlexGridColumnStep(@index, @total);
+    }
+}._loopFlexGridColumnSet(@total, @prefix, @index, @prevRule:~"", @viewTotalColumns, @columnsSeparator) when (@index = 0) and (@viewTotalColumns = false) {
+    @{prevRule} {
+        ._setFlexGridColumnBehavior();
+    }
+}
+
+._setFlexGridColumnBehavior() {
+    .box-sizing(border-box);
+    .flex-grow(1);
+}
+
+._setFlexGridColumnStep(@currentColumn, @totalColumns) {
+    .flex-basis(unit(((100% * @currentColumn)/@totalColumns), %));
+}

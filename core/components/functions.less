@@ -1,6 +1,6 @@
-/* private */.important() when (@state-important = true) {
+._important() when (@state-important = true) {
     @important:~"!important";
-}.important() when not (@state-important = true) {
+}._important() when not (@state-important = true) {
     @important:~"";
 }
-/* private */.important();
+._important();

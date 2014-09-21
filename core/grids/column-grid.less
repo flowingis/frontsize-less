@@ -1,70 +1,27 @@
-.addColumnGrid(@selector, @hdFullCount:4, @hdReadyCount:3, @tabletLandscapeCount:3, @tabletPortraitCount:2, @smartphoneLandscapeCount:1, @smartphonePortraitCount:1, @columnGap:0) {
+.addColumnGrid(@selector, @hdFullCount:4, @hdReadyCount:3, @tabletLandscapeCount:3, @tabletPortraitCount:2, @smartphoneLandscapeCount:1, @smartphonePortraitCount:1, @columnGap:0, @childrenDisplay:inline-block) {
 
     .@{selector} {
         .column-gap(@columnGap);
-        .column-fill(auto);
+        .column-fill(balance);
     }
 
     .@{selector} > * {
-        display : inline-block;
+        display       : @childrenDisplay; // block will crop and distribute children on columns // inline-block will keep them entire
+        margin        : auto;
+        margin-bottom : @columnGap;
+        width         : 100%;
     }
 
-    .addColumnGridSmartphonePortrait(@selector, @smartphonePortraitCount);
-    .addColumnGridSmartphoneLandscape(@selector, @smartphoneLandscapeCount);
-    .addColumnGridTabletPortrait(@selector, @tabletPortraitCount);
-    .addColumnGridTabletLandscape(@selector, @tabletLandscapeCount);
-    .addColumnGridHdReady(@selector, @hdReadyCount);
-    .addColumnGridHdFull(@selector, @hdFullCount);
+    ._addColumnGrid(@from-smartphone-portrait,  @selector, @smartphonePortraitCount,  @use-smartphone-portrait);
+    ._addColumnGrid(@from-smartphone-landscape, @selector, @smartphoneLandscapeCount, @use-smartphone-landscape);
+    ._addColumnGrid(@from-tablet-portrait,      @selector, @tabletPortraitCount,      @use-tablet-portrait);
+    ._addColumnGrid(@from-tablet-landscape,     @selector, @tabletLandscapeCount,     @use-tablet-landscape);
+    ._addColumnGrid(@from-hd-ready,             @selector, @hdReadyCount,             @use-hd-ready);
+    ._addColumnGrid(@from-hd-full,              @selector, @hdFullCount,              @use-hd-full);
 }
 
-/* private */.addColumnGridSmartphonePortrait(@selector, @count) when (@use-tablet-portrait = true) {
-    @media @from-smartphone-portrait {
-        // Smartphone portrait
-        .@{selector} {
-            .column-count(@count);
-        }
-    }
-}
-
-/* private */.addColumnGridSmartphoneLandscape(@selector, @count) when (@use-tablet-portrait = true) {
-    @media @from-smartphone-landscape {
-        // Smartphone landscape
-        .@{selector} {
-            .column-count(@count);
-        }
-    }
-}
-
-/* private */.addColumnGridTabletPortrait(@selector, @count) when (@use-tablet-portrait = true) {
-    @media @from-tablet-portrait {
-        // Tablet portrait
-        .@{selector} {
-            .column-count(@count);
-        }
-    }
-}
-
-/* private */.addColumnGridTabletLandscape(@selector, @count) when (@use-tablet-landscape = true) {
-    @media @from-tablet-landscape {
-        // Tablet landscape
-        .@{selector} {
-            .column-count(@count);
-        }
-    }
-}
-
-/* private */.addColumnGridHdReady(@selector, @count) when (@use-hd-ready = true) {
-    @media @from-hd-ready {
-        // HD Ready
-        .@{selector} {
-            .column-count(@count);
-        }
-    }
-}
-
-/* private */.addColumnGridHdFull(@selector, @count) when (@use-hd-full = true) {
-    @media @from-hd-full {
-        // Full HD
+._addColumnGrid(@viewport, @selector, @count, @viewportEnabled) when (@viewportEnabled = true) {
+    @media @viewport {
         .@{selector} {
             .column-count(@count);
         }

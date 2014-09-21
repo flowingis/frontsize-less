@@ -1,92 +1,35 @@
 .addPaddingRule(@selector, @hdFullPadding:6em, @hdReadyPadding:5em, @tabletLandscapePadding:4em, @tabletPortraitPadding:3em, @smartphoneLandscapePadding:2em, @smartphonePortraitPadding:1em) {
     // Media queries for selectors active from a specific resolution or higher
-    .addPaddingRuleSmartphonePortrait(@selector, @smartphonePortraitPadding);
-    .addPaddingRuleSmartphoneLandscape(@selector, @smartphoneLandscapePadding);
-    .addPaddingRuleTabletPortrait(@selector, @tabletPortraitPadding);
-    .addPaddingRuleTabletLandscape(@selector, @tabletLandscapePadding);
-    .addPaddingRuleHdReady(@selector, @hdReadyPadding);
-    .addPaddingRuleHdFull(@selector, @hdFullPadding);
+    ._addPaddingRule(@from-smartphone-portrait,  @selector, @smartphonePortraitPadding);
+    ._addPaddingRule(@from-smartphone-landscape, @selector, @smartphoneLandscapePadding);
+    ._addPaddingRule(@from-tablet-portrait,      @selector, @tabletPortraitPadding);
+    ._addPaddingRule(@from-tablet-landscape,     @selector, @tabletLandscapePadding);
+    ._addPaddingRule(@from-hd-ready,             @selector, @hdReadyPadding);
+    ._addPaddingRule(@from-hd-full,              @selector, @hdFullPadding);
 }
-/* private */.addPaddingRuleSmartphonePortrait(@selector, @smartphonePortraitPadding) when (@use-smartphone-portrait = true) {
-    @media @from-smartphone-portrait {
+
+._addPaddingRule(@viewport, @selector, @padding) when (@use-smartphone-portrait = true) {
+    @media @viewport {
         // Smartphone portrait
-        .@{selector} { padding:@smartphonePortraitPadding; }
-    }
-}
-/* private */.addPaddingRuleSmartphoneLandscape(@selector, @smartphoneLandscapePadding) when (@use-smartphone-landscape = true) {
-    @media @from-smartphone-landscape {
-        // Smartphone landscape
-        .@{selector} { padding:@smartphoneLandscapePadding; }
-    }
-}
-/* private */.addPaddingRuleTabletPortrait(@selector, @tabletPortraitPadding) when (@use-tablet-portrait = true) {
-    @media @from-tablet-portrait {
-        // Tablet portrait
-        .@{selector} { padding:@tabletPortraitPadding; }
-    }
-}
-/* private */.addPaddingRuleTabletLandscape(@selector, @tabletLandscapePadding) when (@use-tablet-landscape = true) {
-    @media @from-tablet-landscape {
-        // Tablet landscape
-        .@{selector} { padding:@tabletLandscapePadding; }
-    }
-}
-/* private */.addPaddingRuleHdReady(@selector, @hdReadyPadding) when (@use-hd-ready = true) {
-    @media @from-hd-ready {
-        // HD Ready
-        .@{selector} { padding:@hdReadyPadding; }
-    }
-}
-/* private */.addPaddingRuleHdFull(@selector, @hdFullPadding) when (@use-hd-full = true) {
-    @media @from-hd-full {
-        // Full HD
-        .@{selector} { padding:@hdFullPadding; }
+        .@{selector} {
+            padding : @padding;
+        }
     }
 }
 
 .setViewportsPadding(@hdFullPadding:6em, @hdReadyPadding:5em, @tabletLandscapePadding:4em, @tabletPortraitPadding:3em, @smartphoneLandscapePadding:2em, @smartphonePortraitPadding:1em) {
     // Media queries for selectors active from a specific resolution or higher
-    .setViewportsPaddingSmartphonePortrait(@smartphonePortraitPadding);
-    .setViewportsPaddingSmartphoneLandscape(@smartphoneLandscapePadding);
-    .setViewportsPaddingTabletPortrait(@tabletPortraitPadding);
-    .setViewportsPaddingTabletLandscape(@tabletLandscapePadding);
-    .setViewportsPaddingHdReady(@hdReadyPadding);
-    .setViewportsPaddingHdFull(@hdFullPadding);
+    ._setViewportsPadding(@from-smartphone-portrait,  @smartphonePortraitPadding);
+    ._setViewportsPadding(@from-smartphone-landscape, @smartphoneLandscapePadding);
+    ._setViewportsPadding(@from-tablet-portrait,      @tabletPortraitPadding);
+    ._setViewportsPadding(@from-tablet-landscape,     @tabletLandscapePadding);
+    ._setViewportsPadding(@from-hd-ready,             @hdReadyPadding);
+    ._setViewportsPadding(@from-hd-full,              @hdFullPadding);
 }
-/* private */.setViewportsPaddingSmartphonePortrait(@smartphonePortraitPadding) when (@use-smartphone-portrait = true) {
-    @media @from-smartphone-portrait {
-        // Smartphone portrait
-        padding:@smartphonePortraitPadding;
-    }
-}
-/* private */.setViewportsPaddingSmartphoneLandscape(@smartphoneLandscapePadding) when (@use-smartphone-landscape = true) {
-    @media @from-smartphone-landscape {
-        // Smartphone landscape
-        padding:@smartphoneLandscapePadding;
-    }
-}
-/* private */.setViewportsPaddingTabletPortrait(@tabletPortraitPadding) when (@use-tablet-portrait = true) {
-    @media @from-tablet-portrait {
-        // Tablet portrait
-        padding:@tabletPortraitPadding;
-    }
-}
-/* private */.setViewportsPaddingTabletLandscape(@tabletLandscapePadding) when (@use-tablet-landscape = true) {
-    @media @from-tablet-landscape {
-        // Tablet landscape
-        padding:@tabletLandscapePadding;
-    }
-}
-/* private */.setViewportsPaddingHdReady(@hdReadyPadding) when (@use-hd-ready = true) {
-    @media @from-hd-ready {
-        // HD Ready
-        padding:@hdReadyPadding;
-    }
-}
-/* private */.setViewportsPaddingHdFull(@hdFullPadding) when (@use-hd-full = true) {
-    @media @from-hd-full {
-        // Full HD
-        padding:@hdFullPadding;
+
+._setViewportsPadding(@viewport, @padding) when (@use-smartphone-portrait = true) {
+    @media @viewport {
+        padding : @padding;
     }
 }
 
