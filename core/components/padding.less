@@ -1,5 +1,13 @@
-.addPaddingRule(@selector, @hdFullPadding:6em, @hdReadyPadding:5em, @tabletLandscapePadding:4em, @tabletPortraitPadding:3em, @smartphoneLandscapePadding:2em, @smartphonePortraitPadding:1em) {
-    // Media queries for selectors active from a specific resolution or higher
+.addPaddingRule(
+    @selector                   ,
+    @hdFullPadding              : 6em,
+    @hdReadyPadding             : 5em,
+    @tabletLandscapePadding     : 4em,
+    @tabletPortraitPadding      : 3em,
+    @smartphoneLandscapePadding : 2em,
+    @smartphonePortraitPadding  : 1em
+    ) {
+
     ._addPaddingRule(@from-smartphone-portrait,  @selector, @smartphonePortraitPadding);
     ._addPaddingRule(@from-smartphone-landscape, @selector, @smartphoneLandscapePadding);
     ._addPaddingRule(@from-tablet-portrait,      @selector, @tabletPortraitPadding);
@@ -16,8 +24,15 @@
     }
 }
 
-.setViewportsPadding(@hdFullPadding:6em, @hdReadyPadding:5em, @tabletLandscapePadding:4em, @tabletPortraitPadding:3em, @smartphoneLandscapePadding:2em, @smartphonePortraitPadding:1em) {
-    // Media queries for selectors active from a specific resolution or higher
+.setViewportsPadding(
+    @hdFullPadding              : 6em,
+    @hdReadyPadding             : 5em,
+    @tabletLandscapePadding     : 4em,
+    @tabletPortraitPadding      : 3em,
+    @smartphoneLandscapePadding : 2em,
+    @smartphonePortraitPadding  : 1em
+    ) {
+
     ._setViewportsPadding(@from-smartphone-portrait,  @smartphonePortraitPadding);
     ._setViewportsPadding(@from-smartphone-landscape, @smartphoneLandscapePadding);
     ._setViewportsPadding(@from-tablet-portrait,      @tabletPortraitPadding);
@@ -32,7 +47,13 @@
     }
 }
 
-.addPaddingSelector(@selector:false, @verticalPadding:@vertical-padding, @horizontalPadding:@horizontal-padding) when not (@selector = false) {
+.addPaddingSelector(
+    @selector          : false,
+    @verticalPadding   : @vertical-padding,
+    @horizontalPadding : @horizontal-padding
+
+    ) when not (@selector = false) {
+
     .@{selector}-padding {
         padding: @verticalPadding @horizontalPadding @important;
     }
@@ -56,7 +77,13 @@
     .@{selector}-padding-right {
         padding-right: @horizontalPadding @important;
     }
-}.addPaddingSelector(@selector:false, @verticalPadding:@vertical-padding, @horizontalPadding:@horizontal-padding) when (@selector = false) {
+}.addPaddingSelector(
+    @selector          : false,
+    @verticalPadding   : @vertical-padding,
+    @horizontalPadding : @horizontal-padding
+
+    ) when (@selector = false) {
+
     .with-padding {
         padding: @verticalPadding @horizontalPadding @important;
     }
