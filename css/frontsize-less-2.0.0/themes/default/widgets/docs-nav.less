@@ -1,0 +1,14 @@
+.docs-nav {
+    @fade : 5%;
+
+    .fallbackColor(
+        background-color,
+        fade(@colorLess, @fade),
+        mix(@colorLess, white, @fade)
+    );
+
+    li {
+        display : inline-block;
+        padding : @global-step;
+    }
+}

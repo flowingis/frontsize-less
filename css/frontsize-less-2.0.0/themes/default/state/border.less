@@ -1,8 +1,14 @@
-.vertical-line {
+.vertical-line,
+.vertical-line-left {
     border-right : 2px solid @colorGreyLightUltra;
 
     @media @till-tablet-portrait {
         // Tablet portrait
         border-color : transparent;
     }
+}
+
+.vertical-line-left {
+    border-right : 0;
+    border-left  : 2px solid @colorGreyLightUltra;
 }
