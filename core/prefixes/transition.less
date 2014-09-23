@@ -13,11 +13,11 @@
 }
 
 .transition-delay(@delay:0.5s) when (@use-css-prefix = true) {
-    -webkit-transition: @delay;
-    -khtml-transition: @delay;
-    -moz-transition: @delay;
-    -ms-transition: @delay;
-    -o-transition: @delay;
+    -webkit-transition-delay: @delay;
+    -khtml-transition-delay: @delay;
+    -moz-transition-delay: @delay;
+    -ms-transition-delay: @delay;
+    -o-transition-delay: @delay;
 }.transition-delay(@delay:0.5s) {
     transition-delay: @delay;
 }
