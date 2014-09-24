@@ -1,4 +1,13 @@
-.addTextColumnGrid(@selector, @hdFullCount:4, @hdReadyCount:3, @tabletLandscapeCount:3, @tabletPortraitCount:2, @smartphoneLandscapeCount:1, @smartphonePortraitCount:1, @columnGap:0, @childrenDisplay:inline-block) {
+.addTextColumnGrid(
+    @selector                 : text-column-grid,
+    @hdFullCount              : 4,
+    @hdReadyCount             : 3,
+    @tabletLandscapeCount     : 3,
+    @tabletPortraitCount      : 2,
+    @smartphoneLandscapeCount : 1,
+    @smartphonePortraitCount  : 1,
+    @columnGap                : 0,
+    @childrenDisplay          : inline-block) {
 
     .@{selector} {
         .column-gap(@columnGap);
