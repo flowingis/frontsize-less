@@ -21,7 +21,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         compileFile     : "compile.less",
-        compileFileTest : "compile_test.less",
+        compileFileTest : "compile-test.less",
         themeName       : "default",
         themeImg        : "themes/default/img/",
         testCss         : "test/frontsize.test.css",
