@@ -1,0 +1,9 @@
+.property(@property, @value:false, @default:false)
+    when not (@value = false) {
+    @{property}: @value;
+}
+.property(@property, @value:false, @default:false)
+    when (@value = false)
+    and not (@default = false) {
+    @{property}: @default;
+}
