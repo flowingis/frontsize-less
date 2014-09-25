@@ -4,14 +4,20 @@
 // Url - http://html5doctor.com/element-index/#td
 
 td {
-    text-align: left;
-    padding: 0.5em;
+    text-align : left;
+    padding    : (@global-step / 2);
 }
 
-tbody {
+table tr > * {
+    border : 1px solid mix(@colorLess, white, 10%);
+}
 
-    @colorOdd: rgb(230,230,230);
-    @colorEven: rgb(200,200,200);
+
+table tbody {
+
+    @colorOdd   : mix(@colorLess, white, 2.5%);
+    @colorEven  : transparent;
+    @colorHover  : mix(@colorLess, white, 5%);
 
     tr {
         &:nth-child(odd) {
@@ -22,21 +28,6 @@ tbody {
         &:nth-child(even) {
             td {
                 background-color: @colorEven;
-            }
-        }
-    }
-
-    &:hover {
-        tr {
-            &:nth-child(odd) {
-                td {
-                    background-color: white;
-                }
-            }
-            &:nth-child(even) {
-                td {
-                    background-color: white;
-                }
             }
         }
     }

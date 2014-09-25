@@ -9,9 +9,12 @@ pre {
 
     @color: white;
 
-    font-family: @font-monospace;
-    padding: 1em;
-    overflow: auto;
+    font-family : @font-monospace;
+    padding     : @global-step;
+    overflow    : auto;
+
+    margin-top    : @global-step;
+    margin-bottom : 0;
 
     white-space: pre;
     color:@color;
@@ -48,6 +51,12 @@ pre {
         background-color: transparent;
         .box-shadow(none);
     }
+
+    &.light {
+        color            : mix(@colorLess, white, 70%);
+        background-color : mix(@colorLess, white, 10%);
+    }
+
     &.with-small-fonts {
         font-family: @font-monospace;
     }

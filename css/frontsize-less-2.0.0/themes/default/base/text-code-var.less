@@ -22,21 +22,38 @@ code,
 var,
 .var {
     font-family: @font-monospace;
-    padding: 0 0.25em;
+    padding : 2px 6px;
 
-    color: inherit;
+    color: mix(@colorSass, white, 70%);
 
-    border:1px solid;
-    .fallbackColor(border-color, rgba(0,0,0,0.03));
-    .fallbackColor(border-top-color, rgba(0,0,0,0.075));
-    .fallbackColor(background-color, rgba(0,0,0,0.075));
-
-    .border-radius(4px);
+    border : 1px solid;
+    .fallbackColor(border-color, fade(@colorSass, 10%), mix(@colorSass, white, 10%));
+    //.fallbackColor(background-color, fade(@colorLess, 5%), mix(@colorLess, white, 5%));
+    background-color: white;
+    .border-radius(100px);
     .box-shadow(0 1px 0 rgba(255,255,255,0.2));
 
     &.code-black {
         background-color: #202020;
         text-shadow: none;
         color: white;
+    }
+
+    &.default, &.default + span {
+        display: inline-block;
+        padding : 0 6px;
+    }
+
+    &.default {
+        .roundLeft(100px);
+    }
+
+    &.default + span {
+        border : 1px solid;
+        .fallbackColor(border-color, fade(@colorLess, 10%), mix(@colorLess, white, 10%));
+        border-left : none;
+        padding-right : 8px;
+        .roundRight(100px);
+        background-color: mix(@colorSass, white, 2%);
     }
 }
