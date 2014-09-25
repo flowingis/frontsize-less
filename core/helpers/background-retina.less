@@ -1,13 +1,23 @@
-.backgroundRetina(@defaultImage, @retinaImage:@defaultImage, @backgroundSize, @rootPath:'') when (@use-root-path = false) {
+.backgroundRetina(
+    @defaultImage   ,
+    @retinaImage    : @defaultImage,
+    @backgroundSize : false,
+    @rootPath       : ''
+
+    ) when (@use-root-path = false) {
+
     //@background-size: auto | px | % |  cover | contain
     //.backgroundRetina("path/image-low-res.png", "path/image-high-res.png");
     ._backgroundRetina(@defaultImage, @retinaImage, @backgroundSize, @rootPath);
 }.backgroundRetina(@defaultImage, @retinaImage:@defaultImage, @backgroundSize, @rootPath:@root-path) when (@use-root-path = true) {
     ._backgroundRetina(@defaultImage, @retinaImage, @backgroundSize, @rootPath);
 }
+
 ._backgroundRetina(@defaultImage, @retinaImage, @backgroundSize, @rootPath) {
+
     .backgroundImage(@defaultImage, @rootPath);
-    background-size:@backgroundSize;
+    .property(background-size, @backgroundSize, 0 0);
+
     @media @display-retina {
         .backgroundImage(@retinaImage, @rootPath);
     }
@@ -26,7 +36,7 @@
     @retinaSmartphoneLandscapeBackground  : @defaultSmartphoneLandscapeBackground,
     @defaultSmartphonePortraitBackground  : @defaultSmartphoneLandscapeBackground,
     @retinaSmartphonePortraitBackground   : @defaultSmartphonePortraitBackground,
-    @backgroundSize,
+    @backgroundSize                       : cover,
     @rootPath                             : ''
     ) when (@use-root-path = false) {
 
@@ -60,8 +70,8 @@
     @retinaSmartphoneLandscapeBackground  : @defaultSmartphoneLandscapeBackground,
     @defaultSmartphonePortraitBackground  : @defaultSmartphoneLandscapeBackground,
     @retinaSmartphonePortraitBackground   : @defaultSmartphonePortraitBackground,
-    @backgroundSize,
-    @rootPath:@root-path
+    @backgroundSize                       : cover,
+    @rootPath                             : @root-path
     ) when (@use-root-path = true) {
 
     ._backgroundRetinaResponsive(
@@ -84,7 +94,7 @@
 
 ._backgroundRetinaResponsive(@defaultHdFullBackground, @retinaHdFullBackground, @defaultHdReadyBackground, @retinaHdReadyBackground, @defaultTabletLandscapeBackground, @retinaTabletLandscapeBackground, @defaultTabletPortraitBackground, @retinaTabletPortraitBackground, @defaultSmartphoneLandscapeBackground, @retinaSmartphoneLandscapeBackground, @defaultSmartphonePortraitBackground, @retinaSmartphonePortraitBackground, @backgroundSize, @path) {
 
-    background-size : @backgroundSize;
+    .property(background-size, @backgroundSize);
 
     ._setBackgroundRetinaResponsive(@from-smartphone-portrait,  @defaultSmartphonePortraitBackground,  @retina-from-smartphone-portrait,  @retinaSmartphonePortraitBackground,  @path, @use-smartphone-portrait);
     ._setBackgroundRetinaResponsive(@from-smartphone-landscape, @defaultSmartphoneLandscapeBackground, @retina-from-smartphone-landscape, @retinaSmartphoneLandscapeBackground, @path, @use-smartphone-landscape);
@@ -96,7 +106,6 @@
 }
 
 ._setBackgroundRetinaResponsive(@standardViewport, @standardBackground, @retinaViewport, @retinaBackground, @path, @viewportEnabled) when (@viewportEnabled = true) {
-
     @media @standardViewport {
         .backgroundImage(@standardBackground, @path);
     }
@@ -111,14 +120,17 @@
     @width        ,
     @height       : @width,
     @rootPath     : ''
+
     ) when (@use-root-path = false) {
+
     .size(@width, @height);
     .backgroundRetinaIcon(@defaultImage, @retinaImage, @width, @height, @rootPath);
-    background-position: center;
+    background-position : center;
+
 }.iconRetina(@defaultImage, @retinaImage, @width, @height:@width, @rootPath:@root-path) when (@use-root-path = true) {
     .size(@width, @height);
     .backgroundRetinaIcon(@defaultImage, @retinaImage, @width, @height, @rootPath);
-    background-position: center;
+    background-position : center;
 }
 
 .backgroundRetinaIcon(
@@ -127,32 +139,61 @@
     @width        : 100%,
     @height       : @width,
     @rootPath     : ''
+
     ) when (@use-root-path = false) {
 
     .backgroundImage(@defaultImage, @rootPath);
-    background-size:@width @height;
-    background-repeat: no-repeat;
+
+    background-size   : @width @height;
+    background-repeat : no-repeat;
+
     @media @display-retina {
         .backgroundImage(@retinaImage, @rootPath);
     }
-}.backgroundRetinaIcon(@defaultImage, @retinaImage:@defaultImage, @width:100%, @height:@width, @rootPath:@root-path) when (@use-root-path = true) {
+}.backgroundRetinaIcon(
+    @defaultImage ,
+    @retinaImage  : @defaultImage,
+    @width        : 100%,
+    @height       : @width,
+    @rootPath     : @root-path
+
+    ) when (@use-root-path = true) {
+
     .backgroundImage(@defaultImage, @rootPath);
-    background-size:@width @height;
-    background-repeat: no-repeat;
+
+    background-size   : @width @height;
+    background-repeat : no-repeat;
+
     @media @display-retina {
         .backgroundImage(@retinaImage, @rootPath);
     }
 }
 
-.fillRetinaImage(@standardImage, @retinaImage:@standardImage, @backgroundSize, @rootPath:'') when (@use-root-path = false) {
+.fillRetinaImage(
+    @standardImage  ,
+    @retinaImage    : @standardImage,
+    @backgroundSize : false,
+    @rootPath       : ''
+
+    ) when (@use-root-path = false) {
+
     .fillImage(@standardImage, @rootPath);
-    background-size:@backgroundSize;
+    .property(background-size, @backgroundSize, 0 0);
+
     @media @display-retina {
         .fillImage(@retinaImage, @rootPath);
     }
-}.fillRetinaImage(@standardImage, @retinaImage:@standardImage, @backgroundSize, @rootPath:@root-path) when (@use-root-path = true) {
+}.fillRetinaImage(
+    @standardImage  ,
+    @retinaImage    : @standardImage,
+    @backgroundSize : false,
+    @rootPath       : @root-path
+
+    ) when (@use-root-path = true) {
+
     .fillImage(@standardImage, @rootPath);
-    background-size:@backgroundSize;
+    .property(background-size, @backgroundSize, 0 0);
+
     @media @display-retina {
         .fillImage(@retinaImage, @rootPath);
     }

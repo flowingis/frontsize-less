@@ -162,11 +162,11 @@
     @tabletPortraitFontSize      : 16px,
     @smartphoneLandscapeFontSize : 16px,
     @smartphonePortraitFontSize  : 16px,
-    @lineHeightMultiplier        : @font-line-height,
+    @lineHeightMultiplier        : false,
     @useImportant                : true
     ) {
 
-    line-height : @lineHeightMultiplier;
+    .property(line-height, @lineHeightMultiplier);
 
     ._setViewportsFontSize(@from-hd-full,              @hdFullFontSize,              @useImportant, @use-hd-full);
     ._setViewportsFontSize(@till-hd-full,              @hdReadyFontSize,             @useImportant, @use-hd-ready);

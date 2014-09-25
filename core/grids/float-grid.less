@@ -149,23 +149,6 @@
     }
 }
 
-.addStep(@selector:step, @width:false) when (@width = false) {
-    .@{selector} {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        .box-sizing(border-box);
-    }
-}.addStep(@selector:step, @width:false) when not (@width = false) {
-    .@{selector} {
-        display: block;
-        width: @width;
-        margin-left: auto;
-        margin-right: auto;
-        .box-sizing(border-box);
-    }
-}
-
 ._addFloatGridColumnSet(@prefix:col-, @totalSteps:12, @viewTotalColumns:true, @columnsSeparator:-of-) {
     @startIndex : @totalSteps;
     ._loopFloatGridColumnSet(@totalSteps, @prefix, @startIndex, ~"", @viewTotalColumns, @columnsSeparator);

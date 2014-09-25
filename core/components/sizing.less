@@ -1,8 +1,13 @@
 
-.addViewportsSteps(@selector:use-steps, @hdFullMargin:500px, @hdReadyMargin:100px, @tabletLandscapeMargin:50px, @tabletPortraitMargin:20px) {
-    // Media queries for selectors active from a specific resolution or higher
-    // smartphone viewports were removed to improve width compatibility with all smartphone models
-    .addStep(@selector);
+.addViewportsSteps(
+    @selector              : use-steps,
+    @hdFullMargin          : 500px,
+    @hdReadyMargin         : 100px,
+    @tabletLandscapeMargin : 50px,
+    @tabletPortraitMargin  : 20px
+    ) {
+
+    ._addStep(@selector);
     ._addViewportsSteps(@from-tablet-portrait,  @selector, @tablet-portrait-step,  @tabletPortraitMargin);
     ._addViewportsSteps(@from-tablet-landscape, @selector, @tablet-landscape-step, @tabletLandscapeMargin);
     ._addViewportsSteps(@from-hd-ready,         @selector, @hd-ready-step,         @hdReadyMargin);

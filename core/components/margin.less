@@ -1,4 +1,12 @@
-.addMarginRule(@selector, @hdFullMargin:6em, @hdReadyMargin:5em, @tabletLandscapeMargin:4em, @tabletPortraitMargin:3em, @smartphoneLandscapeMargin:2em, @smartphonePortraitMargin:1em) {
+.addMarginRule(
+    @selector                  ,
+    @hdFullMargin              : (@global-step * 5),
+    @hdReadyMargin             : (@global-step * 4),
+    @tabletLandscapeMargin     : (@global-step * 3),
+    @tabletPortraitMargin      : (@global-step * 2),
+    @smartphoneLandscapeMargin : @global-step,
+    @smartphonePortraitMargin  : (@global-step / 2)
+    ) {
     // Media queries for selectors active from a specific resolution or higher
     ._addMarginRule(@from-smartphone-portrait,  @selector, @smartphonePortraitMargin);
     ._addMarginRule(@from-smartphone-landscape, @selector, @smartphoneLandscapeMargin);
@@ -16,7 +24,14 @@
     }
 }
 
-.setViewportsMargin(@hdFullMargin:6em, @hdReadyMargin:5em, @tabletLandscapeMargin:4em, @tabletPortraitMargin:3em, @smartphoneLandscapeMargin:2em, @smartphonePortraitMargin:1em) {
+.setViewportsMargin(
+    @hdFullMargin              : (@global-step * 5),
+    @hdReadyMargin             : (@global-step * 4),
+    @tabletLandscapeMargin     : (@global-step * 3),
+    @tabletPortraitMargin      : (@global-step * 2),
+    @smartphoneLandscapeMargin : @global-step,
+    @smartphonePortraitMargin  : (@global-step / 2)
+    ) {
     // Media queries for selectors active from a specific resolution or higher
     ._setViewportsMargin(@from-smartphone-portrait,  @smartphonePortraitMargin);
     ._setViewportsMargin(@from-smartphone-landscape, @smartphoneLandscapeMargin);
@@ -33,52 +48,64 @@
 }
 
 
-.addMarginSelector(@selector:false, @verticalMargin:@vertical-margin, @horizontalMargin:@horizontal-margin) when not (@selector = false) {
+.addMarginSelector(
+    @selector         : false,
+    @verticalMargin   : @vertical-margin,
+    @horizontalMargin : @horizontal-margin
+
+    ) when not (@selector = false) {
+
     .@{selector}-margin {
-        margin: @verticalMargin @horizontalMargin @important;
+        margin : @verticalMargin @horizontalMargin @important;
     }
     .@{selector}-margin-vertical {
-        margin-bottom: @verticalMargin @important;
-        margin-top: @verticalMargin @important;
+        margin-bottom : @verticalMargin @important;
+        margin-top    : @verticalMargin @important;
     }
     .@{selector}-margin-bottom {
-        margin-bottom: @verticalMargin @important;
+        margin-bottom : @verticalMargin @important;
     }
     .@{selector}-margin-top {
-        margin-top: @verticalMargin @important;
+        margin-top : @verticalMargin @important;
     }
     .@{selector}-margin-horizontal {
-        margin-left: @horizontalMargin @important;
-        margin-right: @horizontalMargin @important;
+        margin-left  : @horizontalMargin @important;
+        margin-right : @horizontalMargin @important;
     }
     .@{selector}-margin-left {
-        margin-left: @horizontalMargin @important;
+        margin-left : @horizontalMargin @important;
     }
     .@{selector}-margin-right {
-        margin-right: @horizontalMargin @important;
+        margin-right : @horizontalMargin @important;
     }
-}.addMarginSelector(@selector:false, @verticalMargin:@vertical-margin, @horizontalMargin:@horizontal-margin) when (@selector = false) {
+}.addMarginSelector(
+    @selector         : false,
+    @verticalMargin   : @vertical-margin,
+    @horizontalMargin : @horizontal-margin
+
+    ) when (@selector = false) {
+
     .with-margin {
-        margin: @verticalMargin @horizontalMargin @important;
+        margin : @verticalMargin @horizontalMargin @important;
     }
     .margin-vertical {
-        margin-bottom: @verticalMargin @important;
-        margin-top: @verticalMargin @important;
+        margin-bottom : @verticalMargin @important;
+        margin-top    : @verticalMargin @important;
     }
     .margin-bottom {
-        margin-bottom: @verticalMargin @important;
+        margin-bottom : @verticalMargin @important;
     }
     .margin-top {
-        margin-top: @verticalMargin @important;
+        margin-top : @verticalMargin @important;
     }
     .margin-horizontal {
-        margin-left: @horizontalMargin @important;
-        margin-right: @horizontalMargin @important;
+        margin-left  : @horizontalMargin @important;
+        margin-right : @horizontalMargin @important;
     }
     .margin-left {
-        margin-left: @horizontalMargin @important;
+        margin-left : @horizontalMargin @important;
     }
     .margin-right {
-        margin-right: @horizontalMargin @important;
+        margin-right : @horizontalMargin @important;
     }
 }

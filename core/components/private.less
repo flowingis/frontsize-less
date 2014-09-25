@@ -1,6 +1,27 @@
-._important() when (@state-important = true) {
-    @important:~"!important";
-}._important() when not (@state-important = true) {
-    @important:~"";
+._important()
+    when (@state-important = true) {
+    @important : ~"!important";
+}._important()
+    when not (@state-important = true) {
+    @important : ~"";
 }
 ._important();
+
+._addStep(@selector:step, @width:false)
+    when (@width = false) {
+    .@{selector} {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        .box-sizing(border-box);
+    }
+}._addStep(@selector:step, @width:false)
+    when not (@width = false) {
+    .@{selector} {
+        display: block;
+        width: @width;
+        margin-left: auto;
+        margin-right: auto;
+        .box-sizing(border-box);
+    }
+}
