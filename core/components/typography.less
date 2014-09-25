@@ -24,7 +24,15 @@
     }
 }
 
-.setFontScaling(@selector, @hdFull:(@font-size + (@font-size/2)), @hdReady:(@font-size + (@font-size/4)), @tabletLandscape:@font-size, @tabletPortrait:@font-size, @smartphoneLandscape:@font-size, @smartphonePortrait:@font-size) {
+.setFontScaling(
+    @selector            ,
+    @hdFull              : (@font-size + (@font-size/2)),
+    @hdReady             : (@font-size + (@font-size/4)),
+    @tabletLandscape     : @font-size,
+    @tabletPortrait      : @font-size,
+    @smartphoneLandscape : @font-size,
+    @smartphonePortrait  : @font-size
+    ) {
     ._setFontScaling(@from-smartphone-portrait,  @selector, @smartphonePortrait,  @use-smartphone-portrait);
     ._setFontScaling(@from-smartphone-landscape, @selector, @smartphoneLandscape, @use-smartphone-landscape);
     ._setFontScaling(@from-tablet-portrait,      @selector, @tabletPortrait,      @use-tablet-portrait);
@@ -61,8 +69,8 @@
 ._addMultipleFontsRule(@viewport, @selector, @fontFamily, @fontSize, @viewportEnabled) when (@viewportEnabled = true) {
     @media @viewport {
         .@{selector} {
-            font-family : @fontFamily;
-            font-size   : @fontSize;
+            .property(font-family, @fontFamily);
+            .property(font-size, @fontSize);
         }
     }
 }
@@ -121,13 +129,13 @@
     @tabletPortraitFontSize      : @tabletLandscapeFontSize,
     @smartphoneLandscapeFontSize : @tabletPortraitFontSize,
     @smartphonePortraitFontSize  : @smartphoneLandscapeFontSize,
-    @lineHeightMultiplier        : @global-step,
-    @antialias                   : subpixel-antialiased
+    @lineHeightMultiplier        : false,
+    @antialias                   : false
     ) {
     // Media queries for selectors active from the smaller resolution to a specific one
     .@{selector} {
         font-family : @fontFamily;
-        line-height : @lineHeightMultiplier;
+        .property(line-height, @lineHeightMultiplier);
         .font-smoothing(@antialias);
     }
 

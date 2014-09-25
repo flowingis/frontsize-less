@@ -1,29 +1,30 @@
-.font-feature-settings(@params:normal) when (@use-css-prefix = true) {
-    -webkit-font-feature-settings: @params;
-    -khtml-font-feature-settings: @params;
-    -moz-font-feature-settings: @params;
-    -ms-font-feature-settings: @params;
-    -o-font-feature-settings: @params;
-}.font-feature-settings(@params:normal) {
-    font-feature-settings: @params;
+.font-feature-settings(@value:false) when (@use-css-prefix = true) {
+    .property(-webkit-font-feature-settings, @value);
+    .property(-khtml-font-feature-settings,  @value);
+    .property(-moz-font-feature-settings,    @value);
+    .property(-ms-font-feature-settings,     @value);
+    .property(-o-font-feature-settings,      @value);
+}.font-feature-settings(@value:false) {
+    // Values: normal |
+    .property(font-feature-settings, @value);
 }
 
-.font-smoothing(@antialias:subpixel-antialiased, @forcePrefixes:true) when (@forcePrefixes = true) and not (@antialias = subpixel-antialiased) {
+.font-smoothing(@value:false, @forcePrefixes:true) when (@forcePrefixes = true) and not (@value = subpixel-antialiased) {
     // added @forcePrefixes to prevent font-smoothing to be skipped when use-css-prefix is false, this is for Chrome only for now
-    -webkit-font-smoothing: @antialias;
-    -khtml-font-smoothing: @antialias;
-    -moz-font-smoothing: @antialias;
-    -ms-font-smoothing: @antialias;
-    -o-font-smoothing: @antialias;
-}.font-smoothing(@antialias:subpixel-antialiased, @forcePrefixes:true) when (@use-css-prefix = true) and not (@forcePrefixes = true) and not (@antialias = subpixel-antialiased) {
-    -webkit-font-smoothing: @antialias;
-    -khtml-font-smoothing: @antialias;
-    -moz-font-smoothing: @antialias;
-    -ms-font-smoothing: @antialias;
-    -o-font-smoothing: @antialias;
-}.font-smoothing(@antialias:subpixel-antialiased, @forcePrefixes:true) when not (@antialias = subpixel-antialiased) {
+    .property(-webkit-font-smoothing, @value);
+    .property(-khtml-font-smoothing,  @value);
+    .property(-moz-font-smoothing,    @value);
+    .property(-ms-font-smoothing,     @value);
+    .property(-o-font-smoothing,      @value);
+}.font-smoothing(@value:false, @forcePrefixes:true) when (@use-css-prefix = true) and not (@forcePrefixes = true) and not (@value = subpixel-antialiased) {
+    .property(-webkit-font-smoothing, @value);
+    .property(-khtml-font-smoothing,  @value);
+    .property(-moz-font-smoothing,    @value);
+    .property(-ms-font-smoothing,     @value);
+    .property(-o-font-smoothing,      @value);
+}.font-smoothing(@value:false, @forcePrefixes:true) when not (@value = subpixel-antialiased) {
     // Sets the antialias text for the whole page
     // Values: antialiased | subpixel-antialiased | none
     // this property is not listed in CSS3 specification
-    // font-smooth: @antialias;
+    // font-smooth: @value;
 }
