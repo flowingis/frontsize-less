@@ -1,5 +1,5 @@
 baseurl: /frontsize-less
-markdown: rdiscount
+markdown: kramdown
 highlighter: pygments
 rdiscount:
 extensions: [smart]

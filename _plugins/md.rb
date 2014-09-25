@@ -1,7 +1,7 @@
 =begin
   Jekyll tag to include Markdown text from _includes directory preprocessing with Liquid.
   Usage:
-    {% markdown <filename> %}
+    {% md <filename> %}
   Dependency:
     - kramdown
 =end

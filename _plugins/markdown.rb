@@ -1,3 +1,12 @@
+=begin
+  Jekyll tag to include Markdown text from _includes directory preprocessing with Liquid.
+  Usage:
+    {% markdown %}
+    [Markdown link](http://url.com)
+    {% endmarkdown %}
+  Dependency:
+    - kramdown
+=end
 module Jekyll
   class MarkdownBlock < Liquid::Block
     def initialize(tag_name, text, tokens)
