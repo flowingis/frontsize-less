@@ -9,13 +9,13 @@ td {
 }
 
 table tr > * {
-    border : 1px solid mix(@colorLess, white, 10%);
+    border : 1px solid mix(@colorLess, white, @opacityLight);
 }
 
 
 table tbody {
 
-    @colorOdd   : mix(@colorLess, white, 2.5%);
+    @colorOdd   : mix(@colorLess, white, @opacityLightest);
     @colorEven  : transparent;
     @colorHover  : mix(@colorLess, white, 5%);
 

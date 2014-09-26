@@ -43,13 +43,13 @@ a {
 
 p a {
     padding          : 0 6px;
-    border           : 1px solid mix(@colorLess, white, 10%);
+    border           : 1px solid mix(@colorLess, white, @opacityLight);
     background-color : transparent;
 
     .border-radius(8px);
     .transition(background-color 0.25s ease-out);
 
     &:hover {
-        background-color : mix(@colorLess, white, 5%);
+        background-color : mix(@colorLess, white, @opacityLightest);
     }
 }

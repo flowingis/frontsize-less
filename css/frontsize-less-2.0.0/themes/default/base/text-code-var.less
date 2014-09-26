@@ -24,12 +24,10 @@ var,
     font-family: @font-monospace;
     padding : 2px 6px;
 
-    color: mix(@colorSass, white, 70%);
+    color            : mix(@colorSass, white, 70%);
+    background-color : white;
+    border           : 1px solid mix(@colorLess, white, @opacityMedium);
 
-    border : 1px solid;
-    .fallbackColor(border-color, fade(@colorSass, 10%), mix(@colorSass, white, 10%));
-    //.fallbackColor(background-color, fade(@colorLess, 5%), mix(@colorLess, white, 5%));
-    background-color: white;
     .border-radius(100px);
     .box-shadow(0 1px 0 rgba(255,255,255,0.2));
 
@@ -50,10 +48,10 @@ var,
 
     &.default + span {
         border : 1px solid;
-        .fallbackColor(border-color, fade(@colorLess, 10%), mix(@colorLess, white, 10%));
+        .fallbackColor(border-color, fade(@colorLess, @opacityLight), mix(@colorLess, white, @opacityLight));
         border-left : none;
-        padding-right : 8px;
+        padding-right : 10px;
         .roundRight(100px);
-        background-color: mix(@colorSass, white, 2%);
+        background-color: mix(@colorSass, white, @opacityLight);
     }
 }

@@ -1,11 +1,12 @@
 .docs-nav {
-    @fade : 5%;
 
     .fallbackColor(
         background-color,
-        fade(@colorLess, @fade),
-        mix(@colorLess, white, @fade)
+        fade(@colorLess, @opacityLightest),
+        mix(@colorLess, white, @opacityLightest)
     );
+
+    border-bottom : 1px solid mix(@colorLess, white, @opacityLight);
 
     li {
         display : inline-block;
