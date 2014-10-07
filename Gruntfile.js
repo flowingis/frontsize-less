@@ -2,17 +2,19 @@
 
 Available grunt commands
 
-$ grunt watch:develop
-$ grunt watch:fullDev
-$ grunt watch:autoprefix
-$ grunt watch:fullAutoprefix
-$ grunt watch:all
+$ grunt watch:assets     # Copy images inside frontsize/themes/default/img into production images folder
+$ grunt watch:frontsize  # Compiles Frontsize
+$ grunt watch:frnAssets  # Compiles Frontsize and copy images
+$ grunt watch:autoprefix # Compiles Frontsize using Autoprefixer and disabling Frontsize prefixes
+$ grunt watch:autoAssets # Compiles Frontsize using Autoprefixer disabling Frontsize prefixes and copy images
+$ grunt watch:all        # Performs assets, frontsize and autoprefix tasks
 
-$ grunt develop
-$ grunt fullDev
-$ grunt autoprefix
-$ grunt fullAutoprefix
-$ grunt all
+$ grunt assets           # Copy images inside frontsize/themes/default/img into production images folder
+$ grunt frontsize        # Compiles Frontsize
+$ grunt frnAssets        # Compiles Frontsize and copy images
+$ grunt autoprefix       # Compiles Frontsize using Autoprefixer and disabling Frontsize prefixes
+$ grunt autoAssets       # Compiles Frontsize using Autoprefixer disabling Frontsize prefixes and copy images
+$ grunt all              # Performs assets, frontsize and autoprefix tasks
 
 */
 
@@ -38,6 +40,7 @@ module.exports = function(grunt) {
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
                     sourceMapFilename : "<%= productionCss %>.map",
+                    sourceMapURL      : "<%= productionCss %>.map",
                     modifyVars        : {
                         "theme" : "<%= themeName %>"
                     }
@@ -54,6 +57,7 @@ module.exports = function(grunt) {
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
                     sourceMapFilename : "<%= autoprefixerCss %>.map",
+                    sourceMapURL      : "<%= autoprefixerCss %>.map",
                     modifyVars        : {
                         "theme"          : "<%= themeName %>",
                         "use-css-prefix" : false
@@ -71,6 +75,7 @@ module.exports = function(grunt) {
                     dumpLineNumbers   : "comments",
                     sourceMap         : true,
                     sourceMapFilename : "<%= testCss %>.map",
+                    sourceMapURL      : "<%= testCss %>.map",
                     modifyVars        : {
                         "theme" : "<%= themeName %>"
                     }
@@ -100,21 +105,21 @@ module.exports = function(grunt) {
                     "changed"
                 ]
             },
-            develop : {
+            frontsize : {
                 files: [ "*.less", "**/*.less" ],
-                tasks: [ "develop" ]
+                tasks: [ "frontsize" ]
             },
-            fullDev : {
+            devAssets : {
                 files: [ "*.less", "**/*.less" ],
-                tasks: [ "fullDev" ]
+                tasks: [ "devAssets" ]
             },
             autoprefix : {
                 files: [ "*.less", "**/*.less" ],
                 tasks: [ "autoprefix" ]
             },
-            fullAutoprefix : {
+            autoAssets : {
                 files: [ "*.less", "**/*.less" ],
-                tasks: [ "fullAutoprefix" ]
+                tasks: [ "autoAssets" ]
             },
             all : {
                 files: [ "*.less", "**/*.less" ],
@@ -157,12 +162,12 @@ module.exports = function(grunt) {
 
     require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
-    grunt.registerTask("develop", [
+    grunt.registerTask("frontsize", [
         "less:production",
         "test"
     ]);
 
-    grunt.registerTask("fullDev", [
+    grunt.registerTask("devAssets", [
         "less:production",
         "test",
         "assets"
@@ -174,7 +179,7 @@ module.exports = function(grunt) {
         "autoprefixer"
     ]);
 
-    grunt.registerTask("fullAutoprefix", [
+    grunt.registerTask("autoAssets", [
         "less:autoprefixer",
         "test",
         "autoprefixer",
