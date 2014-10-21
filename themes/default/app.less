@@ -26,6 +26,7 @@
 @font-line-height : @global-step;
 @font-weight      : 300;
 @font-color       : #898989;
+@body-color       : #FCFCFC;
 
 // Global padding configuration
 @horizontal-padding : @global-step;
@@ -68,16 +69,16 @@
 
 // Enables the mixin .fallbackColors to prevent IE skips rgba, hsl and hsla color formats
 @use-fallback-colors : true;
+@fallback-color-base : @body-color;
 
 // Enable or disable browser specific CSS3 prefixes
 @use-css-prefix : true;
 
 // Prepends the @root-path var before every URL with .backgroundImage mixin
 @use-root-path : true;
-// @root-path : "/css/frontsize-less/themes/@{theme}/";
-// @img-path : "@{root-path}img/";
-// @fonts-path : "@{root-path}fonts/";
-@root-path : "/css/frontsize-less/themes/@{theme}/img/";
+@root-path : "/css/frontsize-less/themes/@{theme}";
+@path-img  : "@{root-path}/img/";
+@path-font : "@{root-path}/fonts/";
 
 // set font scaling to change the font size depending by different resolutions
 .setFontScaling(body, 20px, 18px, 16px, 16px, 16px, 16px);

@@ -1,10 +1,10 @@
-.sprite(@image, @width, @height:@width, @backgroudSize:auto, @rootPath:'', @setBoxsizing:true) when (@use-root-path = false) {
-    .backgroundImage(@image, @rootPath);
+.sprite(@image, @width, @height:@width, @backgroudSize:auto, @path:'', @setBoxsizing:true) when (@use-root-path = false) {
+    .backgroundImage(@image, @path);
     background-repeat:no-repeat;
     background-size:@backgroudSize;
     .size(@width, @height, 1, @setBoxsizing);
-}.sprite(@image, @width, @height:@width, @backgroudSize:auto, @rootPath:@root-path, @setBoxsizing:true) when (@use-root-path = true) {
-    .backgroundImage(@image, @rootPath);
+}.sprite(@image, @width, @height:@width, @backgroudSize:auto, @path:@path-img, @setBoxsizing:true) when (@use-root-path = true) {
+    .backgroundImage(@image, @path);
     background-repeat:no-repeat;
     background-size:@backgroudSize;
     .size(@width, @height, 1, @setBoxsizing);

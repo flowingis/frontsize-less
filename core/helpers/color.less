@@ -1,0 +1,3 @@
+.tone(@property, @color, @lighten, @desaturate:@lighten) {
+    @{property} : desaturate(lighten(@color, @lighten), @desaturate);
+}

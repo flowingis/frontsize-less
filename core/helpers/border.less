@@ -31,6 +31,6 @@
 
 .borderImage(@borderImage, @path:'') when (@use-root-path = false) {
     .border-image(url('@{path}@{borderImage}'));
-}.borderImage(@backgroundImage, @path:@root-path) when (@use-root-path = true) {
+}.borderImage(@backgroundImage, @path:@path-img) when (@use-root-path = true) {
     .border-image(url('@{path}@{borderImage}'));
 }

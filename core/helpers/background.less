@@ -75,7 +75,7 @@
 
 .backgroundImage(@backgroundImage, @path:'') when (@use-root-path = false) {
     background-image : url('@{path}@{backgroundImage}');
-}.backgroundImage(@backgroundImage, @path:@root-path) when (@use-root-path = true) {
+}.backgroundImage(@backgroundImage, @path:@path-img) when (@use-root-path = true) {
     background-image : url('@{path}@{backgroundImage}');
 }
 
@@ -125,7 +125,7 @@
     fill : url('@{path}@{backgroundImage}');
 }.fillImage(
     @backgroundImage ,
-    @path            : @root-path
+    @path            : @path-img
 
     ) when (@use-root-path = true) {
 

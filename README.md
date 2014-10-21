@@ -20,10 +20,12 @@ Next release details
 ---
 
 **Features**
-- **added** `column-grid` system to reproduce behavior like [Pinterest](http://pinterest.com)
 - **added** missing `column-fill` CSS3 prefixes
 - **added** `flex` CSS3 prefixes
 - **added** `grid` CSS3 prefixes
+- **added** new grid system `addFlexGridContainer` and `addFlexGridColumns`
+- **added** new grid system for texts `addTextColumnGrid` and `addTextColumnGrid` which can emulate also [Pinterest](http://pinterest.com) boards
+- **added** `tone` mixin to tone colors easily
 
 **Fixes**
 - **fixed** missing default `font-size` for headings
@@ -42,7 +44,8 @@ Next release details
 - **optimized** background retina mixins, removed useless duplicate code now works smarter
 - **optimized** `font-smoothing` mixin now can skip apply `font-smoothing` property when is the default value
 - **optimized** mixins `spriteRetina` and `size` now skips `box-sizing` duplicates inside retina media query
-
+- **changed** column rules mixin names to new ones where is specified the grid type `addFlexGridContainer` and `addFlexGridColumns`
+- **changed** `fallbackColor` automatic fallback with a mix with a app color
 
 Release 2.0.0 details
 ---
