@@ -1,7 +1,8 @@
 ._initSizingSelectors() when (@use-state-sizing = true) {
-    
+
     .viewport-height {
-        height: 100vh @important;
+        height : @smartphone-landscape-step @important;
+        height : 100vh @important;
     }
 
     .wrap {
