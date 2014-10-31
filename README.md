@@ -27,8 +27,10 @@ Next release details
 - **added** new grid system for texts `addTextColumnGrid` and `addTextColumnGrid` which can emulate also [Pinterest](http://pinterest.com) boards
 - **added** `tone` mixin to tone colors easily
 - **added** `viewport-height` state selector
+- **added** `fonts` folders and added app var `@path-font`
 
 **Fixes**
+- **optimized** tons of core code
 - **fixed** missing default `font-size` for headings
 - **fixed** padding rule names with new naming convention
 - **fixed** missing default `font-weight` and `font-size` on base body
@@ -47,6 +49,8 @@ Next release details
 - **optimized** mixins `spriteRetina` and `size` now skips `box-sizing` duplicates inside retina media query
 - **changed** column rules mixin names to new ones where is specified the grid type `addFlexGridContainer` and `addFlexGridColumns`
 - **changed** `fallbackColor` automatic fallback with a mix with a app color
+- **removed** `extra` folder
+- **changed** image folder var name from `@root-path` to `@path-img` to introduce `@path-font`
 
 Release 2.0.0 details
 ---
@@ -123,13 +127,13 @@ Release 2.0.0 details
 
 created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], sponsored by [ideato srl][ideato]
 
-[ideato]:    http://www.ideato.it
-[minompi]:   https://twitter.com/minompi
-[vitto]:     https://twitter.com/vttrx
-[site]:      http://frontsize.com
-[migration]: https://gist.github.com/vitto/9b7dfc40ef710470fed1
-[sass]:      https://github.com/ideatosrl/frontsize-sass
-[docs]:      https://github.com/ideatosrl/frontsize-less/wiki
-[csslintc]:  https://github.com/ideatosrl/frontsize-less/blob/master/.csslintrc
 [app]:       https://github.com/ideatosrl/frontsize-less/blob/master/themes/default/app.less
 [csslint]:   https://github.com/CSSLint/csslint
+[csslintc]:  https://github.com/ideatosrl/frontsize-less/blob/master/.csslintrc
+[docs]:      https://github.com/ideatosrl/frontsize-less/wiki
+[ideato]:    http://www.ideato.it
+[migration]: https://gist.github.com/vitto/9b7dfc40ef710470fed1
+[minompi]:   https://twitter.com/minompi
+[sass]:      https://github.com/ideatosrl/frontsize-sass
+[site]:      http://frontsize.com
+[vitto]:     https://twitter.com/vttrx
