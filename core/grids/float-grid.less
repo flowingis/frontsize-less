@@ -58,9 +58,21 @@
         ._addFloatGridColumnSet(@hdViewportPrefix, @hdSteps, @viewTotalColumns, @columnsSeparator);
     }
 
+    ._addClearRule(@only-smartphone, @smartphoneViewportPrefix);
+    ._addClearRule(@only-tablet, @tabletViewportPrefix);
+    ._addClearRule(@only-hd, @hdViewportPrefix);
+
     ._addFillToColumnSet(@tabletViewportPrefix, @tabletSteps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
     ._addFillToColumnSet(@hdViewportPrefix, @hdSteps, @fillFromViewport, @viewTotalColumns, @columnsSeparator);
     ._preventSmartphoneColumnSet(@smartphoneViewportPrefix, @smartphoneSteps, @viewTotalColumns, @columnsSeparator);
+}
+
+._addClearRule(@rule, @prefix) {
+    @media @rule {
+        .@{prefix}clear {
+            clear: both;
+        }
+    }
 }
 
 .addFloatGridOffset(
