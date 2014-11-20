@@ -7,15 +7,18 @@ $ grunt watch:frontsize  # Compiles Frontsize
 $ grunt watch:frnAssets  # Compiles Frontsize and copy images
 $ grunt watch:autoprefix # Compiles Frontsize using Autoprefixer and disabling Frontsize prefixes
 $ grunt watch:autoAssets # Compiles Frontsize using Autoprefixer disabling Frontsize prefixes and copy images
-$ grunt watch:all        # Performs assets, frontsize and autoprefix tasks
+$ grunt watch:all        # Performs assets, frontsize, autoprefix and cleanAll tasks
 
 $ grunt assets           # Copy images inside frontsize/themes/default/img into production images folder
 $ grunt frontsize        # Compiles Frontsize
 $ grunt frnAssets        # Compiles Frontsize and copy images
 $ grunt autoprefix       # Compiles Frontsize using Autoprefixer and disabling Frontsize prefixes
 $ grunt autoAssets       # Compiles Frontsize using Autoprefixer disabling Frontsize prefixes and copy images
-$ grunt all              # Performs assets, frontsize and autoprefix tasks
+$ grunt all              # Performs assets, frontsize, autoprefix and cleanAll tasks
 
+$ grunt clean            # Uses uncss to minified css to remove unused css if is not used
+$ grunt cleanAuto        # Uses uncss to autoprefixed css to remove unused css if is not used
+$ grunt cleanAll         # Uses uncss to minified and autoprefixed css to remove unused css if is not used
 */
 
 
@@ -26,10 +29,18 @@ module.exports = function(grunt) {
         compileFileTest : "compile-test.less",
         themeName       : "default",
         themeImg        : "themes/default/img/",
-        testCss         : "test/frontsize.test.css",
-        autoprefixerCss : "test/frontsize.autoprefixer.css",
-        productionCss   : "test/frontsize.min.css",
+        path            : "test/",
+        testCss         : "<%= path %>/frontsize.test.css",
+        autoprefixerCss : "<%= path %>/frontsize.autoprefixer.min.css",
+        minifiedCss     : "<%= path %>/frontsize.min.css",
         productionImg   : "img/theme/",
+
+        prodMinCss      : "<%= path %>/frontsize.3.0.0.min.css",
+        prodAutoCss     : "<%= path %>/frontsize.3.0.0.autoprefixer.min.css",
+        uncssPages      : [
+            'app/index.html',
+            'app/about.html'
+        ],
 
         less: {
             production: {
@@ -94,6 +105,25 @@ module.exports = function(grunt) {
             test: {
                 src  : "<%= autoprefixerCss %>",
                 dest : "<%= autoprefixerCss %>"
+            }
+        },
+
+        uncss: {
+            analyze: {
+                options: {
+                    ignore       : [ '#added_at_runtime', /test\-[0-9]+/],
+                    media        : [ '(min-width: 700px) handheld and (orientation: landscape)'],
+                    csspath      : '<%= path %>',
+                    raw          : '',
+                    stylesheets  : [ '<%= testCss %>' ],
+                    ignoreSheets : [ ],
+                    timeout      : 1000,
+                    htmlroot     : 'public',
+                    report       : 'min'
+                },
+                files: {
+                    '<%= productionCss %>' : <%= uncssPages %>
+                }
             }
         },
 
@@ -164,7 +194,8 @@ module.exports = function(grunt) {
 
     grunt.registerTask("frontsize", [
         "less:production",
-        "test"
+        "test",
+        "clean"
     ]);
 
     grunt.registerTask("devAssets", [
@@ -176,13 +207,15 @@ module.exports = function(grunt) {
     grunt.registerTask("autoprefix", [
         "less:autoprefixer",
         "test",
-        "autoprefixer"
+        "autoprefixer",
+        "cleanAuto"
     ]);
 
     grunt.registerTask("autoAssets", [
         "less:autoprefixer",
         "test",
         "autoprefixer",
+        "cleanAuto",
         "assets"
     ]);
 
@@ -191,7 +224,8 @@ module.exports = function(grunt) {
         "less:autoprefixer",
         "test",
         "autoprefixer",
-        "assets"
+        "assets",
+        "cleanAll"
     ]);
 
     grunt.registerTask("assets", [
@@ -202,5 +236,18 @@ module.exports = function(grunt) {
     grunt.registerTask("test", [
         "less:test",
         "csslint:test"
+    ]);
+
+    grunt.registerTask("cleanAll", [
+        "uncss:production",
+        "uncss:autoprefixer"
+    ]);
+
+    grunt.registerTask("clean", [
+        "uncss:production"
+    ]);
+
+    grunt.registerTask("cleanAuto", [
+        "uncss:autoprefixer"
     ]);
 };
