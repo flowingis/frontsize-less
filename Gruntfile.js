@@ -25,18 +25,18 @@ $ grunt cleanAll         # Uses uncss to minified and autoprefixed css to remove
 module.exports = function(grunt) {
     grunt.initConfig({
 
-        compileFile     : "compile.less",
-        compileFileTest : "compile-test.less",
-        themeName       : "default",
-        themeImg        : "themes/default/img/",
-        path            : "test/",
-        testCss         : "<%= path %>/frontsize.test.css",
-        autoprefixerCss : "<%= path %>/frontsize.autoprefixer.min.css",
-        minifiedCss     : "<%= path %>/frontsize.min.css",
-        productionImg   : "img/theme/",
+        compileFile     : 'compile.less',
+        compileFileTest : 'compile-test.less',
+        themeName       : 'default',
+        themeImg        : 'themes/default/img/',
+        path            : 'test/',
+        testCss         : '<%= path %>/frontsize.test.css',
+        autoprefixerCss : '<%= path %>/frontsize.autoprefixer.min.css',
+        minifiedCss     : '<%= path %>/frontsize.min.css',
+        productionImg   : 'img/theme/',
 
-        prodMinCss      : "<%= path %>/frontsize.3.0.0.min.css",
-        prodAutoCss     : "<%= path %>/frontsize.3.0.0.autoprefixer.min.css",
+        productionCss   : '<%= path %>/frontsize.3.0.0.min.css',
+        prodAutoCss     : '<%= path %>/frontsize.3.0.0.autoprefixer.min.css',
         uncssPages      : [
             'app/index.html',
             'app/about.html'
@@ -48,16 +48,16 @@ module.exports = function(grunt) {
                     compress          : true,
                     cleancss          : true,
                     strictUnits       : true,
-                    dumpLineNumbers   : "comments",
+                    dumpLineNumbers   : 'comments',
                     sourceMap         : true,
-                    sourceMapFilename : "<%= productionCss %>.map",
-                    sourceMapURL      : "<%= productionCss %>.map",
+                    sourceMapFilename : '<%= productionCss %>.map',
+                    sourceMapURL      : '<%= productionCss %>.map',
                     modifyVars        : {
-                        "theme" : "<%= themeName %>"
+                        'theme' : '<%= themeName %>'
                     }
                 },
                 files: {
-                    "<%= productionCss %>" : "<%= compileFile %>"
+                    '<%= productionCss %>' : '<%= compileFile %>'
                 }
             },
             autoprefixer: {
@@ -65,17 +65,17 @@ module.exports = function(grunt) {
                     compress          : true,
                     cleancss          : true,
                     strictUnits       : true,
-                    dumpLineNumbers   : "comments",
+                    dumpLineNumbers   : 'comments',
                     sourceMap         : true,
-                    sourceMapFilename : "<%= autoprefixerCss %>.map",
-                    sourceMapURL      : "<%= autoprefixerCss %>.map",
+                    sourceMapFilename : '<%= autoprefixerCss %>.map',
+                    sourceMapURL      : '<%= autoprefixerCss %>.map',
                     modifyVars        : {
-                        "theme"          : "<%= themeName %>",
-                        "use-css-prefix" : false
+                        'theme'          : '<%= themeName %>',
+                        'use-css-prefix' : false
                     }
                 },
                 files: {
-                    "<%= autoprefixerCss %>" : "<%= compileFile %>"
+                    '<%= autoprefixerCss %>' : '<%= compileFile %>'
                 }
             },
             test: {
@@ -83,33 +83,33 @@ module.exports = function(grunt) {
                     compress          : false,
                     cleancss          : false,
                     strictUnits       : true,
-                    dumpLineNumbers   : "comments",
+                    dumpLineNumbers   : 'comments',
                     sourceMap         : true,
-                    sourceMapFilename : "<%= testCss %>.map",
-                    sourceMapURL      : "<%= testCss %>.map",
+                    sourceMapFilename : '<%= testCss %>.map',
+                    sourceMapURL      : '<%= testCss %>.map',
                     modifyVars        : {
-                        "theme" : "<%= themeName %>"
+                        'theme' : '<%= themeName %>'
                     }
                 },
                 files: {
-                    "<%= testCss %>" : "<%= compileFileTest %>"
+                    '<%= testCss %>' : '<%= compileFileTest %>'
                 }
             }
         },
 
         autoprefixer: {
             options: {
-                // browsers: ["> 1%", "Firefox > 3.6", "last 10 versions", "ie 8", "ie 7", "Firefox ESR", "Opera > 10.1"],
+                // browsers: ['> 1%', 'Firefox > 3.6', 'last 10 versions', 'ie 8', 'ie 7', 'Firefox ESR', 'Opera > 10.1'],
                 diff : true
             },
             test: {
-                src  : "<%= autoprefixerCss %>",
-                dest : "<%= autoprefixerCss %>"
+                src  : '<%= autoprefixerCss %>',
+                dest : '<%= autoprefixerCss %>'
             }
         },
 
         uncss: {
-            analyze: {
+            production: {
                 options: {
                     ignore       : [ '#added_at_runtime', /test\-[0-9]+/],
                     media        : [ '(min-width: 700px) handheld and (orientation: landscape)'],
@@ -122,7 +122,7 @@ module.exports = function(grunt) {
                     report       : 'min'
                 },
                 files: {
-                    '<%= productionCss %>' : <%= uncssPages %>
+                    '<%= productionCss %>' : '<%= uncssPages %>'
                 }
             }
         },
@@ -131,45 +131,45 @@ module.exports = function(grunt) {
             options: {
                 atBegin : true,
                 event: [
-                    "added",
-                    "changed"
+                    'added',
+                    'changed'
                 ]
             },
             frontsize : {
-                files: [ "*.less", "**/*.less" ],
-                tasks: [ "frontsize" ]
+                files: [ '*.less', '**/*.less' ],
+                tasks: [ 'frontsize' ]
             },
             devAssets : {
-                files: [ "*.less", "**/*.less" ],
-                tasks: [ "devAssets" ]
+                files: [ '*.less', '**/*.less' ],
+                tasks: [ 'devAssets' ]
             },
             autoprefix : {
-                files: [ "*.less", "**/*.less" ],
-                tasks: [ "autoprefix" ]
+                files: [ '*.less', '**/*.less' ],
+                tasks: [ 'autoprefix' ]
             },
             autoAssets : {
-                files: [ "*.less", "**/*.less" ],
-                tasks: [ "autoAssets" ]
+                files: [ '*.less', '**/*.less' ],
+                tasks: [ 'autoAssets' ]
             },
             all : {
-                files: [ "*.less", "**/*.less" ],
-                tasks: [ "all" ]
+                files: [ '*.less', '**/*.less' ],
+                tasks: [ 'all' ]
             }
         },
 
         csslint: {
             test: {
                 options: {
-                    csslintrc : ".csslintrc"
+                    csslintrc : '.csslintrc'
                 },
-                src: ["<%= testCss %>"]
+                src: ['<%= testCss %>']
             }
         },
 
         clean: {
             assets: {
                 src: [
-                    "<%= productionImg %>*"
+                    '<%= productionImg %>*'
                 ]
             }
         },
@@ -180,9 +180,9 @@ module.exports = function(grunt) {
                     {
                         expand  : true,
                         flatten : true,
-                        src     : [ "<%= themeImg %>*" ],
-                        dest    : "<%= productionImg %>",
-                        filter  : "isFile"
+                        src     : [ '<%= themeImg %>*' ],
+                        dest    : '<%= productionImg %>',
+                        filter  : 'isFile'
                     }
                 ]
             }
@@ -190,64 +190,64 @@ module.exports = function(grunt) {
 
     });
 
-    require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
+    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-    grunt.registerTask("frontsize", [
-        "less:production",
-        "test",
-        "clean"
+    grunt.registerTask('frontsize', [
+        'less:production',
+        'test',
+        'clean'
     ]);
 
-    grunt.registerTask("devAssets", [
-        "less:production",
-        "test",
-        "assets"
+    grunt.registerTask('devAssets', [
+        'less:production',
+        'test',
+        'assets'
     ]);
 
-    grunt.registerTask("autoprefix", [
-        "less:autoprefixer",
-        "test",
-        "autoprefixer",
-        "cleanAuto"
+    grunt.registerTask('autoprefix', [
+        'less:autoprefixer',
+        'test',
+        'autoprefixer',
+        'cleanAuto'
     ]);
 
-    grunt.registerTask("autoAssets", [
-        "less:autoprefixer",
-        "test",
-        "autoprefixer",
-        "cleanAuto",
-        "assets"
+    grunt.registerTask('autoAssets', [
+        'less:autoprefixer',
+        'test',
+        'autoprefixer',
+        'cleanAuto',
+        'assets'
     ]);
 
-    grunt.registerTask("all", [
-        "less:production",
-        "less:autoprefixer",
-        "test",
-        "autoprefixer",
-        "assets",
-        "cleanAll"
+    grunt.registerTask('all', [
+        'less:production',
+        'less:autoprefixer',
+        'test',
+        'autoprefixer',
+        'assets',
+        'cleanAll'
     ]);
 
-    grunt.registerTask("assets", [
-        "clean:assets",
-        "copy:assets"
+    grunt.registerTask('assets', [
+        'clean:assets',
+        'copy:assets'
     ]);
 
-    grunt.registerTask("test", [
-        "less:test",
-        "csslint:test"
+    grunt.registerTask('test', [
+        'less:test',
+        'csslint:test'
     ]);
 
-    grunt.registerTask("cleanAll", [
-        "uncss:production",
-        "uncss:autoprefixer"
+    grunt.registerTask('cleanAll', [
+        'uncss:production',
+        'uncss:autoprefixer'
     ]);
 
-    grunt.registerTask("clean", [
-        "uncss:production"
+    grunt.registerTask('clean', [
+        'uncss:production'
     ]);
 
-    grunt.registerTask("cleanAuto", [
-        "uncss:autoprefixer"
+    grunt.registerTask('cleanAuto', [
+        'uncss:autoprefixer'
     ]);
 };

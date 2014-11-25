@@ -59,7 +59,7 @@
         "grunt-contrib-less"    : "*",
         "grunt-contrib-csslint" : "*",
         "grunt-contrib-clean"   : "*",
-        "grunt-contrib-copy"    : "*",
+        "grunt-contrib-copy"    : "*"
     },
     "engines" : {
         "node" : ">=0.8.0"
