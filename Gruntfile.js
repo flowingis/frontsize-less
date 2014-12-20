@@ -29,7 +29,7 @@ $ grunt cleanAll         # Uses uncss to minified and autoprefixed css to remove
 
 module.exports = function(grunt) {
 
-    frontsize : grunt.file.readJSON('frontsize.json'),
+    //frontsize : grunt.file.readJSON('frontsize.json'),
 
     grunt.initConfig({
 
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
         testCss         : '<%= path %>/frontsize.test.css',
         autoprefixerCss : '<%= path %>/frontsize.autoprefixer.min.css',
         minifiedCss     : '<%= path %>/frontsize.min.css',
-        productionImg   : 'img/theme/',
+        productionImg   : '<%= path %>/img/theme/',
 
         productionCss   : '<%= path %>/frontsize.3.0.0.min.css',
         prodAutoCss     : '<%= path %>/frontsize.3.0.0.autoprefixer.min.css',
@@ -247,15 +247,15 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('cleanAll', [
-        'uncss:production',
-        'uncss:autoprefixer'
+        //'uncss:production',
+        //'uncss:autoprefixer'
     ]);
 
     grunt.registerTask('clean', [
-        'uncss:production'
+        //'uncss:production'
     ]);
 
     grunt.registerTask('cleanAuto', [
-        'uncss:autoprefixer'
+        //'uncss:autoprefixer'
     ]);
 };

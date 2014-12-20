@@ -8,7 +8,10 @@ Author:    Vittorio Vittori
 Website:   http://vit.to
 */
 
-@charset "UTF-8";
+// Sets the theme folder name where all theme code is located
+@theme : "default";
 
+// External libraries NOT INCLUDED FOR TESTS
 @import (less) "core/vendor/normalize.css";
-@import "compile-test";
+@import "core/core";
+@import "themes/@{theme}/import";

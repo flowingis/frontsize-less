@@ -54,15 +54,19 @@
 @use-tablet-landscape     : true;
 @use-hd-ready             : true;
 @use-hd-full              : true;
+@use-print-viewport       : false;
 
-@use-state-margin      : true;
-@use-state-padding     : true;
-@use-state-positioning : true;
-@use-state-sizing      : true;
-@use-state-selectors   : true;
-@use-state-table       : true;
-@use-state-text        : true;
-@use-state-visibility  : true;
+@use-state-margin      : false;
+@use-state-padding     : false;
+@use-state-positioning : false;
+@use-state-sizing      : false;
+@use-state-selectors   : false;
+@use-state-table       : false;
+@use-state-text        : false;
+@use-state-visibility  : false;
+@use-state-print       : false;
+
+@use-core-base         : false;
 
 // Enables the mixin .ieVerticalGradient automatically included in .verticalGardient, not working with grunt csso
 @use-ie-filters : false;
@@ -81,18 +85,18 @@
 @path-font : "@{root-path}/fonts/";
 
 // set font scaling to change the font size depending by different resolutions
-.setFontScaling(body, 20px, 18px, 16px, 16px, 16px, 16px);
-.setLineHeightScaling(body, @global-step);
+// .setFontScaling(body, 20px, 18px, 16px, 16px, 16px, 16px);
+// .setLineHeightScaling(body, @global-step);
 
 //.addFontsRule(small-fonts, @font-default, 14px, antialiased, @font-default, 14px, antialiased, @font-default, 14px, antialiased);
-.addFontRule(small-font, @font-small, @font-small-size);
+// .addFontRule(small-font, @font-small, @font-small-size);
 
-.addFloatGridContainer(row);
-.addFloatGridColumns(12);
-.addFloatGridOffset(12);
+// .addFloatGridContainer(row);
+// .addFloatGridColumns(12);
+// .addFloatGridOffset(12);
 
 // put .addViewportsSteps at the bottom of the configuration
-.addViewportsSteps(use-steps, 500px, 100px, 50px, 0);
+// .addViewportsSteps(use-steps, 500px, 100px, 50px, 0);
 
 // used for the nav top spacing, set it after global-steps-padding
 // .addPaddingSelector(tiny, 8px, 8px);
