@@ -1,3 +1,7 @@
+
+// sudo npm install --save-dev grunt-contrib-compass
+// sudo npm install --save-dev grunt-contrib-jshint
+
 /*
 
 Available grunt commands
@@ -21,8 +25,12 @@ $ grunt cleanAuto        # Uses uncss to autoprefixed css to remove unused css i
 $ grunt cleanAll         # Uses uncss to minified and autoprefixed css to remove unused css if is not used
 */
 
+'use strict';
 
 module.exports = function(grunt) {
+
+    frontsize : grunt.file.readJSON('frontsize.json'),
+
     grunt.initConfig({
 
         compileFile     : 'compile.less',

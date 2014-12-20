@@ -1,5 +1,9 @@
 
-.fallbackColor(@property, @color, @fallbackColor:mix(@color, @fallback-color-base, unit(alpha(@color)*100,%)))
+.fallbackColor(
+    @property,
+    @color,
+    @fallbackColor : mix(@color, @fallback-color-base, unit(alpha(@color)*100,%))
+    )
     when (iscolor(@color))
     and (alpha(@fallbackColor) = 0)
     and (@use-fallback-colors = true) {

@@ -22,6 +22,26 @@
     ._checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector);
 }
 
+.setFloatGridContainer(
+    @hdFullSteps              : 0,
+    @hdReadySteps             : @hdFullSteps,
+    @tabletLandscapeSteps     : @hdReadySteps,
+    @tabletPortraitSteps      : @tabletLandscapeSteps,
+    @smartphoneLandscapeSteps : 1,
+    @smartphonePortraitSteps  : 1
+    ) {
+
+    padding-top:@vertical-padding;
+    width:100%;
+    overflow:auto;
+    clear:both;
+
+    * {
+        .box-sizing(border-box);
+    }
+    ._checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector);
+}
+
 .addFloatGridColumns(
     @hdSteps                  : 12,
     @tabletSteps              : @hdSteps,
