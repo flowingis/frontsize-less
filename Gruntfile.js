@@ -144,24 +144,24 @@ module.exports = function(grunt) {
                 ]
             },
             frontsize : {
-                files: [ '*.less', '**/*.less' ],
-                tasks: [ 'frontsize' ]
+                files : [ '*.less', '**/*.less' ],
+                tasks : [ 'frontsize' ]
             },
             devAssets : {
-                files: [ '*.less', '**/*.less' ],
-                tasks: [ 'devAssets' ]
+                files : [ '*.less', '**/*.less' ],
+                tasks : [ 'devAssets' ]
             },
             autoprefix : {
-                files: [ '*.less', '**/*.less' ],
-                tasks: [ 'autoprefix' ]
+                files : [ '*.less', '**/*.less' ],
+                tasks : [ 'autoprefix' ]
             },
             autoAssets : {
-                files: [ '*.less', '**/*.less' ],
-                tasks: [ 'autoAssets' ]
+                files : [ '*.less', '**/*.less' ],
+                tasks : [ 'autoAssets' ]
             },
             all : {
-                files: [ '*.less', '**/*.less' ],
-                tasks: [ 'all' ]
+                files : [ '*.less', '**/*.less' ],
+                tasks : [ 'all' ]
             }
         },
 

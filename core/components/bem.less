@@ -1,13 +1,13 @@
 .block(@selector) {
-    @b : @selector;
+    @b : ~".@{selector}";
 }
 
 .element(@selector) {
-    @e : ~".@{b}__@{selector}";
+    @e : ~"@{b}__@{selector}";
 }
 
 .modifier(@selector) {
-    @m : ~"@{e}--@{selector}";
+    @m : ~"--@{selector}";
 }
 
 
@@ -19,7 +19,7 @@
     .element(element-selector); @{e} {
         background-color: red;
 
-        .modifier(modifier-selector); @{m} {
+        .modifier(modifier-selector); &@{m} {
             background-color: yellow;
         }
     }
