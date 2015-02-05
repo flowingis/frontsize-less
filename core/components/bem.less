@@ -1,7 +1,27 @@
+.block(@selector) {
+    @b : @selector;
+}
+
 .element(@selector) {
-    @e : ~".@{block}__@{selector}";
+    @e : ~".@{b}__@{selector}";
 }
 
 .modifier(@selector) {
     @m : ~"@{e}--@{selector}";
 }
+
+
+// USAGE
+
+/*
+.block(block-selector); @{b} {
+
+    .element(element-selector); @{e} {
+        background-color: red;
+
+        .modifier(modifier-selector); @{m} {
+            background-color: yellow;
+        }
+    }
+}
+*/
