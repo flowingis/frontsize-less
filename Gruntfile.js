@@ -29,22 +29,10 @@ $ grunt cleanAll         # Uses uncss to minified and autoprefixed css to remove
 
 module.exports = function(grunt) {
 
-    //frontsize : grunt.file.readJSON('frontsize.json'),
 
     grunt.initConfig({
+        f : grunt.file.readJSON('frontsize.json'),
 
-        compileFile     : 'compile.less',
-        compileFileTest : 'compile-test.less',
-        themeName       : 'default',
-        themeImg        : 'themes/default/img/',
-        path            : 'test',
-        testCss         : '<%= path %>/frontsize.test.css',
-        autoprefixerCss : '<%= path %>/frontsize.autoprefixer.min.css',
-        minifiedCss     : '<%= path %>/frontsize.min.css',
-        productionImg   : '<%= path %>/img/theme/',
-
-        productionCss   : '<%= path %>/frontsize.3.0.0.min.css',
-        prodAutoCss     : '<%= path %>/frontsize.3.0.0.autoprefixer.min.css',
         uncssPages      : [
             'app/index.html',
             'app/about.html'
@@ -58,14 +46,14 @@ module.exports = function(grunt) {
                     strictUnits       : true,
                     dumpLineNumbers   : 'comments',
                     sourceMap         : true,
-                    sourceMapFilename : '<%= productionCss %>.map',
-                    sourceMapURL      : '<%= productionCss %>.map',
+                    sourceMapFilename : '<%= f.css %>.map',
+                    sourceMapURL      : '<%= f.css %>.map',
                     modifyVars        : {
-                        'theme' : '<%= themeName %>'
+                        'theme' : '<%= f.themeName %>'
                     }
                 },
                 files: {
-                    '<%= productionCss %>' : '<%= compileFile %>'
+                    '<%= f.css %>' : '<%= f.compile %>'
                 }
             },
             autoprefixer: {
@@ -75,15 +63,15 @@ module.exports = function(grunt) {
                     strictUnits       : true,
                     dumpLineNumbers   : 'comments',
                     sourceMap         : true,
-                    sourceMapFilename : '<%= autoprefixerCss %>.map',
-                    sourceMapURL      : '<%= autoprefixerCss %>.map',
+                    sourceMapFilename : '<%= f.autoprefixerCss %>.map',
+                    sourceMapURL      : '<%= f.autoprefixerCss %>.map',
                     modifyVars        : {
-                        'theme'          : '<%= themeName %>',
+                        'theme'          : '<%= f.themeName %>',
                         'use-css-prefix' : false
                     }
                 },
                 files: {
-                    '<%= autoprefixerCss %>' : '<%= compileFile %>'
+                    '<%= f.autoprefixerCss %>' : '<%= f.compile %>'
                 }
             },
             test: {
@@ -93,14 +81,14 @@ module.exports = function(grunt) {
                     strictUnits       : true,
                     dumpLineNumbers   : 'comments',
                     sourceMap         : true,
-                    sourceMapFilename : '<%= testCss %>.map',
-                    sourceMapURL      : '<%= testCss %>.map',
+                    sourceMapFilename : '<%= f.testCss %>.map',
+                    sourceMapURL      : '<%= f.testCss %>.map',
                     modifyVars        : {
-                        'theme' : '<%= themeName %>'
+                        'theme' : '<%= f.themeName %>'
                     }
                 },
                 files: {
-                    '<%= testCss %>' : '<%= compileFileTest %>'
+                    '<%= f.testCss %>' : '<%= f.compileTest %>'
                 }
             }
         },
@@ -111,8 +99,8 @@ module.exports = function(grunt) {
                 diff : true
             },
             test: {
-                src  : '<%= autoprefixerCss %>',
-                dest : '<%= autoprefixerCss %>'
+                src  : '<%= f.autoprefixerCss %>',
+                dest : '<%= f.autoprefixerCss %>'
             }
         },
 
@@ -121,16 +109,16 @@ module.exports = function(grunt) {
                 options: {
                     ignore       : [ '#added_at_runtime', /test\-[0-9]+/],
                     media        : [ '(min-width: 700px) handheld and (orientation: landscape)'],
-                    csspath      : '<%= path %>',
+                    csspath      : '<%= f.productionCss %>',
                     raw          : '',
-                    stylesheets  : [ '<%= testCss %>' ],
+                    stylesheets  : [ '<%= f.testCss %>' ],
                     ignoreSheets : [ ],
                     timeout      : 1000,
                     htmlroot     : 'public',
                     report       : 'min'
                 },
                 files: {
-                    '<%= productionCss %>' : '<%= uncssPages %>'
+                    '<%= f.css %>' : '<%= uncssPages %>'
                 }
             }
         },
@@ -170,14 +158,14 @@ module.exports = function(grunt) {
                 options: {
                     csslintrc : '.csslintrc'
                 },
-                src: ['<%= testCss %>']
+                src: ['<%= f.testCss %>']
             }
         },
 
         clean: {
             assets: {
                 src: [
-                    '<%= productionImg %>*'
+                    '<%= f.productionImg %>*'
                 ]
             }
         },
@@ -188,8 +176,8 @@ module.exports = function(grunt) {
                     {
                         expand  : true,
                         flatten : true,
-                        src     : [ '<%= themeImg %>*' ],
-                        dest    : '<%= productionImg %>',
+                        src     : [ 'themes/<%= f.themeName %>/img/*' ],
+                        dest    : '<%= f.productionImg %>',
                         filter  : 'isFile'
                     }
                 ]
