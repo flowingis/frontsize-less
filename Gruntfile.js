@@ -6,14 +6,14 @@
 
 Available grunt commands
 
-$ grunt watch:assets     # Copy images inside frontsize/themes/default/img into production images folder
+$ grunt watch:assets     # Copy images and fonts into production folders
 $ grunt watch:frontsize  # Compiles Frontsize
-$ grunt watch:frnAssets  # Compiles Frontsize and copy images
+$ grunt watch:frnAssets  # Compiles Frontsize and copy images and fonts
 $ grunt watch:autoprefix # Compiles Frontsize using Autoprefixer and disabling Frontsize prefixes
 $ grunt watch:autoAssets # Compiles Frontsize using Autoprefixer disabling Frontsize prefixes and copy images
 $ grunt watch:all        # Performs assets, frontsize, autoprefix and cleanAll tasks
 
-$ grunt assets           # Copy images inside frontsize/themes/default/img into production images folder
+$ grunt assets           # Copy images and fonts into production folders
 $ grunt frontsize        # Compiles Frontsize
 $ grunt frnAssets        # Compiles Frontsize and copy images
 $ grunt autoprefix       # Compiles Frontsize using Autoprefixer and disabling Frontsize prefixes
@@ -49,7 +49,9 @@ module.exports = function(grunt) {
                     sourceMapFilename : '<%= f.css %>.map',
                     sourceMapURL      : '<%= f.css %>.map',
                     modifyVars        : {
-                        'theme' : '<%= f.themeName %>'
+                        'theme'     : '<%= f.themeName %>',
+                        'path-img'  : '\'<%= f.cssImg %>\'',
+                        'path-font' : '\'<%= f.cssFonts %>\''
                     }
                 },
                 files: {
@@ -67,7 +69,9 @@ module.exports = function(grunt) {
                     sourceMapURL      : '<%= f.autoprefixerCss %>.map',
                     modifyVars        : {
                         'theme'          : '<%= f.themeName %>',
-                        'use-css-prefix' : false
+                        'use-css-prefix' : false,
+                        'path-img'  : '\'<%= f.cssImg %>\'',
+                        'path-font' : '\'<%= f.cssFonts %>\''
                     }
                 },
                 files: {
@@ -84,7 +88,9 @@ module.exports = function(grunt) {
                     sourceMapFilename : '<%= f.testCss %>.map',
                     sourceMapURL      : '<%= f.testCss %>.map',
                     modifyVars        : {
-                        'theme' : '<%= f.themeName %>'
+                        'theme' : '<%= f.themeName %>',
+                        'path-img'  : '\'<%= f.cssImg %>\'',
+                        'path-font' : '\'<%= f.cssFonts %>\''
                     }
                 },
                 files: {
@@ -135,6 +141,10 @@ module.exports = function(grunt) {
                 files : [ '*.less', '**/*.less' ],
                 tasks : [ 'frontsize' ]
             },
+            frnAssets : {
+                files : [ '*.less', '**/*.less' ],
+                tasks : [ 'frnAssets' ]
+            },
             devAssets : {
                 files : [ '*.less', '**/*.less' ],
                 tasks : [ 'devAssets' ]
@@ -165,7 +175,8 @@ module.exports = function(grunt) {
         clean: {
             assets: {
                 src: [
-                    '<%= f.productionImg %>*'
+                    '<%= f.copyProductionImg %>*',
+                    '<%= f.copyProductionFonts %>*'
                 ]
             }
         },
@@ -177,7 +188,13 @@ module.exports = function(grunt) {
                         expand  : true,
                         flatten : true,
                         src     : [ 'themes/<%= f.themeName %>/img/*' ],
-                        dest    : '<%= f.productionImg %>',
+                        dest    : '<%= f.copyProductionImg %>',
+                        filter  : 'isFile'
+                    },{
+                        expand  : true,
+                        flatten : true,
+                        src     : [ 'themes/<%= f.themeName %>/fonts/*' ],
+                        dest    : '<%= f.copyProductionFonts %>',
                         filter  : 'isFile'
                     }
                 ]
@@ -192,6 +209,13 @@ module.exports = function(grunt) {
         'less:production',
         'test',
         'clean'
+    ]);
+
+    grunt.registerTask('frnAssets', [
+        'less:production',
+        'test',
+        'clean',
+        'assets'
     ]);
 
     grunt.registerTask('devAssets', [
