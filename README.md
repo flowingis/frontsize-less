@@ -1,6 +1,10 @@
 Frontsize 2.0.0
 =========
 
+LESS version **will be not developed anymore** due to LESS limitations.
+The latest versions of Frontsize are available in [SASS][sass].
+
+
 It's a CSS generator front-end framework written to make websites easy to read on every device and faster to be coded. It gives to the developer a solid base which can be used to build responsive layouts for websites or web apps.
 
 ###Why frontsize?
@@ -10,8 +14,6 @@ It's a CSS generator front-end framework written to make websites easy to read o
 - It's totally [customizable][app]
 
 If you'd like to see more features, visit [frontsize.com][site] website.
-
-Do you prefer a [SASS][sass] version?
 
 Documentation is [in progress][docs] and *far to be completed* but the best doc is the code itself, isn't it?
 
