@@ -2,6 +2,7 @@ Frontsize 2.0.0
 =========
 
 LESS version **will be not developed anymore** due to LESS limitations.
+
 The latest versions of Frontsize are available in [SASS][sass].
 
 
