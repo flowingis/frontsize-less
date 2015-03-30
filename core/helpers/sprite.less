@@ -28,53 +28,27 @@
     @path          : @path-img,
     @setBoxsizing  : true
     ){
-    @spriteLastWidth  : @width;
-    @spriteLastHeight : @height;
     background-repeat : no-repeat;
     background-size   : @backgroudSize;
     .size(@width, @height, 1, @setBoxsizing);
 }
 
-.spritePosition(
-    @horizontalPosition : 0,
-    @verticalPosition   : 0,
-    @width              : @spriteLastWidth,
-    @height             : @spriteLastHeight
-    )
+.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width)
     when (@horizontalPosition = 0)
-    and not (@verticalPosition = 0)
-    {
-    background-position : 0 unit(-(@verticalPosition*@height),px);
-}.spritePosition(
-    @horizontalPosition : 0,
-    @verticalPosition   : 0,
-    @width              : @spriteLastWidth,
-    @height             : @spriteLastHeight
-    )
+    and not (@verticalPosition = 0) {
+    background-position: 0 unit(-(@verticalPosition*@height),px);
+}.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width)
     when (@verticalPosition = 0)
-    and not (@horizontalPosition = 0)
-    {
-    background-position : unit(-(@horizontalPosition*@width),px) 0;
-}.spritePosition(
-    @horizontalPosition : 0,
-    @verticalPosition   : 0,
-    @width              : @spriteLastWidth,
-    @height             : @spriteLastHeight
-    )
+    and not (@horizontalPosition = 0) {
+    background-position: unit(-(@horizontalPosition*@width),px) 0;
+}.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width)
     when (@horizontalPosition = 0)
-    and (@verticalPosition = 0)
-    {
-    background-position : 0 0;
-}.spritePosition(
-    @horizontalPosition : 0,
-    @verticalPosition   : 0,
-    @width              : @spriteLastWidth,
-    @height             : @spriteLastHeight
-    )
+    and (@verticalPosition = 0) {
+    background-position: 0 0;
+}.spritePosition(@horizontalPosition:0, @verticalPosition:0, @width:0, @height:@width)
     when not (@horizontalPosition = 0)
-    and not (@verticalPosition = 0)
-    {
-    background-position : unit(-(@horizontalPosition*@width),px) unit(-(@verticalPosition*@height),px);
+    and not (@verticalPosition = 0) {
+    background-position: unit(-(@horizontalPosition*@width),px) unit(-(@verticalPosition*@height),px);
 }
 
 .spriteCoordinates(@positionX:0, @positionY:0) {
@@ -82,19 +56,19 @@
 }
 
 .scaleBackgroundSize(
-    @scale,
-    @width  : @spriteLastWidth,
-    @height : @spriteLastHeight
+    @scale  ,
+    @width  ,
+    @height : 0
     ) {
     background-size : (@width*@scale) (@height*@scale);
 }
 
 .setSprite(
-    @selector,
+    @selector           ,
     @horizontalPosition : 0,
     @verticalPosition   : 0,
-    @width              : @spriteLastWidth,
-    @height             : @spriteLastHeight,
+    @width              : 0,
+    @height             : 0,
     @scale              : 1
     ) {
     &.@{selector} {

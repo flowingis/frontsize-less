@@ -2,14 +2,14 @@
     "compile"             : "compile.less",
     "compileTest"         : "compile-test.less",
     "themeName"           : "default",
-    "copyProductionImg"   : "production/img/theme/",
-    "copyProductionFonts" : "production/fonts/",
-    "uncssProductionCss"  : "production/css/",
+    "copyProductionImg"   : "test/production/img/theme/",
+    "copyProductionFonts" : "test/production/fonts/",
+    "uncssProductionCss"  : "test/production/css/",
 
     "testCss"         : "test/frontsize.test.css",
     "autoprefixerCss" : "test/frontsize.autoprefixer.min.css",
     "minifiedCss"     : "test/frontsize.min.css",
-    "css"             : "css/frontsize-3.0.0.min.css",
+    "css"             : "test/production/css/frontsize-3.0.0.min.css",
     "cssImg"          : "/img/theme/",
     "cssFonts"        : "/fonts/"
 }

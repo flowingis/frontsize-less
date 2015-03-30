@@ -1,6 +1,6 @@
 {
     "name"            : "frontsize-less",
-    "version"         : "2.0.0",
+    "version"         : "2.7.0",
     "description"     : "A CSS front-end framework built to build and ease your life.",
     "author"          : {
         "name"  : "Vittorio Vittori",
@@ -42,24 +42,23 @@
     "main" : "compile.less",
     "devDependencies" : {
 
-        "matchdep"   : "*",
+        "matchdep"   : "~0.3.0",
 
-        "casperjs"   : "*",
-        "phantomjs"  : "*",
-        "resemblejs" : "*",
-        "phantomcss" : "*",
+        "casperjs"   : "1.1.0-beta3",
+        "phantomjs"  : "1.9.16",
+        "phantomcss" : "0.10.0",
 
-        "csslint" : "*",
-        "less"    : "*",
+        "csslint" : "0.10.0",
+        "less"    : "2.4.0",
 
         "grunt"                 : "~0.4.1",
-        "grunt-autoprefixer"    : "*",
-        "grunt-uncss"           : "*",
-        "grunt-contrib-watch"   : "*",
-        "grunt-contrib-less"    : "*",
-        "grunt-contrib-csslint" : "*",
-        "grunt-contrib-clean"   : "*",
-        "grunt-contrib-copy"    : "*"
+        "grunt-autoprefixer"    : "~2.2.0",
+        "grunt-uncss"           : "~0.4.1",
+        "grunt-contrib-watch"   : "~0.6.1",
+        "grunt-contrib-less"    : "~1.0.0",
+        "grunt-contrib-csslint" : "~0.4.0",
+        "grunt-contrib-clean"   : "~0.6.0",
+        "grunt-contrib-copy"    : "~0.7.0"
     },
     "engines" : {
         "node" : ">=0.8.0"

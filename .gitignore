@@ -21,6 +21,7 @@ node_modules
 test/*.css
 test/*.map
 test/*.diff
+test/production/
 
 # Packages #
 ############
