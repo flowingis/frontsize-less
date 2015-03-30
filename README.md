@@ -1,4 +1,4 @@
-Frontsize 2.7.0
+Frontsize 2.7.2
 =========
 
 LESS version **will be not developed anymore**.
