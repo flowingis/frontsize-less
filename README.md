@@ -19,7 +19,7 @@ Documentation will be available on SASS version via sassdoc.
 
 ---
 
-Release 2.7.0 details
+Release details
 ---
 
 **Features**
