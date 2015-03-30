@@ -63,7 +63,10 @@
     ._addMultipleFontsRule(@from-smartphone-portrait, @selector, @fontFamilySmartphone, @fontSizeSmartphone, @use-smartphone-portrait);
     ._addMultipleFontsRule(@from-tablet-portrait,     @selector, @fontFamilyTablet,     @fontSizeTablet,     @use-tablet-portrait);
     ._addMultipleFontsRule(@from-hd-ready,            @selector, @fontFamilyHd,         @fontSizeHd,         @use-hd-ready);
-    .font-smoothing(@antialias);
+    
+    .@{selector} {
+        .font-smoothing(@antialias);
+    }
 }
 
 ._addMultipleFontsRule(@viewport, @selector, @fontFamily, @fontSize, @viewportEnabled) when (@viewportEnabled = true) {
