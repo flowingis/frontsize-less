@@ -1,9 +1,9 @@
 Frontsize 2.7.3
 =========
 
-LESS version **is not mantained anymore**.
+Frontsize LESS **is not mantained anymore**.
 
-The latest versions of Frontsize are available in [SASS][sass].
+The latest version is available in [Frontsize SASS][sass] repository.
 
 ---
 
