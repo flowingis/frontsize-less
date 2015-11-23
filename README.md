@@ -13,7 +13,7 @@ Frontsize is configuration and customization oriented.
 
 ---
 
-created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi], sponsored by [ideato srl][ideato]
+created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi] @ [ideato srl][ideato]
 
 [app]:       https://github.com/ideatosrl/frontsize-less/blob/master/themes/default/app.less
 [csslint]:   https://github.com/CSSLint/csslint
