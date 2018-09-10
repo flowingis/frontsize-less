@@ -22,6 +22,6 @@ created by [Vittorio Vittori][vitto] and [Alessandro Minoccheri][minompi] @ [ide
 [ideato]:    http://www.ideato.it
 [migration]: https://gist.github.com/vitto/9b7dfc40ef710470fed1
 [minompi]:   https://twitter.com/minompi
-[sass]:      https://github.com/ideatosrl/frontsize-sass
+[sass]:      https://github.com/ideatosrl/frontsize
 [site]:      http://frontsize.com
 [vitto]:     https://twitter.com/vttrx
